@@ -1,0 +1,22 @@
+{
+  "name": "eb_banners",
+  "version": "1.0.0",
+  "description": "prebid for eb",
+  "main": "index.js",
+  "scripts": {
+    "dist": "npm run headerbidding",
+    "headerbidding": "uglifyjs prebid/prebid.js prebid/setup.js prebid/bidder-handling.js prebid/prebid-eb.js adtech/adtech.js -o \"dev/prebid-eb.min.js\" -c -m",
+    "postheaderbidding": "uglifyjs \"dev/prebid-eb.min.js\" -o \"dist/prebid-eb.min.js\" -c drop_console=true -m"
+  },
+  "author": "jesper.h.tegner@jppol.dk",
+  "dependencies": {
+    "prebid.js": "^0.20.0"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0",
+    "uglify-js": "^2.7.5"
+  },
+  "standard": {
+    "env": "browser"
+  }
+}
