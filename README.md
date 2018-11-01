@@ -6,6 +6,8 @@
 npm install
 ```
 
+http://prebid.org/dev-docs/examples/use-prebid-with-appnexus-ad-server.html
+
 ### nodejs (and npm)
 
 [node.js and npm](https://nodejs.org/)
