@@ -5,18 +5,26 @@
   "main": "index.js",
   "scripts": {
     "dist": "npm run headerbidding",
-    "headerbidding": "uglifyjs prebid/prebid.js prebid/setup.js prebid/bidder-handling.js prebid/prebid-eb.js adtech/adtech.js -o \"dev/prebid-eb.min.js\" -c -m",
-    "postheaderbidding": "uglifyjs \"dev/prebid-eb.min.js\" -o \"dist/prebid-eb.min.js\" -c drop_console=true -m"
+    "prettier": "prettier \"./src/*.ts\" --write",
+    "rollup": "rollup -c"
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
-    "prebid.js": "^0.20.0"
+    "prebid.js": "^1.30.0"
   },
   "devDependencies": {
-    "standard": "^8.6.0",
-    "uglify-js": "^2.7.5"
-  },
-  "standard": {
-    "env": "browser"
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "prettier": "^1.14.3",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-multi-entry": "^2.0.2",
+    "rollup-plugin-typescript2": "^0.17.2",
+    "rollup-plugin-uglify": "^6.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.5",
+    "uglify-js": "^3.4.9"
   }
 }

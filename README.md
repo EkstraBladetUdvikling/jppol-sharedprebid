@@ -2,11 +2,12 @@
 
 ## Setup
 
-```
+```shell
 npm install
 ```
 
 ### nodejs (and npm)
+
 [node.js and npm](https://nodejs.org/)
 
 ## Updating prebid.js

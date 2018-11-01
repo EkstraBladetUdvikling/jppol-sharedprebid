@@ -1,36 +1,40 @@
-'use strict';
+class prebidHandler {
+  constructor(options) {}
+}
 
-(function (ebAdOps) {
-  var curScript = document.currentScript
+// 'use strict';
 
-  ebAdOps.settings = {}
+// (function (ebAdOps) {
+//   var curScript = document.currentScript
 
-  // get dynamictags source url from dataset - dynamictags src is used in AdTech setup
-  ebAdOps.settings.dacsrc = curScript.dataset['dacsrc']
+//   ebAdOps.settings = {}
 
-  // get tagdomain from dataset - tagdomain is used in AdTech setup, it controls where adtech banners are requested from
-  ebAdOps.settings.tagdomain = curScript.dataset['tagdomain']
+//   // get dynamictags source url from dataset - dynamictags src is used in AdTech setup
+//   ebAdOps.settings.dacsrc = curScript.dataset['dacsrc']
 
-  // get debug parameter value from dataset - it enables Adtech debugging
-  ebAdOps.settings.debug = (curScript.dataset['debug'] === 'true')
+//   // get tagdomain from dataset - tagdomain is used in AdTech setup, it controls where adtech banners are requested from
+//   ebAdOps.settings.tagdomain = curScript.dataset['tagdomain']
 
-  // get prebidtimeout
-  ebAdOps.settings.prebidtimeout = parseFloat(curScript.dataset['prebidtimeout'])
+//   // get debug parameter value from dataset - it enables Adtech debugging
+//   ebAdOps.settings.debug = (curScript.dataset['debug'] === 'true')
 
-  // get adform currency choice, will be DKK if (isadformusd === false)
-  ebAdOps.settings.isadformusd = (curScript.dataset['isadformusd'] === 'true')
+//   // get prebidtimeout
+//   ebAdOps.settings.prebidtimeout = parseFloat(curScript.dataset['prebidtimeout'])
 
-  // set up cpm values
-  ebAdOps.settings.cpmValues = curScript.dataset['values'].split(',')
+//   // get adform currency choice, will be DKK if (isadformusd === false)
+//   ebAdOps.settings.isadformusd = (curScript.dataset['isadformusd'] === 'true')
 
-  // DKK values is only ever used with AdForm set up cpm values
-  ebAdOps.settings.cpmValuesDKK = curScript.dataset['valuesdkk'].split(',')
+//   // set up cpm values
+//   ebAdOps.settings.cpmValues = curScript.dataset['values'].split(',')
 
-  // XHB value is the preset value of XHB campaigns
-  ebAdOps.settings.xhbValue = parseFloat(curScript.dataset['xhbvalue'])
+//   // DKK values is only ever used with AdForm set up cpm values
+//   ebAdOps.settings.cpmValuesDKK = curScript.dataset['valuesdkk'].split(',')
 
-  // XHB value is the preset value of XHB campaigns
-  ebAdOps.settings.xhbValueDKK = parseFloat(curScript.dataset['xhbvaluedkk'])
+//   // XHB value is the preset value of XHB campaigns
+//   ebAdOps.settings.xhbValue = parseFloat(curScript.dataset['xhbvalue'])
 
-  console.log('prebid', 'ebAdOps.settings', ebAdOps.settings, '-- bidTimeout ', ebAdOps.settings.prebidtimeout)
-}(window.ebAdOps = window.ebAdOps || {}))
+//   // XHB value is the preset value of XHB campaigns
+//   ebAdOps.settings.xhbValueDKK = parseFloat(curScript.dataset['xhbvaluedkk'])
+
+//   console.log('prebid', 'ebAdOps.settings', ebAdOps.settings, '-- bidTimeout ', ebAdOps.settings.prebidtimeout)
+// }(window.ebAdOps = window.ebAdOps || {}))
