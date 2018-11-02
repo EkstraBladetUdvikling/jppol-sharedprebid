@@ -7,6 +7,9 @@ export interface IBannerObject {
   appnexusID: string;
   criteoId: number;
   pubmaticAdSlot: string;
+  pubmaticPublisherId: string;
+  rubiconAccountId: number;
+  rubiconSiteID: number;
   rubiconSizes: string[];
   rubiconZone: number;
   sizes: any[];

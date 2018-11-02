@@ -23,18 +23,16 @@ export class PrebidAnalytics {
         `PrebidAnalytics arguments: trackingSampling ${trackingSampling} | trackingDistribution ${trackingDistribution}`
       );
       const win = window as any;
+      const ga = win.ga;
       const pbjs = win.pbjs;
 
       this.reCheckInterval = setInterval(() => {
         this.reCheckCount++;
         let prebidTrackerName = '';
         clearInterval(this.reCheckInterval);
-        if (
-          typeof win.ga !== 'undefined' &&
-          typeof win.ga.getAll !== 'undefined'
-        ) {
-          const trackers = win.ga.getAll();
-          console.log(`PrebidAnalytics: custom ga ${win.ga.getAll()}`);
+        if (typeof ga !== 'undefined' && typeof ga.getAll !== 'undefined') {
+          const trackers = ga.getAll();
+          console.log(`PrebidAnalytics: custom ga ${ga.getAll()}`);
           for (const tracker of trackers) {
             const trackerName =
               tracker.get('name') === '' ? '(unnamed)' : tracker.get('name');

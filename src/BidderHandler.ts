@@ -1,6 +1,6 @@
 import { IBannerObject } from './AuctionHandler';
 
-function BidderHandler(bannerObject: IBannerObject, device: string) {
+function BidderHandler(bannerObject: IBannerObject) {
   const ebBidders = [];
 
   /**
@@ -8,15 +8,13 @@ function BidderHandler(bannerObject: IBannerObject, device: string) {
    * http://prebid.github.io/dev-docs/bidders.html#adform
    */
   if (typeof bannerObject.adformMID !== 'undefined') {
-    const adformObj = {
+    ebBidders.push({
       bidder: 'adform',
       params: {
         mid: bannerObject.adformMID,
         rcur: 'USD'
       }
-    };
-
-    ebBidders.push(adformObj);
+    });
   }
 
   /**
@@ -24,15 +22,12 @@ function BidderHandler(bannerObject: IBannerObject, device: string) {
    * http://prebid.org/dev-docs/bidders.html#appnexus
    */
   if (typeof bannerObject.appnexusID !== 'undefined') {
-    const appnexusObj = {
+    ebBidders.push({
       bidder: 'appnexus',
       params: {
         placementId: bannerObject.appnexusID
       }
-    };
-
-    console.log('appnexusObj', appnexusObj);
-    ebBidders.push(appnexusObj);
+    });
   }
 
   /**
@@ -63,7 +58,7 @@ function BidderHandler(bannerObject: IBannerObject, device: string) {
         bidder: 'pubmatic',
         params: {
           adSlot: PubMaticAdslotName,
-          publisherId: '156010'
+          publisherId: bannerObject.pubmaticPublisherId
         }
       });
     }
@@ -77,23 +72,11 @@ function BidderHandler(bannerObject: IBannerObject, device: string) {
     typeof bannerObject.rubiconZone !== 'undefined' &&
     typeof bannerObject.rubiconSizes !== 'undefined'
   ) {
-    let rubiconSiteID = 20183;
-    switch (device) {
-      case 'smartphone':
-        rubiconSiteID = 23382;
-        break;
-      case 'tablet':
-        rubiconSiteID = 43742;
-        break;
-      default:
-        rubiconSiteID = 20183;
-    }
-
     ebBidders.push({
       bidder: 'rubicon',
       params: {
-        accountId: 10093,
-        siteId: rubiconSiteID,
+        accountId: bannerObject.rubiconAccountId,
+        siteId: bannerObject.rubiconSiteID,
         zoneId: bannerObject.rubiconZone
       }
     });
@@ -102,14 +85,14 @@ function BidderHandler(bannerObject: IBannerObject, device: string) {
   return ebBidders;
 }
 
-export function AdUnitCreator(bannerContainer: any, device: string) {
+export function AdUnitCreator(bannerContainer: any) {
   try {
     const adUnits = [];
     for (const key in bannerContainer) {
       if (bannerContainer.hasOwnProperty(key)) {
         const bidders =
           typeof bannerContainer[key].sizes !== 'undefined'
-            ? BidderHandler(bannerContainer[key], device)
+            ? BidderHandler(bannerContainer[key])
             : [];
         adUnits.push({
           bids: bidders,

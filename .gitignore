@@ -1,5 +1,6 @@
 node_modules
 npm-debug.log
-.editorconfig
 tsbuilt
+tspublic
 .rpt2_cache
+yarn-error.log
