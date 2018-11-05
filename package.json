@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run uglify-debug",
     "dist": "npm run build && npm run uglify-prod",
-    "prebid": "cpx \"./node_modules/prebid.js/build/dist/prebid.js\" \"prebid\" --update",
+    "prebid": "node buildprebid.js",
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",
@@ -22,7 +22,6 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
-    "cpx": "^1.5.0",
     "prettier": "^1.14.3",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",

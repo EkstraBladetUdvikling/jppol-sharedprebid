@@ -1,52 +1,34 @@
-import { PrebidAnalytics } from './Analytics';
-import { AdUnitCreator } from './BidderHandler';
-
-export interface IBannerObject {
-  adformMID: number;
-  adtechId: string;
-  appnexusID: string;
-  criteoId: number;
-  pubmaticAdSlot: string;
-  pubmaticPublisherId: string;
-  rubiconAccountId: number;
-  rubiconSiteID: number;
-  rubiconSizes: string[];
-  rubiconZone: number;
-  sizes: any[];
-}
+import { ITrackingOptions, PrebidAnalytics } from './Analytics';
+import { AdUnitCreator, IBannerObject } from './BidderHandler';
 
 export interface IPrebidOptions {
-  adserverCallback: any;
-  banners: IBannerObject;
-  consentAllowAuction: boolean;
-  consentTimeout: number;
-  debug: boolean;
-  device: string;
-  timeout: number;
-  tracking: boolean;
-  trackingDistribution: boolean;
-  trackingSampling: boolean;
+  adserverCallback?: any;
+  banners: IBannerObject[];
+  consentAllowAuction?: boolean;
+  consentTimeout?: number;
+  debug?: boolean;
+  timeout?: number;
+  tracking?: ITrackingOptions;
 }
 
 export class AuctionHandler {
   constructor(options: IPrebidOptions) {
     const prebidDefault = {
+      consentAllowAuction: true,
+      consentTimeout: 3000000,
       debug: false,
-      timeout: 700,
-      tracking: false
+      timeout: 700
     };
     const auctionSettings = { ...prebidDefault, ...options };
     this.auction(auctionSettings);
   }
 
   private auction(options: IPrebidOptions) {
-    const adUnits = AdUnitCreator(options.banners, options.device);
+    const adUnits = AdUnitCreator(options.banners);
     const pbjs = (window as any).pbjs;
+
     if (options.tracking) {
-      new PrebidAnalytics(
-        options.trackingSampling,
-        options.trackingDistribution
-      );
+      new PrebidAnalytics(options.tracking);
     }
     pbjs.que.push(() => {
       if (adUnits.length > 0) {
@@ -69,7 +51,23 @@ export class AuctionHandler {
 
         pbjs.requestBids({
           bidsBackHandler: bidResponse => {
-            options.adserverCallback(bidResponse);
+            console.log('bidsBackHandler', bidResponse);
+            const apntag = (window as any).apntag;
+            if (typeof apntag !== 'undefined') {
+              pbjs.que.push(() => {
+                console.log('bidsBackHandler adding apn to pbjs que');
+                apntag.anq.push(() => {
+                  pbjs.setTargetingForAst();
+                  apntag.loadTags();
+                  console.log(
+                    'bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
+                  );
+                });
+              });
+            }
+            if (typeof options.adserverCallback !== 'undefined') {
+              options.adserverCallback(bidResponse);
+            }
           }
         });
       }

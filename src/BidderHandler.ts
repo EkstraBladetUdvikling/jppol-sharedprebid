@@ -1,4 +1,17 @@
-import { IBannerObject } from './AuctionHandler';
+export interface IBannerObject {
+  adformMID?: number;
+  adtechId?: string;
+  appnexusID?: string;
+  criteoId?: number;
+  pubmaticAdSlot?: string;
+  pubmaticPublisherId?: string;
+  rubiconAccountId?: number;
+  rubiconSiteID?: number;
+  rubiconSizes?: string[];
+  rubiconZone?: number;
+  sizes: any[];
+  targetId: string;
+}
 
 function BidderHandler(bannerObject: IBannerObject) {
   const ebBidders = [];
@@ -88,19 +101,27 @@ function BidderHandler(bannerObject: IBannerObject) {
 export function AdUnitCreator(bannerContainer: any) {
   try {
     const adUnits = [];
-    for (const key in bannerContainer) {
-      if (bannerContainer.hasOwnProperty(key)) {
-        const bidders =
-          typeof bannerContainer[key].sizes !== 'undefined'
-            ? BidderHandler(bannerContainer[key])
-            : [];
-        adUnits.push({
-          bids: bidders,
-          code: key,
-          sizes: bannerContainer[key].sizes
-        });
-      }
+    for (const banner of bannerContainer) {
+      const bidders = BidderHandler(banner);
+      adUnits.push({
+        bids: bidders,
+        code: banner.targetId,
+        sizes: banner.sizes
+      });
     }
+    // for (const key in bannerContainer) {
+    //   if (bannerContainer.hasOwnProperty(key)) {
+    //     const bidders =
+    //       typeof bannerContainer[key].sizes !== 'undefined'
+    //         ? BidderHandler(bannerContainer[key])
+    //         : [];
+    //     adUnits.push({
+    //       bids: bidders,
+    //       code: key,
+    //       sizes: bannerContainer[key].sizes
+    //     });
+    //   }
+    // }
 
     return adUnits;
   } catch (err) {

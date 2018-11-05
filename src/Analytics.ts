@@ -3,24 +3,37 @@
  * creating google analytics object to add the tracking to
  */
 
+/*
+eb
+tracker.get('trackingId') === 'UA-2135460-1' ||
+tracker.get('trackingId') === 'UA-2135460-47'
+*/
+
+export interface ITrackingOptions {
+  distribution?: boolean;
+  id: string;
+  sampling?: boolean;
+}
+
 export class PrebidAnalytics {
   private reCheckCount: number = 0;
   private reCheckInterval: any;
 
-  constructor(
-    trackingSampling: boolean = true,
-    trackingDistribution: boolean = false
-  ) {
-    this.initializeTracking(trackingSampling, trackingDistribution);
+  constructor(trackingOptions: ITrackingOptions) {
+    const trackingDefaults = {
+      distribution: false,
+      sampling: true
+    };
+    const options = { ...trackingDefaults, ...trackingOptions };
+    this.initializeTracking(options);
   }
 
-  private initializeTracking(
-    trackingSampling: boolean = true,
-    trackingDistribution: boolean = false
-  ) {
+  private initializeTracking(options) {
     try {
       console.log(
-        `PrebidAnalytics arguments: trackingSampling ${trackingSampling} | trackingDistribution ${trackingDistribution}`
+        `PrebidAnalytics arguments: trackingSampling ${
+          options.sampling
+        } | trackingDistribution ${options.distribution}`
       );
       const win = window as any;
       const ga = win.ga;
@@ -36,10 +49,7 @@ export class PrebidAnalytics {
           for (const tracker of trackers) {
             const trackerName =
               tracker.get('name') === '' ? '(unnamed)' : tracker.get('name');
-            if (
-              tracker.get('trackingId') === 'UA-2135460-1' ||
-              tracker.get('trackingId') === 'UA-2135460-47'
-            ) {
+            if (tracker.get('trackingId') === options.id) {
               prebidTrackerName = trackerName;
             }
           }
@@ -50,11 +60,11 @@ export class PrebidAnalytics {
             console.log('PrebidAnalytics custom ga, ready for tracking');
             pbjs.que.push(() => {
               // Sampling set to 5%
-              const sampling = trackingSampling ? 0.05 : 1;
+              const sampling = options.sampling ? 0.05 : 1;
               const analyticsObject = [
                 {
                   options: {
-                    enableDistribution: trackingDistribution,
+                    enableDistribution: options.distribution,
                     sampling,
                     trackerName: prebidTrackerName
                   },
@@ -69,7 +79,7 @@ export class PrebidAnalytics {
           clearInterval(this.reCheckInterval);
           throw new Error('Prebid Analytics Checked 10 times with no luck');
         }
-      }, 500);
+      }, 300);
     } catch (err) {
       console.error(`PrebidAnalytics ${err}`);
     }
