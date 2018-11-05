@@ -172,7 +172,9 @@ Google Analytics ID to use for tracking.
 | Requirement   | Optional |
 | Type          | boolean  |
 
-When set to false, 100% of prebid auctions will be tracked - this should only be used for initial setup or debugging.
+Per default only 5% of auctions is tracked.
+
+When sampling is set to false, 100% of prebid auctions will be tracked - this should only be used for initial setup or debugging.
 
 ### Examples
 
@@ -182,22 +184,17 @@ Links to examples
 
 If you want to contribute to a project and make it better, your help is very welcome.
 
-```sh
-git clone git@github.com:EkstraBladetUdvikling/...
+```shell
+git fork git@github.com:EkstraBladetUdvikling/jppol-sharedprebid
 ```
 
 ### Updating prebid.js version
 
-From root
+```node
+npm run prebid-update
+```
 
-* run npm uninstall prebid.js --save
-* run npm install prebid.js --save
-* navigate to ./node_modules/prebid.js/
-* run npm install
-* run gulp build --adapters ../../eb-prebid-adapters.json
-* navigate to [./node_modules/prebid.js/]build/dist
-* copy prebid.js to ./prebid
-* run 'npm run headerbidding'
+This will update the version of prebid.js and build a new prebid.js file. This won't create a new JPPol ready version. That is handled separately.
 
 [prebid](http://prebid.org/)
 
