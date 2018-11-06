@@ -32,46 +32,46 @@ var jppol = (function (exports) {
      * creating google analytics object to add the tracking to
      */
     var PrebidAnalytics = /** @class */ (function () {
-        function PrebidAnalytics(trackingSampling, trackingDistribution) {
-            if (trackingSampling === void 0) { trackingSampling = true; }
-            if (trackingDistribution === void 0) { trackingDistribution = false; }
+        function PrebidAnalytics(trackingOptions) {
             this.reCheckCount = 0;
-            this.initializeTracking(trackingSampling, trackingDistribution);
+            var trackingDefaults = {
+                distribution: false,
+                sampling: true
+            };
+            var options = __assign({}, trackingDefaults, trackingOptions);
+            this.initializeTracking(options);
         }
-        PrebidAnalytics.prototype.initializeTracking = function (trackingSampling, trackingDistribution) {
+        PrebidAnalytics.prototype.initializeTracking = function (options) {
             var _this = this;
-            if (trackingSampling === void 0) { trackingSampling = true; }
-            if (trackingDistribution === void 0) { trackingDistribution = false; }
             try {
-                console.log("PrebidAnalytics arguments: trackingSampling " + trackingSampling + " | trackingDistribution " + trackingDistribution);
-                var win_1 = window;
-                var pbjs_1 = win_1.pbjs;
+                console.log("prebid: PrebidAnalytics arguments: trackingSampling " + options.sampling + " | trackingDistribution " + options.distribution);
+                var win = window;
+                var ga_1 = win.ga;
+                var pbjs_1 = win.pbjs;
                 this.reCheckInterval = setInterval(function () {
                     _this.reCheckCount++;
                     var prebidTrackerName = '';
                     clearInterval(_this.reCheckInterval);
-                    if (typeof win_1.ga !== 'undefined' &&
-                        typeof win_1.ga.getAll !== 'undefined') {
-                        var trackers = win_1.ga.getAll();
-                        console.log("PrebidAnalytics: custom ga " + win_1.ga.getAll());
+                    if (typeof ga_1 !== 'undefined' && typeof ga_1.getAll !== 'undefined') {
+                        var trackers = ga_1.getAll();
+                        console.log("prebid: PrebidAnalytics: custom ga " + ga_1.getAll());
                         for (var _i = 0, trackers_1 = trackers; _i < trackers_1.length; _i++) {
                             var tracker = trackers_1[_i];
                             var trackerName = tracker.get('name') === '' ? '(unnamed)' : tracker.get('name');
-                            if (tracker.get('trackingId') === 'UA-2135460-1' ||
-                                tracker.get('trackingId') === 'UA-2135460-47') {
+                            if (tracker.get('trackingId') === options.id) {
                                 prebidTrackerName = trackerName;
                             }
                         }
-                        console.log("PrebidAnalytics custom ga, ready for tracking " + prebidTrackerName);
+                        console.log("prebid: PrebidAnalytics custom ga, ready for tracking " + prebidTrackerName);
                         if (prebidTrackerName !== '') {
-                            console.log('PrebidAnalytics custom ga, ready for tracking');
+                            console.log('prebid: PrebidAnalytics custom ga, ready for tracking');
                             pbjs_1.que.push(function () {
                                 // Sampling set to 5%
-                                var sampling = trackingSampling ? 0.05 : 1;
+                                var sampling = options.sampling ? 0.05 : 1;
                                 var analyticsObject = [
                                     {
                                         options: {
-                                            enableDistribution: trackingDistribution,
+                                            enableDistribution: options.distribution,
                                             sampling: sampling,
                                             trackerName: prebidTrackerName
                                         },
@@ -86,7 +86,7 @@ var jppol = (function (exports) {
                         clearInterval(_this.reCheckInterval);
                         throw new Error('Prebid Analytics Checked 10 times with no luck');
                     }
-                }, 500);
+                }, 300);
             }
             catch (err) {
                 console.error("PrebidAnalytics " + err);
@@ -94,98 +94,42 @@ var jppol = (function (exports) {
         };
         return PrebidAnalytics;
     }());
-    // function initializeTracking(
-    //   trackingSampling = true,
-    //   trackingDistribution = false
-    // ) {
-    //   try {
-    //     console.log(
-    //       "custom GA what is up?",
-    //       trackingSampling,
-    //       trackingDistribution
-    //     );
-    //     reRunCount++;
-    //     let prebidTrackerName = "";
-    //     if (
-    //       typeof (window as any).ga !== "undefined" &&
-    //       typeof (window as any).ga.getAll !== "undefined"
-    //     ) {
-    //       const trackers = (window as any).ga.getAll();
-    //       console.log("custom ga", (window as any).ga.getAll());
-    //       for (const tracker of trackers) {
-    //         const trackerName =
-    //           tracker.get("name") === "" ? "(unnamed)" : tracker.get("name");
-    //         if (
-    //           tracker.get("trackingId") === "UA-2135460-1" ||
-    //           tracker.get("trackingId") === "UA-2135460-47"
-    //         ) {
-    //           prebidTrackerName = trackerName;
-    //         }
-    //       }
-    //       console.log("custom ga, ready for tracking", prebidTrackerName);
-    //       if (prebidTrackerName !== "") {
-    //         console.log("custom ga, ready for tracking");
-    //         pbjs.que.push(() => {
-    //           // Sampling set to 5%
-    //           const sampling = trackingSampling ? 0.05 : 1;
-    //           const analyticsObject = [
-    //             {
-    //               options: {
-    //                 enableDistribution: trackingDistribution,
-    //                 sampling,
-    //                 trackerName: prebidTrackerName
-    //               },
-    //               provider: "ga"
-    //             }
-    //           ];
-    //           pbjs.enableAnalytics(analyticsObject);
-    //         });
-    //       }
-    //     } else if (reRunCount < 10) {
-    //       setTimeout(() => initializeTracking(trackingSampling), 500);
-    //     } else {
-    //       throw new Error("checked 10 times");
-    //     }
-    //   } catch (err) {
-    //     console.error("initializeTracking", err);
-    //   }
-    // }
 
-    function BidderHandler(bannerObject, device) {
+    function BidderHandler(bannerObject) {
         var ebBidders = [];
         /**
          * ADFORM
          * http://prebid.github.io/dev-docs/bidders.html#adform
          */
         if (typeof bannerObject.adformMID !== 'undefined') {
-            var adformObj = {
+            console.log('prebid: add adform as bidder');
+            ebBidders.push({
                 bidder: 'adform',
                 params: {
                     mid: bannerObject.adformMID,
                     rcur: 'USD'
                 }
-            };
-            ebBidders.push(adformObj);
+            });
         }
         /**
          * AppNexus
          * http://prebid.org/dev-docs/bidders.html#appnexus
          */
         if (typeof bannerObject.appnexusID !== 'undefined') {
-            var appnexusObj = {
+            console.log('prebid: add appnexus as bidder');
+            ebBidders.push({
                 bidder: 'appnexus',
                 params: {
                     placementId: bannerObject.appnexusID
                 }
-            };
-            console.log('appnexusObj', appnexusObj);
-            ebBidders.push(appnexusObj);
+            });
         }
         /**
          *  CRITEO
          * http://prebid.org/dev-docs/bidders.html#criteo
          */
         if (typeof bannerObject.criteoId !== 'undefined') {
+            console.log('prebid: add criteo as bidder');
             ebBidders.push({
                 bidder: 'criteo',
                 params: {
@@ -198,6 +142,7 @@ var jppol = (function (exports) {
          * http://prebid.github.io/dev-docs/bidders.html#pubmatic
          */
         if (typeof bannerObject.pubmaticAdSlot !== 'undefined') {
+            console.log('prebid: add pubmatic as bidder');
             var sizes = bannerObject.sizes;
             var sizesLength = sizes.length;
             for (var i = sizesLength; i--;) {
@@ -207,7 +152,7 @@ var jppol = (function (exports) {
                     bidder: 'pubmatic',
                     params: {
                         adSlot: PubMaticAdslotName,
-                        publisherId: '156010'
+                        publisherId: bannerObject.pubmaticPublisherId
                     }
                 });
             }
@@ -216,44 +161,30 @@ var jppol = (function (exports) {
          * Rubicon
          * http://prebid.github.io/dev-docs/bidders.html#rubicon
          */
-        if (typeof bannerObject.rubiconZone !== 'undefined' &&
-            typeof bannerObject.rubiconSizes !== 'undefined') {
-            var rubiconSiteID = 20183;
-            switch (device) {
-                case 'smartphone':
-                    rubiconSiteID = 23382;
-                    break;
-                case 'tablet':
-                    rubiconSiteID = 43742;
-                    break;
-                default:
-                    rubiconSiteID = 20183;
-            }
+        if (typeof bannerObject.rubiconZone !== 'undefined') {
+            console.log('prebid: add rubicon as bidder');
             ebBidders.push({
                 bidder: 'rubicon',
                 params: {
-                    accountId: 10093,
-                    siteId: rubiconSiteID,
+                    accountId: bannerObject.rubiconAccountId,
+                    siteId: bannerObject.rubiconSiteID,
                     zoneId: bannerObject.rubiconZone
                 }
             });
         }
         return ebBidders;
     }
-    function AdUnitCreator(bannerContainer, device) {
+    function AdUnitCreator(bannerContainer) {
         try {
             var adUnits = [];
-            for (var key in bannerContainer) {
-                if (bannerContainer.hasOwnProperty(key)) {
-                    var bidders = typeof bannerContainer[key].sizes !== 'undefined'
-                        ? BidderHandler(bannerContainer[key], device)
-                        : [];
-                    adUnits.push({
-                        bids: bidders,
-                        code: key,
-                        sizes: bannerContainer[key].sizes
-                    });
-                }
+            for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
+                var banner = bannerContainer_1[_i];
+                var bidders = BidderHandler(banner);
+                adUnits.push({
+                    bids: bidders,
+                    code: banner.targetId,
+                    sizes: banner.sizes
+                });
             }
             return adUnits;
         }
@@ -265,18 +196,19 @@ var jppol = (function (exports) {
     var AuctionHandler = /** @class */ (function () {
         function AuctionHandler(options) {
             var prebidDefault = {
+                consentAllowAuction: true,
+                consentTimeout: 3000000,
                 debug: false,
-                timeout: 700,
-                tracking: false
+                timeout: 700
             };
             var auctionSettings = __assign({}, prebidDefault, options);
             this.auction(auctionSettings);
         }
         AuctionHandler.prototype.auction = function (options) {
-            var adUnits = AdUnitCreator(options.banners, options.device);
+            var adUnits = AdUnitCreator(options.banners);
             var pbjs = window.pbjs;
             if (options.tracking) {
-                new PrebidAnalytics(options.trackingSampling, options.trackingDistribution);
+                new PrebidAnalytics(options.tracking);
             }
             pbjs.que.push(function () {
                 if (adUnits.length > 0) {
@@ -298,7 +230,21 @@ var jppol = (function (exports) {
                     pbjs.addAdUnits(adUnits);
                     pbjs.requestBids({
                         bidsBackHandler: function (bidResponse) {
-                            options.adserverCallback(bidResponse);
+                            console.log('prebid: bidsBackHandler', bidResponse);
+                            var apntag = window.apntag;
+                            if (typeof apntag !== 'undefined') {
+                                pbjs.que.push(function () {
+                                    console.log('prebid: bidsBackHandler adding apn to pbjs que');
+                                    apntag.anq.push(function () {
+                                        pbjs.setTargetingForAst();
+                                        apntag.loadTags();
+                                        console.log('prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()');
+                                    });
+                                });
+                            }
+                            if (typeof options.adserverCallback !== 'undefined') {
+                                options.adserverCallback(bidResponse);
+                            }
                         }
                     });
                 }
@@ -308,6 +254,20 @@ var jppol = (function (exports) {
     }());
 
     function prebid(options) {
+        // EB
+        // pubmaticPublisherId: '156010'
+        // const rubiconAccountID = 10093;
+        // let rubiconSiteID = 20183;
+        // switch (device) {
+        //   case 'smartphone':
+        //     rubiconSiteID = 23382;
+        //     break;
+        //   case 'tablet':
+        //     rubiconSiteID = 43742;
+        //     break;
+        //   default:
+        //     rubiconSiteID = 20183;
+        // }
         new AuctionHandler(options);
     }
 

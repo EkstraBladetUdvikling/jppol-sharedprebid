@@ -21,6 +21,7 @@ function BidderHandler(bannerObject: IBannerObject) {
    * http://prebid.github.io/dev-docs/bidders.html#adform
    */
   if (typeof bannerObject.adformMID !== 'undefined') {
+    console.log('prebid: add adform as bidder');
     ebBidders.push({
       bidder: 'adform',
       params: {
@@ -35,6 +36,7 @@ function BidderHandler(bannerObject: IBannerObject) {
    * http://prebid.org/dev-docs/bidders.html#appnexus
    */
   if (typeof bannerObject.appnexusID !== 'undefined') {
+    console.log('prebid: add appnexus as bidder');
     ebBidders.push({
       bidder: 'appnexus',
       params: {
@@ -48,6 +50,7 @@ function BidderHandler(bannerObject: IBannerObject) {
    * http://prebid.org/dev-docs/bidders.html#criteo
    */
   if (typeof bannerObject.criteoId !== 'undefined') {
+    console.log('prebid: add criteo as bidder');
     ebBidders.push({
       bidder: 'criteo',
       params: {
@@ -61,6 +64,7 @@ function BidderHandler(bannerObject: IBannerObject) {
    * http://prebid.github.io/dev-docs/bidders.html#pubmatic
    */
   if (typeof bannerObject.pubmaticAdSlot !== 'undefined') {
+    console.log('prebid: add pubmatic as bidder');
     const sizes = bannerObject.sizes;
     const sizesLength = sizes.length;
     for (let i = sizesLength; i--; ) {
@@ -81,10 +85,8 @@ function BidderHandler(bannerObject: IBannerObject) {
    * Rubicon
    * http://prebid.github.io/dev-docs/bidders.html#rubicon
    */
-  if (
-    typeof bannerObject.rubiconZone !== 'undefined' &&
-    typeof bannerObject.rubiconSizes !== 'undefined'
-  ) {
+  if (typeof bannerObject.rubiconZone !== 'undefined') {
+    console.log('prebid: add rubicon as bidder');
     ebBidders.push({
       bidder: 'rubicon',
       params: {
@@ -109,19 +111,6 @@ export function AdUnitCreator(bannerContainer: any) {
         sizes: banner.sizes
       });
     }
-    // for (const key in bannerContainer) {
-    //   if (bannerContainer.hasOwnProperty(key)) {
-    //     const bidders =
-    //       typeof bannerContainer[key].sizes !== 'undefined'
-    //         ? BidderHandler(bannerContainer[key])
-    //         : [];
-    //     adUnits.push({
-    //       bids: bidders,
-    //       code: key,
-    //       sizes: bannerContainer[key].sizes
-    //     });
-    //   }
-    // }
 
     return adUnits;
   } catch (err) {

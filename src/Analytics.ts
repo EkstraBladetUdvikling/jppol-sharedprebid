@@ -31,7 +31,7 @@ export class PrebidAnalytics {
   private initializeTracking(options) {
     try {
       console.log(
-        `PrebidAnalytics arguments: trackingSampling ${
+        `prebid: PrebidAnalytics arguments: trackingSampling ${
           options.sampling
         } | trackingDistribution ${options.distribution}`
       );
@@ -45,7 +45,7 @@ export class PrebidAnalytics {
         clearInterval(this.reCheckInterval);
         if (typeof ga !== 'undefined' && typeof ga.getAll !== 'undefined') {
           const trackers = ga.getAll();
-          console.log(`PrebidAnalytics: custom ga ${ga.getAll()}`);
+          console.log(`prebid: PrebidAnalytics: custom ga ${ga.getAll()}`);
           for (const tracker of trackers) {
             const trackerName =
               tracker.get('name') === '' ? '(unnamed)' : tracker.get('name');
@@ -54,10 +54,12 @@ export class PrebidAnalytics {
             }
           }
           console.log(
-            `PrebidAnalytics custom ga, ready for tracking ${prebidTrackerName}`
+            `prebid: PrebidAnalytics custom ga, ready for tracking ${prebidTrackerName}`
           );
           if (prebidTrackerName !== '') {
-            console.log('PrebidAnalytics custom ga, ready for tracking');
+            console.log(
+              'prebid: PrebidAnalytics custom ga, ready for tracking'
+            );
             pbjs.que.push(() => {
               // Sampling set to 5%
               const sampling = options.sampling ? 0.05 : 1;
@@ -85,62 +87,3 @@ export class PrebidAnalytics {
     }
   }
 }
-
-// function initializeTracking(
-//   trackingSampling = true,
-//   trackingDistribution = false
-// ) {
-//   try {
-//     console.log(
-//       "custom GA what is up?",
-//       trackingSampling,
-//       trackingDistribution
-//     );
-//     reRunCount++;
-
-//     let prebidTrackerName = "";
-//     if (
-//       typeof (window as any).ga !== "undefined" &&
-//       typeof (window as any).ga.getAll !== "undefined"
-//     ) {
-//       const trackers = (window as any).ga.getAll();
-//       console.log("custom ga", (window as any).ga.getAll());
-//       for (const tracker of trackers) {
-//         const trackerName =
-//           tracker.get("name") === "" ? "(unnamed)" : tracker.get("name");
-//         if (
-//           tracker.get("trackingId") === "UA-2135460-1" ||
-//           tracker.get("trackingId") === "UA-2135460-47"
-//         ) {
-//           prebidTrackerName = trackerName;
-//         }
-//       }
-//       console.log("custom ga, ready for tracking", prebidTrackerName);
-//       if (prebidTrackerName !== "") {
-//         console.log("custom ga, ready for tracking");
-//         pbjs.que.push(() => {
-//           // Sampling set to 5%
-//           const sampling = trackingSampling ? 0.05 : 1;
-//           const analyticsObject = [
-//             {
-//               options: {
-//                 enableDistribution: trackingDistribution,
-//                 sampling,
-//                 trackerName: prebidTrackerName
-//               },
-//               provider: "ga"
-//             }
-//           ];
-
-//           pbjs.enableAnalytics(analyticsObject);
-//         });
-//       }
-//     } else if (reRunCount < 10) {
-//       setTimeout(() => initializeTracking(trackingSampling), 500);
-//     } else {
-//       throw new Error("checked 10 times");
-//     }
-//   } catch (err) {
-//     console.error("initializeTracking", err);
-//   }
-// }

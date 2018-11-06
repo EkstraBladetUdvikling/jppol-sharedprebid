@@ -51,16 +51,16 @@ export class AuctionHandler {
 
         pbjs.requestBids({
           bidsBackHandler: bidResponse => {
-            console.log('bidsBackHandler', bidResponse);
+            console.log('prebid: bidsBackHandler', bidResponse);
             const apntag = (window as any).apntag;
             if (typeof apntag !== 'undefined') {
               pbjs.que.push(() => {
-                console.log('bidsBackHandler adding apn to pbjs que');
+                console.log('prebid: bidsBackHandler adding apn to pbjs que');
                 apntag.anq.push(() => {
                   pbjs.setTargetingForAst();
                   apntag.loadTags();
                   console.log(
-                    'bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
+                    'prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
                   );
                 });
               });
