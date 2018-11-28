@@ -12,8 +12,8 @@
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",
-    "uglify-prod": "uglifyjs --config-file \"./uglify.prod.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
-    "uglify-debug": "uglifyjs --config-file \"./uglify.dev.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
+    "uglify-prod": "uglifyjs --config-file=\"./uglify.prod.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
+    "uglify-debug": "uglifyjs --config-file=\"./uglify.dev.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
     "tslint": "tslint -c tslint.json \"./src/**/*.ts\""
   },
   "author": "jesper.h.tegner@jppol.dk",

@@ -7,9 +7,9 @@ export interface IBannerObject {
   pubmaticPublisherId?: string;
   rubiconAccountId?: number;
   rubiconSiteID?: number;
-  rubiconSizes?: string[];
+  rubiconSizes?: number[];
   rubiconZone?: number;
-  sizes: any[];
+  sizes: number[][];
   targetId: string;
 }
 

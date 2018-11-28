@@ -17,9 +17,9 @@ Developed to ease the upgrade procedure and maintenance of prebid handling acros
     * [debug](#debug)
     * [timeout](#timeout)
     * [tracking](#tracking)
-    * [tracking.distribution](#trackingdistribution)
-    * [tracking.id](#trackingid)
-    * [tracking.sampling](#trackingsampling)
+      * [tracking.distribution](#trackingdistribution)
+      * [tracking.id](#trackingid)
+      * [tracking.sampling](#trackingsampling)
   * [Examples](#examples)
 * [Contributing](#contributing)
   * [Updating prebid.js version](#updating-prebidjs-version)
@@ -44,12 +44,16 @@ It is assumed that AppNexus is implemented and that prebid should be integrated 
 Use directly in page.
 
 ```html
-<script src=""></script>
+<script src="https://ebimg.dk/ux/data/prebid/jppol-prebid.dev.js"></script>
 <script>
-  // Define AppNexus tags somewhere before here
-  var prebidOptions = {
-    adserverCallback?: any;
-    banners: [{
+  /**
+   * Typescript interfaces involved in prebidOptions
+    interface ITrackingOptions {
+      distribution?: boolean;
+      id: string;
+      sampling?: boolean;
+    }
+    interface IBannerObject {
       adformMID?: number;
       adtechId?: string;
       appnexusID?: string;
@@ -58,19 +62,48 @@ Use directly in page.
       pubmaticPublisherId?: string;
       rubiconAccountId?: number;
       rubiconSiteID?: number;
-      rubiconSizes?: string[];
+      rubiconSizes?: number[];
       rubiconZone?: number;
-      sizes: any[];
+      sizes: number[][];
       targetId: string;
-    }]
-    consentAllowAuction: boolean;
-    consentTimeout: number;
-    debug: boolean;
-    device: string;
-    timeout: number;
-    tracking: boolean;
-    trackingDistribution: boolean;
-    trackingSampling: boolean;
+    }
+    interface IPrebidOptions {
+      adserverCallback?: any;
+      banners: IBannerObject[];
+      consentAllowAuction?: boolean;
+      consentTimeout?: number;
+      debug?: boolean;
+      timeout?: number;
+      tracking?: ITrackingOptions;
+    }
+  */
+  // Define AppNexus tags somewhere before here
+  var prebidOptions = {
+      adserverCallback: () => {},
+      banners: [{
+        adformMID: 999,
+        adtechId: 'string',
+        appnexusID: 'string',
+        criteoId: 999,
+        pubmaticAdSlot: 'string',
+        pubmaticPublisherId: 'string',
+        rubiconAccountId: 999,
+        rubiconSiteID: 999,
+        rubiconSizes: ['string'],
+        rubiconZone: 999,
+        sizes: [[930, 180]],
+        targetId: ''
+      }],
+      consentAllowAuction: false,
+      consentTimeout: 300000,
+      debug: false,
+      timeout: 700,
+      tracking: {
+        distribution: false,
+        id: 'string',
+        sampling: true
+      }
+
   }
   jppol.prebid(prebidOptions);
 </script>
