@@ -6832,67 +6832,72 @@ var jppol = function(exports) {
         return PrebidAnalytics;
     }();
     function BidderHandler(bannerObject) {
-        var ebBidders = [];
-        if (typeof bannerObject.adformMID !== "undefined") {
-            console.log("prebid: add adform as bidder");
-            ebBidders.push({
-                bidder: "adform",
-                params: {
-                    mid: bannerObject.adformMID,
-                    rcur: "USD"
-                }
-            });
-        }
-        if (typeof bannerObject.appnexusID !== "undefined") {
-            console.log("prebid: add appnexus as bidder");
-            ebBidders.push({
-                bidder: "appnexus",
-                params: {
-                    placementId: bannerObject.appnexusID
-                }
-            });
-        }
-        if (typeof bannerObject.criteoId !== "undefined") {
-            console.log("prebid: add criteo as bidder");
-            ebBidders.push({
-                bidder: "criteo",
-                params: {
-                    zoneId: bannerObject.criteoId
-                }
-            });
-        }
-        if (typeof bannerObject.pubmaticAdSlot !== "undefined") {
-            console.log("prebid: add pubmatic as bidder");
-            var sizes = bannerObject.sizes;
-            var sizesLength = sizes.length;
-            for (var i = sizesLength; i--; ) {
-                var sizeJoint = sizes[i].join("x");
-                var PubMaticAdslotName = bannerObject.pubmaticAdSlot + "@" + sizeJoint;
+        try {
+            var ebBidders = [];
+            if (typeof bannerObject.adformMID !== "undefined") {
+                console.log("prebid: add adform as bidder");
                 ebBidders.push({
-                    bidder: "pubmatic",
+                    bidder: "adform",
                     params: {
-                        adSlot: PubMaticAdslotName,
-                        publisherId: bannerObject.pubmaticPublisherId
+                        mid: bannerObject.adformMID,
+                        rcur: "USD"
                     }
                 });
             }
-        }
-        if (typeof bannerObject.rubiconZone !== "undefined") {
-            console.log("prebid: add rubicon as bidder");
-            ebBidders.push({
-                bidder: "rubicon",
-                params: {
-                    accountId: bannerObject.rubiconAccountId,
-                    siteId: bannerObject.rubiconSiteID,
-                    zoneId: bannerObject.rubiconZone
+            if (typeof bannerObject.appnexusID !== "undefined") {
+                console.log("prebid: add appnexus as bidder");
+                ebBidders.push({
+                    bidder: "appnexus",
+                    params: {
+                        placementId: bannerObject.appnexusID
+                    }
+                });
+            }
+            if (typeof bannerObject.criteoId !== "undefined") {
+                console.log("prebid: add criteo as bidder");
+                ebBidders.push({
+                    bidder: "criteo",
+                    params: {
+                        zoneId: bannerObject.criteoId
+                    }
+                });
+            }
+            if (typeof bannerObject.pubmaticAdSlot !== "undefined") {
+                console.log("prebid: add pubmatic as bidder");
+                var sizes = bannerObject.sizes;
+                var sizesLength = sizes.length;
+                for (var i = sizesLength; i--; ) {
+                    var sizeJoint = sizes[i].join("x");
+                    var PubMaticAdslotName = bannerObject.pubmaticAdSlot + "@" + sizeJoint;
+                    ebBidders.push({
+                        bidder: "pubmatic",
+                        params: {
+                            adSlot: PubMaticAdslotName,
+                            publisherId: bannerObject.pubmaticPublisherId
+                        }
+                    });
                 }
-            });
+            }
+            if (typeof bannerObject.rubiconZone !== "undefined") {
+                console.log("prebid: add rubicon as bidder");
+                ebBidders.push({
+                    bidder: "rubicon",
+                    params: {
+                        accountId: bannerObject.rubiconAccountId,
+                        siteId: bannerObject.rubiconSiteID,
+                        zoneId: bannerObject.rubiconZone
+                    }
+                });
+            }
+            return ebBidders;
+        } catch (err) {
+            console.error("jppolPrebid BidderHandler", err);
         }
-        return ebBidders;
     }
     function AdUnitCreator(bannerContainer) {
         try {
             var adUnits = [];
+            console.log("jppolPrebid AdUnitCreator - bannerContainer", bannerContainer);
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
                 var bidders = BidderHandler(banner);
@@ -6919,50 +6924,54 @@ var jppol = function(exports) {
             this.auction(auctionSettings);
         }
         AuctionHandler.prototype.auction = function(options) {
-            var adUnits = AdUnitCreator(options.banners);
-            var pbjs = window.pbjs;
-            if (options.tracking) {
-                new PrebidAnalytics(options.tracking);
-            }
-            pbjs.que.push(function() {
-                if (adUnits.length > 0) {
-                    pbjs.setConfig({
-                        bidderTimeout: options.timeout,
-                        consentManagement: {
-                            allowAuctionWithoutConsent: options.consentAllowAuction,
-                            cmpApi: "iab",
-                            timeout: options.consentTimeout
-                        },
-                        debug: options.debug,
-                        priceGranularity: "high",
-                        userSync: {
-                            enabledBidders: [ "pubmatic" ],
-                            iframeEnabled: true,
-                            syncDelay: 6e3
-                        }
-                    });
-                    pbjs.addAdUnits(adUnits);
-                    pbjs.requestBids({
-                        bidsBackHandler: function(bidResponse) {
-                            console.log("prebid: bidsBackHandler", bidResponse);
-                            var apntag = window.apntag;
-                            if (typeof apntag !== "undefined") {
-                                pbjs.que.push(function() {
-                                    console.log("prebid: bidsBackHandler adding apn to pbjs que");
-                                    apntag.anq.push(function() {
-                                        pbjs.setTargetingForAst();
-                                        apntag.loadTags();
-                                        console.log("prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()");
-                                    });
-                                });
-                            }
-                            if (typeof options.adserverCallback !== "undefined") {
-                                options.adserverCallback(bidResponse);
-                            }
-                        }
-                    });
+            try {
+                var adUnits_1 = AdUnitCreator(options.banners);
+                var pbjs_1 = window.pbjs;
+                if (options.tracking) {
+                    new PrebidAnalytics(options.tracking);
                 }
-            });
+                pbjs_1.que.push(function() {
+                    if (adUnits_1.length > 0) {
+                        pbjs_1.setConfig({
+                            bidderTimeout: options.timeout,
+                            consentManagement: {
+                                allowAuctionWithoutConsent: options.consentAllowAuction,
+                                cmpApi: "iab",
+                                timeout: options.consentTimeout
+                            },
+                            debug: options.debug,
+                            priceGranularity: "high",
+                            userSync: {
+                                enabledBidders: [ "pubmatic" ],
+                                iframeEnabled: true,
+                                syncDelay: 6e3
+                            }
+                        });
+                        pbjs_1.addAdUnits(adUnits_1);
+                        pbjs_1.requestBids({
+                            bidsBackHandler: function(bidResponse) {
+                                console.log("prebid: bidsBackHandler", bidResponse);
+                                var apntag = window.apntag;
+                                if (typeof apntag !== "undefined") {
+                                    pbjs_1.que.push(function() {
+                                        console.log("prebid: bidsBackHandler adding apn to pbjs que");
+                                        apntag.anq.push(function() {
+                                            pbjs_1.setTargetingForAst();
+                                            apntag.loadTags();
+                                            console.log("prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()");
+                                        });
+                                    });
+                                }
+                                if (typeof options.adserverCallback !== "undefined") {
+                                    options.adserverCallback(bidResponse);
+                                }
+                            }
+                        });
+                    }
+                });
+            } catch (err) {
+                console.error("AuctionHandler auction", err);
+            }
         };
         return AuctionHandler;
     }();
