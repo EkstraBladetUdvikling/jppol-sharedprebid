@@ -44,7 +44,7 @@ It is assumed that AppNexus is implemented and that prebid should be integrated 
 Use directly in page.
 
 ```html
-<script src="https://ebimg.dk/ux/data/prebid/jppol-prebid.dev.js"></script>
+<script src="https://ebimg.dk/ux/data/prebid/jppol-prebid.min.js"></script>
 <script>
   /**
    * Typescript interfaces involved in prebidOptions
@@ -107,6 +107,12 @@ Use directly in page.
   }
   jppol.prebid(prebidOptions);
 </script>
+```
+
+For debugging and development purposes use
+
+```html
+<script src="https://ebimg.dk/ux/data/prebid/jppol-prebid.dev.js"></script>
 ```
 
 If it is imported into own project, beware that prebid.js is a dependency.
