@@ -1,0 +1,15 @@
+{
+  "compress": false,
+  "ie8": false,
+  "keep_fnames" : true,
+  "mangle": false,
+  "nameCache": null,
+  "output": {
+    "beautify": {
+      "quote_style": 1
+    }
+  },
+  "sourceMap": false,
+  "toplevel": false,
+  "warnings": false
+}

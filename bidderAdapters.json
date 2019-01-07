@@ -1,0 +1,9 @@
+[
+  "adformBidAdapter",
+  "appnexusBidAdapter",
+  "consentManagement",
+  "criteoBidAdapter",
+  "googleAnalyticsAdapter",
+  "pubmaticBidAdapter",
+  "rubiconBidAdapter"
+]
