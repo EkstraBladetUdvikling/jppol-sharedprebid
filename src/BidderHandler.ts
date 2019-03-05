@@ -15,8 +15,6 @@ export interface IBannerObject {
   targetId: string;
 }
 
-declare var ANOutstreamVideo: any;
-
 function BidderHandler(bannerObject: IBannerObject) {
   try {
     const ebBidders = [];
@@ -175,8 +173,6 @@ export function AdUnitCreator(bannerContainer: any) {
     for (const banner of bannerContainer) {
       const bidders = BidderHandler(banner);
 
-      console.log("banner:", banner);
-
       // outstream video
       if (banner.outstream) {
         adUnits.push({
@@ -187,15 +183,6 @@ export function AdUnitCreator(bannerContainer: any) {
               context: 'outstream',
               playerSize: banner.outstreamSize
             }
-          },
-          renderer: {
-            render: bid => {
-              ANOutstreamVideo.renderAd({
-                adResponse: bid.adResponse,
-                targetId: bid.adUnitCode
-              });
-            },
-            url: 'https://cdn.adnxs.com/renderer/video/ANOutstreamVideo.js'
           },
           sizes: banner.sizes
         });

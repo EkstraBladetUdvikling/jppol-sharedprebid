@@ -251,15 +251,6 @@ var jppol = (function (exports) {
                                 playerSize: banner.outstreamSize
                             }
                         },
-                        renderer: {
-                            render: function (bid) {
-                                ANOutstreamVideo.renderAd({
-                                    adResponse: bid.adResponse,
-                                    targetId: bid.adUnitCode
-                                });
-                            },
-                            url: 'https://cdn.adnxs.com/renderer/video/ANOutstreamVideo.js'
-                        },
                         sizes: banner.sizes
                     });
                 }
