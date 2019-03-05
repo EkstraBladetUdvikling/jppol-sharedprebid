@@ -6994,12 +6994,25 @@ var jppol = function(exports) {
             }
             if (typeof bannerObject.appnexusID !== "undefined") {
                 console.log("prebid: add appnexus as bidder");
-                ebBidders.push({
-                    bidder: "appnexus",
-                    params: {
-                        placementId: bannerObject.appnexusID
-                    }
-                });
+                if (bannerObject.outstream) {
+                    ebBidders.push({
+                        bidder: "appnexus",
+                        params: {
+                            placementId: bannerObject.appnexusID,
+                            video: {
+                                playback_method: [ "click_to_play" ],
+                                skippable: true
+                            }
+                        }
+                    });
+                } else {
+                    ebBidders.push({
+                        bidder: "appnexus",
+                        params: {
+                            placementId: bannerObject.appnexusID
+                        }
+                    });
+                }
             }
             if (typeof bannerObject.criteoId !== "undefined") {
                 console.log("prebid: add criteo as bidder");
@@ -7017,25 +7030,54 @@ var jppol = function(exports) {
                 for (var i = sizesLength; i--; ) {
                     var sizeJoint = sizes[i].join("x");
                     var PubMaticAdslotName = bannerObject.pubmaticAdSlot + "@" + sizeJoint;
-                    ebBidders.push({
-                        bidder: "pubmatic",
-                        params: {
-                            adSlot: PubMaticAdslotName,
-                            publisherId: bannerObject.pubmaticPublisherId
-                        }
-                    });
+                    if (bannerObject.outstream) {
+                        ebBidders.push({
+                            bidder: "pubmatic",
+                            params: {
+                                adSlot: PubMaticAdslotName,
+                                publisherId: bannerObject.pubmaticPublisherId,
+                                video: {
+                                    mimes: [ "video/mp4" ],
+                                    playbackmethod: 3,
+                                    skippable: true
+                                }
+                            }
+                        });
+                    } else {
+                        ebBidders.push({
+                            bidder: "pubmatic",
+                            params: {
+                                adSlot: PubMaticAdslotName,
+                                publisherId: bannerObject.pubmaticPublisherId
+                            }
+                        });
+                    }
                 }
             }
             if (typeof bannerObject.rubiconZone !== "undefined") {
                 console.log("prebid: add rubicon as bidder");
-                ebBidders.push({
-                    bidder: "rubicon",
-                    params: {
-                        accountId: bannerObject.rubiconAccountId,
-                        siteId: bannerObject.rubiconSiteID,
-                        zoneId: bannerObject.rubiconZone
-                    }
-                });
+                if (bannerObject.outstream) {
+                    ebBidders.push({
+                        bidder: "rubicon",
+                        params: {
+                            accountId: bannerObject.rubiconAccountId,
+                            siteId: bannerObject.rubiconSiteID,
+                            video: {
+                                language: "da"
+                            },
+                            zoneId: bannerObject.rubiconZone
+                        }
+                    });
+                } else {
+                    ebBidders.push({
+                        bidder: "rubicon",
+                        params: {
+                            accountId: bannerObject.rubiconAccountId,
+                            siteId: bannerObject.rubiconSiteID,
+                            zoneId: bannerObject.rubiconZone
+                        }
+                    });
+                }
             }
             return ebBidders;
         } catch (err) {
@@ -7049,11 +7091,34 @@ var jppol = function(exports) {
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
                 var bidders = BidderHandler(banner);
-                adUnits.push({
-                    bids: bidders,
-                    code: banner.targetId,
-                    sizes: banner.sizes
-                });
+                if (banner.outstream) {
+                    adUnits.push({
+                        bids: bidders,
+                        code: banner.targetId,
+                        mediaTypes: {
+                            video: {
+                                context: "outstream",
+                                playerSize: banner.outstreamSize
+                            }
+                        },
+                        renderer: {
+                            render: function(bid) {
+                                ANOutstreamVideo.renderAd({
+                                    adResponse: bid.adResponse,
+                                    targetId: bid.adUnitCode
+                                });
+                            },
+                            url: "https://cdn.adnxs.com/renderer/video/ANOutstreamVideo.js"
+                        },
+                        sizes: banner.sizes
+                    });
+                } else {
+                    adUnits.push({
+                        bids: bidders,
+                        code: banner.targetId,
+                        sizes: banner.sizes
+                    });
+                }
             }
             return adUnits;
         } catch (err) {

@@ -9,9 +9,13 @@ export interface IBannerObject {
   rubiconSiteID?: number;
   rubiconSizes?: number[];
   rubiconZone?: number;
+  outstream?: boolean;
+  outstreamSize?: number[];
   sizes: number[][];
   targetId: string;
 }
+
+declare var ANOutstreamVideo: any;
 
 function BidderHandler(bannerObject: IBannerObject) {
   try {
@@ -23,6 +27,9 @@ function BidderHandler(bannerObject: IBannerObject) {
      */
     if (typeof bannerObject.adformMID !== 'undefined') {
       console.log('prebid: add adform as bidder');
+
+      // no outstream video support?
+
       ebBidders.push({
         bidder: 'adform',
         params: {
@@ -38,12 +45,29 @@ function BidderHandler(bannerObject: IBannerObject) {
      */
     if (typeof bannerObject.appnexusID !== 'undefined') {
       console.log('prebid: add appnexus as bidder');
-      ebBidders.push({
-        bidder: 'appnexus',
-        params: {
-          placementId: bannerObject.appnexusID
-        }
-      });
+
+      // outstream video
+      if (bannerObject.outstream) {
+        ebBidders.push({
+          bidder: 'appnexus',
+          params: {
+            placementId: bannerObject.appnexusID,
+            video: {
+              playback_method: ['click_to_play'],
+              skippable: true
+              // startdelay: 0 // Pre-roll: 0 (default); Mid-roll: -1 ; Post-roll: -2.
+            }
+          }
+        });
+      } else {
+        // default
+        ebBidders.push({
+          bidder: 'appnexus',
+          params: {
+            placementId: bannerObject.appnexusID
+          }
+        });
+      }
     }
 
     /**
@@ -52,6 +76,9 @@ function BidderHandler(bannerObject: IBannerObject) {
      */
     if (typeof bannerObject.criteoId !== 'undefined') {
       console.log('prebid: add criteo as bidder');
+
+      // no outstream video support?
+
       ebBidders.push({
         bidder: 'criteo',
         params: {
@@ -73,13 +100,31 @@ function BidderHandler(bannerObject: IBannerObject) {
 
         const PubMaticAdslotName =
           bannerObject.pubmaticAdSlot + '@' + sizeJoint;
-        ebBidders.push({
-          bidder: 'pubmatic',
-          params: {
-            adSlot: PubMaticAdslotName,
-            publisherId: bannerObject.pubmaticPublisherId
-          }
-        });
+
+        // outstream video
+        if (bannerObject.outstream) {
+          ebBidders.push({
+            bidder: 'pubmatic',
+            params: {
+              adSlot: PubMaticAdslotName,
+              publisherId: bannerObject.pubmaticPublisherId,
+              video: {
+                mimes: ['video/mp4'],
+                playbackmethod: 3, // click to play
+                skippable: true
+              }
+            }
+          });
+        } else {
+          // default
+          ebBidders.push({
+            bidder: 'pubmatic',
+            params: {
+              adSlot: PubMaticAdslotName,
+              publisherId: bannerObject.pubmaticPublisherId
+            }
+          });
+        }
       }
     }
 
@@ -89,14 +134,31 @@ function BidderHandler(bannerObject: IBannerObject) {
      */
     if (typeof bannerObject.rubiconZone !== 'undefined') {
       console.log('prebid: add rubicon as bidder');
-      ebBidders.push({
-        bidder: 'rubicon',
-        params: {
-          accountId: bannerObject.rubiconAccountId,
-          siteId: bannerObject.rubiconSiteID,
-          zoneId: bannerObject.rubiconZone
-        }
-      });
+
+      // outstream video
+      if (bannerObject.outstream) {
+        ebBidders.push({
+          bidder: 'rubicon',
+          params: {
+            accountId: bannerObject.rubiconAccountId,
+            siteId: bannerObject.rubiconSiteID,
+            video: {
+              language: 'da' // Highly recommended for successful monetization for pre-, mid-, and post-roll video ads
+            },
+            zoneId: bannerObject.rubiconZone
+          }
+        });
+      } else {
+        // default
+        ebBidders.push({
+          bidder: 'rubicon',
+          params: {
+            accountId: bannerObject.rubiconAccountId,
+            siteId: bannerObject.rubiconSiteID,
+            zoneId: bannerObject.rubiconZone
+          }
+        });
+      }
     }
 
     return ebBidders;
@@ -112,11 +174,39 @@ export function AdUnitCreator(bannerContainer: any) {
 
     for (const banner of bannerContainer) {
       const bidders = BidderHandler(banner);
-      adUnits.push({
-        bids: bidders,
-        code: banner.targetId,
-        sizes: banner.sizes
-      });
+
+      console.log("banner:", banner);
+
+      // outstream video
+      if (banner.outstream) {
+        adUnits.push({
+          bids: bidders,
+          code: banner.targetId,
+          mediaTypes: {
+            video: {
+              context: 'outstream',
+              playerSize: banner.outstreamSize
+            }
+          },
+          renderer: {
+            render: bid => {
+              ANOutstreamVideo.renderAd({
+                adResponse: bid.adResponse,
+                targetId: bid.adUnitCode
+              });
+            },
+            url: 'https://cdn.adnxs.com/renderer/video/ANOutstreamVideo.js'
+          },
+          sizes: banner.sizes
+        });
+      } else {
+        // default
+        adUnits.push({
+          bids: bidders,
+          code: banner.targetId,
+          sizes: banner.sizes
+        });
+      }
     }
 
     return adUnits;
