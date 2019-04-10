@@ -1,6 +1,6 @@
 {
   "name": "eb_banners",
-  "version": "2.2.0",
+  "version": "2.9.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
