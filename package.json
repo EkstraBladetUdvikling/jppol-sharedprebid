@@ -1,6 +1,6 @@
 {
   "name": "eb_banners",
-  "version": "1.36.0",
+  "version": "2.9.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
-    "prebid.js": "^1.36.0"
+    "prebid.js": "^2.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -27,7 +27,7 @@
     "prettier": "^1.14.3",
     "rollup": "^1.0.2",
     "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-typescript2": "^0.18.1",
+    "rollup-plugin-typescript2": "^0.20.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.5",
