@@ -18,7 +18,7 @@
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
-    "prebid.js": "^2.9.0"
+    "prebid.js": "^2.34.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

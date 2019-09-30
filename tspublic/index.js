@@ -38,7 +38,7 @@ var jppol = (function (exports) {
                 distribution: false,
                 sampling: true
             };
-            var options = __assign({}, trackingDefaults, trackingOptions);
+            var options = __assign(__assign({}, trackingDefaults), trackingOptions);
             this.initializeTracking(options);
         }
         PrebidAnalytics.prototype.initializeTracking = function (options) {
@@ -207,7 +207,7 @@ var jppol = (function (exports) {
                 debug: false,
                 timeout: 700
             };
-            var auctionSettings = __assign({}, prebidDefault, options);
+            var auctionSettings = __assign(__assign({}, prebidDefault), options);
             this.auction(auctionSettings);
         }
         AuctionHandler.prototype.auction = function (options) {

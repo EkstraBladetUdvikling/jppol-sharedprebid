@@ -31,9 +31,7 @@ export class PrebidAnalytics {
   private initializeTracking(options) {
     try {
       console.log(
-        `prebid: PrebidAnalytics arguments: trackingSampling ${
-          options.sampling
-        } | trackingDistribution ${options.distribution}`
+        `prebid: PrebidAnalytics arguments: trackingSampling ${options.sampling} | trackingDistribution ${options.distribution}`
       );
       const win = window as any;
       const ga = win.ga;
