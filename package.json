@@ -1,6 +1,6 @@
 {
-  "name": "eb_banners",
-  "version": "2.34.0",
+  "name": "jppol-sharedprebid",
+  "version": "2.44.2",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
@@ -18,19 +18,19 @@
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
-    "prebid.js": "^2.34.0"
+    "prebid.js": "2.44.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-external-helpers": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "prettier": "^1.14.3",
-    "rollup": "^1.0.2",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-typescript2": "^0.20.1",
-    "tslint": "^5.11.0",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-external-helpers": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "prettier": "^1.19.1",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.1.5",
-    "uglify-js": "^3.4.9"
+    "typescript": "^3.7.4",
+    "uglify-js": "^3.7.4"
   }
 }
