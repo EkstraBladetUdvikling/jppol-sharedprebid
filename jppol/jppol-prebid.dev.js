@@ -8836,7 +8836,6 @@ var jppol = function(exports) {
         try {
             var ebBidders = [];
             if (typeof bannerObject.adformMID !== "undefined") {
-                console.log("prebid: add adform as bidder");
                 ebBidders.push({
                     bidder: "adform",
                     params: {
@@ -8846,7 +8845,6 @@ var jppol = function(exports) {
                 });
             }
             if (typeof bannerObject.appnexusID !== "undefined") {
-                console.log("prebid: add appnexus as bidder");
                 ebBidders.push({
                     bidder: "appnexus",
                     params: {
@@ -8855,7 +8853,6 @@ var jppol = function(exports) {
                 });
             }
             if (typeof bannerObject.criteoId !== "undefined") {
-                console.log("prebid: add criteo as bidder");
                 ebBidders.push({
                     bidder: "criteo",
                     params: {
@@ -8864,7 +8861,6 @@ var jppol = function(exports) {
                 });
             }
             if (typeof bannerObject.pubmaticAdSlot !== "undefined") {
-                console.log("prebid: add pubmatic as bidder");
                 var sizes = bannerObject.sizes;
                 var sizesLength = sizes.length;
                 for (var i = sizesLength; i--; ) {
@@ -8880,7 +8876,6 @@ var jppol = function(exports) {
                 }
             }
             if (typeof bannerObject.rubiconZone !== "undefined") {
-                console.log("prebid: add rubicon as bidder");
                 ebBidders.push({
                     bidder: "rubicon",
                     params: {
@@ -8898,7 +8893,6 @@ var jppol = function(exports) {
     function AdUnitCreator(bannerContainer) {
         try {
             var adUnits = [];
-            console.log("jppolPrebid AdUnitCreator - bannerContainer", bannerContainer);
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
                 var bidders = BidderHandler(banner);
@@ -8913,6 +8907,8 @@ var jppol = function(exports) {
             console.error("prebid", "biddersetup", err);
         }
     }
+    var PREBIDAUCTION = "prebidAuction";
+    var COMPLETED = "completed";
     var AuctionHandler = function() {
         function AuctionHandler(options) {
             var prebidDefault = {
@@ -8926,8 +8922,14 @@ var jppol = function(exports) {
         }
         AuctionHandler.prototype.auction = function(options) {
             try {
-                var adUnits_1 = AdUnitCreator(options.banners);
                 var pbjs_1 = window.pbjs;
+                console.log("prebid: window[PREBIDAUCTION][COMPLETED]", window[PREBIDAUCTION][COMPLETED]);
+                if (window[PREBIDAUCTION][COMPLETED]) {
+                    console.log("prebid: If the auction is completed, remove adunits");
+                    pbjs_1.removeAdUnit();
+                }
+                window[PREBIDAUCTION][COMPLETED] = false;
+                var adUnits_1 = AdUnitCreator(options.banners);
                 if (options.tracking) {
                     new PrebidAnalytics(options.tracking);
                 }
@@ -8949,6 +8951,7 @@ var jppol = function(exports) {
                             }
                         });
                         pbjs_1.addAdUnits(adUnits_1);
+                        console.log("prebid: pbjs.adUnits?", pbjs_1.adUnits);
                         pbjs_1.requestBids({
                             bidsBackHandler: function(bidResponse) {
                                 console.log("prebid: bidsBackHandler", bidResponse);
@@ -8966,6 +8969,7 @@ var jppol = function(exports) {
                                 if (typeof options.adserverCallback !== "undefined") {
                                     options.adserverCallback(bidResponse);
                                 }
+                                window[PREBIDAUCTION][COMPLETED] = true;
                             }
                         });
                     }
@@ -8976,6 +8980,9 @@ var jppol = function(exports) {
         };
         return AuctionHandler;
     }();
+    var _a;
+    window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, 
+    _a);
     function prebid(options) {
         new AuctionHandler(options);
     }
