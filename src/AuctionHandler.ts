@@ -1,5 +1,6 @@
 import { ITrackingOptions, PrebidAnalytics } from './Analytics';
 import { AdUnitCreator, IBannerObject } from './BidderHandler';
+import { COMPLETED, PREBIDAUCTION } from './variables';
 
 export interface IPrebidOptions {
   adserverCallback?: any;
@@ -9,6 +10,7 @@ export interface IPrebidOptions {
   debug?: boolean;
   timeout?: number;
   tracking?: ITrackingOptions;
+  auctionCompleted?: boolean;
 }
 
 export class AuctionHandler {
@@ -25,12 +27,25 @@ export class AuctionHandler {
 
   private auction(options: IPrebidOptions) {
     try {
-      const adUnits = AdUnitCreator(options.banners);
       const pbjs = (window as any).pbjs;
+
+      console.log(
+        'prebid: window[PREBIDAUCTION][COMPLETED]',
+        window[PREBIDAUCTION][COMPLETED]
+      );
+      // If the auction is completed, remove adunits
+      if (window[PREBIDAUCTION][COMPLETED]) {
+        console.log('prebid: If the auction is completed, remove adunits');
+        pbjs.removeAdUnit();
+      }
+
+      window[PREBIDAUCTION][COMPLETED] = false;
+      const adUnits = AdUnitCreator(options.banners);
 
       if (options.tracking) {
         new PrebidAnalytics(options.tracking);
       }
+
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
           pbjs.setConfig({
@@ -49,7 +64,7 @@ export class AuctionHandler {
             }
           });
           pbjs.addAdUnits(adUnits);
-
+          console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
           pbjs.requestBids({
             bidsBackHandler: bidResponse => {
               console.log('prebid: bidsBackHandler', bidResponse);
@@ -69,6 +84,7 @@ export class AuctionHandler {
               if (typeof options.adserverCallback !== 'undefined') {
                 options.adserverCallback(bidResponse);
               }
+              window[PREBIDAUCTION][COMPLETED] = true;
             }
           });
         }
