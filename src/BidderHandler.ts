@@ -106,11 +106,24 @@ export function AdUnitCreator(bannerContainer: any) {
 
     for (const banner of bannerContainer) {
       const bidders = BidderHandler(banner);
-      adUnits.push({
+      const adUnit: {
+        bids: any;
+        code: string;
+        sizes: number[][];
+        pubstack?: {
+          adUnitName: string;
+          adUnitPath: string;
+        };
+      } = {
         bids: bidders,
         code: banner.targetId,
         sizes: banner.sizes
-      });
+      };
+      if (banner.pubstackData) {
+        adUnit.pubstack = banner.pubstackData;
+        console.log('prebid: add pubstack data');
+      }
+      adUnits.push(adUnit);
     }
 
     return adUnits;

@@ -180,11 +180,16 @@ var jppol = (function (exports) {
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
                 var bidders = BidderHandler(banner);
-                adUnits.push({
+                var adUnit = {
                     bids: bidders,
                     code: banner.targetId,
                     sizes: banner.sizes
-                });
+                };
+                if (banner.pubstackData) {
+                    adUnit.pubstack = banner.pubstackData;
+                    console.log('prebid: add pubstack data');
+                }
+                adUnits.push(adUnit);
             }
             return adUnits;
         }
