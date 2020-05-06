@@ -22,7 +22,6 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.github.io/dev-docs/bidders.html#adform
      */
     if (typeof bannerObject.adformMID !== 'undefined') {
-      console.log('prebid: add adform as bidder');
       ebBidders.push({
         bidder: 'adform',
         params: {
@@ -37,7 +36,6 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.org/dev-docs/bidders.html#appnexus
      */
     if (typeof bannerObject.appnexusID !== 'undefined') {
-      console.log('prebid: add appnexus as bidder');
       ebBidders.push({
         bidder: 'appnexus',
         params: {
@@ -51,7 +49,6 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.org/dev-docs/bidders.html#criteo
      */
     if (typeof bannerObject.criteoId !== 'undefined') {
-      console.log('prebid: add criteo as bidder');
       ebBidders.push({
         bidder: 'criteo',
         params: {
@@ -65,7 +62,6 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.github.io/dev-docs/bidders.html#pubmatic
      */
     if (typeof bannerObject.pubmaticAdSlot !== 'undefined') {
-      console.log('prebid: add pubmatic as bidder');
       const sizes = bannerObject.sizes;
       const sizesLength = sizes.length;
       for (let i = sizesLength; i--; ) {
@@ -88,7 +84,6 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.github.io/dev-docs/bidders.html#rubicon
      */
     if (typeof bannerObject.rubiconZone !== 'undefined') {
-      console.log('prebid: add rubicon as bidder');
       ebBidders.push({
         bidder: 'rubicon',
         params: {
@@ -108,7 +103,6 @@ function BidderHandler(bannerObject: IBannerObject) {
 export function AdUnitCreator(bannerContainer: any) {
   try {
     const adUnits = [];
-    console.log('jppolPrebid AdUnitCreator - bannerContainer', bannerContainer);
 
     for (const banner of bannerContainer) {
       const bidders = BidderHandler(banner);
