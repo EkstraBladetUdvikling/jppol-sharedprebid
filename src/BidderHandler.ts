@@ -109,7 +109,11 @@ export function AdUnitCreator(bannerContainer: any) {
       const adUnit: {
         bids: any;
         code: string;
-        sizes: number[][];
+        mediaTypes: {
+          banner: {
+            sizes: number[][];
+          };
+        };
         pubstack?: {
           adUnitName: string;
           adUnitPath: string;
@@ -117,7 +121,11 @@ export function AdUnitCreator(bannerContainer: any) {
       } = {
         bids: bidders,
         code: banner.targetId,
-        sizes: banner.sizes
+        mediaTypes: {
+          banner: {
+            sizes: banner.sizes
+          }
+        }
       };
       if (banner.pubstackData) {
         adUnit.pubstack = banner.pubstackData;
