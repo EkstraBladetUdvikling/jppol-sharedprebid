@@ -15,7 +15,7 @@
     "uglify-prod": "uglifyjs --config-file=\"./uglify.prod.config.json\" \"./prebid/prebid3.19.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
     "uglify-debug": "uglifyjs --config-file=\"./uglify.dev.config.json\" \"./prebid/prebid3.19.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
     "tslint": "tslint -c tslint.json \"./src/**/*.ts\"",
-    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid\""
+    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v3\""
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
