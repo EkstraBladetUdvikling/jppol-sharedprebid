@@ -183,7 +183,11 @@ var jppol = (function (exports) {
                 var adUnit = {
                     bids: bidders,
                     code: banner.targetId,
-                    sizes: banner.sizes
+                    mediaTypes: {
+                        banner: {
+                            sizes: banner.sizes
+                        }
+                    }
                 };
                 if (banner.pubstackData) {
                     adUnit.pubstack = banner.pubstackData;

@@ -1,6 +1,6 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "2.44.3",
+  "version": "3.23.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,10 @@
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",
-    "uglify-prod": "uglifyjs --config-file=\"./uglify.prod.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
-    "uglify-debug": "uglifyjs --config-file=\"./uglify.dev.config.json\" \"./prebid/prebid.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
-    "tslint": "tslint -c tslint.json \"./src/**/*.ts\""
+    "uglify-prod": "uglifyjs --config-file=\"./uglify.prod.config.json\" \"./prebid/prebid3.23.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
+    "uglify-debug": "uglifyjs --config-file=\"./uglify.dev.config.json\" \"./prebid/prebid3.23.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
+    "tslint": "tslint -c tslint.json \"./src/**/*.ts\"",
+    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v3\""
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {
@@ -24,6 +25,7 @@
     "@babel/core": "^7.7.7",
     "@babel/plugin-external-helpers": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
+    "cpx": "^1.5.0",
     "prettier": "^1.19.1",
     "rollup": "^1.29.0",
     "rollup-plugin-babel": "^4.3.3",
