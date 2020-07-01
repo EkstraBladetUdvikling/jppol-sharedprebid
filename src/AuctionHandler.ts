@@ -4,13 +4,14 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 
 export interface IPrebidOptions {
   adserverCallback?: any;
+  auctionCompleted?: boolean;
   banners: IBannerObject[];
   consentAllowAuction?: boolean;
   consentTimeout?: number;
   debug?: boolean;
+  keywords?: string[];
   timeout?: number;
   tracking?: ITrackingOptions;
-  auctionCompleted?: boolean;
 }
 
 export class AuctionHandler {
@@ -40,7 +41,7 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(options.banners);
+      const adUnits = AdUnitCreator(options.banners, options.keywords);
 
       if (options.tracking) {
         new PrebidAnalytics(options.tracking);
