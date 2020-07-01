@@ -9,7 +9,7 @@
         return i;
     };
     var n = {}, d = {
-        312: 0
+        315: 0
     };
     function f(e) {
         if (n[e]) return n[e].exports;
@@ -37,7 +37,7 @@
         return Object.prototype.hasOwnProperty.call(e, t);
     }, f.p = "", f.oe = function(e) {
         throw console.error(e), e;
-    }, f(f.s = 829);
+    }, f(f.s = 835);
 }([ function(e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", {
@@ -856,7 +856,7 @@
     }), n.d(t, "b", function() {
         return j;
     });
-    var r = n(45), o = n(11), a = n.n(o), i = n(12), c = n.n(i), u = n(80), s = n.n(u), d = n(0);
+    var r = n(46), o = n(11), a = n.n(o), i = n(12), c = n.n(i), u = n(80), s = n.n(u), d = n(0);
     function f() {
         return (f = Object.assign || function(e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -1252,7 +1252,7 @@
     }), t.setS2STestingModule = function(e) {
         T = e;
     };
-    var S = n(0), p = n(101), g = n(35), d = n(1), h = n(4), A = n(3), r = n(13), o = n(12), E = n.n(o), i = n(11), O = n.n(i), y = n(68), I = n(30);
+    var S = n(0), p = n(101), g = n(35), d = n(1), h = n(4), A = n(3), r = n(13), o = n(12), E = n.n(o), i = n(11), O = n.n(i), y = n(69), I = n(30);
     function m(e, t) {
         return function(e) {
             if (Array.isArray(e)) return e;
@@ -1896,7 +1896,7 @@
     function p(e, t) {
         this.stopped = e, this.result = t;
     }
-    var g = n(15), y = n(82), b = n(50), v = n(21), h = n(61), m = n(83);
+    var g = n(15), y = n(82), b = n(51), v = n(21), h = n(62), m = n(83);
     (e.exports = function(e, t, n, r, o) {
         var i, a, c, u, s, d, f, l = v(t, n, r ? 2 : 1);
         if (o) i = e; else {
@@ -1918,7 +1918,7 @@
         return e;
     };
 }, function(e, t, n) {
-    var r = n(22), o = n(76), i = n(24), a = n(59), c = n(78), u = n(113), s = o("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
+    var r = n(22), o = n(76), i = n(24), a = n(60), c = n(78), u = n(113), s = o("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
     e.exports = function(e) {
         return i(s, e) || (c && i(d, e) ? s[e] = d[e] : s[e] = f("Symbol." + e)), s[e];
     };
@@ -2062,7 +2062,7 @@
         }
     };
 }, function(e, t, n) {
-    var r = n(27), o = n(31), i = n(46);
+    var r = n(27), o = n(31), i = n(47);
     e.exports = r ? function(e, t, n) {
         return o.f(e, t, i(1, n));
     } : function(e, t, n) {
@@ -2162,7 +2162,7 @@
     }
     var o = r(window);
 }, function(e, t, n) {
-    var r = n(27), o = n(74), i = n(15), a = n(55), c = Object.defineProperty;
+    var r = n(27), o = n(74), i = n(15), a = n(56), c = Object.defineProperty;
     t.f = r ? c : function(e, t, n) {
         if (i(e), t = a(t, !0), i(n), o) try {
             return c(e, t, n);
@@ -2569,7 +2569,7 @@
     }), n.d(t, "h", function() {
         return f;
     }), t.j = l;
-    var w = n(0), C = n(45), a = n(35), i = n(102), x = n(10), U = n(3), r = n(44), o = n(13), c = n(11), _ = n.n(c), B = n(38), u = n(2);
+    var w = n(0), C = n(46), a = n(35), i = n(102), x = n(10), U = n(3), r = n(44), o = n(13), c = n(11), _ = n.n(c), B = n(38), u = n(2);
     function R(e) {
         return (R = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
             return typeof e;
@@ -3142,7 +3142,7 @@
             }[r.filter || "include"](o, t);
         }
     }
-}, function(e, t, n) {
+}, , function(e, t, n) {
     "use strict";
     n.d(t, "a", function() {
         return d;
@@ -3235,7 +3235,7 @@
         };
     };
 }, function(e, t, n) {
-    var r = n(73), o = n(49);
+    var r = n(73), o = n(50);
     e.exports = function(e) {
         return r(o(e));
     };
@@ -3250,7 +3250,7 @@
         return e;
     };
 }, function(e, t, n) {
-    var r = n(58), o = Math.min;
+    var r = n(59), o = Math.min;
     e.exports = function(e) {
         return 0 < e ? o(r(e), 9007199254740991) : 0;
     };
@@ -3262,7 +3262,7 @@
 }, function(e, t) {
     e.exports = {};
 }, function(e, t, n) {
-    var r, o, i, a, c, u, s, d, f = n(122), l = n(22), p = n(23), g = n(29), y = n(24), b = n(65), v = n(53), h = l.WeakMap;
+    var r, o, i, a, c, u, s, d, f = n(122), l = n(22), p = n(23), g = n(29), y = n(24), b = n(66), v = n(54), h = l.WeakMap;
     s = f ? (r = new h(), o = r.get, i = r.has, a = r.set, c = function(e, t) {
         return a.call(r, e, t), t;
     }, u = function(e) {
@@ -3321,7 +3321,7 @@
             return h ? -1 : b || v ? v : l;
         };
     }
-    var S = n(21), A = n(73), E = n(57), O = n(50), I = n(110), T = [].push;
+    var S = n(21), A = n(73), E = n(58), O = n(51), I = n(110), T = [].push;
     e.exports = {
         forEach: r(0),
         map: r(1),
@@ -3332,7 +3332,7 @@
         findIndex: r(6)
     };
 }, function(e, t, n) {
-    var r = n(49);
+    var r = n(50);
     e.exports = function(e) {
         return Object(r(e));
     };
@@ -3366,12 +3366,12 @@
         });
     };
 }, function(e, t, n) {
-    var r = n(62), o = n(36), i = n(19)("iterator");
+    var r = n(63), o = n(36), i = n(19)("iterator");
     e.exports = function(e) {
         if (null != e) return e[i] || e["@@iterator"] || o[r(e)];
     };
 }, function(e, t, n) {
-    var r = n(63), o = n(48), i = n(19)("toStringTag"), a = "Arguments" == o(function() {
+    var r = n(64), o = n(49), i = n(19)("toStringTag"), a = "Arguments" == o(function() {
         return arguments;
     }());
     e.exports = r ? o : function(e) {
@@ -3386,7 +3386,7 @@
     var r = {};
     r[n(19)("toStringTag")] = "z", e.exports = "[object z]" === String(r);
 }, function(e, t, n) {
-    var i = n(63), a = n(31).f, c = n(29), u = n(24), s = n(121), d = n(19)("toStringTag");
+    var i = n(64), a = n(31).f, c = n(29), u = n(24), s = n(121), d = n(19)("toStringTag");
     e.exports = function(e, t, n, r) {
         var o;
         e && (o = n ? e : e.prototype, u(o, d) || a(o, d, {
@@ -3395,7 +3395,7 @@
         }), r && !i && c(o, "toString", s));
     };
 }, function(e, t, n) {
-    var r = n(76), o = n(59), i = r("keys");
+    var r = n(76), o = n(60), i = r("keys");
     e.exports = function(e) {
         return i[e] || (i[e] = o(e));
     };
@@ -3404,7 +3404,7 @@
     function v() {
         return this;
     }
-    var h = n(14), m = n(130), S = n(89), A = n(132), E = n(64), O = n(29), I = n(87), r = n(19), T = n(16), j = n(36), o = n(88), w = o.IteratorPrototype, C = o.BUGGY_SAFARI_ITERATORS, x = r("iterator"), U = "values", _ = "entries";
+    var h = n(14), m = n(130), S = n(89), A = n(132), E = n(65), O = n(29), I = n(87), r = n(19), T = n(16), j = n(36), o = n(88), w = o.IteratorPrototype, C = o.BUGGY_SAFARI_ITERATORS, x = r("iterator"), U = "values", _ = "entries";
     e.exports = function(e, t, n, r, o, i, a) {
         m(n, t, r);
         function c(e) {
@@ -3485,7 +3485,7 @@
     }), n.d(t, "checkAdUnitSetup", function() {
         return V;
     }), t.executeStorageCallbacks = K;
-    var r = n(20), o = n(0), i = n(246), a = n(44), d = n(3), v = n(26), f = n(41), c = n(13), u = n(247), s = n(12), l = n.n(s), p = n(68), h = n(10), g = n(32), y = n(9);
+    var r = n(20), o = n(0), i = n(246), a = n(44), d = n(3), v = n(26), f = n(41), c = n(13), u = n(247), s = n(12), l = n.n(s), p = n(69), h = n(10), g = n(32), y = n(9);
     function b(e) {
         return (b = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
             return typeof e;
@@ -3540,8 +3540,8 @@
         delete e.mediaTypes.native.image.aspect_ratios), t.icon && t.icon.sizes && !Array.isArray(t.icon.sizes) && (E.logError("Please use an array of sizes for native.icon.sizes field.  Removing invalid mediaTypes.native.icon.sizes property from request."), 
         delete e.mediaTypes.native.icon.sizes);
     }
-    Object(u.a)(), S.bidderSettings = S.bidderSettings || {}, S.libLoaded = !0, S.version = "v3.23.0", 
-    E.logInfo("Prebid.js v3.23.0 loaded"), S.adUnits = S.adUnits || [], S.triggerUserSyncs = T;
+    Object(u.a)(), S.bidderSettings = S.bidderSettings || {}, S.libLoaded = !0, S.version = "v3.24.0", 
+    E.logInfo("Prebid.js v3.24.0 loaded"), S.adUnits = S.adUnits || [], S.triggerUserSyncs = T;
     var z = {
         validateBannerMediaType: F,
         validateVideoMediaType: W,
@@ -3778,7 +3778,7 @@
     }, S.que.push = S.cmd.push, S.processQueue = function() {
         c.b.ready(), $(S.que), $(S.cmd);
     }, t.default = S;
-}, , function(e, t, n) {
+}, function(e, t, n) {
     "use strict";
     t.a = function(t, n) {
         i.adServers = i.adServers || {}, i.adServers[t] = i.adServers[t] || {}, Object.keys(n).forEach(function(e) {
@@ -3787,7 +3787,7 @@
     };
     var r = n(20), o = n(0), i = Object(r.a)();
 }, function(e, t, n) {
-    var r = n(28), o = n(48), i = "".split;
+    var r = n(28), o = n(49), i = "".split;
     e.exports = r(function() {
         return !Object("z").propertyIsEnumerable(0);
     }) ? function(e) {
@@ -3834,7 +3834,7 @@
             return !c && -1;
         };
     }
-    var u = n(47), s = n(50), d = n(116);
+    var u = n(48), s = n(51), d = n(116);
     e.exports = {
         includes: r(!0),
         indexOf: r(!1)
@@ -3852,7 +3852,7 @@
             }
         });
     }
-    var o = n(53), i = n(23), a = n(24), c = n(31).f, u = n(59), s = n(120), d = u("meta"), f = 0, l = Object.isExtensible || function() {
+    var o = n(54), i = n(23), a = n(24), c = n(31).f, u = n(60), s = n(120), d = u("meta"), f = 0, l = Object.isExtensible || function() {
         return !0;
     }, p = e.exports = {
         REQUIRED: !1,
@@ -3903,7 +3903,7 @@
     function o(e) {
         return "<script>" + e + "</" + g + ">";
     }
-    var i, a = n(15), c = n(125), u = n(86), s = n(53), d = n(128), f = n(75), l = n(65), p = "prototype", g = "script", y = l("IE_PROTO"), b = function() {
+    var i, a = n(15), c = n(125), u = n(86), s = n(54), d = n(128), f = n(75), l = n(66), p = "prototype", g = "script", y = l("IE_PROTO"), b = function() {
         try {
             i = document.domain && new ActiveXObject("htmlfile");
         } catch (e) {}
@@ -3941,13 +3941,13 @@
         BUGGY_SAFARI_ITERATORS: l
     };
 }, function(e, t, n) {
-    var r = n(24), o = n(57), i = n(65), a = n(131), c = i("IE_PROTO"), u = Object.prototype;
+    var r = n(24), o = n(58), i = n(66), a = n(131), c = i("IE_PROTO"), u = Object.prototype;
     e.exports = a ? Object.getPrototypeOf : function(e) {
         return e = o(e), r(e, c) ? e[c] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? u : null;
     };
 }, function(e, t, n) {
     "use strict";
-    var o = n(136).charAt, r = n(54), i = n(66), a = "String Iterator", c = r.set, u = r.getterFor(a);
+    var o = n(136).charAt, r = n(55), i = n(67), a = "String Iterator", c = r.set, u = r.getterFor(a);
     i(String, "String", function(e) {
         c(this, {
             type: a,
@@ -3965,7 +3965,7 @@
         });
     });
 }, function(e, t, n) {
-    var r = n(15), o = n(61);
+    var r = n(15), o = n(62);
     e.exports = function(e) {
         var t = o(e);
         if ("function" != typeof t) throw TypeError(String(e) + " is not iterable");
@@ -3996,7 +3996,7 @@
     };
 }, function(e, t, n) {
     "use strict";
-    var r = n(67), o = n(173)("%Function%"), i = o.apply, a = o.call;
+    var r = n(68), o = n(173)("%Function%"), i = o.apply, a = o.call;
     e.exports = function() {
         return r.apply(a, arguments);
     }, e.exports.apply = function() {
@@ -4177,11 +4177,11 @@
     }
 }, , , function(e, t, n) {
     n(106);
-    var r = n(52);
+    var r = n(53);
     e.exports = r("Array", "find");
 }, function(e, t, n) {
     "use strict";
-    var r = n(14), o = n(56).find, i = n(51), a = n(60), c = "find", u = !0, s = a(c);
+    var r = n(14), o = n(57).find, i = n(52), a = n(61), c = "find", u = !0, s = a(c);
     c in [] && Array(1)[c](function() {
         u = !1;
     }), r({
@@ -4194,7 +4194,7 @@
         }
     }), i(c);
 }, function(e, t, n) {
-    var r = n(27), o = n(108), i = n(46), a = n(47), c = n(55), u = n(24), s = n(74), d = Object.getOwnPropertyDescriptor;
+    var r = n(27), o = n(108), i = n(47), a = n(48), c = n(56), u = n(24), s = n(74), d = Object.getOwnPropertyDescriptor;
     t.f = r ? d : function(e, t) {
         if (e = a(e), t = c(t, !0), s) try {
             return d(e, t);
@@ -4227,7 +4227,7 @@
         new (void 0 === n ? Array : n)(0 === t ? 0 : t);
     };
 }, function(e, t, n) {
-    var r = n(48);
+    var r = n(49);
     e.exports = Array.isArray || function(e) {
         return "Array" == r(e);
     };
@@ -4246,15 +4246,15 @@
     e.exports = r && !Symbol.sham && "symbol" == typeof Symbol.iterator;
 }, function(e, t, n) {
     n(115);
-    var r = n(52);
+    var r = n(53);
     e.exports = r("Array", "includes");
 }, function(e, t, n) {
     "use strict";
-    var r = n(14), o = n(79).includes, i = n(51);
+    var r = n(14), o = n(79).includes, i = n(52);
     r({
         target: "Array",
         proto: !0,
-        forced: !n(60)("indexOf", {
+        forced: !n(61)("indexOf", {
             ACCESSORS: !0,
             1: 0
         })
@@ -4264,7 +4264,7 @@
         }
     }), i("includes");
 }, function(e, t, n) {
-    var r = n(58), o = Math.max, i = Math.min;
+    var r = n(59), o = Math.max, i = Math.min;
     e.exports = function(e, t) {
         var n = r(e);
         return n < 0 ? o(n + t, 0) : i(n, t);
@@ -4283,7 +4283,7 @@
     }, o);
 }, function(e, t, n) {
     "use strict";
-    var f = n(14), l = n(22), p = n(81), g = n(28), y = n(29), b = n(17), v = n(84), h = n(23), m = n(64), S = n(31).f, A = n(56).forEach, E = n(27), r = n(54), O = r.set, I = r.getterFor;
+    var f = n(14), l = n(22), p = n(81), g = n(28), y = n(29), b = n(17), v = n(84), h = n(23), m = n(65), S = n(31).f, A = n(57).forEach, E = n(27), r = n(55), O = r.set, I = r.getterFor;
     e.exports = function(n, e, t) {
         var r, a, o = -1 !== n.indexOf("Map"), c = -1 !== n.indexOf("Weak"), i = o ? "set" : "add", u = l[n], s = u && u.prototype, d = {};
         return E && "function" == typeof u && (c || s.forEach && !g(function() {
@@ -4319,7 +4319,7 @@
     });
 }, function(e, t, n) {
     "use strict";
-    var r = n(63), o = n(62);
+    var r = n(64), o = n(63);
     e.exports = r ? {}.toString : function() {
         return "[object " + o(this) + "]";
     };
@@ -4333,7 +4333,7 @@
     }), e.exports = r.inspectSource;
 }, function(e, t, n) {
     "use strict";
-    var s = n(31).f, d = n(85), f = n(129), l = n(21), p = n(84), g = n(17), a = n(66), c = n(134), y = n(27), b = n(81).fastKey, r = n(54), v = r.set, h = r.getterFor;
+    var s = n(31).f, d = n(85), f = n(129), l = n(21), p = n(84), g = n(17), a = n(67), c = n(134), y = n(27), b = n(81).fastKey, r = n(55), v = r.set, h = r.getterFor;
     e.exports = {
         getConstructor: function(e, n, r, o) {
             function i(e, t, n) {
@@ -4438,7 +4438,7 @@
         return r(e, o);
     };
 }, function(e, t, n) {
-    var a = n(24), c = n(47), u = n(79).indexOf, s = n(53);
+    var a = n(24), c = n(48), u = n(79).indexOf, s = n(54);
     e.exports = function(e, t) {
         var n, r = c(e), o = 0, i = [];
         for (n in r) !a(s, n) && a(r, n) && i.push(n);
@@ -4459,7 +4459,7 @@
     function o() {
         return this;
     }
-    var i = n(88).IteratorPrototype, a = n(85), c = n(46), u = n(64), s = n(36);
+    var i = n(88).IteratorPrototype, a = n(85), c = n(47), u = n(65), s = n(36);
     e.exports = function(e, t, n) {
         var r = t + " Iterator";
         return e.prototype = a(i, {
@@ -4509,21 +4509,21 @@
             return i < 0 || a <= i ? c ? "" : void 0 : (n = o.charCodeAt(i)) < 55296 || 56319 < n || i + 1 === a || (r = o.charCodeAt(i + 1)) < 56320 || 57343 < r ? c ? o.charAt(i) : n : c ? o.slice(i, i + 2) : r - 56320 + (n - 55296 << 10) + 65536;
         };
     }
-    var u = n(58), s = n(49);
+    var u = n(59), s = n(50);
     e.exports = {
         codeAt: r(!1),
         charAt: r(!0)
     };
 }, function(e, t, n) {
     n(138);
-    var r = n(139), o = n(22), i = n(62), a = n(29), c = n(36), u = n(19)("toStringTag");
+    var r = n(139), o = n(22), i = n(63), a = n(29), c = n(36), u = n(19)("toStringTag");
     for (var s in r) {
         var d = o[s], f = d && d.prototype;
         f && i(f) !== u && a(f, u, s), c[s] = c.Array;
     }
 }, function(e, t, n) {
     "use strict";
-    var r = n(47), o = n(51), i = n(36), a = n(54), c = n(66), u = "Array Iterator", s = a.set, d = a.getterFor(u);
+    var r = n(48), o = n(52), i = n(36), a = n(55), c = n(67), u = "Array Iterator", s = a.set, d = a.getterFor(u);
     e.exports = c(Array, "Array", function(e, t) {
         s(this, {
             type: u,
@@ -4890,7 +4890,7 @@
     });
 }, function(e, t, n) {
     "use strict";
-    var b = n(21), v = n(57), h = n(83), m = n(82), S = n(50), A = n(165), E = n(61);
+    var b = n(21), v = n(58), h = n(83), m = n(82), S = n(51), A = n(165), E = n(62);
     e.exports = function(e, t, n) {
         var r, o, i, a, c, u, s = v(e), d = "function" == typeof this ? this : Array, f = arguments.length, l = 1 < f ? t : void 0, p = void 0 !== l, g = E(s), y = 0;
         if (p && (l = b(l, 2 < f ? n : void 0, 2)), null == g || d == Array && m(g)) for (o = new d(r = S(s.length)); y < r; y++) u = p ? l(s[y], y) : s[y], 
@@ -4900,7 +4900,7 @@
     };
 }, function(e, t, n) {
     "use strict";
-    var o = n(55), i = n(31), a = n(46);
+    var o = n(56), i = n(31), a = n(47);
     e.exports = function(e, t, n) {
         var r = o(t);
         r in e ? i.f(e, r, a(0, n)) : e[r] = n;
@@ -5221,7 +5221,7 @@
         "%WeakMapPrototype%": "undefined" == typeof WeakMap ? r : WeakMap.prototype,
         "%WeakSet%": "undefined" == typeof WeakSet ? r : WeakSet,
         "%WeakSetPrototype%": "undefined" == typeof WeakSet ? r : WeakSet.prototype
-    }, p = n(67).call(Function.call, String.prototype.replace), g = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g, y = /\\(\\)?/g;
+    }, p = n(68).call(Function.call, String.prototype.replace), g = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g, y = /\\(\\)?/g;
     e.exports = function(e, t) {
         if ("string" != typeof e || 0 === e.length) throw new TypeError("intrinsic name must be a non-empty string");
         if (1 < arguments.length && "boolean" != typeof t) throw new TypeError('"allowMissing" argument must be a boolean');
@@ -5300,7 +5300,7 @@
     };
 }, function(e, t, n) {
     "use strict";
-    var r = n(67);
+    var r = n(68);
     e.exports = r.call(Function.call, Object.prototype.hasOwnProperty);
 }, function(e, t, n) {
     "use strict";
@@ -5512,11 +5512,11 @@
     e.exports = h;
 }, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , function(e, t, n) {
     n(239);
-    var r = n(52);
+    var r = n(53);
     e.exports = r("Array", "findIndex");
 }, function(e, t, n) {
     "use strict";
-    var r = n(14), o = n(56).findIndex, i = n(51), a = n(60), c = "findIndex", u = !0, s = a(c);
+    var r = n(14), o = n(57).findIndex, i = n(52), a = n(61), c = "findIndex", u = !0, s = a(c);
     c in [] && Array(1)[c](function() {
         u = !1;
     }), r({
@@ -5668,11 +5668,11 @@
     e.exports = r;
 }, function(e, t, n) {
     n(360);
-    var r = n(52);
+    var r = n(53);
     e.exports = r("String", "includes");
 }, function(e, t, n) {
     "use strict";
-    var r = n(14), o = n(361), i = n(49);
+    var r = n(14), o = n(361), i = n(50);
     r({
         target: "String",
         proto: !0,
@@ -5689,7 +5689,7 @@
         return e;
     };
 }, function(e, t, n) {
-    var r = n(23), o = n(48), i = n(19)("match");
+    var r = n(23), o = n(49), i = n(19)("match");
     e.exports = function(e) {
         var t;
         return r(e) && (void 0 !== (t = e[i]) ? !!t : "RegExp" == o(e));
@@ -5707,11 +5707,11 @@
         }
         return !1;
     };
-}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , function(e, t, n) {
-    var r = n(482);
+}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , function(e, t, n) {
+    var r = n(484);
     e.exports = r;
 }, function(e, t, n) {
-    n(483);
+    n(485);
     var r = n(42);
     e.exports = r.Number.isInteger;
 }, function(e, t, n) {
@@ -5719,18 +5719,18 @@
         target: "Number",
         stat: !0
     }, {
-        isInteger: n(484)
+        isInteger: n(486)
     });
 }, function(e, t, n) {
     var r = n(23), o = Math.floor;
     e.exports = function(e) {
         return !r(e) && isFinite(e) && o(e) === e;
     };
-}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , function(e, t, n) {
-    e.exports = n(70);
+}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , function(e, t, n) {
+    e.exports = n(71);
 } ]);
 
-pbjsChunk([ 304 ], {
+pbjsChunk([ 307 ], {
     206: function(e, r, n) {
         e.exports = n(207);
     },
@@ -5818,7 +5818,7 @@ pbjsChunk([ 304 ], {
     }
 }, [ 206 ]);
 
-pbjsChunk([ 272 ], {
+pbjsChunk([ 275 ], {
     286: function(e, r, t) {
         e.exports = t(287);
     },
@@ -5827,9 +5827,9 @@ pbjsChunk([ 272 ], {
         Object.defineProperty(r, "__esModule", {
             value: !0
         }), t.d(r, "spec", function() {
-            return O;
+            return R;
         });
-        var f = t(10), _ = t(0), I = t(3), g = t(1), y = t(2), p = t(26), a = t(11), k = t.n(a), n = t(12), x = t.n(n), v = t(38), i = t(9);
+        var f = t(10), _ = t(0), k = t(3), y = t(1), v = t(2), p = t(26), a = t(11), I = t.n(a), n = t(12), x = t.n(n), g = t(38), i = t(9);
         function s(e) {
             return (s = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
@@ -5867,7 +5867,24 @@ pbjsChunk([ 272 ], {
             for (var t = 0, a = new Array(r); t < r; t++) a[t] = e[t];
             return a;
         }
-        var d = "appnexus", C = "https://ib.adnxs.com/ut/v3/prebid", u = [ "id", "mimes", "minduration", "maxduration", "startdelay", "skippable", "playback_method", "frameworks" ], S = [ "age", "externalUid", "segments", "gender", "dnt", "language" ], w = [ "geo", "device_id" ], T = [ "enabled", "dongle", "member_id", "debug_timeout" ], c = {
+        var d = "appnexus", C = "https://ib.adnxs.com/ut/v3/prebid", u = [ "id", "minduration", "maxduration", "skippable", "playback_method", "frameworks", "context", "skipoffset" ], w = [ "age", "externalUid", "segments", "gender", "dnt", "language" ], S = [ "geo", "device_id" ], T = [ "enabled", "dongle", "member_id", "debug_timeout" ], c = {
+            playback_method: {
+                unknown: 0,
+                auto_play_sound_on: 1,
+                auto_play_sound_off: 2,
+                click_to_play: 3,
+                mouse_over: 4,
+                auto_play_sound_unknown: 5
+            },
+            context: {
+                unknown: 0,
+                pre_roll: 1,
+                mid_roll: 2,
+                post_roll: 3,
+                outstream: 4,
+                "in-banner": 5
+            }
+        }, l = {
             body: "description",
             body2: "desc2",
             cta: "ctatext",
@@ -5887,41 +5904,41 @@ pbjsChunk([ 272 ], {
             privacyLink: "privacy_link",
             salePrice: "saleprice",
             displayUrl: "displayurl"
-        }, l = "<script", m = /\/\/cdn\.adnxs\.com\/v/, h = "trk.js", E = Object(i.b)(32, d), O = {
+        }, m = "<script", h = /\/\/cdn\.adnxs\.com\/v/, E = "trk.js", O = Object(i.b)(32, d), R = {
             code: d,
             gvlid: 32,
             aliases: [ "appnexusAst", "brealtime", "emxdigital", "pagescience", "defymedia", "gourmetads", "matomy", "featureforward", "oftmedia", "districtm", "adasta", "beintoo" ],
-            supportedMediaTypes: [ y.b, y.d, y.c ],
+            supportedMediaTypes: [ v.b, v.d, v.c ],
             isBidRequestValid: function(e) {
                 return !!(e.params.placementId || e.params.member && e.params.invCode);
             },
             buildRequests: function(e, r) {
-                var a = e.map(U), t = k()(e, q), n = {};
-                !0 === I.b.getConfig("coppa") && (n = {
+                var a = e.map(N), t = I()(e, M), n = {};
+                !0 === k.b.getConfig("coppa") && (n = {
                     coppa: !0
                 }), t && Object.keys(t.params.user).filter(function(e) {
-                    return x()(S, e);
+                    return x()(w, e);
                 }).forEach(function(e) {
                     var r = _.convertCamelToUnderscore(e);
                     n[r] = t.params.user[e];
                 });
-                var i, s = k()(e, z);
+                var i, s = I()(e, B);
                 s && s.params && s.params.app && (i = {}, Object.keys(s.params.app).filter(function(e) {
-                    return x()(w, e);
+                    return x()(S, e);
                 }).forEach(function(e) {
                     return i[e] = s.params.app[e];
                 }));
-                var o, d = k()(e, B);
+                var o, d = I()(e, D);
                 d && d.params && s.params.app && s.params.app.id && (o = {
                     appid: d.params.app.id
                 });
-                var p = {}, u = {}, c = E.getCookie("apn_prebid_debug") || null;
+                var p = {}, u = {}, c = O.getCookie("apn_prebid_debug") || null;
                 if (c) try {
                     p = JSON.parse(c);
                 } catch (e) {
                     _.logError("AppNexus Debug Auction Cookie Error:\n\n" + e);
                 } else {
-                    var l = k()(e, D);
+                    var l = I()(e, V);
                     l && l.debug && (p = l.debug);
                 }
                 p && p.enabled && Object.keys(p).filter(function(e) {
@@ -5929,28 +5946,28 @@ pbjsChunk([ 272 ], {
                 }).forEach(function(e) {
                     u[e] = p[e];
                 });
-                var m, f = k()(e, M), g = f ? parseInt(f.params.member, 10) : 0, y = e[0].schain, v = {
+                var m, f = I()(e, z), y = f ? parseInt(f.params.member, 10) : 0, v = e[0].schain, g = {
                     tags: A(a),
                     user: n,
                     sdk: {
                         source: "pbjs",
-                        version: "3.23.0"
+                        version: "3.24.0"
                     },
-                    schain: y
+                    schain: v
                 };
-                0 < g && (v.member_id = g), s && (v.device = i), d && (v.app = o), I.b.getConfig("adpod.brandCategoryExclusion") && (v.brand_category_uniqueness = !0), 
-                u.enabled && (v.debug = u, _.logInfo("AppNexus Debug Auction Settings:\n\n" + JSON.stringify(u, null, 4))), 
-                r && r.gdprConsent && (v.gdpr_consent = {
+                0 < y && (g.member_id = y), s && (g.device = i), d && (g.app = o), k.b.getConfig("adpod.brandCategoryExclusion") && (g.brand_category_uniqueness = !0), 
+                u.enabled && (g.debug = u, _.logInfo("AppNexus Debug Auction Settings:\n\n" + JSON.stringify(u, null, 4))), 
+                r && r.gdprConsent && (g.gdpr_consent = {
                     consent_string: r.gdprConsent.consentString,
                     consent_required: r.gdprConsent.gdprApplies
-                }), r && r.uspConsent && (v.us_privacy = r.uspConsent), r && r.refererInfo && (m = {
+                }), r && r.uspConsent && (g.us_privacy = r.uspConsent), r && r.refererInfo && (m = {
                     rd_ref: encodeURIComponent(r.refererInfo.referer),
                     rd_top: r.refererInfo.reachedTop,
                     rd_ifs: r.refererInfo.numIframes,
                     rd_stk: r.refererInfo.stack.map(function(e) {
                         return encodeURIComponent(e);
                     }).join(",")
-                }, v.referrer_detection = m), k()(e, V) && e.filter(V).forEach(function(r) {
+                }, g.referrer_detection = m), I()(e, J) && e.filter(J).forEach(function(r) {
                     var e = function(e, r) {
                         var t = r.mediaTypes.video, a = t.durationRangeSec, n = t.requireExactDuration, i = function(e) {
                             var r = e.adPodDurationSec, t = e.durationRangeSec, a = e.requireExactDuration, n = _.getMinValueFromArray(t), i = Math.floor(r / n);
@@ -5962,23 +5979,23 @@ pbjsChunk([ 272 ], {
                             var p, u;
                             n ? (p = Math.ceil(i / a.length), u = _.chunk(d, p), a.forEach(function(r, e) {
                                 u[e].map(function(e) {
-                                    J(e, "minduration", r), J(e, "maxduration", r);
+                                    W(e, "minduration", r), W(e, "maxduration", r);
                                 });
                             })) : d.map(function(e) {
-                                return J(e, "maxduration", s);
+                                return W(e, "maxduration", s);
                             });
                         }
                         return d;
-                    }(a, r), t = v.tags.filter(function(e) {
+                    }(a, r), t = g.tags.filter(function(e) {
                         return e.uuid !== r.bidId;
                     });
-                    v.tags = [].concat(A(t), A(e));
+                    g.tags = [].concat(A(t), A(e));
                 });
                 var b, h = _.deepAccess(e[0], "userId.criteoId");
                 return h && ((b = []).push({
                     provider: "criteo",
                     user_id: h
-                }), v.tpuids = b), a[0].publisher_id && (v.publisher_id = a[0].publisher_id), function(e, t) {
+                }), g.tpuids = b), a[0].publisher_id && (g.publisher_id = a[0].publisher_id), function(e, t) {
                     var a = [], n = {};
                     !function(e) {
                         var r = !0;
@@ -6008,14 +6025,14 @@ pbjsChunk([ 272 ], {
                         });
                     }
                     return a;
-                }(v, r);
+                }(g, r);
             },
             interpretResponse: function(e, r) {
                 var i = this, s = r.bidderRequest;
                 e = e.body;
                 var t, o = [];
                 if (e && !e.error) return e.tags && e.tags.forEach(function(e) {
-                    var r, t, a, n = (r = e) && r.ads && r.ads.length && k()(r.ads, function(e) {
+                    var r, t, a, n = (r = e) && r.ads && r.ads.length && I()(r.ads, function(e) {
                         return e.rtb;
                     });
                     n && 0 !== n.cpm && x()(i.supportedMediaTypes, n.ad_type) && ((t = function(r, e, t) {
@@ -6045,22 +6062,22 @@ pbjsChunk([ 272 ], {
                                 vastImpUrl: e.notify_url,
                                 ttl: 3600
                             }), _.deepAccess(a, "mediaTypes.video.context")) {
-                              case y.a:
-                                var o = Object(g.getIabSubCategory)(a.bidder, e.brand_category_id);
+                              case v.a:
+                                var o = Object(y.getIabSubCategory)(a.bidder, e.brand_category_id);
                                 n.meta = b({}, n.meta, {
                                     primaryCatId: o
                                 });
                                 var d = e.deal_priority;
                                 n.video = {
-                                    context: y.a,
+                                    context: v.a,
                                     durationSeconds: Math.floor(e.rtb.video.duration_ms / 1e3),
                                     dealTier: d
                                 }, n.vastUrl = e.rtb.video.asset_url;
                                 break;
 
-                              case v.b:
+                              case g.b:
                                 n.adResponse = r, n.adResponse.ad = n.adResponse.ads[0], n.adResponse.ad.video = n.adResponse.ad.rtb.video, 
-                                n.vastXml = e.rtb.video.content, e.renderer_url && (i = k()(t.bids, function(e) {
+                                n.vastXml = e.rtb.video.content, e.renderer_url && (i = I()(t.bids, function(e) {
                                     return e.bidId === r.uuid;
                                 }), s = _.deepAccess(i, "renderer.options"), n.renderer = function(e, r) {
                                     var t = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : {}, a = f.a.install({
@@ -6071,7 +6088,7 @@ pbjsChunk([ 272 ], {
                                         adUnitCode: e
                                     });
                                     try {
-                                        a.setRender(W);
+                                        a.setRender(F);
                                     } catch (e) {
                                         _.logWarn("Prebid Error calling setRender on renderer", e);
                                     }
@@ -6089,12 +6106,12 @@ pbjsChunk([ 272 ], {
                                 }(n.adUnitCode, e, s));
                                 break;
 
-                              case v.a:
+                              case g.a:
                                 n.vastUrl = e.notify_url + "&redir=" + encodeURIComponent(e.rtb.video.asset_url);
                             }
-                        } else if (e.rtb[y.c]) {
-                            var p = e.rtb[y.c], u = e.viewability.config.replace("src=", "data-src="), c = p.javascript_trackers;
-                            null == c ? c = u : _.isStr(c) ? c = [ c, u ] : c.push(u), n[y.c] = {
+                        } else if (e.rtb[v.c]) {
+                            var p = e.rtb[v.c], u = e.viewability.config.replace("src=", "data-src="), c = p.javascript_trackers;
+                            null == c ? c = u : _.isStr(c) ? c = [ c, u ] : c.push(u), n[v.c] = {
                                 title: p.title,
                                 body: p.desc,
                                 body2: p.desc2,
@@ -6136,7 +6153,7 @@ pbjsChunk([ 272 ], {
                             }
                         }
                         return n;
-                    }(e, n, s)).mediaType = (a = n.ad_type) === y.d ? y.d : a === y.c ? y.c : y.b, o.push(t));
+                    }(e, n, s)).mediaType = (a = n.ad_type) === v.d ? v.d : a === v.c ? v.c : v.b, o.push(t));
                 }), e.debug && e.debug.debug_info && (t = (t = "AppNexus Debug Auction for Prebid\n\n" + e.debug.debug_info).replace(/(<td>|<th>)/gm, "\t").replace(/(<\/td>|<\/th>)/gm, "\n").replace(/^<br>/gm, "").replace(/(<br>\n|<br>)/gm, "\n").replace(/<h1>(.*)<\/h1>/gm, "\n\n===== $1 =====\n\n").replace(/<h[2-6]>(.*)<\/h[2-6]>/gm, "\n\n*** $1 ***\n\n").replace(/(<([^>]+)>)/gim, ""), 
                 _.logMessage("https://console.appnexus.com/docs/understanding-the-debug-auction"), 
                 _.logMessage(t)), o;
@@ -6163,7 +6180,7 @@ pbjsChunk([ 272 ], {
                     keywords: _.transformBidderParamKeywords,
                     publisherId: "number"
                 }, t), e && (t.use_pmt_rule = "boolean" == typeof t.usePaymentRule && t.usePaymentRule, 
-                t.usePaymentRule && delete t.usePaymentRule, R(t.keywords) && t.keywords.forEach(j), 
+                t.usePaymentRule && delete t.usePaymentRule, j(t.keywords) && t.keywords.forEach(P), 
                 Object.keys(t).forEach(function(e) {
                     var r = _.convertCamelToUnderscore(e);
                     r !== e && (t[r] = t[e], delete t[e]);
@@ -6173,9 +6190,9 @@ pbjsChunk([ 272 ], {
                 e.native && function(e) {
                     var r = function(e) {
                         var r;
-                        if (_.isStr(e) && P(e)) r = e; else if (_.isArray(e)) for (var t = 0; t < e.length; t++) {
+                        if (_.isStr(e) && U(e)) r = e; else if (_.isArray(e)) for (var t = 0; t < e.length; t++) {
                             var a = e[t];
-                            P(a) && (r = a);
+                            U(a) && (r = a);
                         }
                         return r;
                     }(e.native.javascriptTrackers);
@@ -6198,58 +6215,67 @@ pbjsChunk([ 272 ], {
                 }(e);
             }
         };
-        function R(e) {
+        function j(e) {
             return _.isArray(e) && 0 < e.length;
         }
-        function j(e) {
-            R(e.value) && "" === e.value[0] && delete e.value;
-        }
         function P(e) {
-            var r = e.match(m), t = null != r && 1 <= r.length, a = e.match(h), n = null != a && 1 <= a.length;
-            return e.startsWith(l) && n && t;
+            j(e.value) && "" === e.value[0] && delete e.value;
         }
-        function U(r) {
-            var e, t, n, i, a = {};
-            a.sizes = N(r.sizes), a.primary_size = a.sizes[0], a.ad_types = [], a.uuid = r.bidId, 
-            r.params.placementId ? a.id = parseInt(r.params.placementId, 10) : a.code = r.params.invCode, 
-            a.allow_smaller_sizes = r.params.allowSmallerSizes || !1, a.use_pmt_rule = r.params.usePaymentRule || !1, 
-            a.prebid = !0, a.disable_psa = !0, r.params.reserve && (a.reserve = r.params.reserve), 
-            r.params.position && (a.position = {
+        function U(e) {
+            var r = e.match(h), t = null != r && 1 <= r.length, a = e.match(E), n = null != a && 1 <= a.length;
+            return e.startsWith(m) && n && t;
+        }
+        function N(t) {
+            var e, r, n, i, a = {};
+            a.sizes = q(t.sizes), a.primary_size = a.sizes[0], a.ad_types = [], a.uuid = t.bidId, 
+            t.params.placementId ? a.id = parseInt(t.params.placementId, 10) : a.code = t.params.invCode, 
+            a.allow_smaller_sizes = t.params.allowSmallerSizes || !1, a.use_pmt_rule = t.params.usePaymentRule || !1, 
+            a.prebid = !0, a.disable_psa = !0, t.params.reserve && (a.reserve = t.params.reserve), 
+            t.params.position && (a.position = {
                 above: 1,
                 below: 2
-            }[r.params.position] || 0), r.params.trafficSourceCode && (a.traffic_source_code = r.params.trafficSourceCode), 
-            r.params.privateSizes && (a.private_sizes = N(r.params.privateSizes)), r.params.supplyType && (a.supply_type = r.params.supplyType), 
-            r.params.pubClick && (a.pubclick = r.params.pubClick), r.params.extInvCode && (a.ext_inv_code = r.params.extInvCode), 
-            r.params.publisherId && (a.publisher_id = parseInt(r.params.publisherId, 10)), r.params.externalImpId && (a.external_imp_id = r.params.externalImpId), 
-            _.isEmpty(r.params.keywords) || (0 < (e = _.transformBidderParamKeywords(r.params.keywords)).length && e.forEach(j), 
-            a.keywords = e), r.mediaType !== y.c && !_.deepAccess(r, "mediaTypes.".concat(y.c)) || (a.ad_types.push(y.c), 
-            0 === a.sizes.length && (a.sizes = N([ 1, 1 ])), r.nativeParams && (n = r.nativeParams, 
+            }[t.params.position] || 0), t.params.trafficSourceCode && (a.traffic_source_code = t.params.trafficSourceCode), 
+            t.params.privateSizes && (a.private_sizes = q(t.params.privateSizes)), t.params.supplyType && (a.supply_type = t.params.supplyType), 
+            t.params.pubClick && (a.pubclick = t.params.pubClick), t.params.extInvCode && (a.ext_inv_code = t.params.extInvCode), 
+            t.params.publisherId && (a.publisher_id = parseInt(t.params.publisherId, 10)), t.params.externalImpId && (a.external_imp_id = t.params.externalImpId), 
+            _.isEmpty(t.params.keywords) || (0 < (e = _.transformBidderParamKeywords(t.params.keywords)).length && e.forEach(P), 
+            a.keywords = e), t.mediaType !== v.c && !_.deepAccess(t, "mediaTypes.".concat(v.c)) || (a.ad_types.push(v.c), 
+            0 === a.sizes.length && (a.sizes = q([ 1, 1 ])), t.nativeParams && (n = t.nativeParams, 
             i = {}, Object.keys(n).forEach(function(e) {
-                var r, t = c[e] && c[e].serverName || c[e] || e, a = c[e] && c[e].requiredParams;
-                i[t] = b({}, a, n[e]), t !== c.image.serverName && t !== c.icon.serverName || !i[t].sizes || (r = i[t].sizes, 
+                var r, t = l[e] && l[e].serverName || l[e] || e, a = l[e] && l[e].requiredParams;
+                i[t] = b({}, a, n[e]), t !== l.image.serverName && t !== l.icon.serverName || !i[t].sizes || (r = i[t].sizes, 
                 (_.isArrayOfNums(r) || _.isArray(r) && 0 < r.length && r.every(function(e) {
                     return _.isArrayOfNums(e);
-                })) && (i[t].sizes = N(i[t].sizes))), t === c.privacyLink && (i.privacy_supported = !0);
-            }), t = i, a[y.c] = {
-                layouts: [ t ]
+                })) && (i[t].sizes = q(i[t].sizes))), t === l.privacyLink && (i.privacy_supported = !0);
+            }), r = i, a[v.c] = {
+                layouts: [ r ]
             }));
-            var s = _.deepAccess(r, "mediaTypes.".concat(y.d)), o = _.deepAccess(r, "mediaTypes.video.context");
-            a.hb_source = s && "adpod" === o ? 7 : 1, r.mediaType !== y.d && !s || a.ad_types.push(y.d), 
-            (r.mediaType === y.d || s && "outstream" !== o) && (a.require_asset_url = !0), r.params.video && (a.video = {}, 
-            Object.keys(r.params.video).filter(function(e) {
+            var s = _.deepAccess(t, "mediaTypes.".concat(v.d)), o = _.deepAccess(t, "mediaTypes.video.context");
+            a.hb_source = s && "adpod" === o ? 7 : 1, t.mediaType !== v.d && !s || a.ad_types.push(v.d), 
+            (t.mediaType === v.d || s && "outstream" !== o) && (a.require_asset_url = !0), t.params.video && (a.video = {}, 
+            Object.keys(t.params.video).filter(function(e) {
                 return x()(u, e);
             }).forEach(function(e) {
-                return a.video[e] = r.params.video[e];
-            })), r.renderer && (a.video = b({}, a.video, {
+                switch (e) {
+                  case "context":
+                  case "playback_method":
+                    var r = t.params.video[e], r = _.isArray(r) ? r[0] : r;
+                    a.video[e] = c[e][r];
+                    break;
+
+                  default:
+                    a.video[e] = t.params.video[e];
+                }
+            })), t.renderer && (a.video = b({}, a.video, {
                 custom_renderer_present: !0
             }));
-            var d = k()(p.a.getAdUnits(), function(e) {
-                return r.transactionId === e.transactionId;
+            var d = I()(p.a.getAdUnits(), function(e) {
+                return t.transactionId === e.transactionId;
             });
-            return d && d.mediaTypes && d.mediaTypes.banner && a.ad_types.push(y.b), 0 === a.ad_types.length && delete a.ad_types, 
+            return d && d.mediaTypes && d.mediaTypes.banner && a.ad_types.push(v.b), 0 === a.ad_types.length && delete a.ad_types, 
             a;
         }
-        function N(e) {
+        function q(e) {
             var r = [], t = {};
             if (_.isArray(e) && 2 === e.length && !_.isArray(e[0])) t.width = parseInt(e[0], 10), 
             t.height = parseInt(e[1], 10), r.push(t); else if ("object" === s(e)) for (var a = 0; a < e.length; a++) {
@@ -6258,28 +6284,28 @@ pbjsChunk([ 272 ], {
             }
             return r;
         }
-        function q(e) {
+        function M(e) {
             return !!e.params.user;
         }
-        function M(e) {
+        function z(e) {
             return !!parseInt(e.params.member, 10);
         }
-        function z(e) {
+        function B(e) {
             if (e.params) return !!e.params.app;
         }
-        function B(e) {
+        function D(e) {
             return e.params && e.params.app ? !!e.params.app.id : !!e.params.app;
         }
-        function D(e) {
+        function V(e) {
             return !!e.debug;
         }
-        function V(e) {
-            return e.mediaTypes && e.mediaTypes.video && e.mediaTypes.video.context === y.a;
+        function J(e) {
+            return e.mediaTypes && e.mediaTypes.video && e.mediaTypes.video.context === v.a;
         }
-        function J(e, r, t) {
+        function W(e, r, t) {
             _.isEmpty(e.video) && (e.video = {}), e.video[r] = t;
         }
-        function W(e) {
+        function F(e) {
             var r, t;
             r = e.adUnitCode, (t = document.getElementById(r).querySelectorAll("div[id^='google_ads']"))[0] && t[0].style.setProperty("display", "none"), 
             e.renderer.push(function() {
@@ -6298,11 +6324,11 @@ pbjsChunk([ 272 ], {
                 }.bind(null, e));
             });
         }
-        Object(g.registerBidder)(O);
+        Object(y.registerBidder)(R);
     }
 }, [ 286 ]);
 
-pbjsChunk([ 239 ], {
+pbjsChunk([ 242 ], {
     356: function(n, t, e) {
         n.exports = e(357);
     },
@@ -6537,11 +6563,11 @@ pbjsChunk([ 0 ], {
                 }), T() || (window.Criteo = window.Criteo || {}, window.Criteo.usePrebidEvents = !1, 
                 x(), setTimeout(function() {
                     Object(a.a)("https://static.criteo.net/js/ld/publishertag.prebid.js", m);
-                }, e.timeout)), s = T() ? (r = new Criteo.PubTag.Adapters.Prebid(v, c, t, e, "3.23.0"), 
+                }, e.timeout)), s = T() ? (r = new Criteo.PubTag.Adapters.Prebid(v, c, t, e, "3.24.0"), 
                 i = d.b.getConfig("enableSendAllBids"), r.setEnableSendAllBids && "function" == typeof r.setEnableSendAllBids && "boolean" == typeof i && r.setEnableSendAllBids(i), 
                 n = r.buildCdbUrl(), r.buildCdbRequest()) : (n = function(t) {
                     var e = "https://bidder.criteo.com/cdb";
-                    e += "?profileId=207", e += "&av=" + String(c), e += "&wv=" + encodeURIComponent("3.23.0"), 
+                    e += "?profileId=207", e += "&av=" + String(c), e += "&wv=" + encodeURIComponent("3.24.0"), 
                     e += "&cb=" + String(Math.floor(99999999999 * Math.random())), t.amp && (e += "&im=1");
                     t.debug && (e += "&debug=1");
                     t.noLog && (e += "&nolog=1");
@@ -6984,35 +7010,35 @@ pbjsChunk([ 0 ], {
     }
 }, [ 378 ]);
 
-pbjsChunk([ 130 ], {
-    621: function(e, r, a) {
-        e.exports = a(622);
+pbjsChunk([ 132 ], {
+    623: function(e, a, r) {
+        e.exports = r(624);
     },
-    622: function(e, r, a) {
+    624: function(e, a, r) {
         "use strict";
-        Object.defineProperty(r, "__esModule", {
+        Object.defineProperty(a, "__esModule", {
             value: !0
-        }), a.d(r, "spec", function() {
-            return y;
+        }), r.d(a, "spec", function() {
+            return n;
         });
-        var E = a(0), i = a(1), w = a(2), T = a(3);
-        function O() {
-            return (O = Object.assign || function(e) {
-                for (var r = 1; r < arguments.length; r++) {
-                    var a = arguments[r];
-                    for (var i in a) Object.prototype.hasOwnProperty.call(a, i) && (e[i] = a[i]);
+        var T = r(0), i = r(1), S = r(2), Y = r(3);
+        function D() {
+            return (D = Object.assign || function(e) {
+                for (var a = 1; a < arguments.length; a++) {
+                    var r = arguments[a];
+                    for (var i in r) Object.prototype.hasOwnProperty.call(r, i) && (e[i] = r[i]);
                 }
                 return e;
             }).apply(this, arguments);
         }
-        function S(e) {
-            return (S = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+        function P(e) {
+            return (P = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
             } : function(e) {
                 return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
             })(e);
         }
-        var D = "PubMatic: ", Y = "USD", s = "nFIn8aLzbd", P = void 0, A = {
+        var A = "PubMatic: ", R = "USD", x = void 0, N = {
             kadpageurl: "",
             gender: "",
             yob: "",
@@ -7021,27 +7047,27 @@ pbjsChunk([ 130 ], {
             wiid: "",
             profId: "",
             verId: ""
-        }, n = {
+        }, s = {
             NUMBER: "number",
             STRING: "string",
             BOOLEAN: "boolean",
             ARRAY: "array",
             OBJECT: "object"
         }, t = {
-            mimes: n.ARRAY,
-            minduration: n.NUMBER,
-            maxduration: n.NUMBER,
-            startdelay: n.NUMBER,
-            playbackmethod: n.ARRAY,
-            api: n.ARRAY,
-            protocols: n.ARRAY,
-            w: n.NUMBER,
-            h: n.NUMBER,
-            battr: n.ARRAY,
-            linearity: n.NUMBER,
-            placement: n.NUMBER,
-            minbitrate: n.NUMBER,
-            maxbitrate: n.NUMBER
+            mimes: s.ARRAY,
+            minduration: s.NUMBER,
+            maxduration: s.NUMBER,
+            startdelay: s.NUMBER,
+            playbackmethod: s.ARRAY,
+            api: s.ARRAY,
+            protocols: s.ARRAY,
+            w: s.NUMBER,
+            h: s.NUMBER,
+            battr: s.ARRAY,
+            linearity: s.NUMBER,
+            placement: s.NUMBER,
+            minbitrate: s.NUMBER,
+            maxbitrate: s.NUMBER
         }, c = {
             TITLE: {
                 ID: 1,
@@ -7157,7 +7183,7 @@ pbjsChunk([ 130 ], {
             ICON: 1,
             LOGO: 2,
             IMAGE: 3
-        }, u = [ {
+        }, m = [ {
             id: c.SPONSOREDBY.ID,
             required: !0,
             data: {
@@ -7169,121 +7195,121 @@ pbjsChunk([ 130 ], {
         }, {
             id: c.IMAGE.ID,
             required: !0
-        } ], d = {
+        } ], o = {
             1: "PMP",
             5: "PREF",
             6: "PMPG"
-        }, R = 0, m = !1, o = {}, g = {};
-        function x(e, r) {
-            if (!E.isStr(r)) return r && E.logWarn(D + "Ignoring param key: " + e + ", expects string-value, found " + S(r)), 
-            P;
+        }, k = 0, u = !1, d = {}, g = {};
+        function z(e, a) {
+            if (!T.isStr(a)) return a && T.logWarn(A + "Ignoring param key: " + e + ", expects string-value, found " + P(a)), 
+            x;
             switch (e) {
               case "pmzoneid":
-                return r.split(",").slice(0, 50).map(function(e) {
+                return a.split(",").slice(0, 50).map(function(e) {
                     return e.trim();
                 }).join();
 
               case "kadfloor":
               case "lat":
               case "lon":
-                return parseFloat(r) || P;
+                return parseFloat(a) || x;
 
               case "yob":
-                return parseInt(r) || P;
+                return parseInt(a) || x;
 
               default:
-                return r;
+                return a;
             }
         }
-        function k(e) {
-            var r;
+        function K(e) {
+            var a;
             e.params.adUnit = "", e.params.adUnitIndex = "0", e.params.width = 0, e.params.height = 0, 
-            e.params.adSlot = (r = e.params.adSlot, E.isStr(r) ? r.replace(/^\s+/g, "").replace(/\s+$/g, "") : "");
-            var a = (i = e.params.adSlot).split(":"), i = a[0];
-            if (2 == a.length && (e.params.adUnitIndex = a[1]), a = i.split("@"), e.params.adUnit = a[0], 
-            1 < a.length) {
-                if (2 != (a = a[1].split("x")).length) return void E.logWarn(D + "AdSlot Error: adSlot not in required format");
-                e.params.width = parseInt(a[0], 10), e.params.height = parseInt(a[1], 10);
-            } else if (e.hasOwnProperty("mediaTypes") && e.mediaTypes.hasOwnProperty(w.b) && e.mediaTypes.banner.hasOwnProperty("sizes")) {
+            e.params.adSlot = (a = e.params.adSlot, T.isStr(a) ? a.replace(/^\s+/g, "").replace(/\s+$/g, "") : "");
+            var r = (i = e.params.adSlot).split(":"), i = r[0];
+            if (2 == r.length && (e.params.adUnitIndex = r[1]), r = i.split("@"), e.params.adUnit = r[0], 
+            1 < r.length) {
+                if (2 != (r = r[1].split("x")).length) return void T.logWarn(A + "AdSlot Error: adSlot not in required format");
+                e.params.width = parseInt(r[0], 10), e.params.height = parseInt(r[1], 10);
+            } else if (e.hasOwnProperty("mediaTypes") && e.mediaTypes.hasOwnProperty(S.b) && e.mediaTypes.banner.hasOwnProperty("sizes")) {
                 for (var t = 0, s = []; t < e.mediaTypes.banner.sizes.length; t++) 2 === e.mediaTypes.banner.sizes[t].length && s.push(e.mediaTypes.banner.sizes[t]);
                 e.mediaTypes.banner.sizes = s, 1 <= e.mediaTypes.banner.sizes.length && (e.params.width = e.mediaTypes.banner.sizes[0][0], 
                 e.params.height = e.mediaTypes.banner.sizes[0][1], e.mediaTypes.banner.sizes = e.mediaTypes.banner.sizes.splice(1, e.mediaTypes.banner.sizes.length - 1));
             }
         }
         function h(e) {
-            var r, a = e.params.video;
-            if (a !== P) {
-                for (var i in r = {}, t) a.hasOwnProperty(i) && (r[i] = function(e, r, a) {
-                    var i, t = "Ignoring param key: " + e + ", expects " + a + ", found " + S(r);
-                    switch (a) {
-                      case n.BOOLEAN:
-                        i = E.isBoolean;
+            var a, r = e.params.video;
+            if (r !== x) {
+                for (var i in a = {}, t) r.hasOwnProperty(i) && (a[i] = function(e, a, r) {
+                    var i, t = "Ignoring param key: " + e + ", expects " + r + ", found " + P(a);
+                    switch (r) {
+                      case s.BOOLEAN:
+                        i = T.isBoolean;
                         break;
 
-                      case n.NUMBER:
-                        i = E.isNumber;
+                      case s.NUMBER:
+                        i = T.isNumber;
                         break;
 
-                      case n.STRING:
-                        i = E.isStr;
+                      case s.STRING:
+                        i = T.isStr;
                         break;
 
-                      case n.ARRAY:
-                        i = E.isArray;
+                      case s.ARRAY:
+                        i = T.isArray;
                     }
-                    return i(r) ? r : (E.logWarn(D + t), P);
-                }(i, a[i], t[i]));
-                E.isArray(e.mediaTypes.video.playerSize[0]) ? (r.w = parseInt(e.mediaTypes.video.playerSize[0][0], 10), 
-                r.h = parseInt(e.mediaTypes.video.playerSize[0][1], 10)) : E.isNumber(e.mediaTypes.video.playerSize[0]) && (r.w = parseInt(e.mediaTypes.video.playerSize[0], 10), 
-                r.h = parseInt(e.mediaTypes.video.playerSize[1], 10)), e.params.video.hasOwnProperty("skippable") && (r.ext = {
+                    return i(a) ? a : (T.logWarn(A + t), x);
+                }(i, r[i], t[i]));
+                T.isArray(e.mediaTypes.video.playerSize[0]) ? (a.w = parseInt(e.mediaTypes.video.playerSize[0][0], 10), 
+                a.h = parseInt(e.mediaTypes.video.playerSize[0][1], 10)) : T.isNumber(e.mediaTypes.video.playerSize[0]) && (a.w = parseInt(e.mediaTypes.video.playerSize[0], 10), 
+                a.h = parseInt(e.mediaTypes.video.playerSize[1], 10)), e.params.video.hasOwnProperty("skippable") && (a.ext = {
                     video_skippable: e.params.video.skippable ? 1 : 0
                 });
-            } else r = P, E.logWarn(D + "Error: Video config params missing for adunit: " + e.params.adUnit + " with mediaType set as video. Ignoring video impression in the adunit.");
-            return r;
+            } else a = x, T.logWarn(A + "Error: Video config params missing for adunit: " + e.params.adUnit + " with mediaType set as video. Ignoring video impression in the adunit.");
+            return a;
         }
-        function N(e) {
-            var r, a, i, t, s = {}, n = {}, d = e.hasOwnProperty("sizes") ? e.sizes : [], o = "", p = [], s = {
+        function C(e) {
+            var a, r, i, t, s = {}, n = {}, o = e.hasOwnProperty("sizes") ? e.sizes : [], d = "", p = [], s = {
                 id: e.bidId,
                 tagid: e.params.adUnit || void 0,
-                bidfloor: x("kadfloor", e.params.kadfloor),
+                bidfloor: z("kadfloor", e.params.kadfloor),
                 secure: 1,
                 ext: {
-                    pmZoneId: x("pmzoneid", e.params.pmzoneid)
+                    pmZoneId: z("pmzoneid", e.params.pmzoneid)
                 },
-                bidfloorcur: e.params.currency ? x("currency", e.params.currency) : Y
+                bidfloorcur: e.params.currency ? z("currency", e.params.currency) : R
             };
-            if (i = s, (t = e).params.deals && (E.isArray(t.params.deals) ? t.params.deals.forEach(function(e) {
-                E.isStr(e) && 3 < e.length ? (i.pmp || (i.pmp = {
+            if (i = s, (t = e).params.deals && (T.isArray(t.params.deals) ? t.params.deals.forEach(function(e) {
+                T.isStr(e) && 3 < e.length ? (i.pmp || (i.pmp = {
                     private_auction: 0,
                     deals: []
                 }), i.pmp.deals.push({
                     id: e
-                })) : E.logWarn(D + "Error: deal-id present in array bid.params.deals should be a strings with more than 3 charaters length, deal-id ignored: " + e);
-            }) : E.logWarn(D + "Error: bid.params.deals should be an array of strings.")), e.hasOwnProperty("mediaTypes")) for (o in e.mediaTypes) switch (o) {
-              case w.b:
-                (r = function(e) {
-                    var r, a = e.mediaTypes.banner.sizes, i = [];
-                    if (a !== P && E.isArray(a)) {
-                        if (r = {}, e.params.width || e.params.height) r.w = e.params.width, r.h = e.params.height; else {
-                            if (0 === a.length) return r = P, E.logWarn(D + "Error: mediaTypes.banner.size missing for adunit: " + e.params.adUnit + ". Ignoring the banner impression in the adunit."), 
-                            r;
-                            r.w = parseInt(a[0][0], 10), r.h = parseInt(a[0][1], 10), a = a.splice(1, a.length - 1);
+                })) : T.logWarn(A + "Error: deal-id present in array bid.params.deals should be a strings with more than 3 charaters length, deal-id ignored: " + e);
+            }) : T.logWarn(A + "Error: bid.params.deals should be an array of strings.")), e.hasOwnProperty("mediaTypes")) for (d in e.mediaTypes) switch (d) {
+              case S.b:
+                (a = function(e) {
+                    var a, r = e.mediaTypes.banner.sizes, i = [];
+                    if (r !== x && T.isArray(r)) {
+                        if (a = {}, e.params.width || e.params.height) a.w = e.params.width, a.h = e.params.height; else {
+                            if (0 === r.length) return a = x, T.logWarn(A + "Error: mediaTypes.banner.size missing for adunit: " + e.params.adUnit + ". Ignoring the banner impression in the adunit."), 
+                            a;
+                            a.w = parseInt(r[0][0], 10), a.h = parseInt(r[0][1], 10), r = r.splice(1, r.length - 1);
                         }
-                        0 < a.length && (i = [], a.forEach(function(e) {
+                        0 < r.length && (i = [], r.forEach(function(e) {
                             1 < e.length && i.push({
                                 w: e[0],
                                 h: e[1]
                             });
-                        }), 0 < i.length && (r.format = i)), r.pos = 0, r.topframe = E.inIframe() ? 0 : 1;
-                    } else E.logWarn(D + "Error: mediaTypes.banner.size missing for adunit: " + e.params.adUnit + ". Ignoring the banner impression in the adunit."), 
-                    r = P;
-                    return r;
-                }(e)) !== P && (s.banner = r);
+                        }), 0 < i.length && (a.format = i)), a.pos = 0, a.topframe = T.inIframe() ? 0 : 1;
+                    } else T.logWarn(A + "Error: mediaTypes.banner.size missing for adunit: " + e.params.adUnit + ". Ignoring the banner impression in the adunit."), 
+                    a = x;
+                    return a;
+                }(e)) !== x && (s.banner = a);
                 break;
 
-              case w.c:
+              case S.c:
                 n.request = JSON.stringify(function(e) {
-                    var r, a, i, t = {
+                    var a, r, i, t = {
                         assets: []
                     };
                     for (var s in e) {
@@ -7298,7 +7324,7 @@ pbjsChunk([ 130 ], {
                                         len: e[s].len || e[s].length,
                                         ext: e[s].ext
                                     }
-                                } : E.logWarn(D + "Error: Title Length is required for native ad: " + JSON.stringify(e));
+                                } : T.logWarn(A + "Error: Title Length is required for native ad: " + JSON.stringify(e));
                                 break;
 
                               case c.IMAGE.KEY:
@@ -7307,14 +7333,14 @@ pbjsChunk([ 130 ], {
                                     required: e[s].required ? 1 : 0,
                                     img: {
                                         type: l.IMAGE,
-                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : P),
-                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : P),
-                                        wmin: e[s].wmin || e[s].minimumWidth || (e[s].minsizes ? e[s].minsizes[0] : P),
-                                        hmin: e[s].hmin || e[s].minimumHeight || (e[s].minsizes ? e[s].minsizes[1] : P),
+                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : x),
+                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : x),
+                                        wmin: e[s].wmin || e[s].minimumWidth || (e[s].minsizes ? e[s].minsizes[0] : x),
+                                        hmin: e[s].hmin || e[s].minimumHeight || (e[s].minsizes ? e[s].minsizes[1] : x),
                                         mimes: e[s].mimes,
                                         ext: e[s].ext
                                     }
-                                } : E.logWarn(D + "Error: Image sizes is required for native ad: " + JSON.stringify(e));
+                                } : T.logWarn(A + "Error: Image sizes is required for native ad: " + JSON.stringify(e));
                                 break;
 
                               case c.ICON.KEY:
@@ -7323,10 +7349,10 @@ pbjsChunk([ 130 ], {
                                     required: e[s].required ? 1 : 0,
                                     img: {
                                         type: l.ICON,
-                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : P),
-                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : P)
+                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : x),
+                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : x)
                                     }
-                                } : E.logWarn(D + "Error: Icon sizes is required for native ad: " + JSON.stringify(e));
+                                } : T.logWarn(A + "Error: Icon sizes is required for native ad: " + JSON.stringify(e));
                                 break;
 
                               case c.VIDEO.KEY:
@@ -7356,8 +7382,8 @@ pbjsChunk([ 130 ], {
                                     required: e[s].required ? 1 : 0,
                                     img: {
                                         type: l.LOGO,
-                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : P),
-                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : P)
+                                        w: e[s].w || e[s].width || (e[s].sizes ? e[s].sizes[0] : x),
+                                        h: e[s].h || e[s].height || (e[s].sizes ? e[s].sizes[1] : x)
                                     }
                                 };
                                 break;
@@ -7374,112 +7400,81 @@ pbjsChunk([ 130 ], {
                               case c.DESC2.KEY:
                               case c.DISPLAYURL.KEY:
                               case c.CTA.KEY:
-                                r = g[s], a = e, i = r.KEY, n = {
-                                    id: r.ID,
-                                    required: a[i].required ? 1 : 0,
+                                a = g[s], r = e, i = a.KEY, n = {
+                                    id: a.ID,
+                                    required: r[i].required ? 1 : 0,
                                     data: {
-                                        type: r.TYPE,
-                                        len: a[i].len,
-                                        ext: a[i].ext
+                                        type: a.TYPE,
+                                        len: r[i].len,
+                                        ext: r[i].ext
                                     }
                                 };
                             }
                         }
                         n && n.id && (t.assets[t.assets.length] = n);
                     }
-                    var d = u.length, o = 0;
-                    return u.forEach(function(e) {
-                        for (var r = t.assets.length, a = 0; a < r; a++) if (e.id == t.assets[a].id) {
-                            o++;
+                    var o = m.length, d = 0;
+                    return m.forEach(function(e) {
+                        for (var a = t.assets.length, r = 0; r < a; r++) if (e.id == t.assets[r].id) {
+                            d++;
                             break;
                         }
-                    }), m = d != o, t;
-                }(e.nativeParams)), m ? E.logWarn(D + "Error: Error in Native adunit " + e.params.adUnit + ". Ignoring the adunit. Refer to http://prebid.org/dev-docs/show-native-ads.html for more details.") : s.native = n;
+                    }), u = o != d, t;
+                }(e.nativeParams)), u ? T.logWarn(A + "Error: Error in Native adunit " + e.params.adUnit + ". Ignoring the adunit. Refer to http://prebid.org/dev-docs/show-native-ads.html for more details.") : s.native = n;
                 break;
 
-              case w.d:
-                (a = h(e)) !== P && (s.video = a);
-            } else r = {
+              case S.d:
+                (r = h(e)) !== x && (s.video = r);
+            } else a = {
                 pos: 0,
                 w: e.params.width,
                 h: e.params.height,
-                topframe: E.inIframe() ? 0 : 1
-            }, E.isArray(d) && 1 < d.length && ((d = d.splice(1, d.length - 1)).forEach(function(e) {
+                topframe: T.inIframe() ? 0 : 1
+            }, T.isArray(o) && 1 < o.length && ((o = o.splice(1, o.length - 1)).forEach(function(e) {
                 p.push({
                     w: e[0],
                     h: e[1]
                 });
-            }), r.format = p), s.banner = r;
-            return s.hasOwnProperty(w.b) || s.hasOwnProperty(w.c) || s.hasOwnProperty(w.d) ? s : P;
+            }), a.format = p), s.banner = a;
+            return function(i, t) {
+                var s = -1;
+                "function" != typeof t.getFloor || Y.b.getConfig("pubmatic.disableFloors") || [ S.b, S.d, S.c ].forEach(function(e) {
+                    var a, r;
+                    i.hasOwnProperty(e) && ("object" !== P(a = t.getFloor({
+                        currency: i.bidfloorcur,
+                        mediaType: e,
+                        size: "*"
+                    })) || a.currency !== i.bidfloorcur || isNaN(parseInt(a.floor)) || (r = parseFloat(a.floor), 
+                    s = -1 == s ? r : Math.min(r, s)));
+                });
+                i.bidfloor && (s = Math.max(s, i.bidfloor));
+                i.bidfloor = !isNaN(s) && 0 < s ? s : x;
+            }(s, e), s.hasOwnProperty(S.b) || s.hasOwnProperty(S.c) || s.hasOwnProperty(S.d) ? s : x;
         }
-        function p(e) {
-            var r, a, i, t = (r = s, !(i = (a = window.DigiTrust && (T.b.getConfig("digiTrustId") || window.DigiTrust.getUser({
-                member: r
-            }))) && a.success && a.identity || null) || i.privacy && i.privacy.optout ? null : i);
-            null !== t && e.push({
-                source: "digitru.st",
-                uids: [ {
-                    id: t.id || "",
-                    atype: 1,
-                    ext: {
-                        keyv: parseInt(t.keyv) || 0
-                    }
-                } ]
-            });
-        }
-        function f(e, r, a, i) {
-            E.isStr(r) && e.push({
-                source: a,
-                uids: [ {
-                    id: r,
-                    atype: i
-                } ]
-            });
-        }
-        function z(e, r) {
-            var a, i, t, s, n = [];
-            p(n), a = n, i = r, t = null, s = T.b.getConfig("adsrvrOrgId"), E.isStr(E.deepAccess(i, "0.userId.tdid")) ? t = i[0].userId.tdid : s && E.isStr(s.TDID) && (t = s.TDID), 
-            null !== t && a.push({
-                source: "adserver.org",
-                uids: [ {
-                    id: t,
-                    atype: 1,
-                    ext: {
-                        rtiPartner: "TDID"
-                    }
-                } ]
-            });
-            var d = r[0];
-            d && d.userId && (f(n, E.deepAccess(d, "userId.pubcid"), "pubcid.org", 1), f(n, E.deepAccess(d, "userId.digitrustid.data.id"), "digitru.st", 1), 
-            f(n, E.deepAccess(d, "userId.id5id"), "id5-sync.com", 1), f(n, E.deepAccess(d, "userId.criteoId"), "criteo.com", 1), 
-            f(n, E.deepAccess(d, "userId.idl_env"), "liveramp.com", 1), f(n, E.deepAccess(d, "userId.lipb.lipbid"), "liveintent.com", 1), 
-            f(n, E.deepAccess(d, "userId.parrableid"), "parrable.com", 1), f(n, E.deepAccess(d, "userId.britepoolid"), "britepool.com", 1), 
-            f(n, E.deepAccess(d, "userId.netId"), "netid.de", 1)), 0 < n.length && (e.user.eids = n);
-        }
-        E._each(c, function(e) {
-            o[e.ID] = e.KEY;
-        }), E._each(c, function(e) {
+        T._each(c, function(e) {
+            d[e.ID] = e.KEY;
+        }), T._each(c, function(e) {
             g[e.KEY] = e;
         });
-        var y = {
+        var n = {
             code: "pubmatic",
             gvlid: 76,
-            supportedMediaTypes: [ w.b, w.d, w.c ],
+            supportedMediaTypes: [ S.b, S.d, S.c ],
             isBidRequestValid: function(e) {
-                return !(!e || !e.params) && (E.isStr(e.params.publisherId) ? !!(!e.params.hasOwnProperty("video") || e.params.video.hasOwnProperty("mimes") && E.isArray(e.params.video.mimes) && 0 !== e.params.video.mimes.length) || (E.logWarn(D + "Error: For video ads, mimes is mandatory and must specify atlease 1 mime value. Call to OpenBid will not be sent for ad unit:" + JSON.stringify(e)), 
-                !1) : (E.logWarn(D + "Error: publisherId is mandatory and cannot be numeric. Call to OpenBid will not be sent for ad unit: " + JSON.stringify(e)), 
+                return !(!e || !e.params) && (T.isStr(e.params.publisherId) ? !!(!e.params.hasOwnProperty("video") || e.params.video.hasOwnProperty("mimes") && T.isArray(e.params.video.mimes) && 0 !== e.params.video.mimes.length) || (T.logWarn(A + "Error: For video ads, mimes is mandatory and must specify atlease 1 mime value. Call to OpenBid will not be sent for ad unit:" + JSON.stringify(e)), 
+                !1) : (T.logWarn(A + "Error: publisherId is mandatory and cannot be numeric. Call to OpenBid will not be sent for ad unit: " + JSON.stringify(e)), 
                 !1));
             },
-            buildRequests: function(e, r) {
-                var a;
-                r && r.refererInfo && (a = r.refererInfo);
-                var i, t, s, n, d, o, p, c, l, u, m, g, h, f = {
-                    pageURL: (i = a) && i.referer ? i.referer : window.location.href,
+            buildRequests: function(e, a) {
+                var r;
+                a && a.refererInfo && (r = a.refererInfo);
+                var i, t, s, n, o, d, p, c, l, m, u, g, h, f, y, b, E = {
+                    pageURL: (i = r) && i.referer ? i.referer : window.location.href,
                     refURL: window.document.referrer
-                }, y = (t = f, {
+                }, v = (t = E, {
                     id: "" + new Date().getTime(),
                     at: 1,
-                    cur: [ Y ],
+                    cur: [ R ],
                     imp: [],
                     site: {
                         page: t.pageURL,
@@ -7496,120 +7491,121 @@ pbjsChunk([ 130 ], {
                     },
                     user: {},
                     ext: {}
-                }), I = "", v = [], b = [];
+                }), I = "", w = [], O = [];
                 if (e.forEach(function(e) {
-                    var r;
-                    (s = E.deepClone(e)).params.adSlot = s.params.adSlot || "", k(s), s.params.hasOwnProperty("video") || s.hasOwnProperty("mediaTypes") && s.mediaTypes.hasOwnProperty(w.c) || 0 !== s.params.width || 0 !== s.params.height ? (f.pubId = f.pubId || s.params.publisherId, 
-                    (f = function(e, r) {
-                        var a, i, t;
-                        for (a in r.kadpageurl || (r.kadpageurl = r.pageURL), A) A.hasOwnProperty(a) && (i = e[a]) && ("object" === S(t = A[a]) && (i = t.f(i, r)), 
-                        E.isStr(i) ? r[a] = i : E.logWarn(D + "Ignoring param : " + a + " with value : " + A[a] + ", expects string-value, found " + S(i)));
-                        return r;
-                    }(s.params, f)).transactionId = s.transactionId, "" === I ? I = s.params.currency || P : s.params.hasOwnProperty("currency") && I !== s.params.currency && E.logWarn(D + "Currency specifier ignored. Only one currency permitted."), 
-                    s.params.currency = I, s.params.hasOwnProperty("dctr") && E.isStr(s.params.dctr) && v.push(s.params.dctr), 
-                    s.params.hasOwnProperty("bcat") && E.isArray(s.params.bcat) && (b = b.concat(s.params.bcat)), 
-                    (r = N(s)) && y.imp.push(r)) : E.logWarn(D + "Skipping the non-standard adslot: ", s.params.adSlot, JSON.stringify(s));
-                }), 0 != y.imp.length) return y.site.publisher.id = f.pubId.trim(), R = f.pubId.trim(), 
-                y.ext.wrapper = {}, y.ext.wrapper.profile = parseInt(f.profId) || P, y.ext.wrapper.version = parseInt(f.verId) || P, 
-                y.ext.wrapper.wiid = f.wiid || P, y.ext.wrapper.wv = "prebid_prebid_3.23.0", y.ext.wrapper.transactionId = f.transactionId, 
-                y.ext.wrapper.wp = "pbjs", y.user.gender = f.gender ? f.gender.trim() : P, y.user.geo = {}, 
-                y.user.geo.lat = x("lat", f.lat), y.user.geo.lon = x("lon", f.lon), y.user.yob = x("yob", f.yob), 
-                y.device.geo = y.user.geo, y.site.page = f.kadpageurl.trim() || y.site.page.trim(), 
-                y.site.domain = (n = y.site.page, (d = document.createElement("a")).href = n, d.hostname), 
-                "object" === S(T.b.getConfig("device")) && (y.device = O(y.device, T.b.getConfig("device"))), 
-                E.deepSetValue(y, "source.tid", f.transactionId), -1 !== window.location.href.indexOf("pubmaticTest=true") && (y.test = 1), 
-                e[0].schain && E.deepSetValue(y, "source.ext.schain", e[0].schain), r && r.gdprConsent && (E.deepSetValue(y, "user.ext.consent", r.gdprConsent.consentString), 
-                E.deepSetValue(y, "regs.ext.gdpr", r.gdprConsent.gdprApplies ? 1 : 0)), r && r.uspConsent && E.deepSetValue(y, "regs.ext.us_privacy", r.uspConsent), 
-                !0 === T.b.getConfig("coppa") && E.deepSetValue(y, "regs.coppa", 1), o = y, c = e, 
-                m = "", 0 < (p = v).length && (c[0].params.hasOwnProperty("dctr") ? (m = c[0].params.dctr, 
-                E.isStr(m) && 0 < m.length ? (u = m.split("|"), m = "", u.forEach(function(e) {
-                    m += 0 < e.length ? e.trim() + "|" : "";
-                }), l = m.length, "|" === m.substring(l, l - 1) && (m = m.substring(0, l - 1)), 
-                o.site.ext = {
-                    key_val: m.trim()
-                }) : E.logWarn(D + "Ignoring param : dctr with value : " + m + ", expects string-value, found empty or non-string value"), 
-                1 < p.length && E.logWarn(D + "dctr value found in more than 1 adunits. Value from 1st adunit will be picked. Ignoring values from subsequent adunits")) : E.logWarn(D + "dctr value not found in 1st adunit, ignoring values from subsequent adunits")), 
-                z(y, e), g = y, 0 < (h = (h = b).filter(function(e) {
-                    return "string" == typeof e || (E.logWarn(D + "bcat: Each category should be a string, ignoring category: " + e), 
+                    var a;
+                    (s = T.deepClone(e)).params.adSlot = s.params.adSlot || "", K(s), s.params.hasOwnProperty("video") || s.hasOwnProperty("mediaTypes") && s.mediaTypes.hasOwnProperty(S.c) || 0 !== s.params.width || 0 !== s.params.height ? (E.pubId = E.pubId || s.params.publisherId, 
+                    (E = function(e, a) {
+                        var r, i, t;
+                        for (r in a.kadpageurl || (a.kadpageurl = a.pageURL), N) N.hasOwnProperty(r) && (i = e[r]) && ("object" === P(t = N[r]) && (i = t.f(i, a)), 
+                        T.isStr(i) ? a[r] = i : T.logWarn(A + "Ignoring param : " + r + " with value : " + N[r] + ", expects string-value, found " + P(i)));
+                        return a;
+                    }(s.params, E)).transactionId = s.transactionId, "" === I ? I = s.params.currency || x : s.params.hasOwnProperty("currency") && I !== s.params.currency && T.logWarn(A + "Currency specifier ignored. Only one currency permitted."), 
+                    s.params.currency = I, s.params.hasOwnProperty("dctr") && T.isStr(s.params.dctr) && w.push(s.params.dctr), 
+                    s.params.hasOwnProperty("bcat") && T.isArray(s.params.bcat) && (O = O.concat(s.params.bcat)), 
+                    (a = C(s)) && v.imp.push(a)) : T.logWarn(A + "Skipping the non-standard adslot: ", s.params.adSlot, JSON.stringify(s));
+                }), 0 != v.imp.length) return v.site.publisher.id = E.pubId.trim(), k = E.pubId.trim(), 
+                v.ext.wrapper = {}, v.ext.wrapper.profile = parseInt(E.profId) || x, v.ext.wrapper.version = parseInt(E.verId) || x, 
+                v.ext.wrapper.wiid = E.wiid || x, v.ext.wrapper.wv = "prebid_prebid_3.24.0", v.ext.wrapper.transactionId = E.transactionId, 
+                v.ext.wrapper.wp = "pbjs", v.user.gender = E.gender ? E.gender.trim() : x, v.user.geo = {}, 
+                v.user.geo.lat = z("lat", E.lat), v.user.geo.lon = z("lon", E.lon), v.user.yob = z("yob", E.yob), 
+                v.device.geo = v.user.geo, v.site.page = E.kadpageurl.trim() || v.site.page.trim(), 
+                v.site.domain = (n = v.site.page, (o = document.createElement("a")).href = n, o.hostname), 
+                "object" === P(Y.b.getConfig("device")) && (v.device = D(v.device, Y.b.getConfig("device"))), 
+                T.deepSetValue(v, "source.tid", E.transactionId), -1 !== window.location.href.indexOf("pubmaticTest=true") && (v.test = 1), 
+                e[0].schain && T.deepSetValue(v, "source.ext.schain", e[0].schain), a && a.gdprConsent && (T.deepSetValue(v, "user.ext.consent", a.gdprConsent.consentString), 
+                T.deepSetValue(v, "regs.ext.gdpr", a.gdprConsent.gdprApplies ? 1 : 0)), a && a.uspConsent && T.deepSetValue(v, "regs.ext.us_privacy", a.uspConsent), 
+                !0 === Y.b.getConfig("coppa") && T.deepSetValue(v, "regs.coppa", 1), d = v, c = e, 
+                u = "", 0 < (p = w).length && (c[0].params.hasOwnProperty("dctr") ? (u = c[0].params.dctr, 
+                T.isStr(u) && 0 < u.length ? (m = u.split("|"), u = "", m.forEach(function(e) {
+                    u += 0 < e.length ? e.trim() + "|" : "";
+                }), l = u.length, "|" === u.substring(l, l - 1) && (u = u.substring(0, l - 1)), 
+                d.site.ext = {
+                    key_val: u.trim()
+                }) : T.logWarn(A + "Ignoring param : dctr with value : " + u + ", expects string-value, found empty or non-string value"), 
+                1 < p.length && T.logWarn(A + "dctr value found in more than 1 adunits. Value from 1st adunit will be picked. Ignoring values from subsequent adunits")) : T.logWarn(A + "dctr value not found in 1st adunit, ignoring values from subsequent adunits")), 
+                g = v, h = e, f = T.deepAccess(h, "0.userIdAsEids"), T.isArray(f) && 0 < f.length && T.deepSetValue(g, "user.eids", f), 
+                y = v, 0 < (b = (b = O).filter(function(e) {
+                    return "string" == typeof e || (T.logWarn(A + "bcat: Each category should be a string, ignoring category: " + e), 
                     !1);
                 }).map(function(e) {
                     return e.trim();
-                }).filter(function(e, r, a) {
-                    return 3 < e.length ? a.indexOf(e) === r : void E.logWarn(D + "bcat: Each category should have a value of a length of more than 3 characters, ignoring category: " + e);
-                })).length && (E.logWarn(D + "bcat: Selected: ", h), g.bcat = h), "object" === S(T.b.getConfig("app")) && (y.app = T.b.getConfig("app"), 
-                y.app.publisher = y.site.publisher, y.app.ext = y.site.ext || P, delete y.site), 
+                }).filter(function(e, a, r) {
+                    return 3 < e.length ? r.indexOf(e) === a : void T.logWarn(A + "bcat: Each category should have a value of a length of more than 3 characters, ignoring category: " + e);
+                })).length && (T.logWarn(A + "bcat: Selected: ", b), y.bcat = b), "object" === P(Y.b.getConfig("app")) && (v.app = Y.b.getConfig("app"), 
+                v.app.publisher = v.site.publisher, v.app.ext = v.site.ext || x, delete v.site), 
                 {
                     method: "POST",
                     url: "https://hbopenbid.pubmatic.com/translator?source=prebid-client",
-                    data: JSON.stringify(y)
+                    data: JSON.stringify(v)
                 };
             },
-            interpretResponse: function(e, r) {
-                var i = [], t = Y, s = JSON.parse(r.data), n = s.site && s.site.ref ? s.site.ref : "";
+            interpretResponse: function(e, a) {
+                var i = [], t = R, s = JSON.parse(a.data), n = s.site && s.site.ref ? s.site.ref : "";
                 try {
-                    e.body && e.body.seatbid && E.isArray(e.body.seatbid) && (t = e.body.cur || t, e.body.seatbid.forEach(function(e) {
-                        e.bid && E.isArray(e.bid) && e.bid.forEach(function(r) {
-                            var a = {
-                                requestId: r.impid,
-                                cpm: (parseFloat(r.price) || 0).toFixed(2),
-                                width: r.w,
-                                height: r.h,
-                                creativeId: r.crid || r.id,
-                                dealId: r.dealid,
+                    e.body && e.body.seatbid && T.isArray(e.body.seatbid) && (t = e.body.cur || t, e.body.seatbid.forEach(function(e) {
+                        e.bid && T.isArray(e.bid) && e.bid.forEach(function(a) {
+                            var r = {
+                                requestId: a.impid,
+                                cpm: (parseFloat(a.price) || 0).toFixed(2),
+                                width: a.w,
+                                height: a.h,
+                                creativeId: a.crid || a.id,
+                                dealId: a.dealid,
                                 currency: t,
                                 netRevenue: !1,
                                 ttl: 300,
                                 referrer: n,
-                                ad: r.adm,
+                                ad: a.adm,
                                 pm_seat: e.seat || null,
-                                pm_dspid: r.ext && r.ext.dspid ? r.ext.dspid : null
+                                pm_dspid: a.ext && a.ext.dspid ? a.ext.dspid : null
                             };
                             s.imp && 0 < s.imp.length && s.imp.forEach(function(e) {
-                                if (r.impid === e.id) switch (!function(r, e) {
-                                    var a = "", i = new RegExp(/VAST\s+version/);
-                                    if (0 <= r.indexOf('span class="PubAPIAd"')) e.mediaType = w.b; else if (i.test(r)) e.mediaType = w.d; else try {
-                                        (a = JSON.parse(r.replace(/\\/g, ""))) && a.native && (e.mediaType = w.c);
+                                if (a.impid === e.id) switch (!function(a, e) {
+                                    var r = "", i = new RegExp(/VAST\s+version/);
+                                    if (0 <= a.indexOf('span class="PubAPIAd"')) e.mediaType = S.b; else if (i.test(a)) e.mediaType = S.d; else try {
+                                        (r = JSON.parse(a.replace(/\\/g, ""))) && r.native && (e.mediaType = S.c);
                                     } catch (e) {
-                                        E.logWarn(D + "Error: Cannot parse native reponse for ad response: " + r);
+                                        T.logWarn(A + "Error: Cannot parse native reponse for ad response: " + a);
                                     }
-                                }(r.adm, a), a.mediaType) {
-                                  case w.b:
+                                }(a.adm, r), r.mediaType) {
+                                  case S.b:
                                     break;
 
-                                  case w.d:
-                                    a.width = r.hasOwnProperty("w") ? r.w : e.video.w, a.height = r.hasOwnProperty("h") ? r.h : e.video.h, 
-                                    a.vastXml = r.adm;
+                                  case S.d:
+                                    r.width = a.hasOwnProperty("w") ? a.w : e.video.w, r.height = a.hasOwnProperty("h") ? a.h : e.video.h, 
+                                    r.vastXml = a.adm;
                                     break;
 
-                                  case w.c:
-                                    !function(e, r) {
-                                        if (r.native = {}, e.hasOwnProperty("adm")) {
-                                            var a = "";
+                                  case S.c:
+                                    !function(e, a) {
+                                        if (a.native = {}, e.hasOwnProperty("adm")) {
+                                            var r = "";
                                             try {
-                                                a = JSON.parse(e.adm.replace(/\\/g, ""));
+                                                r = JSON.parse(e.adm.replace(/\\/g, ""));
                                             } catch (e) {
-                                                return E.logWarn(D + "Error: Cannot parse native reponse for ad response: " + r.adm);
+                                                return T.logWarn(A + "Error: Cannot parse native reponse for ad response: " + a.adm);
                                             }
-                                            if (a && a.native && a.native.assets && 0 < a.native.assets.length) {
-                                                r.mediaType = w.c;
-                                                for (var i = 0, t = a.native.assets.length; i < t; i++) switch (a.native.assets[i].id) {
+                                            if (r && r.native && r.native.assets && 0 < r.native.assets.length) {
+                                                a.mediaType = S.c;
+                                                for (var i = 0, t = r.native.assets.length; i < t; i++) switch (r.native.assets[i].id) {
                                                   case c.TITLE.ID:
-                                                    r.native.title = a.native.assets[i].title && a.native.assets[i].title.text;
+                                                    a.native.title = r.native.assets[i].title && r.native.assets[i].title.text;
                                                     break;
 
                                                   case c.IMAGE.ID:
-                                                    r.native.image = {
-                                                        url: a.native.assets[i].img && a.native.assets[i].img.url,
-                                                        height: a.native.assets[i].img && a.native.assets[i].img.h,
-                                                        width: a.native.assets[i].img && a.native.assets[i].img.w
+                                                    a.native.image = {
+                                                        url: r.native.assets[i].img && r.native.assets[i].img.url,
+                                                        height: r.native.assets[i].img && r.native.assets[i].img.h,
+                                                        width: r.native.assets[i].img && r.native.assets[i].img.w
                                                     };
                                                     break;
 
                                                   case c.ICON.ID:
-                                                    r.native.icon = {
-                                                        url: a.native.assets[i].img && a.native.assets[i].img.url,
-                                                        height: a.native.assets[i].img && a.native.assets[i].img.h,
-                                                        width: a.native.assets[i].img && a.native.assets[i].img.w
+                                                    a.native.icon = {
+                                                        url: r.native.assets[i].img && r.native.assets[i].img.url,
+                                                        height: r.native.assets[i].img && r.native.assets[i].img.h,
+                                                        width: r.native.assets[i].img && r.native.assets[i].img.w
                                                     };
                                                     break;
 
@@ -7625,31 +7621,31 @@ pbjsChunk([ 130 ], {
                                                   case c.CTA.ID:
                                                   case c.RATING.ID:
                                                   case c.DISPLAYURL.ID:
-                                                    r.native[o[a.native.assets[i].id]] = a.native.assets[i].data && a.native.assets[i].data.value;
+                                                    a.native[d[r.native.assets[i].id]] = r.native.assets[i].data && r.native.assets[i].data.value;
                                                 }
-                                                r.native.clickUrl = a.native.link && a.native.link.url, r.native.clickTrackers = a.native.link && a.native.link.clicktrackers || [], 
-                                                r.native.impressionTrackers = a.native.imptrackers || [], r.native.jstracker = a.native.jstracker || [], 
-                                                r.width || (r.width = 0), r.height || (r.height = 0);
+                                                a.native.clickUrl = r.native.link && r.native.link.url, a.native.clickTrackers = r.native.link && r.native.link.clicktrackers || [], 
+                                                a.native.impressionTrackers = r.native.imptrackers || [], a.native.jstracker = r.native.jstracker || [], 
+                                                a.width || (a.width = 0), a.height || (a.height = 0);
                                             }
                                         }
-                                    }(r, a);
+                                    }(a, r);
                                 }
-                            }), r.ext && r.ext.deal_channel && (a.dealChannel = d[r.ext.deal_channel] || null), 
-                            a.meta = {}, r.ext && r.ext.dspid && (a.meta.networkId = r.ext.dspid), r.ext && r.ext.advid && (a.meta.buyerId = r.ext.advid), 
-                            r.adomain && 0 < r.adomain.length && (a.meta.clickUrl = r.adomain[0]), e.ext && e.ext.buyid && (a.adserverTargeting = {
+                            }), a.ext && a.ext.deal_channel && (r.dealChannel = o[a.ext.deal_channel] || null), 
+                            r.meta = {}, a.ext && a.ext.dspid && (r.meta.networkId = a.ext.dspid), a.ext && a.ext.advid && (r.meta.buyerId = a.ext.advid), 
+                            a.adomain && 0 < a.adomain.length && (r.meta.clickUrl = a.adomain[0]), e.ext && e.ext.buyid && (r.adserverTargeting = {
                                 hb_buyid_pubmatic: e.ext.buyid
-                            }), i.push(a);
+                            }), i.push(r);
                         });
                     }));
                 } catch (e) {
-                    E.logError(e);
+                    T.logError(e);
                 }
                 return i;
             },
-            getUserSyncs: function(e, r, a, i) {
-                var t = "" + R;
-                return a && (t += "&gdpr=" + (a.gdprApplies ? 1 : 0), t += "&gdpr_consent=" + encodeURIComponent(a.consentString || "")), 
-                i && (t += "&us_privacy=" + encodeURIComponent(i)), !0 === T.b.getConfig("coppa") && (t += "&coppa=1"), 
+            getUserSyncs: function(e, a, r, i) {
+                var t = "" + k;
+                return r && (t += "&gdpr=" + (r.gdprApplies ? 1 : 0), t += "&gdpr_consent=" + encodeURIComponent(r.consentString || "")), 
+                i && (t += "&us_privacy=" + encodeURIComponent(i)), !0 === Y.b.getConfig("coppa") && (t += "&coppa=1"), 
                 e.iframeEnabled ? [ {
                     type: "iframe",
                     url: "https://ads.pubmatic.com/AdServer/js/showad.js#PIX&kdntuid=1&p=" + t
@@ -7659,21 +7655,21 @@ pbjsChunk([ 130 ], {
                 } ];
             },
             transformBidParams: function(e) {
-                return E.convertTypes({
+                return T.convertTypes({
                     publisherId: "string",
                     adSlot: "string"
                 }, e);
             }
         };
-        Object(i.registerBidder)(y);
+        Object(i.registerBidder)(n);
     }
-}, [ 621 ]);
+}, [ 623 ]);
 
-pbjsChunk([ 110 ], {
-    675: function(e, r, t) {
-        e.exports = t(676);
+pbjsChunk([ 112 ], {
+    677: function(e, r, t) {
+        e.exports = t(678);
     },
-    676: function(e, r, t) {
+    678: function(e, r, t) {
         "use strict";
         Object.defineProperty(r, "__esModule", {
             value: !0
@@ -8047,7 +8043,7 @@ pbjsChunk([ 110 ], {
                     alt_size_ids: n.slice(1).join(",") || void 0,
                     rp_floor: .01 < (i.floor = parseFloat(i.floor)) ? i.floor : .01,
                     rp_secure: "1",
-                    tk_flint: "".concat(d || "pbjs_lite", "_v3.23.0"),
+                    tk_flint: "".concat(d || "pbjs_lite", "_v3.24.0"),
                     "x_source.tid": e.transactionId,
                     "x_source.pchain": i.pchain,
                     p_screen_res: [ window.screen.width, window.screen.height ].join("x"),
@@ -8311,7 +8307,7 @@ pbjsChunk([ 110 ], {
         var R = !1;
         Object(i.registerBidder)(h);
     }
-}, [ 675 ]);
+}, [ 677 ]);
 
 pbjs.processQueue();
 
