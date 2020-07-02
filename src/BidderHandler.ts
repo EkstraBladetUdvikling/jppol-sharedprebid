@@ -13,7 +13,7 @@ export interface IBannerObject {
   targetId: string;
 }
 
-function BidderHandler(bannerObject: IBannerObject) {
+function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
   try {
     const ebBidders = [];
 
@@ -36,12 +36,21 @@ function BidderHandler(bannerObject: IBannerObject) {
      * http://prebid.org/dev-docs/bidders.html#appnexus
      */
     if (typeof bannerObject.appnexusID !== 'undefined') {
-      ebBidders.push({
-        bidder: 'appnexus',
-        params: {
-          placementId: bannerObject.appnexusID
-        }
-      });
+      const appnexusObj = keywords
+        ? {
+            bidder: 'appnexus',
+            params: {
+              keywords,
+              placementId: bannerObject.appnexusID
+            }
+          }
+        : {
+            bidder: 'appnexus',
+            params: {
+              placementId: bannerObject.appnexusID
+            }
+          };
+      ebBidders.push(appnexusObj);
     }
 
     /**
@@ -100,12 +109,12 @@ function BidderHandler(bannerObject: IBannerObject) {
   }
 }
 
-export function AdUnitCreator(bannerContainer: any) {
+export function AdUnitCreator(bannerContainer: any, keywords?: string[]) {
   try {
     const adUnits = [];
 
     for (const banner of bannerContainer) {
-      const bidders = BidderHandler(banner);
+      const bidders = BidderHandler(banner, keywords);
       const adUnit: {
         bids: any;
         code: string;

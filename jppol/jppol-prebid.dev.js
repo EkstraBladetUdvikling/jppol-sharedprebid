@@ -8381,7 +8381,7 @@ var jppol = function(exports) {
         };
         return PrebidAnalytics;
     }();
-    function BidderHandler(bannerObject) {
+    function BidderHandler(bannerObject, keywords) {
         try {
             var ebBidders = [];
             if (typeof bannerObject.adformMID !== "undefined") {
@@ -8394,12 +8394,19 @@ var jppol = function(exports) {
                 });
             }
             if (typeof bannerObject.appnexusID !== "undefined") {
-                ebBidders.push({
+                var appnexusObj = keywords ? {
+                    bidder: "appnexus",
+                    params: {
+                        keywords: keywords,
+                        placementId: bannerObject.appnexusID
+                    }
+                } : {
                     bidder: "appnexus",
                     params: {
                         placementId: bannerObject.appnexusID
                     }
-                });
+                };
+                ebBidders.push(appnexusObj);
             }
             if (typeof bannerObject.criteoId !== "undefined") {
                 ebBidders.push({
@@ -8439,12 +8446,12 @@ var jppol = function(exports) {
             console.error("jppolPrebid BidderHandler", err);
         }
     }
-    function AdUnitCreator(bannerContainer) {
+    function AdUnitCreator(bannerContainer, keywords) {
         try {
             var adUnits = [];
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
-                var bidders = BidderHandler(banner);
+                var bidders = BidderHandler(banner, keywords);
                 var adUnit = {
                     bids: bidders,
                     code: banner.targetId,
@@ -8487,7 +8494,7 @@ var jppol = function(exports) {
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(options.banners);
+                var adUnits_1 = AdUnitCreator(options.banners, options.keywords);
                 if (options.tracking) {
                     new PrebidAnalytics(options.tracking);
                 }
