@@ -8551,6 +8551,7 @@ var jppol = function(exports) {
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, 
     _a);
     function prebid(options) {
+        window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);
     }
     exports.prebid = prebid;
