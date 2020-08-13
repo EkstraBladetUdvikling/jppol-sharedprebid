@@ -8527,6 +8527,8 @@ var jppol = function(exports) {
                                         apntag.anq.push(function() {
                                             pbjs_1.setTargetingForAst();
                                             apntag.loadTags();
+                                            window.jppolStillWaitingForPrebid = false;
+                                            console.log("__apn we just loaded prebid banners");
                                             console.log("prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()");
                                         });
                                     });
