@@ -8527,6 +8527,8 @@ var jppol = function(exports) {
                                         apntag.anq.push(function() {
                                             pbjs_1.setTargetingForAst();
                                             apntag.loadTags();
+                                            window.jppolStillWaitingForPrebid = false;
+                                            console.log("__apn we just loaded prebid banners");
                                             console.log("prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()");
                                         });
                                     });
@@ -8549,6 +8551,7 @@ var jppol = function(exports) {
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, 
     _a);
     function prebid(options) {
+        window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);
     }
     exports.prebid = prebid;

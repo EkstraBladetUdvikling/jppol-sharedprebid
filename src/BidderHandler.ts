@@ -26,8 +26,8 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
         bidder: 'adform',
         params: {
           mid: bannerObject.adformMID,
-          rcur: 'USD'
-        }
+          rcur: 'USD',
+        },
       });
     }
 
@@ -41,14 +41,14 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
             bidder: 'appnexus',
             params: {
               keywords,
-              placementId: bannerObject.appnexusID
-            }
+              placementId: bannerObject.appnexusID,
+            },
           }
         : {
             bidder: 'appnexus',
             params: {
-              placementId: bannerObject.appnexusID
-            }
+              placementId: bannerObject.appnexusID,
+            },
           };
       ebBidders.push(appnexusObj);
     }
@@ -61,8 +61,8 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
       ebBidders.push({
         bidder: 'criteo',
         params: {
-          zoneId: bannerObject.criteoId
-        }
+          zoneId: bannerObject.criteoId,
+        },
       });
     }
 
@@ -82,8 +82,8 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
           bidder: 'pubmatic',
           params: {
             adSlot: PubMaticAdslotName,
-            publisherId: bannerObject.pubmaticPublisherId
-          }
+            publisherId: bannerObject.pubmaticPublisherId,
+          },
         });
       }
     }
@@ -98,8 +98,8 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
         params: {
           accountId: bannerObject.rubiconAccountId,
           siteId: bannerObject.rubiconSiteID,
-          zoneId: bannerObject.rubiconZone
-        }
+          zoneId: bannerObject.rubiconZone,
+        },
       });
     }
 
@@ -132,9 +132,9 @@ export function AdUnitCreator(bannerContainer: any, keywords?: string[]) {
         code: banner.targetId,
         mediaTypes: {
           banner: {
-            sizes: banner.sizes
-          }
-        }
+            sizes: banner.sizes,
+          },
+        },
       };
       if (banner.pubstackData) {
         adUnit.pubstack = banner.pubstackData;

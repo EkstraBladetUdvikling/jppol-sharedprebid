@@ -20,7 +20,7 @@ export class AuctionHandler {
       consentAllowAuction: true,
       consentTimeout: 3000000,
       debug: false,
-      timeout: 700
+      timeout: 700,
     };
     const auctionSettings = { ...prebidDefault, ...options };
     this.auction(auctionSettings);
@@ -54,20 +54,20 @@ export class AuctionHandler {
             consentManagement: {
               allowAuctionWithoutConsent: options.consentAllowAuction,
               cmpApi: 'iab',
-              timeout: options.consentTimeout
+              timeout: options.consentTimeout,
             },
             debug: options.debug,
             priceGranularity: 'high',
             userSync: {
               enabledBidders: ['pubmatic'],
               iframeEnabled: true,
-              syncDelay: 6000
-            }
+              syncDelay: 6000,
+            },
           });
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
           pbjs.requestBids({
-            bidsBackHandler: bidResponse => {
+            bidsBackHandler: (bidResponse) => {
               console.log('prebid: bidsBackHandler', bidResponse);
               const apntag = (window as any).apntag;
               if (typeof apntag !== 'undefined') {
@@ -76,6 +76,8 @@ export class AuctionHandler {
                   apntag.anq.push(() => {
                     pbjs.setTargetingForAst();
                     apntag.loadTags();
+                    (window as any).jppolStillWaitingForPrebid = false;
+                    console.log('__apn we just loaded prebid banners');
                     console.log(
                       'prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
                     );
@@ -86,7 +88,7 @@ export class AuctionHandler {
                 options.adserverCallback(bidResponse);
               }
               window[PREBIDAUCTION][COMPLETED] = true;
-            }
+            },
           });
         }
       });

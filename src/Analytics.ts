@@ -22,7 +22,7 @@ export class PrebidAnalytics {
   constructor(trackingOptions: ITrackingOptions) {
     const trackingDefaults = {
       distribution: false,
-      sampling: true
+      sampling: true,
     };
     const options = { ...trackingDefaults, ...trackingOptions };
     this.initializeTracking(options);
@@ -66,10 +66,10 @@ export class PrebidAnalytics {
                   options: {
                     enableDistribution: options.distribution,
                     sampling,
-                    trackerName: prebidTrackerName
+                    trackerName: prebidTrackerName,
                   },
-                  provider: 'ga'
-                }
+                  provider: 'ga',
+                },
               ];
 
               pbjs.enableAnalytics(analyticsObject);

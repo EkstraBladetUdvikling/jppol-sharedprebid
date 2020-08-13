@@ -2,18 +2,18 @@ var jppol = (function (exports) {
     'use strict';
 
     /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
+    Copyright (c) Microsoft Corporation.
 
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
 
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
     var __assign = function() {
@@ -36,7 +36,7 @@ var jppol = (function (exports) {
             this.reCheckCount = 0;
             var trackingDefaults = {
                 distribution: false,
-                sampling: true
+                sampling: true,
             };
             var options = __assign(__assign({}, trackingDefaults), trackingOptions);
             this.initializeTracking(options);
@@ -73,10 +73,10 @@ var jppol = (function (exports) {
                                         options: {
                                             enableDistribution: options.distribution,
                                             sampling: sampling,
-                                            trackerName: prebidTrackerName
+                                            trackerName: prebidTrackerName,
                                         },
-                                        provider: 'ga'
-                                    }
+                                        provider: 'ga',
+                                    },
                                 ];
                                 pbjs_1.enableAnalytics(analyticsObject);
                             });
@@ -107,8 +107,8 @@ var jppol = (function (exports) {
                     bidder: 'adform',
                     params: {
                         mid: bannerObject.adformMID,
-                        rcur: 'USD'
-                    }
+                        rcur: 'USD',
+                    },
                 });
             }
             /**
@@ -121,14 +121,14 @@ var jppol = (function (exports) {
                         bidder: 'appnexus',
                         params: {
                             keywords: keywords,
-                            placementId: bannerObject.appnexusID
-                        }
+                            placementId: bannerObject.appnexusID,
+                        },
                     }
                     : {
                         bidder: 'appnexus',
                         params: {
-                            placementId: bannerObject.appnexusID
-                        }
+                            placementId: bannerObject.appnexusID,
+                        },
                     };
                 ebBidders.push(appnexusObj);
             }
@@ -140,8 +140,8 @@ var jppol = (function (exports) {
                 ebBidders.push({
                     bidder: 'criteo',
                     params: {
-                        zoneId: bannerObject.criteoId
-                    }
+                        zoneId: bannerObject.criteoId,
+                    },
                 });
             }
             /**
@@ -158,8 +158,8 @@ var jppol = (function (exports) {
                         bidder: 'pubmatic',
                         params: {
                             adSlot: PubMaticAdslotName,
-                            publisherId: bannerObject.pubmaticPublisherId
-                        }
+                            publisherId: bannerObject.pubmaticPublisherId,
+                        },
                     });
                 }
             }
@@ -173,8 +173,8 @@ var jppol = (function (exports) {
                     params: {
                         accountId: bannerObject.rubiconAccountId,
                         siteId: bannerObject.rubiconSiteID,
-                        zoneId: bannerObject.rubiconZone
-                    }
+                        zoneId: bannerObject.rubiconZone,
+                    },
                 });
             }
             return ebBidders;
@@ -194,9 +194,9 @@ var jppol = (function (exports) {
                     code: banner.targetId,
                     mediaTypes: {
                         banner: {
-                            sizes: banner.sizes
-                        }
-                    }
+                            sizes: banner.sizes,
+                        },
+                    },
                 };
                 if (banner.pubstackData) {
                     adUnit.pubstack = banner.pubstackData;
@@ -220,7 +220,7 @@ var jppol = (function (exports) {
                 consentAllowAuction: true,
                 consentTimeout: 3000000,
                 debug: false,
-                timeout: 700
+                timeout: 700,
             };
             var auctionSettings = __assign(__assign({}, prebidDefault), options);
             this.auction(auctionSettings);
@@ -246,15 +246,15 @@ var jppol = (function (exports) {
                             consentManagement: {
                                 allowAuctionWithoutConsent: options.consentAllowAuction,
                                 cmpApi: 'iab',
-                                timeout: options.consentTimeout
+                                timeout: options.consentTimeout,
                             },
                             debug: options.debug,
                             priceGranularity: 'high',
                             userSync: {
                                 enabledBidders: ['pubmatic'],
                                 iframeEnabled: true,
-                                syncDelay: 6000
-                            }
+                                syncDelay: 6000,
+                            },
                         });
                         pbjs_1.addAdUnits(adUnits_1);
                         console.log('prebid: pbjs.adUnits?', pbjs_1.adUnits);
@@ -268,6 +268,8 @@ var jppol = (function (exports) {
                                         apntag.anq.push(function () {
                                             pbjs_1.setTargetingForAst();
                                             apntag.loadTags();
+                                            window.jppolStillWaitingForPrebid = false;
+                                            console.log('__apn we just loaded prebid banners');
                                             console.log('prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()');
                                         });
                                     });
@@ -276,7 +278,7 @@ var jppol = (function (exports) {
                                     options.adserverCallback(bidResponse);
                                 }
                                 window[PREBIDAUCTION][COMPLETED] = true;
-                            }
+                            },
                         });
                     }
                 });
@@ -291,20 +293,7 @@ var jppol = (function (exports) {
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
     function prebid(options) {
-        // EB
-        // pubmaticPublisherId: '156010'
-        // const rubiconAccountID = 10093;
-        // let rubiconSiteID = 20183;
-        // switch (device) {
-        //   case 'smartphone':
-        //     rubiconSiteID = 23382;
-        //     break;
-        //   case 'tablet':
-        //     rubiconSiteID = 43742;
-        //     break;
-        //   default:
-        //     rubiconSiteID = 20183;
-        // }
+        window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);
     }
 
