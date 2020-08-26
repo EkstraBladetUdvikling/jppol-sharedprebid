@@ -1,4 +1,3 @@
-import { ITrackingOptions, PrebidAnalytics } from './Analytics';
 import { AdUnitCreator, IBannerObject } from './BidderHandler';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
@@ -11,7 +10,6 @@ export interface IPrebidOptions {
   debug?: boolean;
   keywords?: string[];
   timeout?: number;
-  tracking?: ITrackingOptions;
 }
 
 export class AuctionHandler {
@@ -42,10 +40,6 @@ export class AuctionHandler {
 
       window[PREBIDAUCTION][COMPLETED] = false;
       const adUnits = AdUnitCreator(options.banners, options.keywords);
-
-      if (options.tracking) {
-        new PrebidAnalytics(options.tracking);
-      }
 
       pbjs.que.push(() => {
         if (adUnits.length > 0) {

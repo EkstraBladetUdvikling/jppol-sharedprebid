@@ -27,74 +27,6 @@ var jppol = (function (exports) {
         return __assign.apply(this, arguments);
     };
 
-    /**
-     * Helper: initializeTracking
-     * creating google analytics object to add the tracking to
-     */
-    var PrebidAnalytics = /** @class */ (function () {
-        function PrebidAnalytics(trackingOptions) {
-            this.reCheckCount = 0;
-            var trackingDefaults = {
-                distribution: false,
-                sampling: true,
-            };
-            var options = __assign(__assign({}, trackingDefaults), trackingOptions);
-            this.initializeTracking(options);
-        }
-        PrebidAnalytics.prototype.initializeTracking = function (options) {
-            var _this = this;
-            try {
-                console.log("prebid: PrebidAnalytics arguments: trackingSampling " + options.sampling + " | trackingDistribution " + options.distribution);
-                var win = window;
-                var ga_1 = win.ga;
-                var pbjs_1 = win.pbjs;
-                this.reCheckInterval = setInterval(function () {
-                    _this.reCheckCount++;
-                    var prebidTrackerName = '';
-                    clearInterval(_this.reCheckInterval);
-                    if (typeof ga_1 !== 'undefined' && typeof ga_1.getAll !== 'undefined') {
-                        var trackers = ga_1.getAll();
-                        console.log("prebid: PrebidAnalytics: custom ga " + ga_1.getAll());
-                        for (var _i = 0, trackers_1 = trackers; _i < trackers_1.length; _i++) {
-                            var tracker = trackers_1[_i];
-                            var trackerName = tracker.get('name') === '' ? '(unnamed)' : tracker.get('name');
-                            if (tracker.get('trackingId') === options.id) {
-                                prebidTrackerName = trackerName;
-                            }
-                        }
-                        console.log("prebid: PrebidAnalytics custom ga, ready for tracking " + prebidTrackerName);
-                        if (prebidTrackerName !== '') {
-                            console.log('prebid: PrebidAnalytics custom ga, ready for tracking');
-                            pbjs_1.que.push(function () {
-                                // Sampling set to 5%
-                                var sampling = options.sampling ? 0.05 : 1;
-                                var analyticsObject = [
-                                    {
-                                        options: {
-                                            enableDistribution: options.distribution,
-                                            sampling: sampling,
-                                            trackerName: prebidTrackerName,
-                                        },
-                                        provider: 'ga',
-                                    },
-                                ];
-                                pbjs_1.enableAnalytics(analyticsObject);
-                            });
-                        }
-                    }
-                    else if (_this.reCheckCount === 10) {
-                        clearInterval(_this.reCheckInterval);
-                        throw new Error('Prebid Analytics Checked 10 times with no luck');
-                    }
-                }, 300);
-            }
-            catch (err) {
-                console.error("PrebidAnalytics " + err);
-            }
-        };
-        return PrebidAnalytics;
-    }());
-
     function BidderHandler(bannerObject, keywords) {
         try {
             var ebBidders = [];
@@ -236,9 +168,6 @@ var jppol = (function (exports) {
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
                 var adUnits_1 = AdUnitCreator(options.banners, options.keywords);
-                if (options.tracking) {
-                    new PrebidAnalytics(options.tracking);
-                }
                 pbjs_1.que.push(function () {
                     if (adUnits_1.length > 0) {
                         pbjs_1.setConfig({
