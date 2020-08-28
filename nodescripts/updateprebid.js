@@ -8,7 +8,6 @@ let modules = [
   'pubmaticBidAdapter',
   'consentManagement',
   'gdprEnforcement',
-  // 'pubCommonIdSystem',
 ];
 
 const updatePrebid = (version, norubicon, addModules) => {
