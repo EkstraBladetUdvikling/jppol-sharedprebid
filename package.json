@@ -1,6 +1,6 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
     "dist": "npm run build && npm run build:prod",
     "dist:move": "npm run dist && npm run move_to_eb",
-    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v4\"",
+    "move_to_eb": "node nodescripts/buildprebid.js --move",
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",

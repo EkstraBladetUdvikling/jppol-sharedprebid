@@ -9,7 +9,7 @@
         return o;
     };
     var n = {}, d = {
-        330: 0
+        332: 0
     };
     function f(e) {
         if (n[e]) return n[e].exports;
@@ -37,7 +37,7 @@
         return Object.prototype.hasOwnProperty.call(e, t);
     }, f.p = "", f.oe = function(e) {
         throw console.error(e), e;
-    }, f(f.s = 842);
+    }, f(f.s = 846);
 }({
     0: function(e, t, n) {
         "use strict";
@@ -873,7 +873,7 @@
         e.exports = r;
     },
     101: function(e, t, n) {
-        var r = n(23), i = n(102), o = n(19)("species");
+        var r = n(24), i = n(102), o = n(19)("species");
         e.exports = function(e, t) {
             var n;
             return i(e) && ("function" == typeof (n = e.constructor) && (n === Array || i(n.prototype)) || r(n) && null === (n = n[o])) && (n = void 0), 
@@ -887,7 +887,7 @@
         };
     },
     103: function(e, t, n) {
-        var r = n(22), i = n(30);
+        var r = n(23), i = n(30);
         e.exports = function(t, n) {
             try {
                 i(r, t, n);
@@ -994,7 +994,7 @@
     },
     110: function(e, t, n) {
         "use strict";
-        var f = n(14), l = n(22), p = n(78), g = n(29), b = n(30), v = n(17), y = n(81), h = n(23), m = n(64), S = n(31).f, A = n(56).forEach, E = n(28), r = n(54), O = r.set, T = r.getterFor;
+        var f = n(14), l = n(23), p = n(78), g = n(29), b = n(30), v = n(17), y = n(81), h = n(24), m = n(64), S = n(31).f, A = n(56).forEach, E = n(28), r = n(54), O = r.set, T = r.getterFor;
         e.exports = function(n, e, t) {
             var r, a, i = -1 !== n.indexOf("Map"), c = -1 !== n.indexOf("Weak"), o = i ? "set" : "add", u = l[n], s = u && u.prototype, d = {};
             return E && "function" == typeof u && (c || s.forEach && !g(function() {
@@ -1038,7 +1038,7 @@
         };
     },
     113: function(e, t, n) {
-        var r = n(22), i = n(114), o = r.WeakMap;
+        var r = n(23), i = n(114), o = r.WeakMap;
         e.exports = "function" == typeof o && /native code/.test(i(o));
     },
     114: function(e, t, n) {
@@ -1157,7 +1157,7 @@
         };
     },
     118: function(e, t, n) {
-        var a = n(24), c = n(47), u = n(76).indexOf, s = n(53);
+        var a = n(25), c = n(47), u = n(76).indexOf, s = n(53);
         e.exports = function(e, t) {
             var n, r = c(e), i = 0, o = [];
             for (n in r) !a(s, n) && a(r, n) && o.push(n);
@@ -1166,7 +1166,7 @@
         };
     },
     119: function(e, t, n) {
-        var r = n(25);
+        var r = n(26);
         e.exports = r("document", "documentElement");
     },
     12: function(e, t, n) {
@@ -1214,7 +1214,7 @@
         }() : void 0);
     },
     124: function(e, t, n) {
-        var r = n(23);
+        var r = n(24);
         e.exports = function(e) {
             if (!r(e) && null !== e) throw TypeError("Can't set " + String(e) + " as a prototype");
             return e;
@@ -1222,7 +1222,7 @@
     },
     125: function(e, t, n) {
         "use strict";
-        var r = n(25), i = n(31), o = n(19), a = n(28), c = o("species");
+        var r = n(26), i = n(31), o = n(19), a = n(28), c = o("species");
         e.exports = function(e) {
             var t = r(e), n = i.f;
             a && t && !t[c] && n(t, c, {
@@ -1249,7 +1249,7 @@
     },
     128: function(e, t, n) {
         n(129);
-        var r = n(130), i = n(22), o = n(62), a = n(30), c = n(38), u = n(19)("toStringTag");
+        var r = n(130), i = n(23), o = n(62), a = n(30), c = n(38), u = n(19)("toStringTag");
         for (var s in r) {
             var d = i[s], f = d && d.prototype;
             f && o(f) !== u && a(f, u, s), c[s] = c.Array;
@@ -1480,7 +1480,7 @@
             }
             return e.prototype = r.prototype, e;
         }
-        var h = n(22), m = n(98).f, S = n(100), A = n(43), E = n(21), O = n(30), T = n(24);
+        var h = n(23), m = n(98).f, S = n(100), A = n(43), E = n(21), O = n(30), T = n(25);
         e.exports = function(e, t) {
             var n, r, i, o, a, c, u, s, d = e.target, f = e.global, l = e.stat, p = e.proto, g = f ? h : l ? h[d] : (h[d] || {}).prototype, b = f ? A : A[d] || (A[d] = {}), v = b.prototype;
             for (i in t) n = !S(f ? i : d + (l ? "." : "#") + i, e.forced) && g && T(g, i), 
@@ -1492,7 +1492,7 @@
     },
     140: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(25), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(26), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1509,7 +1509,7 @@
     },
     141: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), c = n(25), u = n(15), s = n(18), d = n(21), f = n(39), l = n(35), p = n(17);
+        var r = n(14), i = n(16), c = n(26), u = n(15), s = n(18), d = n(21), f = n(39), l = n(35), p = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1543,7 +1543,7 @@
     },
     143: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(25), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(26), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1577,7 +1577,7 @@
     },
     145: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(25), a = n(15), c = n(18), u = n(88), s = n(17);
+        var r = n(14), i = n(16), o = n(26), a = n(15), c = n(18), u = n(88), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1626,7 +1626,7 @@
     },
     148: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), c = n(25), u = n(15), s = n(18), d = n(21), f = n(39), l = n(35), p = n(17);
+        var r = n(14), i = n(16), c = n(26), u = n(15), s = n(18), d = n(21), f = n(39), l = n(35), p = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1660,7 +1660,7 @@
         });
     },
     15: function(e, t, n) {
-        var r = n(23);
+        var r = n(24);
         e.exports = function(e) {
             if (!r(e)) throw TypeError(String(e) + " is not an object");
             return e;
@@ -1685,7 +1685,7 @@
     },
     151: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(25), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(26), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1702,7 +1702,7 @@
     },
     152: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(25), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(26), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -2008,7 +2008,7 @@
         };
     },
     19: function(e, t, n) {
-        var r = n(22), i = n(73), o = n(24), a = n(59), c = n(75), u = n(104), s = i("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
+        var r = n(23), i = n(73), o = n(25), a = n(59), c = n(75), u = n(104), s = i("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
         e.exports = function(e) {
             return o(s, e) || (c && o(d, e) ? s[e] = d[e] : s[e] = f("Symbol." + e)), s[e];
         };
@@ -2083,13 +2083,96 @@
             }
         }), o(c);
     },
-    22: function(n, e, t) {
-        (function(e) {
-            function t(e) {
-                return e && e.Math == Math && e;
-            }
-            n.exports = t("object" == typeof globalThis && globalThis) || t("object" == typeof window && window) || t("object" == typeof self && self) || t("object" == typeof e && e) || Function("return this")();
-        }).call(e, t(34));
+    22: function(e, t, n) {
+        "use strict";
+        n.d(t, "a", function() {
+            return r;
+        });
+        var i = n(0);
+        function o() {
+            return (o = Object.assign || function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var n = arguments[t];
+                    for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+                }
+                return e;
+            }).apply(this, arguments);
+        }
+        var a, r = (a = window, function() {
+            try {
+                var e, t = c(), n = t.length - 1, r = null !== t[n].location || 0 < n && null !== t[n - 1].referrer, i = function(e) {
+                    for (var t, n = [], r = null, i = null, o = null, a = null, c = null, u = e.length - 1; 0 <= u; u--) {
+                        try {
+                            i = e[u].location;
+                        } catch (e) {}
+                        if (i) n.push(i), c = c || i; else if (0 !== u) {
+                            t = e[u - 1];
+                            try {
+                                o = t.referrer, a = t.ancestor;
+                            } catch (e) {}
+                            o ? (n.push(o), c = c || o) : a ? (n.push(a), c = c || a) : n.push(r);
+                        } else n.push(r);
+                    }
+                    return {
+                        stack: n,
+                        detectedRefererUrl: c
+                    };
+                }(t);
+                return t[t.length - 1].canonicalUrl && (e = t[t.length - 1].canonicalUrl), {
+                    referer: i.detectedRefererUrl,
+                    reachedTop: r,
+                    numIframes: n,
+                    stack: i.stack,
+                    canonicalUrl: e
+                };
+            } catch (e) {}
+        });
+        function c() {
+            var e = function() {
+                var t, n = [];
+                do {
+                    try {
+                        t = t ? t.parent : a;
+                        try {
+                            var e = t == a.top, r = {
+                                referrer: t.document.referrer || null,
+                                location: t.location.href || null,
+                                isTop: e
+                            };
+                            e && (r = o(r, {
+                                canonicalUrl: function(e) {
+                                    try {
+                                        var t = e.querySelector("link[rel='canonical']");
+                                        if (null !== t) return t.href;
+                                    } catch (e) {}
+                                    return null;
+                                }(t.document)
+                            })), n.push(r);
+                        } catch (e) {
+                            n.push({
+                                referrer: null,
+                                location: null,
+                                isTop: t == a.top
+                            }), Object(i.logWarn)("Trying to access cross domain iframe. Continuing without referrer and location");
+                        }
+                    } catch (e) {
+                        return n.push({
+                            referrer: null,
+                            location: null,
+                            isTop: !1
+                        }), n;
+                    }
+                } while (t != a.top);
+                return n;
+            }(), t = function() {
+                try {
+                    if (!a.location.ancestorOrigins) return;
+                    return a.location.ancestorOrigins;
+                } catch (e) {}
+            }();
+            if (t) for (var n = 0, r = t.length; n < r; n++) e[n].ancestor = t[n];
+            return e;
+        }
     },
     223: function(e, t, n) {
         "use strict";
@@ -2228,116 +2311,33 @@
             return y(e.debugging);
         });
     },
-    23: function(e, t) {
+    23: function(n, e, t) {
+        (function(e) {
+            function t(e) {
+                return e && e.Math == Math && e;
+            }
+            n.exports = t("object" == typeof globalThis && globalThis) || t("object" == typeof window && window) || t("object" == typeof self && self) || t("object" == typeof e && e) || Function("return this")();
+        }).call(e, t(34));
+    },
+    24: function(e, t) {
         e.exports = function(e) {
             return "object" == typeof e ? null !== e : "function" == typeof e;
         };
     },
-    24: function(e, t) {
+    25: function(e, t) {
         var n = {}.hasOwnProperty;
         e.exports = function(e, t) {
             return n.call(e, t);
         };
     },
-    25: function(e, t, n) {
+    26: function(e, t, n) {
         function r(e) {
             return "function" == typeof e ? e : void 0;
         }
-        var i = n(43), o = n(22);
+        var i = n(43), o = n(23);
         e.exports = function(e, t) {
             return arguments.length < 2 ? r(i[e]) || r(o[e]) : i[e] && i[e][t] || o[e] && o[e][t];
         };
-    },
-    26: function(e, t, n) {
-        "use strict";
-        n.d(t, "a", function() {
-            return r;
-        });
-        var i = n(0);
-        function o() {
-            return (o = Object.assign || function(e) {
-                for (var t = 1; t < arguments.length; t++) {
-                    var n = arguments[t];
-                    for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
-                }
-                return e;
-            }).apply(this, arguments);
-        }
-        var a, r = (a = window, function() {
-            try {
-                var e, t = c(), n = t.length - 1, r = null !== t[n].location || 0 < n && null !== t[n - 1].referrer, i = function(e) {
-                    for (var t, n = [], r = null, i = null, o = null, a = null, c = null, u = e.length - 1; 0 <= u; u--) {
-                        try {
-                            i = e[u].location;
-                        } catch (e) {}
-                        if (i) n.push(i), c = c || i; else if (0 !== u) {
-                            t = e[u - 1];
-                            try {
-                                o = t.referrer, a = t.ancestor;
-                            } catch (e) {}
-                            o ? (n.push(o), c = c || o) : a ? (n.push(a), c = c || a) : n.push(r);
-                        } else n.push(r);
-                    }
-                    return {
-                        stack: n,
-                        detectedRefererUrl: c
-                    };
-                }(t);
-                return t[t.length - 1].canonicalUrl && (e = t[t.length - 1].canonicalUrl), {
-                    referer: i.detectedRefererUrl,
-                    reachedTop: r,
-                    numIframes: n,
-                    stack: i.stack,
-                    canonicalUrl: e
-                };
-            } catch (e) {}
-        });
-        function c() {
-            var e = function() {
-                var t, n = [];
-                do {
-                    try {
-                        t = t ? t.parent : a;
-                        try {
-                            var e = t == a.top, r = {
-                                referrer: t.document.referrer || null,
-                                location: t.location.href || null,
-                                isTop: e
-                            };
-                            e && (r = o(r, {
-                                canonicalUrl: function(e) {
-                                    try {
-                                        var t = e.querySelector("link[rel='canonical']");
-                                        if (null !== t) return t.href;
-                                    } catch (e) {}
-                                    return null;
-                                }(t.document)
-                            })), n.push(r);
-                        } catch (e) {
-                            n.push({
-                                referrer: null,
-                                location: null,
-                                isTop: t == a.top
-                            }), Object(i.logWarn)("Trying to access cross domain iframe. Continuing without referrer and location");
-                        }
-                    } catch (e) {
-                        return n.push({
-                            referrer: null,
-                            location: null,
-                            isTop: !1
-                        }), n;
-                    }
-                } while (t != a.top);
-                return n;
-            }(), t = function() {
-                try {
-                    if (!a.location.ancestorOrigins) return;
-                    return a.location.ancestorOrigins;
-                } catch (e) {}
-            }();
-            if (t) for (var n = 0, r = t.length; n < r; n++) e[n].ancestor = t[n];
-            return e;
-        }
     },
     27: function(e, t, n) {
         "use strict";
@@ -2767,7 +2767,7 @@
         };
     },
     349: function(e, t, n) {
-        var r = n(23), i = n(48), o = n(19)("match");
+        var r = n(24), i = n(48), o = n(19)("match");
         e.exports = function(e) {
             var t;
             return r(e) && (void 0 !== (t = e[o]) ? !!t : "RegExp" == i(e));
@@ -3855,7 +3855,7 @@
         });
     },
     477: function(e, t, n) {
-        var r = n(23), i = Math.floor;
+        var r = n(24), i = Math.floor;
         e.exports = function(e) {
             return !r(e) && isFinite(e) && i(e) === e;
         };
@@ -3986,14 +3986,14 @@
         e.exports = function() {};
     },
     52: function(e, t, n) {
-        var r = n(25);
+        var r = n(26);
         e.exports = r;
     },
     53: function(e, t) {
         e.exports = {};
     },
     54: function(e, t, n) {
-        var r, i, o, a, c, u, s, d, f = n(113), l = n(22), p = n(23), g = n(30), b = n(24), v = n(65), y = n(53), h = l.WeakMap;
+        var r, i, o, a, c, u, s, d, f = n(113), l = n(23), p = n(24), g = n(30), b = n(25), v = n(65), y = n(53), h = l.WeakMap;
         s = f ? (r = new h(), i = r.get, o = r.has, a = r.set, c = function(e, t) {
             return a.call(r, e, t), t;
         }, u = function(e) {
@@ -4023,7 +4023,7 @@
         };
     },
     55: function(e, t, n) {
-        var i = n(23);
+        var i = n(24);
         e.exports = function(e, t) {
             if (!i(e)) return e;
             var n, r;
@@ -4087,7 +4087,7 @@
         function a(e) {
             throw e;
         }
-        var c = n(28), u = n(29), s = n(24), d = Object.defineProperty, f = {};
+        var c = n(28), u = n(29), s = n(25), d = Object.defineProperty, f = {};
         e.exports = function(e, t) {
             if (s(f, e)) return f[e];
             var n = [][e], r = !!s(t = t || {}, "ACCESSORS") && t.ACCESSORS, i = s(t, 0) ? t[0] : a, o = s(t, 1) ? t[1] : void 0;
@@ -4127,7 +4127,7 @@
         r[n(19)("toStringTag")] = "z", e.exports = "[object z]" === String(r);
     },
     64: function(e, t, n) {
-        var o = n(63), a = n(31).f, c = n(30), u = n(24), s = n(112), d = n(19)("toStringTag");
+        var o = n(63), a = n(31).f, c = n(30), u = n(25), s = n(112), d = n(19)("toStringTag");
         e.exports = function(e, t, n, r) {
             var i;
             e && (i = n ? e : e.prototype, u(i, d) || a(i, d, {
@@ -4278,8 +4278,8 @@
             delete t.mediaTypes.native.image.aspect_ratios), n.icon && n.icon.sizes && !Array.isArray(n.icon.sizes) && (E.logError("Please use an array of sizes for native.icon.sizes field.  Removing invalid mediaTypes.native.icon.sizes property from request."), 
             delete t.mediaTypes.native.icon.sizes), t;
         }
-        Object(u.a)(), S.bidderSettings = S.bidderSettings || {}, S.libLoaded = !0, S.version = "v4.4.0", 
-        E.logInfo("Prebid.js v4.4.0 loaded"), S.adUnits = S.adUnits || [], S.triggerUserSyncs = I;
+        Object(u.a)(), S.bidderSettings = S.bidderSettings || {}, S.libLoaded = !0, S.version = "v4.5.0", 
+        E.logInfo("Prebid.js v4.5.0 loaded"), S.adUnits = S.adUnits || [], S.triggerUserSyncs = I;
         var z = {
             validateBannerMediaType: W,
             validateVideoMediaType: L,
@@ -4541,7 +4541,7 @@
         }), t.setS2STestingModule = function(e) {
             I = e;
         };
-        var S = n(0), p = n(91), g = n(36), l = n(1), h = n(4), A = n(3), r = n(13), i = n(12), E = n.n(i), o = n(10), O = n.n(o), b = n(67), T = n(26);
+        var S = n(0), p = n(91), g = n(36), l = n(1), h = n(4), A = n(3), r = n(13), i = n(12), E = n.n(i), o = n(10), O = n.n(o), b = n(67), T = n(22);
         function m(e, t) {
             return function(e) {
                 if (Array.isArray(e)) return e;
@@ -4856,7 +4856,7 @@
         });
     },
     72: function(e, t, n) {
-        var r = n(22), i = n(23), o = r.document, a = i(o) && i(o.createElement);
+        var r = n(23), i = n(24), o = r.document, a = i(o) && i(o.createElement);
         e.exports = function(e) {
             return a ? o.createElement(e) : {};
         };
@@ -4872,7 +4872,7 @@
         });
     },
     74: function(e, t, n) {
-        var r = n(22), i = n(103), o = "__core-js_shared__", a = r[o] || i(o, {});
+        var r = n(23), i = n(103), o = "__core-js_shared__", a = r[o] || i(o, {});
         e.exports = a;
     },
     75: function(e, t, n) {
@@ -4911,7 +4911,7 @@
                 }
             });
         }
-        var i = n(53), o = n(23), a = n(24), c = n(31).f, u = n(59), s = n(111), d = u("meta"), f = 0, l = Object.isExtensible || function() {
+        var i = n(53), o = n(24), a = n(25), c = n(31).f, u = n(59), s = n(111), d = u("meta"), f = 0, l = Object.isExtensible || function() {
             return !0;
         }, p = e.exports = {
             REQUIRED: !1,
@@ -5153,12 +5153,12 @@
             r && r.enumerable ? e[t] = n : i(e, t, n);
         };
     },
-    842: function(e, t, n) {
+    846: function(e, t, n) {
         e.exports = n(68);
     },
     85: function(e, t, n) {
         "use strict";
-        var r, i, o, a = n(86), c = n(30), u = n(24), s = n(19), d = n(16), f = s("iterator"), l = !1;
+        var r, i, o, a = n(86), c = n(30), u = n(25), s = n(19), d = n(16), f = s("iterator"), l = !1;
         [].keys && ("next" in (o = [].keys()) ? (i = a(a(o))) !== Object.prototype && (r = i) : l = !0), 
         null == r && (r = {}), d || u(r, f) || c(r, f, function() {
             return this;
@@ -5168,7 +5168,7 @@
         };
     },
     86: function(e, t, n) {
-        var r = n(24), i = n(57), o = n(65), a = n(122), c = o("IE_PROTO"), u = Object.prototype;
+        var r = n(25), i = n(57), o = n(65), a = n(122), c = o("IE_PROTO"), u = Object.prototype;
         e.exports = a ? Object.getPrototypeOf : function(e) {
             return e = i(e), r(e, c) ? e[c] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? u : null;
         };
@@ -5430,7 +5430,7 @@
         }), o(c);
     },
     98: function(e, t, n) {
-        var r = n(28), i = n(99), o = n(46), a = n(47), c = n(55), u = n(24), s = n(71), d = Object.getOwnPropertyDescriptor;
+        var r = n(28), i = n(99), o = n(46), a = n(47), c = n(55), u = n(25), s = n(71), d = Object.getOwnPropertyDescriptor;
         t.f = r ? d : function(e, t) {
             if (e = a(e), t = c(t, !0), s) try {
                 return d(e, t);
@@ -5450,7 +5450,7 @@
     }
 });
 
-pbjsChunk([ 322 ], {
+pbjsChunk([ 324 ], {
     183: function(e, r, n) {
         e.exports = n(184);
     },
@@ -5551,7 +5551,7 @@ pbjsChunk([ 322 ], {
     }
 }, [ 183 ]);
 
-pbjsChunk([ 289 ], {
+pbjsChunk([ 291 ], {
     265: function(e, r, t) {
         e.exports = t(266);
     },
@@ -5712,7 +5712,7 @@ pbjsChunk([ 289 ], {
                     user: n,
                     sdk: {
                         source: "pbjs",
-                        version: "4.4.0"
+                        version: "4.5.0"
                     },
                     schain: v
                 };
@@ -6097,7 +6097,7 @@ pbjsChunk([ 289 ], {
     }
 }, [ 265 ]);
 
-pbjsChunk([ 254 ], {
+pbjsChunk([ 256 ], {
     343: function(n, t, e) {
         n.exports = e(344);
     },
@@ -6324,7 +6324,7 @@ pbjsChunk([ 0 ], {
                 }), publisherTagAvailable() || (window.Criteo = window.Criteo || {}, window.Criteo.usePrebidEvents = !1, 
                 tryGetCriteoFastBid(), setTimeout(function() {
                     Object(__WEBPACK_IMPORTED_MODULE_0__src_adloader_js__.a)(PUBLISHER_TAG_URL, BIDDER_CODE);
-                }, e.timeout)), _ = publisherTagAvailable() ? (r = new Criteo.PubTag.Adapters.Prebid(PROFILE_ID_PUBLISHERTAG, ADAPTER_VERSION, t, e, "4.4.0"), 
+                }, e.timeout)), _ = publisherTagAvailable() ? (r = new Criteo.PubTag.Adapters.Prebid(PROFILE_ID_PUBLISHERTAG, ADAPTER_VERSION, t, e, "4.5.0"), 
                 i = __WEBPACK_IMPORTED_MODULE_2__src_config_js__.b.getConfig("enableSendAllBids"), 
                 r.setEnableSendAllBids && "function" == typeof r.setEnableSendAllBids && "boolean" == typeof i && r.setEnableSendAllBids(i), 
                 o = r.buildCdbUrl(), r.buildCdbRequest()) : (o = buildCdbUrl(s = buildContext(t, e)), 
@@ -6396,7 +6396,7 @@ pbjsChunk([ 0 ], {
         function buildCdbUrl(t) {
             var e = CDB_ENDPOINT;
             return e += "?profileId=" + PROFILE_ID_INLINE, e += "&av=" + String(ADAPTER_VERSION), 
-            e += "&wv=" + encodeURIComponent("4.4.0"), e += "&cb=" + String(Math.floor(99999999999 * Math.random())), 
+            e += "&wv=" + encodeURIComponent("4.5.0"), e += "&cb=" + String(Math.floor(99999999999 * Math.random())), 
             t.amp && (e += "&im=1"), t.debug && (e += "&debug=1"), t.noLog && (e += "&nolog=1"), 
             e;
         }
@@ -6802,7 +6802,7 @@ pbjsChunk([ 0 ], {
     }
 }, [ 365 ]);
 
-pbjsChunk([ 221 ], {
+pbjsChunk([ 223 ], {
     426: function(e, r, n) {
         e.exports = n(427);
     },
@@ -6971,7 +6971,7 @@ pbjsChunk([ 221 ], {
     }
 }, [ 426 ]);
 
-pbjsChunk([ 138 ], {
+pbjsChunk([ 140 ], {
     622: function(e, r, a) {
         e.exports = a(623);
     },
@@ -7514,7 +7514,7 @@ pbjsChunk([ 138 ], {
                     (r = z(s)) && E.imp.push(r)) : O.logWarn(Y + "Skipping the non-standard adslot: ", s.params.adSlot, JSON.stringify(s));
                 }), 0 != E.imp.length) return E.site.publisher.id = v.pubId.trim(), k = v.pubId.trim(), 
                 E.ext.wrapper = {}, E.ext.wrapper.profile = parseInt(v.profId) || x, E.ext.wrapper.version = parseInt(v.verId) || x, 
-                E.ext.wrapper.wiid = v.wiid || x, E.ext.wrapper.wv = "prebid_prebid_4.4.0", E.ext.wrapper.transactionId = v.transactionId, 
+                E.ext.wrapper.wiid = v.wiid || x, E.ext.wrapper.wv = "prebid_prebid_4.5.0", E.ext.wrapper.transactionId = v.transactionId, 
                 E.ext.wrapper.wp = "pbjs", E.user.gender = v.gender ? v.gender.trim() : x, E.user.geo = {}, 
                 E.user.geo.lat = C("lat", v.lat), E.user.geo.lon = C("lon", v.lon), E.user.yob = C("yob", v.yob), 
                 E.device.geo = E.user.geo, E.site.page = v.kadpageurl.trim() || E.site.page.trim(), 
@@ -7685,7 +7685,7 @@ pbjsChunk([ 138 ], {
     }
 }, [ 622 ]);
 
-pbjsChunk([ 118 ], {
+pbjsChunk([ 120 ], {
     678: function(e, r, t) {
         e.exports = t(679);
     },
@@ -7694,20 +7694,20 @@ pbjsChunk([ 118 ], {
         Object.defineProperty(r, "__esModule", {
             value: !0
         }), t.d(r, "FASTLANE_ENDPOINT", function() {
-            return o;
-        }), t.d(r, "VIDEO_ENDPOINT", function() {
-            return f;
-        }), t.d(r, "SYNC_ENDPOINT", function() {
             return a;
+        }), t.d(r, "VIDEO_ENDPOINT", function() {
+            return S;
+        }), t.d(r, "SYNC_ENDPOINT", function() {
+            return s;
         }), t.d(r, "spec", function() {
-            return _;
-        }), r.hasVideoMediaType = c, r.masSizeOrdering = m, r.determineRubiconVideoSizeId = C, 
-        r.getPriceGranularity = j, r.hasValidVideoParams = k, r.hasValidSupplyChainParams = T, 
-        r.encodeParam = w, r.resetUserSync = function() {
-            R = !1;
+            return A;
+        }), r.hasVideoMediaType = l, r.masSizeOrdering = g, r.determineRubiconVideoSizeId = k, 
+        r.getPriceGranularity = T, r.hasValidVideoParams = w, r.hasValidSupplyChainParams = R, 
+        r.encodeParam = E, r.resetUserSync = function() {
+            z = !1;
         };
-        var b = t(0), i = t(1), v = t(3), u = t(2);
-        function y(e, r) {
+        var b = t(0), i = t(1), y = t(3), p = t(2), n = t(10), m = t.n(n);
+        function x(e, r) {
             return function(e) {
                 if (Array.isArray(e)) return e;
             }(e) || function(e, r) {
@@ -7728,16 +7728,16 @@ pbjsChunk([ 118 ], {
                 return t;
             }(e, r) || function(e, r) {
                 if (!e) return;
-                if ("string" == typeof e) return n(e, r);
+                if ("string" == typeof e) return o(e, r);
                 var t = Object.prototype.toString.call(e).slice(8, -1);
                 "Object" === t && e.constructor && (t = e.constructor.name);
                 if ("Map" === t || "Set" === t) return Array.from(e);
-                if ("Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)) return n(e, r);
+                if ("Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)) return o(e, r);
             }(e, r) || function() {
                 throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
             }();
         }
-        function n(e, r) {
+        function o(e, r) {
             (null == r || r > e.length) && (r = e.length);
             for (var t = 0, i = new Array(r); t < r; t++) i[t] = e[t];
             return i;
@@ -7751,7 +7751,7 @@ pbjsChunk([ 118 ], {
                 return e;
             }).apply(this, arguments);
         }
-        function l(e, r, t) {
+        function v(e, r, t) {
             return r in e ? Object.defineProperty(e, r, {
                 value: t,
                 enumerable: !0,
@@ -7759,14 +7759,14 @@ pbjsChunk([ 118 ], {
                 writable: !0
             }) : e[r] = t, e;
         }
-        function x(e) {
-            return (x = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+        function _(e) {
+            return (_ = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
             } : function(e) {
                 return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
             })(e);
         }
-        var o = "https://fastlane.rubiconproject.com/a/api/fastlane.json", f = "https://prebid-server.rubiconproject.com/openrtb2/auction", a = "https://eus.rubiconproject.com/usync.html", d = {
+        var a = "https://fastlane.rubiconproject.com/a/api/fastlane.json", S = "https://prebid-server.rubiconproject.com/openrtb2/auction", s = "https://eus.rubiconproject.com/usync.html", c = {
             FASTLANE: {
                 id: "dt.id",
                 keyv: "dt.keyv",
@@ -7776,7 +7776,7 @@ pbjsChunk([ 118 ], {
                 id: "id",
                 keyv: "keyv"
             }
-        }, p = {
+        }, u = {
             1: "468x60",
             2: "728x90",
             5: "120x90",
@@ -7864,39 +7864,39 @@ pbjsChunk([ 118 ], {
             282: "320x400",
             288: "640x380"
         };
-        b._each(p, function(e, r) {
-            return p[e] = r;
+        b._each(u, function(e, r) {
+            return u[e] = r;
         });
-        var _ = {
+        var A = {
             code: "rubicon",
             gvlid: 52,
-            supportedMediaTypes: [ u.b, u.d ],
+            supportedMediaTypes: [ p.b, p.d ],
             isBidRequestValid: function(e) {
-                if ("object" !== x(e.params)) return !1;
+                if ("object" !== _(e.params)) return !1;
                 for (var r = 0, t = [ "accountId", "siteId", "zoneId" ]; r < t.length; r++) if (e.params[t[r]] = parseInt(e.params[t[r]]), 
                 isNaN(e.params[t[r]])) return b.logError("Rubicon: wrong format of accountId or siteId or zoneId."), 
                 !1;
-                var i = g(e, !0);
-                return !!i && ("video" !== i || k(e));
+                var i = f(e, !0);
+                return !!i && ("video" !== i || w(e));
             },
-            buildRequests: function(e, p) {
+            buildRequests: function(e, g) {
                 var n, r = e.filter(function(e) {
-                    return "video" === g(e);
+                    return "video" === f(e);
                 }).map(function(e) {
                     e.startTime = new Date().getTime();
                     var r, t, i = {
                         id: e.transactionId,
-                        test: v.b.getConfig("debug") ? 1 : 0,
+                        test: y.b.getConfig("debug") ? 1 : 0,
                         cur: [ "USD" ],
                         source: {
                             tid: e.transactionId
                         },
-                        tmax: v.b.getConfig("TTL") || 1e3,
+                        tmax: y.b.getConfig("TTL") || 1e3,
                         imp: [ {
                             exp: 300,
                             id: e.adUnitCode,
                             secure: 1,
-                            ext: l({}, e.bidder, e.params),
+                            ext: v({}, e.bidder, e.params),
                             video: b.deepAccess(e, "mediaTypes.video") || {}
                         } ],
                         ext: {
@@ -7909,124 +7909,99 @@ pbjsChunk([ 118 ], {
                                 targeting: {
                                     includewinners: !0,
                                     includebidderkeys: !1,
-                                    pricegranularity: j(v.b)
+                                    pricegranularity: T(y.b)
                                 },
                                 bidders: {
                                     rubicon: {
-                                        integration: v.b.getConfig("rubicon.int_type") || "pbjs"
+                                        integration: y.b.getConfig("rubicon.int_type") || "pbjs"
                                     }
                                 }
                             }
                         }
                     };
-                    if ("rubicon" !== e.bidder && (i.ext.prebid.aliases = l({}, e.bidder, "rubicon")), 
-                    "function" != typeof e.getFloor || v.b.getConfig("rubicon.disableFloors")) r = parseFloat(b.deepAccess(e, "params.floor")); else {
+                    if ("rubicon" !== e.bidder && (i.ext.prebid.aliases = v({}, e.bidder, "rubicon")), 
+                    "function" != typeof e.getFloor || y.b.getConfig("rubicon.disableFloors")) r = parseFloat(b.deepAccess(e, "params.floor")); else {
                         try {
                             t = e.getFloor({
                                 currency: "USD",
                                 mediaType: "video",
-                                size: A(e, "video")
+                                size: j(e, "video")
                             });
                         } catch (e) {
                             b.logError("Rubicon: getFloor threw an error: ", e);
                         }
-                        r = "object" !== x(t) || "USD" !== t.currency || isNaN(parseInt(t.floor)) ? void 0 : parseFloat(t.floor);
+                        r = "object" !== _(t) || "USD" !== t.currency || isNaN(parseInt(t.floor)) ? void 0 : parseFloat(t.floor);
                     }
-                    isNaN(r) || (i.imp[0].bidfloor = r), i.imp[0].ext[e.bidder].video.size_id = C(e), 
+                    isNaN(r) || (i.imp[0].bidfloor = r), i.imp[0].ext[e.bidder].video.size_id = k(e), 
                     function(r, t, e) {
                         if (!r) return;
-                        "object" === x(v.b.getConfig("app")) ? r.app = v.b.getConfig("app") : r.site = {
-                            page: S(t, e)
+                        "object" === _(y.b.getConfig("app")) ? r.app = y.b.getConfig("app") : r.site = {
+                            page: C(t, e)
                         };
-                        "object" === x(v.b.getConfig("device")) && (r.device = v.b.getConfig("device"));
+                        "object" === _(y.b.getConfig("device")) && (r.device = y.b.getConfig("device"));
                         t.params.video.language && [ "site", "device" ].forEach(function(e) {
                             r[e] && (r[e].content = h({
                                 language: t.params.video.language
                             }, r[e].content));
                         });
-                    }(i, e, p), function(e, r) {
-                        "object" === x(e.imp[0].video) && void 0 === e.imp[0].video.skip && (e.imp[0].video.skip = r.params.video.skip);
-                        "object" === x(e.imp[0].video) && void 0 === e.imp[0].video.skipafter && (e.imp[0].video.skipafter = r.params.video.skipdelay);
-                        "object" === x(e.imp[0].video) && void 0 === e.imp[0].video.pos && ("atf" === r.params.position ? e.imp[0].video.pos = 1 : "btf" === r.params.position && (e.imp[0].video.pos = 3));
-                        var t = A(r, "video");
+                    }(i, e, g), function(e, r) {
+                        "object" === _(e.imp[0].video) && void 0 === e.imp[0].video.skip && (e.imp[0].video.skip = r.params.video.skip);
+                        "object" === _(e.imp[0].video) && void 0 === e.imp[0].video.skipafter && (e.imp[0].video.skipafter = r.params.video.skipdelay);
+                        "object" === _(e.imp[0].video) && void 0 === e.imp[0].video.pos && ("atf" === r.params.position ? e.imp[0].video.pos = 1 : "btf" === r.params.position && (e.imp[0].video.pos = 3));
+                        var t = j(r, "video");
                         e.imp[0].video.w = t[0], e.imp[0].video.h = t[1];
                     }(i, e);
                     var n, o = I(e, "PREBID_SERVER");
-                    o && b.deepSetValue(i, "user.ext.digitrust", o), p.gdprConsent && ("boolean" == typeof p.gdprConsent.gdprApplies && (n = p.gdprConsent.gdprApplies ? 1 : 0), 
-                    b.deepSetValue(i, "regs.ext.gdpr", n), b.deepSetValue(i, "user.ext.consent", p.gdprConsent.consentString)), 
-                    p.uspConsent && b.deepSetValue(i, "regs.ext.us_privacy", p.uspConsent), e.userId && "object" === x(e.userId) && (e.userId.tdid || e.userId.pubcid || e.userId.lipb || e.userId.idl_env || e.userId.sharedid) && (b.deepSetValue(i, "user.ext.eids", []), 
-                    e.userId.tdid && i.user.ext.eids.push({
-                        source: "adserver.org",
-                        uids: [ {
-                            id: e.userId.tdid,
-                            ext: {
-                                rtiPartner: "TDID"
-                            }
-                        } ]
-                    }), e.userId.pubcid && i.user.ext.eids.push({
-                        source: "pubcommon",
-                        uids: [ {
-                            id: e.userId.pubcid
-                        } ]
-                    }), e.userId.lipb && e.userId.lipb.lipbid && (i.user.ext.eids.push({
-                        source: "liveintent.com",
-                        uids: [ {
-                            id: e.userId.lipb.lipbid
-                        } ]
-                    }), i.user.ext.tpid = {
-                        source: "liveintent.com",
-                        uid: e.userId.lipb.lipbid
-                    }, Array.isArray(e.userId.lipb.segments) && e.userId.lipb.segments.length && b.deepSetValue(i, "rp.target.LIseg", e.userId.lipb.segments)), 
-                    e.userId.idl_env && i.user.ext.eids.push({
-                        source: "liveramp_idl",
-                        uids: [ {
-                            id: e.userId.idl_env
-                        } ]
-                    }), e.userId.sharedid && i.user.ext.eids.push({
-                        source: "sharedid.org",
-                        uids: [ {
-                            id: e.userId.sharedid.id,
-                            atype: 3,
-                            ext: {
-                                third: e.userId.sharedid.third
-                            }
-                        } ]
-                    })), !0 === v.b.getConfig("coppa") && b.deepSetValue(i, "regs.coppa", 1), e.schain && T(e.schain) && b.deepSetValue(i, "source.ext.schain", e.schain);
-                    var a, s = h({}, e.params.inventory, v.b.getConfig("fpd.context")), d = h({}, e.params.visitor, v.b.getConfig("fpd.user"));
-                    b.isEmpty(s) && b.isEmpty(d) || (a = {
-                        bidders: [ p.bidderCode ],
+                    o && b.deepSetValue(i, "user.ext.digitrust", o), g.gdprConsent && ("boolean" == typeof g.gdprConsent.gdprApplies && (n = g.gdprConsent.gdprApplies ? 1 : 0), 
+                    b.deepSetValue(i, "regs.ext.gdpr", n), b.deepSetValue(i, "user.ext.consent", g.gdprConsent.consentString)), 
+                    g.uspConsent && b.deepSetValue(i, "regs.ext.us_privacy", g.uspConsent);
+                    var a, s = b.deepAccess(g, "bids.0.userIdAsEids");
+                    s && s.length && (b.deepSetValue(i, "user.ext.eids", s.filter(function(e) {
+                        return -1 !== [ "adserver.org", "pubcid.org", "liveintent.com", "liveramp.com", "sharedid.org" ].indexOf(e.source);
+                    })), (a = m()(i.user.ext.eids, function(e) {
+                        return "liveintent.com" === e.source;
+                    })) && (b.deepSetValue(i, "user.ext.tpid", {
+                        source: a.source,
+                        uid: a.uids[0].id
+                    }), a.ext && a.ext.segments && b.deepSetValue(i, "rp.target.LIseg", a.ext.segments)));
+                    var c = y.b.getConfig("user.id");
+                    c && b.deepSetValue(i, "user.id", c), !0 === y.b.getConfig("coppa") && b.deepSetValue(i, "regs.coppa", 1), 
+                    e.schain && R(e.schain) && b.deepSetValue(i, "source.ext.schain", e.schain);
+                    var d, p = h({}, e.params.inventory, y.b.getConfig("fpd.context")), u = h({}, e.params.visitor, y.b.getConfig("fpd.user"));
+                    b.isEmpty(p) && b.isEmpty(u) || (d = {
+                        bidders: [ g.bidderCode ],
                         config: {
                             fpd: {}
                         }
-                    }, b.isEmpty(s) || (a.config.fpd.site = s), b.isEmpty(d) || (a.config.fpd.user = d), 
-                    b.deepSetValue(i, "ext.prebid.bidderconfig.0", a));
-                    var c = b.deepAccess(e, "fpd.context.pbAdSlot");
-                    "string" == typeof c && c && b.deepSetValue(i.imp[0].ext, "context.data.pbadslot", c);
-                    var u = b.deepAccess(e, "fpd.context.adServer.adSlot");
-                    return "string" == typeof u && u && b.deepSetValue(i.imp[0].ext, "context.data.adslot", u), 
+                    }, b.isEmpty(p) || (d.config.fpd.site = p), b.isEmpty(u) || (d.config.fpd.user = u), 
+                    b.deepSetValue(i, "ext.prebid.bidderconfig.0", d));
+                    var l = b.deepAccess(e, "fpd.context.pbAdSlot");
+                    "string" == typeof l && l && b.deepSetValue(i.imp[0].ext, "context.data.pbadslot", l);
+                    var f = b.deepAccess(e, "fpd.context.adServer.adSlot");
+                    return "string" == typeof f && f && b.deepSetValue(i.imp[0].ext, "context.data.adslot", f), 
                     e.storedAuctionResponse && b.deepSetValue(i.imp[0], "ext.prebid.storedauctionresponse.id", e.storedAuctionResponse.toString()), 
-                    b.deepSetValue(i.imp[0], "ext.prebid.auctiontimestamp", p.auctionStart), {
+                    b.deepSetValue(i.imp[0], "ext.prebid.auctiontimestamp", g.auctionStart), {
                         method: "POST",
-                        url: f,
+                        url: S,
                         data: i,
                         bidRequest: e
                     };
                 });
-                return !0 !== v.b.getConfig("rubicon.singleRequest") ? r.concat(e.filter(function(e) {
-                    return "banner" === g(e);
+                return !0 !== y.b.getConfig("rubicon.singleRequest") ? r.concat(e.filter(function(e) {
+                    return "banner" === f(e);
                 }).map(function(e) {
-                    var i = _.createSlotParams(e, p);
+                    var i = A.createSlotParams(e, g);
                     return {
                         method: "GET",
-                        url: o,
-                        data: _.getOrderedParams(i).reduce(function(e, r) {
+                        url: a,
+                        data: A.getOrderedParams(i).reduce(function(e, r) {
                             var t = i[r];
-                            return b.isStr(t) && "" !== t || b.isNumber(t) ? "".concat(e).concat(w(r, t), "&") : e;
+                            return b.isStr(t) && "" !== t || b.isNumber(t) ? "".concat(e).concat(E(r, t), "&") : e;
                         }, "") + "slots=1&rand=".concat(Math.random()),
                         bidRequest: e
                     };
                 })) : (n = e.filter(function(e) {
-                    return "banner" === g(e);
+                    return "banner" === f(e);
                 }).reduce(function(e, r) {
                     return (e[r.params.siteId] = e[r.params.siteId] || []).push(r), e;
                 }, {}), r.concat(Object.keys(n).reduce(function(r, e) {
@@ -8036,15 +8011,15 @@ pbjsChunk([ 118 ], {
                     }).filter(function(e) {
                         return e;
                     }).forEach(function(e) {
-                        var i = _.combineSlotUrlParams(e.map(function(e) {
-                            return _.createSlotParams(e, p);
+                        var i = A.combineSlotUrlParams(e.map(function(e) {
+                            return A.createSlotParams(e, g);
                         }));
                         r.push({
                             method: "GET",
-                            url: o,
-                            data: _.getOrderedParams(i).reduce(function(e, r) {
+                            url: a,
+                            data: A.getOrderedParams(i).reduce(function(e, r) {
                                 var t = i[r];
-                                return b.isStr(t) && "" !== t || b.isNumber(t) ? "".concat(e).concat(w(r, t), "&") : e;
+                                return b.isStr(t) && "" !== t || b.isNumber(t) ? "".concat(e).concat(E(r, t), "&") : e;
                             }, "") + "slots=".concat(e.length, "&rand=").concat(Math.random()),
                             bidRequest: e
                         });
@@ -8075,7 +8050,7 @@ pbjsChunk([ 118 ], {
             },
             createSlotParams: function(e, r) {
                 e.startTime = new Date().getTime();
-                var t, i = e.params, n = A(e, "banner"), o = y(i.latLong || [], 2), a = o[0], s = o[1], d = v.b.getConfig("rubicon.int_type"), c = {
+                var t, i = e.params, n = j(e, "banner"), o = x(i.latLong || [], 2), a = o[0], s = o[1], c = y.b.getConfig("rubicon.int_type"), d = {
                     account_id: i.accountId,
                     site_id: i.siteId,
                     zone_id: i.zoneId,
@@ -8083,7 +8058,7 @@ pbjsChunk([ 118 ], {
                     alt_size_ids: n.slice(1).join(",") || void 0,
                     rp_floor: .01 < (i.floor = parseFloat(i.floor)) ? i.floor : .01,
                     rp_secure: "1",
-                    tk_flint: "".concat(d || "pbjs_lite", "_v4.4.0"),
+                    tk_flint: "".concat(c || "pbjs_lite", "_v4.5.0"),
                     "x_source.tid": e.transactionId,
                     "x_source.pchain": i.pchain,
                     p_screen_res: [ window.screen.width, window.screen.height ].join("x"),
@@ -8091,48 +8066,49 @@ pbjsChunk([ 118 ], {
                     "p_geo.latitude": isNaN(parseFloat(a)) ? void 0 : parseFloat(a).toFixed(4),
                     "p_geo.longitude": isNaN(parseFloat(s)) ? void 0 : parseFloat(s).toFixed(4),
                     "tg_fl.eid": e.code,
-                    rf: S(e, r)
+                    rf: C(e, r)
                 };
-                if ("function" == typeof e.getFloor && !v.b.getConfig("rubicon.disableFloors")) {
+                if ("function" == typeof e.getFloor && !y.b.getConfig("rubicon.disableFloors")) {
                     try {
                         t = e.getFloor({
                             currency: "USD",
-                            mediaType: "video",
-                            size: A(e, "video")
+                            mediaType: "banner",
+                            size: "*"
                         });
                     } catch (e) {
                         b.logError("Rubicon: getFloor threw an error: ", e);
                     }
-                    c.rp_hard_floor = "object" !== x(t) || "USD" !== t.currency || isNaN(parseInt(t.floor)) ? void 0 : t.floor;
+                    d.rp_hard_floor = "object" !== _(t) || "USD" !== t.currency || isNaN(parseInt(t.floor)) ? void 0 : t.floor;
                 }
-                c.p_pos = "atf" === i.position || "btf" === i.position ? i.position : "", e.userId && (e.userId.tdid && (c.tpid_tdid = e.userId.tdid), 
-                e.userId.lipb && e.userId.lipb.lipbid && (c["tpid_liveintent.com"] = e.userId.lipb.lipbid, 
-                Array.isArray(e.userId.lipb.segments) && e.userId.lipb.segments.length && (c["tg_v.LIseg"] = e.userId.lipb.segments.join(","))), 
-                e.userId.idl_env && (c.x_liverampidl = e.userId.idl_env), e.userId.sharedid && (c["eid_sharedid.org"] = "".concat(e.userId.sharedid.id, "^3^").concat(e.userId.sharedid.third))), 
-                r.gdprConsent && ("boolean" == typeof r.gdprConsent.gdprApplies && (c.gdpr = Number(r.gdprConsent.gdprApplies)), 
-                c.gdpr_consent = r.gdprConsent.consentString), r.uspConsent && (c.us_privacy = encodeURIComponent(r.uspConsent));
-                var u = h({}, i.visitor, v.b.getConfig("fpd.user"));
+                d.p_pos = "atf" === i.position || "btf" === i.position ? i.position : "", e.userId && (e.userId.tdid && (d.tpid_tdid = e.userId.tdid), 
+                e.userId.lipb && e.userId.lipb.lipbid && (d["tpid_liveintent.com"] = e.userId.lipb.lipbid, 
+                Array.isArray(e.userId.lipb.segments) && e.userId.lipb.segments.length && (d["tg_v.LIseg"] = e.userId.lipb.segments.join(","))), 
+                e.userId.idl_env && (d.x_liverampidl = e.userId.idl_env), e.userId.sharedid && (d["eid_sharedid.org"] = "".concat(e.userId.sharedid.id, "^3^").concat(e.userId.sharedid.third)));
+                var p = y.b.getConfig("user.id");
+                p && (d.ppuid = p), r.gdprConsent && ("boolean" == typeof r.gdprConsent.gdprApplies && (d.gdpr = Number(r.gdprConsent.gdprApplies)), 
+                d.gdpr_consent = r.gdprConsent.consentString), r.uspConsent && (d.us_privacy = encodeURIComponent(r.uspConsent));
+                var u = h({}, i.visitor, y.b.getConfig("fpd.user"));
                 Object.keys(u).forEach(function(e) {
-                    null != u[e] && "keywords" !== e && (c["tg_v.".concat(e)] = "object" !== x(u[e]) || Array.isArray(u[e]) ? u[e].toString() : JSON.stringify(u[e]));
+                    null != u[e] && "keywords" !== e && (d["tg_v.".concat(e)] = "object" !== _(u[e]) || Array.isArray(u[e]) ? u[e].toString() : JSON.stringify(u[e]));
                 });
-                var p = h({}, i.inventory, v.b.getConfig("fpd.context"));
-                Object.keys(p).forEach(function(e) {
-                    null != p[e] && "keywords" !== e && (c["tg_i.".concat(e)] = "object" !== x(p[e]) || Array.isArray(p[e]) ? p[e].toString() : JSON.stringify(p[e]));
+                var l = h({}, i.inventory, y.b.getConfig("fpd.context"));
+                Object.keys(l).forEach(function(e) {
+                    null != l[e] && "keywords" !== e && (d["tg_i.".concat(e)] = "object" !== _(l[e]) || Array.isArray(l[e]) ? l[e].toString() : JSON.stringify(l[e]));
                 });
-                var l = (i.keywords || []).concat(b.deepAccess(v.b.getConfig("fpd.user"), "keywords") || [], b.deepAccess(v.b.getConfig("fpd.context"), "keywords") || []);
-                c.kw = Array.isArray(l) && l.length ? l.join(",") : "";
-                var f = b.deepAccess(e, "fpd.context.pbAdSlot");
-                "string" == typeof f && f && (c["tg_i.pbadslot"] = f.replace(/^\/+/, ""));
-                var g = b.deepAccess(e, "fpd.context.adServer.adSlot");
-                "string" == typeof g && g && (c["tg_i.dfp_ad_unit_code"] = g.replace(/^\/+/, ""));
-                var m = I(e, "FASTLANE");
-                return h(c, m), !0 === v.b.getConfig("coppa") && (c.coppa = 1), e.schain && T(e.schain) && (c.rp_schain = _.serializeSupplyChain(e.schain)), 
-                c;
+                var f = (i.keywords || []).concat(b.deepAccess(y.b.getConfig("fpd.user"), "keywords") || [], b.deepAccess(y.b.getConfig("fpd.context"), "keywords") || []);
+                d.kw = Array.isArray(f) && f.length ? f.join(",") : "";
+                var g = b.deepAccess(e, "fpd.context.pbAdSlot");
+                "string" == typeof g && g && (d["tg_i.pbadslot"] = g.replace(/^\/+/, ""));
+                var m = b.deepAccess(e, "fpd.context.adServer.adSlot");
+                "string" == typeof m && m && (d["tg_i.dfp_ad_unit_code"] = m.replace(/^\/+/, ""));
+                var v = I(e, "FASTLANE");
+                return h(d, v), !0 === y.b.getConfig("coppa") && (d.coppa = 1), e.schain && R(e.schain) && (d.rp_schain = A.serializeSupplyChain(e.schain)), 
+                d;
             },
             serializeSupplyChain: function(e) {
-                if (!T(e)) return "";
+                if (!R(e)) return "";
                 var r = e.ver, t = e.complete, i = e.nodes;
-                return "".concat(r, ",").concat(t, "!").concat(_.serializeSupplyChainNodes(i));
+                return "".concat(r, ",").concat(t, "!").concat(A.serializeSupplyChainNodes(i));
             },
             serializeSupplyChainNodes: function(e) {
                 var t = [ "asi", "sid", "hp", "rid", "name", "domain" ];
@@ -8142,31 +8118,31 @@ pbjsChunk([ 118 ], {
                     }).join(",");
                 }).join("!");
             },
-            interpretResponse: function(d, e) {
-                var c = e.bidRequest;
-                if (!(d = d.body) || "object" !== x(d)) return [];
-                if (d.seatbid) {
-                    var r = b.deepAccess(d, "ext.errors.rubicon");
+            interpretResponse: function(c, e) {
+                var d = e.bidRequest;
+                if (!(c = c.body) || "object" !== _(c)) return [];
+                if (c.seatbid) {
+                    var r = b.deepAccess(c, "ext.errors.rubicon");
                     Array.isArray(r) && 0 < r.length && b.logWarn("Rubicon: Error in video response");
                     var o = [];
-                    return d.seatbid.forEach(function(n) {
+                    return c.seatbid.forEach(function(n) {
                         (n.bid || []).forEach(function(e) {
                             var r = {
-                                requestId: c.bidId,
-                                currency: d.cur || "USD",
+                                requestId: d.bidId,
+                                currency: c.cur || "USD",
                                 creativeId: e.crid,
                                 cpm: e.price || 0,
                                 bidderCode: n.seat,
                                 ttl: 300,
-                                netRevenue: !1 !== v.b.getConfig("rubicon.netRevenue"),
-                                width: e.w || b.deepAccess(c, "mediaTypes.video.w") || b.deepAccess(c, "params.video.playerWidth"),
-                                height: e.h || b.deepAccess(c, "mediaTypes.video.h") || b.deepAccess(c, "params.video.playerHeight")
+                                netRevenue: !1 !== y.b.getConfig("rubicon.netRevenue"),
+                                width: e.w || b.deepAccess(d, "mediaTypes.video.w") || b.deepAccess(d, "params.video.playerWidth"),
+                                height: e.h || b.deepAccess(d, "mediaTypes.video.h") || b.deepAccess(d, "params.video.playerHeight")
                             };
                             e.id && (r.seatBidId = e.id), e.dealid && (r.dealId = e.dealid);
-                            var t, i = b.deepAccess(d, "ext.responsetimemillis.rubicon");
-                            c && i && (c.serverResponseTimeMs = i), b.deepAccess(e, "ext.prebid.type") === u.d ? (r.mediaType = u.d, 
-                            (t = b.deepAccess(e, "ext.prebid.targeting")) && "object" === x(t) && (r.adserverTargeting = t), 
-                            e.ext.prebid.cache && "object" === x(e.ext.prebid.cache.vastXml) && e.ext.prebid.cache.vastXml.cacheId && e.ext.prebid.cache.vastXml.url ? (r.videoCacheKey = e.ext.prebid.cache.vastXml.cacheId, 
+                            var t, i = b.deepAccess(c, "ext.responsetimemillis.rubicon");
+                            d && i && (d.serverResponseTimeMs = i), b.deepAccess(e, "ext.prebid.type") === p.d ? (r.mediaType = p.d, 
+                            (t = b.deepAccess(e, "ext.prebid.targeting")) && "object" === _(t) && (r.adserverTargeting = t), 
+                            e.ext.prebid.cache && "object" === _(e.ext.prebid.cache.vastXml) && e.ext.prebid.cache.vastXml.cacheId && e.ext.prebid.cache.vastXml.url ? (r.videoCacheKey = e.ext.prebid.cache.vastXml.cacheId, 
                             r.vastUrl = e.ext.prebid.cache.vastXml.url) : t && t.hb_uuid && t.hb_cache_host && t.hb_cache_path && (r.videoCacheKey = t.hb_uuid, 
                             r.vastUrl = "https://".concat(t.hb_cache_host).concat(t.hb_cache_path, "?uuid=").concat(t.hb_uuid)), 
                             e.adm && (r.vastXml = e.adm), e.nurl && (r.vastUrl = e.nurl), !r.vastUrl && e.nurl && (r.vastUrl = e.nurl)) : b.logWarn("Rubicon: video response received non-video media type"), 
@@ -8174,19 +8150,19 @@ pbjsChunk([ 118 ], {
                         });
                     }), o;
                 }
-                var t = d.ads;
-                return "object" !== x(c) || Array.isArray(c) || "video" !== g(c) || "object" !== x(t) || (t = t[c.adUnitCode]), 
+                var t = c.ads;
+                return "object" !== _(d) || Array.isArray(d) || "video" !== f(d) || "object" !== _(t) || (t = t[d.adUnitCode]), 
                 !Array.isArray(t) || t.length < 1 ? [] : t.reduce(function(e, r, t) {
                     if ("ok" !== r.status) return e;
-                    var i, n, o, a, s = Array.isArray(c) ? c[t] : c;
-                    return s && "object" === x(s) ? (i = {
+                    var i, n, o, a, s = Array.isArray(d) ? d[t] : d;
+                    return s && "object" === _(s) ? (i = {
                         requestId: s.bidId,
                         currency: "USD",
                         creativeId: r.creative_id || "".concat(r.network || "", "-").concat(r.advertiser || ""),
                         cpm: r.cpm || 0,
                         dealId: r.deal,
                         ttl: 300,
-                        netRevenue: !1 !== v.b.getConfig("rubicon.netRevenue"),
+                        netRevenue: !1 !== y.b.getConfig("rubicon.netRevenue"),
                         rubicon: {
                             advertiserId: r.advertiser,
                             networkId: r.network
@@ -8195,30 +8171,30 @@ pbjsChunk([ 118 ], {
                             advertiserId: r.advertiser,
                             networkId: r.network
                         }
-                    }, r.creative_type && (i.mediaType = r.creative_type), r.creative_type === u.d ? (i.width = s.params.video.playerWidth, 
+                    }, r.creative_type && (i.mediaType = r.creative_type), r.creative_type === p.d ? (i.width = s.params.video.playerWidth, 
                     i.height = s.params.video.playerHeight, i.vastUrl = r.creative_depot_url, i.impression_id = r.impression_id, 
                     i.videoCacheKey = r.impression_id) : (i.ad = (o = r.script, a = r.impression_id, 
                     "<html>\n<head><script type='text/javascript'>inDapIF=true;<\/script></head>\n<body style='margin : 0; padding: 0;'>\n\x3c!-- Rubicon Project Ad Tag --\x3e\n<div data-rp-impression-id='".concat(a, "'>\n<script type='text/javascript'>").concat(o, "<\/script>\n</div>\n</body>\n</html>")), 
-                    n = y(p[r.size_id].split("x").map(function(e) {
+                    n = x(u[r.size_id].split("x").map(function(e) {
                         return Number(e);
                     }), 2), i.width = n[0], i.height = n[1]), i.rubiconTargeting = (Array.isArray(r.targeting) ? r.targeting : []).reduce(function(e, r) {
                         return e[r.key] = r.values[0], e;
                     }, {
                         rpfl_elemid: s.adUnitCode
-                    }), e.push(i)) : b.logError("Rubicon: bidRequest undefined at index position:".concat(t), c, d), 
+                    }), e.push(i)) : b.logError("Rubicon: bidRequest undefined at index position:".concat(t), d, c), 
                     e;
                 }, []).sort(function(e, r) {
                     return (r.cpm || 0) - (e.cpm || 0);
                 });
             },
             getUserSyncs: function(e, r, t, i) {
-                if (!R && e.iframeEnabled) {
+                if (!z && e.iframeEnabled) {
                     var n = "";
                     return t && "string" == typeof t.consentString && ("boolean" == typeof t.gdprApplies ? n += "?gdpr=".concat(Number(t.gdprApplies), "&gdpr_consent=").concat(t.consentString) : n += "?gdpr_consent=".concat(t.consentString)), 
                     i && (n += "".concat(n ? "&" : "?", "us_privacy=").concat(encodeURIComponent(i))), 
-                    R = !0, {
+                    z = !0, {
                         type: "iframe",
-                        url: a + n
+                        url: s + n
                     };
                 }
             },
@@ -8232,25 +8208,25 @@ pbjsChunk([ 118 ], {
         };
         function I(e, r) {
             var t, i = 0 < arguments.length && void 0 !== e ? e : {}, n = 1 < arguments.length ? r : void 0;
-            if (!n || !d[n]) return null;
-            var o = d[n];
+            if (!n || !c[n]) return null;
+            var o = c[n];
             var a = function() {
                 var e = b.deepAccess(i, "userId.digitrustid.data");
                 if (e) return e;
-                var r = window.DigiTrust && (v.b.getConfig("digiTrustId") || window.DigiTrust.getUser({
+                var r = window.DigiTrust && (y.b.getConfig("digiTrustId") || window.DigiTrust.getUser({
                     member: "T9QSFKPDN9"
                 }));
                 return r && r.success && r.identity || null;
             }();
             if (!a || a.privacy && a.privacy.optout) return null;
-            var s = (l(t = {}, o.id, a.id), l(t, o.keyv, a.keyv), t);
+            var s = (v(t = {}, o.id, a.id), v(t, o.keyv, a.keyv), t);
             return o.pref && (s[o.pref] = 0), s;
         }
-        function S(e, r) {
-            var t = v.b.getConfig("pageUrl"), t = e.params.referrer ? e.params.referrer : t || r.refererInfo.referer;
+        function C(e, r) {
+            var t = y.b.getConfig("pageUrl"), t = e.params.referrer ? e.params.referrer : t || r.refererInfo.referer;
             return e.params.secure ? t.replace(/^http:/i, "https:") : t;
         }
-        function A(e, r) {
+        function j(e, r) {
             var t = e.params;
             if ("video" === r) {
                 var i = [];
@@ -8258,36 +8234,36 @@ pbjsChunk([ 118 ], {
                 i;
             }
             var n = [];
-            return Array.isArray(t.sizes) ? n = t.sizes : void 0 !== b.deepAccess(e, "mediaTypes.banner.sizes") ? n = s(e.mediaTypes.banner.sizes) : Array.isArray(e.sizes) && 0 < e.sizes.length ? n = s(e.sizes) : b.logWarn("Rubicon: no sizes are setup or found"), 
-            m(n);
+            return Array.isArray(t.sizes) ? n = t.sizes : void 0 !== b.deepAccess(e, "mediaTypes.banner.sizes") ? n = d(e.mediaTypes.banner.sizes) : Array.isArray(e.sizes) && 0 < e.sizes.length ? n = d(e.sizes) : b.logWarn("Rubicon: no sizes are setup or found"), 
+            g(n);
         }
-        function s(e) {
+        function d(e) {
             return b.parseSizesInput(e).reduce(function(e, r) {
-                var t = parseInt(p[r], 10);
+                var t = parseInt(u[r], 10);
                 return t && e.push(t), e;
             }, []);
         }
-        function c(e) {
-            return "object" === x(b.deepAccess(e, "params.video")) && void 0 !== b.deepAccess(e, "mediaTypes.".concat(u.d));
+        function l(e) {
+            return "object" === _(b.deepAccess(e, "params.video")) && void 0 !== b.deepAccess(e, "mediaTypes.".concat(p.d));
         }
-        function g(e, r) {
+        function f(e, r) {
             var t = 1 < arguments.length && void 0 !== r && r;
-            return c(e) ? -1 === [ "outstream", "instream" ].indexOf(b.deepAccess(e, "mediaTypes.".concat(u.d, ".context"))) ? void (t && b.logError("Rubicon: mediaTypes.video.context must be outstream or instream")) : A(e, "video").length < 2 ? void (t && b.logError("Rubicon: could not determine the playerSize of the video")) : (t && b.logMessage("Rubicon: making video request for adUnit", e.adUnitCode), 
-            "video") : 0 === A(e, "banner").length ? void (t && b.logError("Rubicon: could not determine the sizes for banner request")) : (t && b.logMessage("Rubicon: making banner request for adUnit", e.adUnitCode), 
+            return l(e) ? -1 === [ "outstream", "instream" ].indexOf(b.deepAccess(e, "mediaTypes.".concat(p.d, ".context"))) ? void (t && b.logError("Rubicon: mediaTypes.video.context must be outstream or instream")) : j(e, "video").length < 2 ? void (t && b.logError("Rubicon: could not determine the playerSize of the video")) : (t && b.logMessage("Rubicon: making video request for adUnit", e.adUnitCode), 
+            "video") : 0 === j(e, "banner").length ? void (t && b.logError("Rubicon: could not determine the sizes for banner request")) : (t && b.logMessage("Rubicon: making banner request for adUnit", e.adUnitCode), 
             "banner");
         }
-        function m(e) {
+        function g(e) {
             var n = [ 15, 2, 9 ];
             return e.sort(function(e, r) {
                 var t = n.indexOf(e), i = n.indexOf(r);
                 return -1 < t || -1 < i ? -1 === t ? 1 : -1 === i ? -1 : t - i : e - r;
             });
         }
-        function C(e) {
+        function k(e) {
             var r = parseInt(b.deepAccess(e, "params.video.size_id"));
-            return isNaN(r) ? "outstream" === b.deepAccess(e, "mediaTypes.".concat(u.d, ".context")) ? 203 : 201 : r;
+            return isNaN(r) ? "outstream" === b.deepAccess(e, "mediaTypes.".concat(p.d, ".context")) ? 203 : 201 : r;
         }
-        function j(e) {
+        function T(e) {
             return {
                 ranges: {
                     low: [ {
@@ -8330,7 +8306,7 @@ pbjsChunk([ 118 ], {
                 }[e.getConfig("priceGranularity")]
             };
         }
-        function k(r) {
+        function w(r) {
             var t = !0, e = Object.prototype.toString.call([]), i = Object.prototype.toString.call(0), n = {
                 mimes: e,
                 protocols: e,
@@ -8343,7 +8319,7 @@ pbjsChunk([ 118 ], {
                 b.logError("Rubicon: mediaTypes.video." + e + " is required and must be of type: " + n[e]));
             }), t;
         }
-        function T(e) {
+        function R(e) {
             var r = !1, t = [ "asi", "sid", "hp" ];
             return e.nodes && ((r = e.nodes.reduce(function(e, r) {
                 return e ? t.every(function(e) {
@@ -8351,11 +8327,11 @@ pbjsChunk([ 118 ], {
                 }) : e;
             }, !0)) || b.logError("Rubicon: required schain params missing")), r;
         }
-        function w(e, r) {
+        function E(e, r) {
             return "rp_schain" === e ? "rp_schain=".concat(r) : "".concat(e, "=").concat(encodeURIComponent(r));
         }
-        var R = !1;
-        Object(i.registerBidder)(_);
+        var z = !1;
+        Object(i.registerBidder)(A);
     }
 }, [ 678 ]);
 
@@ -8539,6 +8515,12 @@ var jppol = function(exports) {
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, 
     _a);
+    window.PublisherCommonId = {
+        getId: function() {
+            var _a;
+            return (_a = window.jppolidvalue) !== null && _a !== void 0 ? _a : "missing";
+        }
+    };
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);
