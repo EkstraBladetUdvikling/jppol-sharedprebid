@@ -3,10 +3,15 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 
 window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 
-(window as any).PublisherCommonId = {
+const pubCommonOverwrite = {
   getId: () => {
     return (window as any).jppolidvalue ?? 'missing';
   },
+};
+
+(window as any).PublisherCommonId = {
+  ...(window as any).PublisherCommonId,
+  ...pubCommonOverwrite,
 };
 
 export function prebid(options: IPrebidOptions) {

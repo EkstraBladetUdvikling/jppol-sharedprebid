@@ -221,12 +221,15 @@ var jppol = (function (exports) {
 
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
-    window.PublisherCommonId = {
-        getId: function () {
-            var _a;
-            return (_a = window.jppolidvalue) !== null && _a !== void 0 ? _a : 'missing';
-        },
-    };
+    // const pubCommonOverwrite = {
+    //   getId: () => {
+    //     return (window as any).jppolidvalue ?? 'missing';
+    //   },
+    // };
+    // (window as any).PublisherCommonId = {
+    //   ...(window as any).PublisherCommonId,
+    //   ...pubCommonOverwrite,
+    // };
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);

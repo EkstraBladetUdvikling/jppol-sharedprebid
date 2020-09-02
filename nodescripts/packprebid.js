@@ -5,23 +5,21 @@ const UglifyJS = require('uglify-js');
  * uglifier
  * @param { string } env
  */
-const uglifier = (env, norubicon) => {
+const uglifier = uglifyOptions => {
   try {
-    const prebidFile = norubicon
-      ? 'prebid/prebid-norubicon.js'
-      : 'prebid/prebid.js';
+    const { env, noRubicon, suffix } = uglifyOptions;
+    const prebidFile = `./prebid/prebid${suffix ?? ''}.js`;
 
     const files = [
       fs.readFileSync(prebidFile, 'utf8'),
-      fs.readFileSync('tspublic/index.js', 'utf8'),
+      fs.readFileSync('tspublic/index.js', 'utf8')
     ];
 
     const config = env ?? 'dev';
     const outputPath = env === 'prod' ? 'min' : 'dev';
 
-    const outputFileName = norubicon
-      ? `jppol/jppol-prebid-norubicon.${outputPath}.js`
-      : `jppol/jppol-prebid.${outputPath}.js`;
+    const outputFileName = `jppol/jppol-prebid${suffix ?? ''}.${outputPath}.js`;
+    console.log('uglifier outputFileName', outputFileName);
 
     const uglifierConfig = require(`../uglify.${config}.config.json`);
     const outputFile = UglifyJS.minify(files.join(''), uglifierConfig).code;
