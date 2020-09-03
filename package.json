@@ -1,22 +1,18 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "3.24.3",
+  "version": "4.4.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
-    "build": "npm run uglify-debug",
-    "dist": "npm run build && npm run uglify-prod",
+    "build": "node nodescripts/buildprebid.js --env=dev",
+    "build:prod": "node nodescripts/buildprebid.js --env=prod",
+    "dist": "npm run build && npm run build:prod",
     "dist:move": "npm run dist && npm run move_to_eb",
-    "prebid": "node buildprebid.js",
-    "prebid-update": "npm uninstall --save prebid.js && npm i --save prebid.js",
-    "prebid-withupdate": "npm run prebid-update && node buildprebid.js",
+    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v4\"",
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",
-    "uglify-prod": "uglifyjs --config-file \"./uglify.prod.config.json\" \"./prebid/prebid3.24.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.min.js\"",
-    "uglify-debug": "uglifyjs --config-file \"./uglify.dev.config.json\" \"./prebid/prebid3.24.0.js\" \"./tspublic/index.js\" -o \"./jppol/jppol-prebid.dev.js\"",
-    "tslint": "tslint -c tslint.json \"./src/**/*.ts\"",
-    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v3\""
+    "tslint": "tslint -c tslint.json \"./src/**/*.ts\""
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {},
