@@ -1,13 +1,11 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.5.0",
+  "version": "4.5.1",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
     "build": "node nodescripts/buildprebid.js --env=dev",
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
-    "build:pubCommon": "node nodescripts/buildprebid.js --suffix=pubcom --env=all --modules=pubCommonId,pubCommonIdSystem",
-    "build:pubCommon:DL": "node nodescripts/buildprebid.js --suffix=pubcom --version=4.5.0 --env=all --modules=pubCommonId,pubCommonIdSystem",
     "dist": "npm run build && npm run build:prod",
     "dist:move": "npm run dist && npm run move",
     "move": "node nodescripts/buildprebid.js --move",

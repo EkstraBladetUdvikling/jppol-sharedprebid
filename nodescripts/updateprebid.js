@@ -8,8 +8,6 @@ let modules = [
   'pubmaticBidAdapter',
   'consentManagement',
   'gdprEnforcement',
-  // 'pubCommonIdSystem',
-  // 'pubCommonId',
 ];
 
 const updatePrebid = (updateOptions) => {
