@@ -7,12 +7,12 @@ let modules = [
   'criteoBidAdapter',
   'pubmaticBidAdapter',
   'consentManagement',
-  'gdprEnforcement'
+  'gdprEnforcement',
   // 'pubCommonIdSystem',
   // 'pubCommonId',
 ];
 
-const updatePrebid = updateOptions => {
+const updatePrebid = (updateOptions) => {
   const { addModules, noRubicon, suffix, version } = updateOptions;
 
   if (!version) {
