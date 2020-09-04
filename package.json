@@ -1,14 +1,14 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.4.0",
+  "version": "4.5.1",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
     "build": "node nodescripts/buildprebid.js --env=dev",
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
     "dist": "npm run build && npm run build:prod",
-    "dist:move": "npm run dist && npm run move_to_eb",
-    "move_to_eb": "yarn cpx \"./jppol/**/*.{css,js}\" \"../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v4\"",
+    "dist:move": "npm run dist && npm run move",
+    "move": "node nodescripts/buildprebid.js --move",
     "prebuild": "npm run prettier && npm run tslint && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
     "rollup": "rollup -c",
@@ -17,17 +17,17 @@
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.11.5",
     "@babel/plugin-external-helpers": "^7.10.4",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-env": "^7.11.5",
     "cpx": "^1.5.0",
-    "prettier": "^2.0.5",
-    "rollup": "^2.23.1",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.9",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-typescript2": "^0.27.2",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.9.7",
-    "uglify-js": "^3.10.1"
+    "typescript": "^4.0.2",
+    "uglify-js": "^3.10.3"
   }
 }

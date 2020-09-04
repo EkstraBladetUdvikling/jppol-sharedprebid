@@ -221,6 +221,15 @@ var jppol = (function (exports) {
 
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
+    // const pubCommonOverwrite = {
+    //   getId: () => {
+    //     return (window as any).jppolidvalue ?? 'missing';
+    //   },
+    // };
+    // (window as any).PublisherCommonId = {
+    //   ...(window as any).PublisherCommonId,
+    //   ...pubCommonOverwrite,
+    // };
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
         new AuctionHandler(options);
