@@ -121,14 +121,22 @@ var jppol = (function (exports) {
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
                 var bidders = BidderHandler(banner, keywords);
-                var adUnit = {
-                    bids: bidders,
-                    code: banner.targetId,
-                    mediaTypes: {
+                var mediaTypes = banner.video
+                    ? {
+                        video: {
+                            context: 'instream',
+                            playerSize: banner.playerSize,
+                        },
+                    }
+                    : {
                         banner: {
                             sizes: banner.sizes,
                         },
-                    },
+                    };
+                var adUnit = {
+                    bids: bidders,
+                    code: banner.targetId,
+                    mediaTypes: mediaTypes,
                 };
                 if (banner.pubstackData) {
                     adUnit.pubstack = banner.pubstackData;
@@ -176,6 +184,14 @@ var jppol = (function (exports) {
                                 allowAuctionWithoutConsent: options.consentAllowAuction,
                                 cmpApi: 'iab',
                                 timeout: options.consentTimeout,
+                                rules: [
+                                    {
+                                        purpose: 'storage',
+                                        enforcePurpose: true,
+                                        enforceVendor: true,
+                                        vendorExceptions: ['pubCommonId'],
+                                    },
+                                ],
                             },
                             debug: options.debug,
                             priceGranularity: 'high',
@@ -183,6 +199,7 @@ var jppol = (function (exports) {
                                 enabledBidders: ['pubmatic'],
                                 iframeEnabled: true,
                                 syncDelay: 6000,
+                                userIds: [{ name: 'pubCommonId' }],
                             },
                         });
                         pbjs_1.addAdUnits(adUnits_1);

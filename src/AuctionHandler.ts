@@ -49,6 +49,14 @@ export class AuctionHandler {
               allowAuctionWithoutConsent: options.consentAllowAuction,
               cmpApi: 'iab',
               timeout: options.consentTimeout,
+              rules: [
+                {
+                  purpose: 'storage',
+                  enforcePurpose: true,
+                  enforceVendor: true,
+                  vendorExceptions: ['pubCommonId'],
+                },
+              ],
             },
             debug: options.debug,
             priceGranularity: 'high',
@@ -56,6 +64,7 @@ export class AuctionHandler {
               enabledBidders: ['pubmatic'],
               iframeEnabled: true,
               syncDelay: 6000,
+              userIds: [{ name: 'pubCommonId' }],
             },
           });
           pbjs.addAdUnits(adUnits);

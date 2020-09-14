@@ -109,33 +109,57 @@ function BidderHandler(bannerObject: IBannerObject, keywords?: string[]) {
   }
 }
 
+interface IBanner {
+  banner: {
+    sizes: number[][];
+  };
+}
+
+interface IVideo {
+  video: {
+    context: 'instream' | 'outstream';
+    playerSize: number[][];
+  };
+}
+
+type TMediaTypes = IBanner | IVideo | (IBanner & IVideo);
+
+interface IAdUnit {
+  bids: any;
+  code: string;
+  mediaTypes: TMediaTypes;
+  pubstack?: {
+    adUnitName: string;
+    adUnitPath: string;
+  };
+}
+
 export function AdUnitCreator(bannerContainer: any, keywords?: string[]) {
   try {
     const adUnits = [];
 
     for (const banner of bannerContainer) {
       const bidders = BidderHandler(banner, keywords);
-      const adUnit: {
-        bids: any;
-        code: string;
-        mediaTypes: {
-          banner: {
-            sizes: number[][];
+
+      const mediaTypes: TMediaTypes = banner.video
+        ? {
+            video: {
+              context: 'instream',
+              playerSize: banner.playerSize,
+            },
+          }
+        : {
+            banner: {
+              sizes: banner.sizes,
+            },
           };
-        };
-        pubstack?: {
-          adUnitName: string;
-          adUnitPath: string;
-        };
-      } = {
+
+      const adUnit: IAdUnit = {
         bids: bidders,
         code: banner.targetId,
-        mediaTypes: {
-          banner: {
-            sizes: banner.sizes,
-          },
-        },
+        mediaTypes,
       };
+
       if (banner.pubstackData) {
         adUnit.pubstack = banner.pubstackData;
         console.log('prebid: add pubstack data');
