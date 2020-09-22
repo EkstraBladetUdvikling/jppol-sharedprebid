@@ -1,6 +1,6 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.5.1",
+  "version": "4.6.0",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
