@@ -1,15 +1,14 @@
 const cpx = require('cpx');
 
 const movePrebid = () => {
-  const source = './jppol/**/*.{css,js}';
+  const source = './jppol/**/*.{css,js,html}';
   const dest =
     '../ekstrabladet/ekstrabladet-publication/src/main/webapp/assets/prebid-v4';
-  cpx.copy(source, dest, err => {
-    if (err){
-    console.log('err', err);
-    process.exit(1)
-  }
-
+  cpx.copy(source, dest, (err) => {
+    if (err) {
+      console.log('err', err);
+      process.exit(1);
+    }
   });
 };
 

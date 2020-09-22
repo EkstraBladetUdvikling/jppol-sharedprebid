@@ -1,11 +1,11 @@
-import { AdUnitCreator, IBannerObject } from './BidderHandler';
+import { AdUnitCreator } from './adunitcreator';
+import { IBannerObject } from './types';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
 export interface IPrebidOptions {
   adserverCallback?: any;
   auctionCompleted?: boolean;
   banners: IBannerObject[];
-  consentAllowAuction?: boolean;
   consentTimeout?: number;
   debug?: boolean;
   keywords?: string[];
@@ -15,7 +15,6 @@ export interface IPrebidOptions {
 export class AuctionHandler {
   constructor(options: IPrebidOptions) {
     const prebidDefault = {
-      consentAllowAuction: true,
       consentTimeout: 3000000,
       debug: false,
       timeout: 700,
@@ -33,36 +32,37 @@ export class AuctionHandler {
         window[PREBIDAUCTION][COMPLETED]
       );
       // If the auction is completed, remove adunits
-      if (window[PREBIDAUCTION][COMPLETED]) {
+      if (window[PREBIDAUCTION][COMPLETED] && pbjs.adUnits.length) {
         console.log('prebid: If the auction is completed, remove adunits');
         pbjs.removeAdUnit();
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
       const adUnits = AdUnitCreator(options.banners, options.keywords);
-
+      console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
           pbjs.setConfig({
             bidderTimeout: options.timeout,
+            cache: {
+              url: 'https://prebid.adnxs.com/pbc/v1/cache',
+            },
             consentManagement: {
-              allowAuctionWithoutConsent: options.consentAllowAuction,
               cmpApi: 'iab',
               timeout: options.consentTimeout,
             },
             debug: options.debug,
             priceGranularity: 'high',
-            userSync: {
-              enabledBidders: ['pubmatic'],
-              iframeEnabled: true,
-              syncDelay: 6000,
-            },
           });
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
           pbjs.requestBids({
             bidsBackHandler: (bidResponse) => {
               console.log('prebid: bidsBackHandler', bidResponse);
+              console.log(
+                'prebid: bidsBackHandler.getAdserverTargeting',
+                pbjs.getAdserverTargeting()
+              );
               const apntag = (window as any).apntag;
               if (typeof apntag !== 'undefined') {
                 pbjs.que.push(() => {
