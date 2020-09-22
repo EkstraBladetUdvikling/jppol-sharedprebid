@@ -7,28 +7,29 @@ const buildPrebid = async () => {
   console.log('runtimeArguments', runtimeArguments);
 
   const noRubiconArg = runtimeArguments.find(
-    val => val.indexOf('norubicon') !== -1
+    (val) => val.indexOf('norubicon') !== -1
   );
   const noRubicon = !!noRubiconArg;
 
   const suffixArg = runtimeArguments.find(
-    val => val.indexOf('--suffix=') !== -1
+    (val) => val.indexOf('--suffix=') !== -1
   );
-  const suffix = suffixArg ? `-${suffixArg.split('=')[1]}` : noRubicon ? '-norubicon' : null;
+  const suffix = suffixArg
+    ? `-${suffixArg.split('=')[1]}`
+    : noRubicon
+    ? '-norubicon'
+    : null;
 
   const versionArg = runtimeArguments.find(
-    val => val.indexOf('version=') !== -1
+    (val) => val.indexOf('version=') !== -1
   );
   const version = versionArg ? versionArg.split('=')[1] : null;
 
   const modulesArg = runtimeArguments.find(
-    val => val.indexOf('modules') !== -1
+    (val) => val.indexOf('modules') !== -1
   );
   const addModules = modulesArg
-    ? modulesArg
-        .split('modules=')[1]
-        .trim()
-        .split(',')
+    ? modulesArg.split('modules=')[1].trim().split(',')
     : null;
 
   if (version) {
@@ -36,32 +37,33 @@ const buildPrebid = async () => {
       addModules,
       noRubicon,
       suffix,
-      version
+      version,
     });
   }
 
-  const envArg = runtimeArguments.find(val => val.indexOf('env=') !== -1);
+  const envArg = runtimeArguments.find((val) => val.indexOf('env=') !== -1);
+
   const env = envArg ? envArg.split('=')[1] : null;
 
   if (env) {
     if (env === 'all') {
-      ['dev', 'prod'].forEach(arrEnv => {
+      ['dev', 'prod'].forEach((arrEnv) => {
         uglifier({
           env: arrEnv,
           noRubicon,
-          suffix
+          suffix,
         });
       });
     } else {
       uglifier({
         env,
         noRubicon,
-        suffix
+        suffix,
       });
     }
   }
 
-  const moveArg = runtimeArguments.find(val => val.indexOf('--move') !== -1);
+  const moveArg = runtimeArguments.find((val) => val.indexOf('--move') !== -1);
   const move = !!moveArg;
 
   if (move) {

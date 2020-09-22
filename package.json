@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node nodescripts/buildprebid.js --env=dev",
+    "build:all": "node nodescripts/buildprebid.js --env=all",
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
     "dist": "npm run build && npm run build:prod",
     "dist:move": "npm run dist && npm run move",
