@@ -50,16 +50,11 @@ export class AuctionHandler {
             consentManagement: {
               cmpApi: 'iab',
               timeout: options.consentTimeout,
-              rules: [
-                {
-                  purpose: 'storage',
-                  enforcePurpose: true,
-                  enforceVendor: true,
-                  vendorExceptions: ['pubCommonId'],
-                },
-              ],
             },
             debug: options.debug,
+            gvlMapping: {
+              pubCommonId: 50,
+            },
             priceGranularity: 'high',
             userSync: {
               enabledBidders: ['pubmatic'],
