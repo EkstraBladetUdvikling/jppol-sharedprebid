@@ -53,11 +53,6 @@ export class AuctionHandler {
             },
             debug: options.debug,
             priceGranularity: 'high',
-            // userSync: {
-            //   enabledBidders: ['pubmatic'],
-            //   iframeEnabled: true,
-            //   syncDelay: 6000,
-            // },
           });
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
