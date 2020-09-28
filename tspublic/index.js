@@ -316,7 +316,7 @@ var jppol = (function (exports) {
     }
     var pubCommonOverride = {
         getId: function () {
-            return window.jppolidvalue;
+            return window.eb_anon_uuid || null;
         },
     };
     window.PublisherCommonId = __assign(__assign({}, window.PublisherCommonId), pubCommonOverride) || __assign({}, pubCommonOverride);

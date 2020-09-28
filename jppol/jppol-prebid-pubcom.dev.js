@@ -7005,6 +7005,215 @@ pbjsChunk([ 231 ], {
     }
 }, [ 432 ]);
 
+pbjsChunk([ 146 ], {
+    630: function(e, t, n) {
+        e.exports = n(631);
+    },
+    631: function(e, t, n) {
+        "use strict";
+        Object.defineProperty(t, "__esModule", {
+            value: !0
+        }), t.setStorageItem = h, t.getStorageItem = x, t.removeStorageItem = U, t.isPubcidEnabled = function() {
+            return S.enabled;
+        }, t.getExpInterval = function() {
+            return S.interval;
+        }, t.getPubcidConfig = function() {
+            return S;
+        }, t.requestBidHook = k, t.setCookie = w, t.getCookie = function(e) {
+            return s.getCookie(e);
+        }, t.setConfig = j, t.initPubcid = L;
+        var r = n(0), o = n(3), a = n(8), i = n.n(a), l = n(5), c = n.n(l), u = n(7);
+        function d() {
+            return (d = Object.assign || function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var n = arguments[t];
+                    for (var o in n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
+                }
+                return e;
+            }).apply(this, arguments);
+        }
+        function b(e) {
+            return (b = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+                return typeof e;
+            } : function(e) {
+                return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
+            })(e);
+        }
+        var s = Object(u.b)(), f = "_pubcid", p = "_pubcid_optout", g = 525600, v = "PublisherCommonId", y = "_exp", m = "cookie", E = "html5", S = {
+            enabled: !0,
+            interval: g,
+            typeEnabled: E,
+            create: !0,
+            extend: !0,
+            pixelUrl: ""
+        };
+        function h(e, t, n) {
+            try {
+                var o;
+                void 0 !== n && null != n && (o = new Date(Date.now() + 60 * n * 1e3).toUTCString(), 
+                s.setDataInLocalStorage(e + y, o)), s.setDataInLocalStorage(e, t);
+            } catch (e) {
+                r.logMessage(e);
+            }
+        }
+        function x(e) {
+            var t = null;
+            try {
+                var n = s.getDataFromLocalStorage(e + y);
+                !n || 0 < new Date(n).getTime() - Date.now() ? t = s.getDataFromLocalStorage(e) : U(e);
+            } catch (e) {
+                r.logMessage(e);
+            }
+            return t;
+        }
+        function U(e) {
+            try {
+                s.removeDataFromLocalStorage(e + y), s.removeDataFromLocalStorage(e);
+            } catch (e) {
+                r.logMessage(e);
+            }
+        }
+        function C(e, t) {
+            var n;
+            return (t = t || S.typeEnabled) === m ? n = s.getCookie(e) : t === E && (n = x(e)), 
+            "undefined" === n || "null" === n ? null : n;
+        }
+        function D(e, t, n) {
+            e && t && (S.typeEnabled === m ? w(e, t, n, "Lax") : S.typeEnabled === E && h(e, t, n));
+        }
+        function I(e, t) {
+            if (e) {
+                t = t || "";
+                var n = r.parseUrl(e);
+                n.search.id = encodeURIComponent("pubcid:" + t);
+                var o = r.buildUrl(n);
+                return i.a.on(c.a.EVENTS.AUCTION_END, function e() {
+                    i.a.off(c.a.EVENTS.AUCTION_END, e), r.triggerPixel(o);
+                }), 1;
+            }
+        }
+        function k(e, t) {
+            var n = t.adUnits || pbjs.adUnits, o = null;
+            return S.enabled && S.typeEnabled && ("object" === b(window[v]) ? (o = window[v].getId(), 
+            r.logMessage(v + ": pubcid = " + o)) : ((o = C(f)) ? S.extend && (I(S.pixelUrl, o) || D(f, o, S.interval)) : (S.create && (S.typeEnabled === E && (o = C(f, m)), 
+            o = o || r.generateUUID(), D(f, o, S.interval), o = C(f)), I(S.pixelUrl, o)), r.logMessage("pbjs: pubcid = " + o)), 
+            n && o && n.forEach(function(e) {
+                e.bids.forEach(function(e) {
+                    d(e, {
+                        crumbs: {
+                            pubcid: o
+                        }
+                    });
+                });
+            })), e.call(this, t);
+        }
+        function w(e, t, n, o) {
+            var r = new Date();
+            r.setTime(r.getTime() + 1e3 * n * 60), s.setCookie(e, t, r.toGMTString(), o);
+        }
+        function j() {
+            var e = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : {}, t = e.enable, n = e.expInterval, o = e.type, r = void 0 === o ? "html5,cookie" : o, a = e.create, i = e.extend, l = e.pixelUrl;
+            void 0 !== t && (S.enabled = t), void 0 !== n && (S.interval = parseInt(n, 10)), 
+            isNaN(S.interval) && (S.interval = g), void 0 !== a && (S.create = a), void 0 !== i && (S.extend = i), 
+            void 0 !== l && (S.pixelUrl = l), S.typeEnabled = null;
+            for (var c = r.split(","), u = 0; u < c.length; ++u) {
+                var d = c[u].trim();
+                if (d === m) {
+                    if (s.cookiesAreEnabled()) {
+                        S.typeEnabled = m;
+                        break;
+                    }
+                } else if (d === E && s.hasLocalStorage()) {
+                    S.typeEnabled = E;
+                    break;
+                }
+            }
+        }
+        function L() {
+            o.b.getConfig("pubcid", function(e) {
+                return j(e.pubcid);
+            }), s.cookiesAreEnabled() && C(p, m) || s.hasLocalStorage() && C(p, E) || pbjs.requestBids.before(k);
+        }
+        L();
+    }
+}, [ 630 ]);
+
+pbjsChunk([ 145 ], {
+    632: function(e, o, t) {
+        e.exports = t(633);
+    },
+    633: function(e, o, t) {
+        "use strict";
+        Object.defineProperty(o, "__esModule", {
+            value: !0
+        }), t.d(o, "pubCommonIdSubmodule", function() {
+            return u;
+        });
+        var c = t(0), n = t(13), i = t(7);
+        function d(e) {
+            return (d = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+                return typeof e;
+            } : function(e) {
+                return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
+            })(e);
+        }
+        var a = "PublisherCommonId", r = Object(i.b)(null, "pubCommonId"), u = {
+            name: "pubCommonId",
+            makeCallback: function(e, o) {
+                var t = 1 < arguments.length && void 0 !== o ? o : "";
+                if (e) {
+                    var n = c.parseUrl(e);
+                    n.search.id = encodeURIComponent("pubcid:" + t);
+                    var i = c.buildUrl(n);
+                    return function() {
+                        c.triggerPixel(i);
+                    };
+                }
+            },
+            decode: function(e) {
+                return {
+                    pubcid: e
+                };
+            },
+            getId: function(e) {
+                var o = 0 < arguments.length && void 0 !== e ? e : {}, t = o.create, n = void 0 === t || t, i = o.pixelUrl;
+                try {
+                    if ("object" === d(window[a])) return {
+                        id: window[a].getId()
+                    };
+                } catch (e) {}
+                var r = n && c.hasDeviceAccess() ? c.generateUUID() : void 0;
+                return {
+                    id: r,
+                    callback: this.makeCallback(i, r)
+                };
+            },
+            extendId: function(e, o) {
+                var t = 0 < arguments.length && void 0 !== e ? e : {}, n = t.extend, i = void 0 !== n && n, r = t.pixelUrl, c = 1 < arguments.length ? o : void 0;
+                try {
+                    if ("object" === d(window[a])) return;
+                } catch (e) {}
+                if (i) {
+                    var u = this.makeCallback(r, c);
+                    return u ? {
+                        callback: u
+                    } : {
+                        id: c
+                    };
+                }
+            },
+            domainOverride: function() {
+                for (var e, o = document.domain.split("."), t = "_gd".concat(Date.now()), n = 0; n < o.length; n++) {
+                    var i = o.slice(n).join(".");
+                    if (r.setCookie(t, "1", void 0, void 0, i), "1" !== r.getCookie(t)) return e;
+                    r.setCookie(t, "", "Thu, 01 Jan 1970 00:00:01 GMT", void 0, i), e = i;
+                }
+            }
+        };
+        Object(n.e)("userId", u);
+    }
+}, [ 632 ]);
+
 pbjsChunk([ 143 ], {
     638: function(e, r, a) {
         e.exports = a(639);
@@ -8375,6 +8584,311 @@ pbjsChunk([ 121 ], {
         Object(i.registerBidder)(k);
     }
 }, [ 698 ]);
+
+pbjsChunk([ 4 ], {
+    37: function(e, t, n) {
+        "use strict";
+        t.a = function(e) {
+            var t = [];
+            for (var n in e) {
+                var o;
+                !e.hasOwnProperty(n) || (o = function(e, t) {
+                    var n = s[t];
+                    if (n && e) {
+                        var o = {};
+                        o.source = n.source;
+                        var r = u.isFn(n.getValue) ? n.getValue(e) : e;
+                        if (u.isStr(r)) {
+                            var a, i, c = {
+                                id: r,
+                                atype: n.atype
+                            };
+                            return !u.isFn(n.getUidExt) || (a = n.getUidExt(e)) && (c.ext = a), o.uids = [ c ], 
+                            !u.isFn(n.getEidExt) || (i = n.getEidExt(e)) && (o.ext = i), o;
+                        }
+                    }
+                    return null;
+                }(e[n], n)) && t.push(o);
+            }
+            return t;
+        };
+        var u = n(0), s = {
+            intentIqId: {
+                source: "intentiq.com",
+                atype: 1
+            },
+            pubcid: {
+                source: "pubcid.org",
+                atype: 1
+            },
+            tdid: {
+                source: "adserver.org",
+                atype: 1,
+                getUidExt: function() {
+                    return {
+                        rtiPartner: "TDID"
+                    };
+                }
+            },
+            id5id: {
+                source: "id5-sync.com",
+                atype: 1
+            },
+            parrableId: {
+                source: "parrable.com",
+                atype: 1,
+                getValue: function(e) {
+                    return e.eid ? e.eid : e.ccpaOptout ? "" : null;
+                },
+                getUidExt: function(e) {
+                    var t = u.pick(e, [ "ibaOptout", "ccpaOptout" ]);
+                    if (Object.keys(t).length) return t;
+                }
+            },
+            idl_env: {
+                source: "liveramp.com",
+                atype: 1
+            },
+            lipb: {
+                getValue: function(e) {
+                    return e.lipbid;
+                },
+                source: "liveintent.com",
+                atype: 1,
+                getEidExt: function(e) {
+                    if (Array.isArray(e.segments) && e.segments.length) return {
+                        segments: e.segments
+                    };
+                }
+            },
+            britepoolid: {
+                source: "britepool.com",
+                atype: 1
+            },
+            lotamePanoramaId: {
+                source: "crwdcntrl.net",
+                atype: 1
+            },
+            criteoId: {
+                source: "criteo.com",
+                atype: 1
+            },
+            merkleId: {
+                source: "merkleinc.com",
+                atype: 1
+            },
+            netId: {
+                source: "netid.de",
+                atype: 1
+            },
+            sharedid: {
+                source: "sharedid.org",
+                atype: 1,
+                getValue: function(e) {
+                    return e.id;
+                },
+                getUidExt: function(e) {
+                    return e && e.third ? {
+                        third: e.third
+                    } : void 0;
+                }
+            },
+            IDP: {
+                source: "zeotap.com",
+                atype: 1
+            },
+            haloId: {
+                source: "audigent.com",
+                atype: 1
+            },
+            quantcastId: {
+                source: "quantcast.com",
+                atype: 1
+            }
+        };
+    },
+    814: function(e, t, n) {
+        e.exports = n(815);
+    },
+    815: function(e, t, n) {
+        "use strict";
+        Object.defineProperty(t, "__esModule", {
+            value: !0
+        }), n.d(t, "coreStorage", function() {
+            return k;
+        }), n.d(t, "syncDelay", function() {
+            return c;
+        }), n.d(t, "auctionDelay", function() {
+            return u;
+        }), t.setSubmoduleRegistry = function(e) {
+            U = e;
+        }, t.setStoredValue = V, t.setStoredConsentData = L, t.requestBidsHook = q, n.d(t, "validateGdprEnforcement", function() {
+            return M;
+        }), t.attachIdSystem = B, t.init = G;
+        var i, a, c, u, o = n(10), r = n.n(o), s = n(3), d = n(8), l = n.n(d), f = n(0), g = n(20), p = n(9), m = n(5), b = n.n(m), y = n(13), v = n(37), h = n(7), I = "User ID", O = "cookie", S = "html5", D = 500, E = 0, j = {
+            name: "_pbjs_userid_consent_data",
+            expires: 30
+        }, k = Object(h.a)("userid"), x = [], _ = !1, A = [], C = [], U = [];
+        function V(e, t) {
+            var n = e.config.storage, o = "function" == typeof e.submodule.domainOverride ? e.submodule.domainOverride() : null;
+            try {
+                var r = f.isPlainObject(t) ? JSON.stringify(t) : t, a = new Date(Date.now() + 864e5 * n.expires).toUTCString();
+                n.type === O ? (k.setCookie(n.name, r, a, "Lax", o), "number" == typeof n.refreshInSeconds && k.setCookie("".concat(n.name, "_last"), new Date().toUTCString(), a, "Lax", o)) : n.type === S && (k.setDataInLocalStorage("".concat(n.name, "_exp"), a), 
+                k.setDataInLocalStorage(n.name, encodeURIComponent(r)), "number" == typeof n.refreshInSeconds && k.setDataInLocalStorage("".concat(n.name, "_last"), new Date().toUTCString()));
+            } catch (e) {
+                f.logError(e);
+            }
+        }
+        function T(e, t) {
+            var n, o, r = 1 < arguments.length && void 0 !== t ? t : void 0, a = r ? "".concat(e.name, "_").concat(r) : e.name;
+            try {
+                e.type === O ? n = k.getCookie(a) : e.type === S && ("" === (o = k.getDataFromLocalStorage("".concat(e.name, "_exp"))) ? n = k.getDataFromLocalStorage(a) : o && 0 < new Date(o).getTime() - Date.now() && (n = decodeURIComponent(k.getDataFromLocalStorage(a)))), 
+                "string" == typeof n && "{" === n.charAt(0) && (n = JSON.parse(n));
+            } catch (e) {
+                f.logError(e);
+            }
+            return n;
+        }
+        function w(e) {
+            var t = {
+                consentString: "",
+                gdprApplies: !1,
+                apiVersion: 0
+            };
+            return e && (t.consentString = e.consentString, t.gdprApplies = e.gdprApplies, t.apiVersion = e.apiVersion), 
+            f.cyrb53Hash(JSON.stringify(t));
+        }
+        function L(e) {
+            try {
+                var t = new Date(Date.now() + 864e5 * j.expires).toUTCString();
+                k.setCookie(j.name, w(e), t, "Lax");
+            } catch (e) {
+                f.logError(e);
+            }
+        }
+        function N(e, t) {
+            var n = t ? f.delayExecution(t, e.length) : function() {};
+            e.forEach(function(t) {
+                t.callback(function(e) {
+                    e ? (t.config.storage && V(t, e), t.idObj = t.submodule.decode(e)) : f.logInfo("".concat(I, ": ").concat(t.submodule.name, " - request id responded with an empty value")), 
+                    n();
+                }), t.callback = void 0;
+            }), clearTimeout(a);
+        }
+        function P(e) {
+            return Array.isArray(e) && e.length ? e.filter(function(e) {
+                return f.isPlainObject(e.idObj) && Object.keys(e.idObj).length;
+            }).reduce(function(t, n) {
+                return Object.keys(n.idObj).forEach(function(e) {
+                    t[e] = n.idObj[e];
+                }), t;
+            }, {}) : {};
+        }
+        function F(e) {
+            var t, n, o, r = !1;
+            void 0 === i && (!(i = function(e, s) {
+                var d = function() {
+                    try {
+                        return k.getCookie(j.name);
+                    } catch (e) {
+                        f.logError(e);
+                    }
+                }();
+                L(s);
+                var t = M(e, s), n = t.userIdModules;
+                return t.hasValidated || function(e) {
+                    if (e && "boolean" == typeof e.gdprApplies && e.gdprApplies) {
+                        if (!e.consentString) return;
+                        if (1 === e.apiVersion && !1 === f.deepAccess(e, "vendorData.purposeConsents.1")) return;
+                        if (2 === e.apiVersion && !1 === f.deepAccess(e, "vendorData.purpose.consents.1")) return;
+                    }
+                    return 1;
+                }(s) ? n.reduce(function(e, t) {
+                    var n, o, r, a, i, c, u;
+                    return t.config.storage ? (n = T(t.config.storage), a = !1, "number" == typeof t.config.storage.refreshInSeconds && (a = (r = new Date(T(t.config.storage, "last"))) && Date.now() - r.getTime() > 1e3 * t.config.storage.refreshInSeconds), 
+                    !n || a || (u = s, null != (c = d) && c !== w(u)) ? o = t.submodule.getId(t.config.params, s, n) : "function" == typeof t.submodule.extendId && (o = t.submodule.extendId(t.config.params, n)), 
+                    f.isPlainObject(o) && (o.id && (V(t, o.id), n = o.id), "function" == typeof o.callback && (t.callback = o.callback)), 
+                    n && (t.idObj = t.submodule.decode(n, t.config.params))) : t.config.value ? t.idObj = t.config.value : (i = t.submodule.getId(t.config.params, s, void 0), 
+                    f.isPlainObject(i) && ("function" == typeof i.callback && (t.callback = i.callback), 
+                    i.id && (t.idObj = t.submodule.decode(i.id, t.config.params)))), e.push(t), e;
+                }, []) : (f.logWarn("".concat(I, " - gdpr permission not valid for local storage or cookies, exit module")), 
+                []);
+            }(A, p.gdprDataHandler.getConsentData())).length || (t = i.filter(function(e) {
+                return f.isFn(e.callback);
+            })).length && (e && 0 < u ? (n = !(r = !0), o = function() {
+                n || (n = !0, e());
+            }, f.logInfo("".concat(I, " - auction delayed by ").concat(u, " at most to fetch ids")), 
+            a = setTimeout(o, u), N(t, o)) : l.a.on(b.a.EVENTS.AUCTION_END, function e() {
+                l.a.off(b.a.EVENTS.AUCTION_END, e), 0 < c ? setTimeout(function() {
+                    N(t);
+                }, c) : N(t);
+            }))), e && !r && e();
+        }
+        function q(r, a) {
+            F(function() {
+                var e, t, n, o;
+                e = a.adUnits || Object(g.a)().adUnits, t = i, [ e ].some(function(e) {
+                    return !Array.isArray(e) || !e.length;
+                }) || (n = P(t), o = Object(v.a)(n), Object.keys(n).length && e.forEach(function(e) {
+                    e.bids.forEach(function(e) {
+                        e.userId = n, e.userIdAsEids = o;
+                    });
+                })), r.call(this, a);
+            });
+        }
+        function H() {
+            return F(), P(i);
+        }
+        function J() {
+            return F(), Object(v.a)(P(i));
+        }
+        var M = Object(y.b)("sync", function(e, t) {
+            return {
+                userIdModules: e,
+                hasValidated: t && t.hasValidated
+            };
+        }, "validateGdprEnforcement");
+        function R() {
+            var e, n, t, o = (e = C, n = x, Array.isArray(e) ? e.reduce(function(e, t) {
+                return !t || f.isEmptyStr(t.name) || (!t.storage || f.isEmptyStr(t.storage.type) || f.isEmptyStr(t.storage.name) || -1 === n.indexOf(t.storage.type)) && !f.isPlainObject(t.value) && (t.storage || t.value) || e.push(t), 
+                e;
+            }, []) : []);
+            o.length && (t = U.filter(function(t) {
+                return !r()(A, function(e) {
+                    return e.name === t.name;
+                });
+            }), A = t.map(function(t) {
+                var e = r()(o, function(e) {
+                    return e.name === t.name;
+                });
+                return e ? {
+                    submodule: t,
+                    config: e,
+                    callback: void 0,
+                    idObj: void 0
+                } : null;
+            }).filter(function(e) {
+                return null !== e;
+            }), !_ && A.length && (Object(g.a)().requestBids.before(q, 40), f.logInfo("".concat(I, " - usersync config updated for ").concat(A.length, " submodules")), 
+            _ = !0));
+        }
+        function B(t) {
+            r()(U, function(e) {
+                return e.name === t.name;
+            }) || (U.push(t), R());
+        }
+        function G(e) {
+            A = [], _ = !(C = []), i = void 0, -1 === (x = [ k.localStorageIsEnabled() ? S : null, k.cookiesAreEnabled() ? O : null ].filter(function(e) {
+                return null !== e;
+            })).indexOf(O) || !k.getCookie("_pbjs_id_optout") && !k.getCookie("_pubcid_optout") ? -1 === x.indexOf(S) || !k.getDataFromLocalStorage("_pbjs_id_optout") && !k.getDataFromLocalStorage("_pubcid_optout") ? (e.getConfig(function(e) {
+                var t = e.userSync;
+                t && t.userIds && (C = t.userIds, c = f.isNumber(t.syncDelay) ? t.syncDelay : D, 
+                u = f.isNumber(t.auctionDelay) ? t.auctionDelay : E, R());
+            }), Object(g.a)().getUserIds = H, Object(g.a)().getUserIdsAsEids = J) : f.logInfo("".concat(I, " - opt-out localStorage found, exit module")) : f.logInfo("".concat(I, " - opt-out cookie found, exit module"));
+        }
+        G(s.b), Object(y.c)("userId", B);
+    }
+}, [ 814 ]);
 
 pbjs.processQueue();
 
