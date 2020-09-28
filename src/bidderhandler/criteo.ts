@@ -20,7 +20,7 @@ export const criteoBidder = (
     criteoBid.push({
       bidder: 'criteo',
       params: {
-        networkId: bannerObject.criteoId,
+        networkId: 6911,
       },
     });
   }
