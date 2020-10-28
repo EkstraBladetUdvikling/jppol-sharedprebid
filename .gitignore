@@ -5,3 +5,4 @@ tspublic
 .rpt2_cache
 yarn-error.log
 .DS_Store
+*-prev.js
