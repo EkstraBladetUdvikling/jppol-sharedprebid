@@ -57,10 +57,17 @@ export class AuctionHandler {
             },
             priceGranularity: 'high',
             userSync: {
-              enabledBidders: ['pubmatic'],
+              enabledBidders: ['adform'],
               iframeEnabled: true,
               syncDelay: 6000,
-              userIds: [{ name: 'pubCommonId' }],
+              userIds: [
+                {
+                  name: 'PubProvided',
+                  params: {
+                    eidsFunction: () => (window as any).eb_anon_uuid || null,
+                  },
+                },
+              ],
             },
           });
           pbjs.addAdUnits(adUnits);

@@ -29,16 +29,3 @@ export function getPrebidVideoParams(adUnitCode: string): string {
 
   return hbParams.join('&');
 }
-
-const pubCommonOverride = {
-  getId: () => {
-    return (window as any).eb_anon_uuid || null;
-  },
-};
-
-(window as any).PublisherCommonId = {
-  ...(window as any).PublisherCommonId,
-  ...pubCommonOverride,
-} || {
-  ...pubCommonOverride,
-};

@@ -5,16 +5,9 @@ export interface IBannerObject {
   criteoId?: number;
   pubmaticAdSlot?: string;
   pubmaticPublisherId?: string;
-  rubiconAccountId?: number;
-  rubiconSiteID?: number;
-  rubiconSizes?: number[];
-  rubiconZone?: number;
   sizes: number[][];
   targetId: string;
   video?: boolean;
-  videoSettings?: {
-    rubiconSiteID?: number;
-  };
 }
 
 /**
@@ -60,16 +53,6 @@ interface IPubmaticAdserverTargeting {
   hb_source_pubmatic?: string;
 }
 
-interface IRubiconAdserverTargeting {
-  hb_adid_rubicon?: string;
-  hb_bidder_rubicon?: string;
-  hb_deal_rubicon?: string;
-  hb_format_rubicon?: string;
-  hb_pb_rubicon?: string;
-  hb_size_rubicon?: string;
-  hb_source_rubicon?: string;
-}
-
 interface IAdserverTargeting {
   hb_adid: string;
   hb_bidder: string;
@@ -85,6 +68,5 @@ export interface IGetAdserverTargetingResponse {
     IAdformAdserverTargeting &
     IAppnexusAdserverTargeting &
     ICriteoAdserverTargeting &
-    IPubmaticAdserverTargeting &
-    IRubiconAdserverTargeting;
+    IPubmaticAdserverTargeting;
 }
