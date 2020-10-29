@@ -7967,5 +7967,8 @@ var jppol = function(exports) {
     }
     exports.getPrebidVideoParams = getPrebidVideoParams;
     exports.prebid = prebid;
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
     return exports;
 }({});
