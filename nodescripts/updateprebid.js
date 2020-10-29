@@ -11,15 +11,11 @@ let modules = [
 ];
 
 const updatePrebid = (updateOptions) => {
-  const { addModules, noRubicon, suffix, version } = updateOptions;
+  const { addModules, suffix, version } = updateOptions;
 
   if (!version) {
     console.error('Version missing, nothing to download');
     process.exit(1);
-  }
-
-  if (!noRubicon) {
-    modules.push('rubiconBidAdapter');
   }
 
   if (addModules) {

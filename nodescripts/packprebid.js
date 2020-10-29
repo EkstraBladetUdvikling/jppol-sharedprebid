@@ -5,14 +5,14 @@ const UglifyJS = require('uglify-js');
  * uglifier
  * @param { string } env
  */
-const uglifier = uglifyOptions => {
+const uglifier = (uglifyOptions) => {
   try {
-    const { env, noRubicon, suffix } = uglifyOptions;
+    const { env, suffix } = uglifyOptions;
     const prebidFile = `./prebid/prebid${suffix ?? ''}.js`;
 
     const files = [
       fs.readFileSync(prebidFile, 'utf8'),
-      fs.readFileSync('tspublic/index.js', 'utf8')
+      fs.readFileSync('tspublic/index.js', 'utf8'),
     ];
 
     const config = env ?? 'dev';

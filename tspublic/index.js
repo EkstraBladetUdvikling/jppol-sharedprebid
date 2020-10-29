@@ -133,40 +133,13 @@ var jppol = (function (exports) {
         return pubmaticBids;
     };
 
-    var rubiconBidder = function (bannerObject) {
-        var rubiconBids = [];
-        /**
-         * Rubicon
-         * http://prebid.github.io/dev-docs/bidders.html#rubicon
-         */
-        if (typeof bannerObject.rubiconZone !== 'undefined') {
-            var siteId = bannerObject.video && bannerObject.videoSettings.rubiconSiteID
-                ? bannerObject.videoSettings.rubiconSiteID
-                : bannerObject.rubiconSiteID;
-            var rubiconObject = {
-                bidder: 'rubicon',
-                params: {
-                    accountId: bannerObject.rubiconAccountId,
-                    siteId: siteId,
-                    zoneId: bannerObject.rubiconZone,
-                },
-            };
-            if (bannerObject.video) {
-                rubiconObject.params.video = { language: 'da' };
-            }
-            rubiconBids.push(rubiconObject);
-        }
-        return rubiconBids;
-    };
-
     var BidderHandler = function (bannerObject, keywords) {
         try {
             var adformBids = adformBidder(bannerObject);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
             var pubmaticBids = pubmaticBidder(bannerObject);
-            var rubiconBids = rubiconBidder(bannerObject);
-            return __spreadArrays(adformBids, appnexusBids, criteoBids, pubmaticBids, rubiconBids);
+            return __spreadArrays(adformBids, appnexusBids, criteoBids, pubmaticBids);
         }
         catch (err) {
             console.error('jppolPrebid BidderHandler', err);

@@ -6,19 +6,10 @@ const buildPrebid = async () => {
   const runtimeArguments = process.argv.slice(2);
   console.log('runtimeArguments', runtimeArguments);
 
-  const noRubiconArg = runtimeArguments.find(
-    (val) => val.indexOf('norubicon') !== -1
-  );
-  const noRubicon = !!noRubiconArg;
-
   const suffixArg = runtimeArguments.find(
     (val) => val.indexOf('--suffix=') !== -1
   );
-  const suffix = suffixArg
-    ? `-${suffixArg.split('=')[1]}`
-    : noRubicon
-    ? '-norubicon'
-    : null;
+  const suffix = suffixArg ? `-${suffixArg.split('=')[1]}` : null;
 
   const versionArg = runtimeArguments.find(
     (val) => val.indexOf('version=') !== -1
@@ -35,7 +26,6 @@ const buildPrebid = async () => {
   if (version) {
     await updatePrebid({
       addModules,
-      noRubicon,
       suffix,
       version,
     });
@@ -50,14 +40,12 @@ const buildPrebid = async () => {
       ['dev', 'prod'].forEach((arrEnv) => {
         uglifier({
           env: arrEnv,
-          noRubicon,
           suffix,
         });
       });
     } else {
       uglifier({
         env,
-        noRubicon,
         suffix,
       });
     }
