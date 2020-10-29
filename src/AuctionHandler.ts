@@ -62,9 +62,19 @@ export class AuctionHandler {
               syncDelay: 6000,
               userIds: [
                 {
-                  name: 'PubProvided',
+                  name: 'pubProvidedId',
                   params: {
-                    eidsFunction: () => (window as any).eb_anon_uuid || null,
+                    eids: [
+                      {
+                        source: 'firstpartyid',
+                        uids: [
+                          {
+                            id: (window as any).eb_anon_uuid,
+                            atype: 1,
+                          },
+                        ],
+                      },
+                    ],
                   },
                 },
               ],

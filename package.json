@@ -1,14 +1,14 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.13.1",
+  "version": "4.13.2",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
     "build": "node nodescripts/buildprebid.js --env=dev",
     "build:all": "node nodescripts/buildprebid.js --env=all",
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
-    "build:pubId": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --env=all --modules=pubProvidedIdSystem",
-    "build:pubId:DL": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --version=4.8.0 --env=all --modules=pubProvidedIdSystem",
+    "build:pubId": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --env=all --modules=userId,pubProvidedIdSystem",
+    "build:pubId:DL": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --version=4.13.0 --env=all --modules=userId,pubProvidedIdSystem",
     "dist": "npm run build && npm run build:prod",
     "dist:move": "npm run dist && npm run move",
     "move": "node nodescripts/buildprebid.js --move",

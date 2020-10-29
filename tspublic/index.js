@@ -232,9 +232,19 @@ var jppol = (function (exports) {
                                 syncDelay: 6000,
                                 userIds: [
                                     {
-                                        name: 'PubProvided',
+                                        name: 'pubProvidedId',
                                         params: {
-                                            eidsFunction: function () { return window.eb_anon_uuid || null; },
+                                            eids: [
+                                                {
+                                                    source: 'firstpartyid',
+                                                    uids: [
+                                                        {
+                                                            id: window.eb_anon_uuid,
+                                                            atype: 1,
+                                                        },
+                                                    ],
+                                                },
+                                            ],
                                         },
                                     },
                                 ],
