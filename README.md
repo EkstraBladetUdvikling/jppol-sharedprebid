@@ -6,26 +6,26 @@ Developed to ease the upgrade procedure and maintenance of prebid handling acros
 
 ## Table Of Content
 
-* [Getting Started](#getting-started)
-  * [Dependencies](#dependencies)
-  * [Usage](#usage)
-  * [Options](#options)
-    * [adserverCallback](#adservercallback)
-    * [banners](#banners)
-    * [consentAllowAuction](#consentallowauction)
-    * [consentTimeout](#consenttimeout)
-    * [debug](#debug)
-    * [timeout](#timeout)
-    * [tracking](#tracking)
-      * [tracking.distribution](#trackingdistribution)
-      * [tracking.id](#trackingid)
-      * [tracking.sampling](#trackingsampling)
-  * [Examples](#examples)
-* [Contributing](#contributing)
-  * [Updating prebid.js version](#updating-prebidjs-version)
-  * [Build](#build)
-  * [Test](#test)
-* [License](#license)
+- [Getting Started](#getting-started)
+  - [Dependencies](#dependencies)
+  - [Usage](#usage)
+  - [Options](#options)
+    - [adserverCallback](#adservercallback)
+    - [banners](#banners)
+    - [consentAllowAuction](#consentallowauction)
+    - [consentTimeout](#consenttimeout)
+    - [debug](#debug)
+    - [timeout](#timeout)
+    - [tracking](#tracking)
+      - [tracking.distribution](#trackingdistribution)
+      - [tracking.id](#trackingid)
+      - [tracking.sampling](#trackingsampling)
+  - [Examples](#examples)
+- [Contributing](#contributing)
+  - [Updating prebid.js version](#updating-prebidjs-version)
+  - [Build](#build)
+  - [Test](#test)
+- [License](#license)
 
 ## Getting Started
 
@@ -60,10 +60,6 @@ Use directly in page.
       criteoId?: number;
       pubmaticAdSlot?: string;
       pubmaticPublisherId?: string;
-      rubiconAccountId?: number;
-      rubiconSiteID?: number;
-      rubiconSizes?: number[];
-      rubiconZone?: number;
       sizes: number[][];
       targetId: string;
     }
@@ -79,32 +75,29 @@ Use directly in page.
   */
   // Define AppNexus tags somewhere before here
   var prebidOptions = {
-      adserverCallback: () => {},
-      banners: [{
+    adserverCallback: () => {},
+    banners: [
+      {
         adformMID: 999,
-        adtechId: 'string',
-        appnexusID: 'string',
+        adtechId: "string",
+        appnexusID: "string",
         criteoId: 999,
-        pubmaticAdSlot: 'string',
-        pubmaticPublisherId: 'string',
-        rubiconAccountId: 999,
-        rubiconSiteID: 999,
-        rubiconSizes: ['string'],
-        rubiconZone: 999,
+        pubmaticAdSlot: "string",
+        pubmaticPublisherId: "string",
         sizes: [[930, 180]],
-        targetId: ''
-      }],
-      consentAllowAuction: false,
-      consentTimeout: 300000,
-      debug: false,
-      timeout: 700,
-      tracking: {
-        distribution: false,
-        id: 'string',
-        sampling: true
-      }
-
-  }
+        targetId: "",
+      },
+    ],
+    consentAllowAuction: false,
+    consentTimeout: 300000,
+    debug: false,
+    timeout: 700,
+    tracking: {
+      distribution: false,
+      id: "string",
+      sampling: true,
+    },
+  };
   jppol.prebid(prebidOptions);
 </script>
 ```
@@ -118,7 +111,7 @@ For debugging and development purposes use
 If it is imported into own project, beware that prebid.js is a dependency.
 
 ```js
-import { AuctionHandler } from 'AuctionHandler';
+import { AuctionHandler } from "AuctionHandler";
 ```
 
 ### Options

@@ -49,16 +49,6 @@ interface IPubmaticAdserverTargeting {
   hb_source_pubmatic?: string;
 }
 
-interface IRubiconAdserverTargeting {
-  hb_adid_rubicon?: string;
-  hb_bidder_rubicon?: string;
-  hb_deal_rubicon?: string;
-  hb_format_rubicon?: string;
-  hb_pb_rubicon?: string;
-  hb_size_rubicon?: string;
-  hb_source_rubicon?: string;
-}
-
 interface IAdserverTargeting {
   hb_adid: string;
   hb_bidder: string;
@@ -74,8 +64,7 @@ interface IGetAdserverTargetingResponse {
     IAdformAdserverTargeting &
     IAppnexusAdserverTargeting &
     ICriteoAdserverTargeting &
-    IPubmaticAdserverTargeting &
-    IRubiconAdserverTargeting;
+    IPubmaticAdserverTargeting;
 }
 
 export function getPrebidVideoParams(adUnitCode: string) {
