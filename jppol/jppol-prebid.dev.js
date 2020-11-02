@@ -7911,7 +7911,7 @@ var jppol = function(exports) {
                             },
                             debug: options.debug,
                             gvlMapping: {
-                                pubCommonId: 50
+                                pubProvidedId: 50
                             },
                             priceGranularity: "high",
                             userSync: {
@@ -7919,11 +7919,15 @@ var jppol = function(exports) {
                                 iframeEnabled: true,
                                 syncDelay: 6e3,
                                 userIds: [ {
-                                    name: "PubProvided",
+                                    name: "pubProvidedId",
                                     params: {
-                                        eidsFunction: function() {
-                                            return window.eb_anon_uuid || null;
-                                        }
+                                        eids: [ {
+                                            source: "firstpartyid",
+                                            uids: [ {
+                                                id: window.eb_anon_uuid,
+                                                atype: 1
+                                            } ]
+                                        } ]
                                     }
                                 } ]
                             }
