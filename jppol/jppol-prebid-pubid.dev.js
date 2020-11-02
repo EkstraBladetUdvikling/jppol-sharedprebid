@@ -8347,7 +8347,7 @@ var jppol = function(exports) {
                             },
                             debug: options.debug,
                             gvlMapping: {
-                                pubCommonId: 50
+                                pubProvidedId: 50
                             },
                             priceGranularity: "high",
                             userSync: {

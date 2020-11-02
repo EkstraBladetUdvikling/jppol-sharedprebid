@@ -53,7 +53,7 @@ export class AuctionHandler {
             },
             debug: options.debug,
             gvlMapping: {
-              pubCommonId: 50,
+              pubProvidedId: 50,
             },
             priceGranularity: 'high',
             userSync: {
