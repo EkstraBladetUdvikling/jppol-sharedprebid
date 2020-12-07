@@ -1,7 +1,19 @@
 import { encodeEIDs } from '../encodeeids';
 import { IBannerObject } from '../types';
 
-export const adformBidder = (bannerObject: IBannerObject) => {
+interface IAdformObject {
+  bidder: 'adform';
+  params: {
+    eids?: any;
+    mid: number;
+    rcur: string;
+  };
+}
+
+export const adformBidder = (
+  bannerObject: IBannerObject,
+  eIdAllowed = false
+) => {
   const adformBids = [];
 
   /**
@@ -9,24 +21,29 @@ export const adformBidder = (bannerObject: IBannerObject) => {
    * http://prebid.github.io/dev-docs/bidders.html#adform
    */
   if (typeof bannerObject.adformMID !== 'undefined') {
-    adformBids.push({
+    const adformObject: IAdformObject = {
       bidder: 'adform',
       params: {
-        eids: encodeEIDs([
-          {
-            source: 'firstpartyid',
-            uids: [
-              {
-                atype: 1,
-                id: (window as any).eb_anon_uuid,
-              },
-            ],
-          },
-        ]),
         mid: bannerObject.adformMID,
         rcur: 'USD',
       },
-    });
+    };
+
+    if (eIdAllowed) {
+      adformObject.params.eids = encodeEIDs([
+        {
+          source: 'firstpartyid',
+          uids: [
+            {
+              atype: 1,
+              id: (window as any).eb_anon_uuid,
+            },
+          ],
+        },
+      ]);
+    }
+
+    adformBids.push(adformObject);
   }
 
   return adformBids;

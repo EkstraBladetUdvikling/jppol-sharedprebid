@@ -32,12 +32,16 @@ interface IAdUnit {
   };
 }
 
-export function AdUnitCreator(bannerContainer: any, keywords?: string[]) {
+export function AdUnitCreator(
+  bannerContainer: any,
+  keywords?: string[],
+  eidsAllowed?: boolean
+) {
   try {
     const adUnits = [];
 
     for (const banner of bannerContainer) {
-      const bidders = BidderHandler(banner, keywords);
+      const bidders = BidderHandler(banner, keywords, eidsAllowed);
 
       const playerSize = [[640, 480]];
 
