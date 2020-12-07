@@ -52,7 +52,33 @@ export class AuctionHandler {
               timeout: options.consentTimeout,
             },
             debug: options.debug,
+            gvlMapping: {
+              pubProvidedId: 50,
+            },
             priceGranularity: 'high',
+            userSync: {
+              enabledBidders: ['adform'],
+              iframeEnabled: true,
+              syncDelay: 6000,
+              userIds: [
+                {
+                  name: 'pubProvidedId',
+                  params: {
+                    eids: [
+                      {
+                        source: 'firstpartyid',
+                        uids: [
+                          {
+                            atype: 1,
+                            id: (window as any).eb_anon_uuid,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
           });
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);

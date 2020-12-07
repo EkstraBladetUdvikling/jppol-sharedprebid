@@ -11,6 +11,17 @@ export const adformBidder = (bannerObject: IBannerObject) => {
     adformBids.push({
       bidder: 'adform',
       params: {
+        eids: encodeEIDs([
+          {
+            source: 'firstpartyid',
+            uids: [
+              {
+                atype: 1,
+                id: (window as any).eb_anon_uuid,
+              },
+            ],
+          },
+        ]),
         mid: bannerObject.adformMID,
         rcur: 'USD',
       },

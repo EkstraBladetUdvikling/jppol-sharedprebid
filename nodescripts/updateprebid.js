@@ -22,13 +22,15 @@ const updatePrebid = (updateOptions) => {
     modules = [...modules, ...addModules];
   }
 
+  console.log('updatePrebid modules', modules);
+
   const modulesString = `modules%5B%5D=${modules.join('&modules%5B%5D=')}`;
 
   const dataRaw = `${modulesString}&version=${version}`;
 
   const outputFile = `./prebid/prebid${suffix ?? ''}.js`;
 
-  console.log(outputFile);
+  console.log('updatePrebid outputFile', outputFile);
 
   if (fs.existsSync(outputFile))
     fs.copyFileSync(outputFile, outputFile.replace('.js', '-prev.js'));

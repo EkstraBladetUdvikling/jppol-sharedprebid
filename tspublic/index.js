@@ -45,6 +45,17 @@ var jppol = (function (exports) {
             adformBids.push({
                 bidder: 'adform',
                 params: {
+                    eids: encodeEIDs([
+                        {
+                            source: 'firstpartyid',
+                            uids: [
+                                {
+                                    atype: 1,
+                                    id: window.eb_anon_uuid,
+                                },
+                            ],
+                        },
+                    ]),
                     mid: bannerObject.adformMID,
                     rcur: 'USD',
                 },
@@ -222,7 +233,33 @@ var jppol = (function (exports) {
                                 timeout: options.consentTimeout,
                             },
                             debug: options.debug,
+                            gvlMapping: {
+                                pubProvidedId: 50,
+                            },
                             priceGranularity: 'high',
+                            userSync: {
+                                enabledBidders: ['adform'],
+                                iframeEnabled: true,
+                                syncDelay: 6000,
+                                userIds: [
+                                    {
+                                        name: 'pubProvidedId',
+                                        params: {
+                                            eids: [
+                                                {
+                                                    source: 'firstpartyid',
+                                                    uids: [
+                                                        {
+                                                            atype: 1,
+                                                            id: window.eb_anon_uuid,
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ],
+                            },
                         });
                         pbjs_1.addAdUnits(adUnits_1);
                         console.log('prebid: pbjs.adUnits?', pbjs_1.adUnits);
