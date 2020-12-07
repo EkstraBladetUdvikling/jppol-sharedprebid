@@ -8255,23 +8255,29 @@ var jppol = function(exports) {
         }
         return btoa(JSON.stringify(result));
     }
-    var adformBidder = function(bannerObject) {
+    var adformBidder = function(bannerObject, eIdAllowed) {
+        if (eIdAllowed === void 0) {
+            eIdAllowed = false;
+        }
         var adformBids = [];
         if (typeof bannerObject.adformMID !== "undefined") {
-            adformBids.push({
+            var adformObject = {
                 bidder: "adform",
                 params: {
-                    eids: encodeEIDs([ {
-                        source: "firstpartyid",
-                        uids: [ {
-                            atype: 1,
-                            id: window.eb_anon_uuid
-                        } ]
-                    } ]),
                     mid: bannerObject.adformMID,
                     rcur: "USD"
                 }
-            });
+            };
+            if (eIdAllowed) {
+                adformObject.params.eids = encodeEIDs([ {
+                    source: "firstpartyid",
+                    uids: [ {
+                        atype: 1,
+                        id: window.eb_anon_uuid
+                    } ]
+                } ]);
+            }
+            adformBids.push(adformObject);
         }
         return adformBids;
     };
@@ -8337,9 +8343,9 @@ var jppol = function(exports) {
         }
         return pubmaticBids;
     };
-    var BidderHandler = function(bannerObject, keywords) {
+    var BidderHandler = function(bannerObject, keywords, eidsAllowed) {
         try {
-            var adformBids = adformBidder(bannerObject);
+            var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
             var pubmaticBids = pubmaticBidder(bannerObject);
@@ -8348,12 +8354,12 @@ var jppol = function(exports) {
             console.error("jppolPrebid BidderHandler", err);
         }
     };
-    function AdUnitCreator(bannerContainer, keywords) {
+    function AdUnitCreator(bannerContainer, keywords, eidsAllowed) {
         try {
             var adUnits = [];
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
-                var bidders = BidderHandler(banner, keywords);
+                var bidders = BidderHandler(banner, keywords, eidsAllowed);
                 var playerSize = [ [ 640, 480 ] ];
                 var mediaTypes = banner.video ? {
                     video: {
@@ -8405,7 +8411,7 @@ var jppol = function(exports) {
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(options.banners, options.keywords);
+                var adUnits_1 = AdUnitCreator(options.banners, options.keywords, options.eidsAllowed);
                 console.log("prebid: adUnits created?", adUnits_1);
                 pbjs_1.que.push(function() {
                     if (adUnits_1.length > 0) {
