@@ -8,6 +8,7 @@ export interface IPrebidOptions {
   banners: IBannerObject[];
   consentTimeout?: number;
   debug?: boolean;
+  eidsAllowed?: boolean;
   keywords?: string[];
   timeout?: number;
 }
@@ -38,7 +39,11 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(options.banners, options.keywords);
+      const adUnits = AdUnitCreator(
+        options.banners,
+        options.keywords,
+        options.eidsAllowed
+      );
       console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
