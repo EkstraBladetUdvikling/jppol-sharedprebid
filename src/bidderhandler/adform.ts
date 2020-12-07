@@ -1,3 +1,4 @@
+import { encodeEIDs } from '../encodeeids';
 import { IBannerObject } from '../types';
 
 export const adformBidder = (bannerObject: IBannerObject) => {

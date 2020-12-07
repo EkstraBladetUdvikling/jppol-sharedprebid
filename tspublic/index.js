@@ -35,6 +35,23 @@ var jppol = (function (exports) {
         return r;
     }
 
+    function encodeEIDs(eids) {
+        var result = {};
+        for (var i = 0; i < eids.length; i++) {
+            var eid = eids[i];
+            var source = String(eid.source);
+            var uids = eid.uids;
+            result[source] = result[source] || {};
+            for (var j = 0; j < uids.length; j++) {
+                var uid = uids[j];
+                var id = String(uid.id);
+                result[source][id] = result[source][id] || [];
+                result[source][id].push(parseInt(uid.atype, 10));
+            }
+        }
+        return btoa(JSON.stringify(result));
+    }
+
     var adformBidder = function (bannerObject) {
         var adformBids = [];
         /**

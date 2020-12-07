@@ -1,4 +1,4 @@
-function encodeEIDs(eids) {
+export function encodeEIDs(eids) {
   const result = {};
 
   for (let i = 0; i < eids.length; i++) {
