@@ -69,8 +69,8 @@ export class AuctionHandler {
                         source: 'firstpartyid',
                         uids: [
                           {
-                            id: (window as any).eb_anon_uuid,
                             atype: 1,
+                            id: (window as any).eb_anon_uuid,
                           },
                         ],
                       },

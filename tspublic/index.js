@@ -45,6 +45,17 @@ var jppol = (function (exports) {
             adformBids.push({
                 bidder: 'adform',
                 params: {
+                    eids: encodeEIDs([
+                        {
+                            source: 'firstpartyid',
+                            uids: [
+                                {
+                                    atype: 1,
+                                    id: window.eb_anon_uuid,
+                                },
+                            ],
+                        },
+                    ]),
                     mid: bannerObject.adformMID,
                     rcur: 'USD',
                 },
@@ -239,8 +250,8 @@ var jppol = (function (exports) {
                                                     source: 'firstpartyid',
                                                     uids: [
                                                         {
-                                                            id: window.eb_anon_uuid,
                                                             atype: 1,
+                                                            id: window.eb_anon_uuid,
                                                         },
                                                     ],
                                                 },
