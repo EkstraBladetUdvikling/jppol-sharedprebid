@@ -9,7 +9,7 @@
         return o;
     };
     var n = {}, d = {
-        365: 0
+        367: 0
     };
     function f(e) {
         if (n[e]) return n[e].exports;
@@ -37,7 +37,7 @@
         return Object.prototype.hasOwnProperty.call(e, t);
     }, f.p = "", f.oe = function(e) {
         throw console.error(e), e;
-    }, f(f.s = 913);
+    }, f(f.s = 917);
 }({
     0: function(e, t, n) {
         "use strict";
@@ -410,7 +410,7 @@
         n.d(t, "deepSetValue", function() {
             return f.a;
         });
-        var m, S = n(5), A = "Array", E = "String", O = "Function", T = "Number", I = "Object", C = "Boolean", j = Object.prototype.toString, w = Boolean(window.console), _ = Boolean(w && window.console.log), B = Boolean(w && window.console.info), U = Boolean(w && window.console.warn), x = Boolean(w && window.console.error), R = n(8), k = {
+        var m, S = n(5), A = "Array", E = "String", O = "Function", T = "Number", I = "Object", C = "Boolean", j = Object.prototype.toString, w = Boolean(window.console), _ = Boolean(w && window.console.log), B = Boolean(w && window.console.info), U = Boolean(w && window.console.warn), x = Boolean(w && window.console.error), R = n(9), k = {
             checkCookieSupport: Ae,
             createTrackPixelIframeHtml: se,
             getWindowSelf: F,
@@ -659,7 +659,7 @@
                 }
             }
         }, t.isValid = U;
-        var r = n(91), c = n(9), u = n(3), v = n(34), s = n(43), o = n(37), a = n(29), i = n(5), y = n.n(i), d = n(8), h = n.n(d), f = n(12), l = n.n(f), p = n(4), m = n(0), g = n(2), b = n(13), S = n(7);
+        var r = n(91), c = n(8), u = n(3), v = n(34), s = n(43), o = n(37), a = n(24), i = n(5), y = n.n(i), d = n(9), h = n.n(d), f = n(12), l = n.n(f), p = n(4), m = n(0), g = n(2), b = n(13), S = n(7);
         function A(e, t) {
             return function(e) {
                 if (Array.isArray(e)) return e;
@@ -891,7 +891,7 @@
         e.exports = r;
     },
     102: function(e, t, n) {
-        var r = n(26), i = n(103), o = n(20)("species");
+        var r = n(27), i = n(103), o = n(20)("species");
         e.exports = function(e, t) {
             var n;
             return i(e) && ("function" == typeof (n = e.constructor) && (n === Array || i(n.prototype)) || r(n) && null === (n = n[o])) && (n = void 0), 
@@ -905,7 +905,7 @@
         };
     },
     104: function(e, t, n) {
-        var r = n(25), i = n(32);
+        var r = n(26), i = n(32);
         e.exports = function(t, n) {
             try {
                 i(r, t, n);
@@ -1016,7 +1016,7 @@
     },
     111: function(e, t, n) {
         "use strict";
-        var f = n(14), l = n(25), p = n(79), g = n(31), b = n(32), v = n(17), y = n(82), h = n(26), m = n(64), S = n(33).f, A = n(56).forEach, E = n(30), r = n(54), O = r.set, T = r.getterFor;
+        var f = n(14), l = n(26), p = n(79), g = n(31), b = n(32), v = n(17), y = n(82), h = n(27), m = n(64), S = n(33).f, A = n(56).forEach, E = n(30), r = n(54), O = r.set, T = r.getterFor;
         e.exports = function(n, e, t) {
             var r, a, i = -1 !== n.indexOf("Map"), c = -1 !== n.indexOf("Weak"), o = i ? "set" : "add", u = l[n], s = u && u.prototype, d = {};
             return E && "function" == typeof u && (c || s.forEach && !g(function() {
@@ -1060,7 +1060,7 @@
         };
     },
     114: function(e, t, n) {
-        var r = n(25), i = n(115), o = r.WeakMap;
+        var r = n(26), i = n(115), o = r.WeakMap;
         e.exports = "function" == typeof o && /native code/.test(i(o));
     },
     115: function(e, t, n) {
@@ -1179,7 +1179,7 @@
         };
     },
     119: function(e, t, n) {
-        var a = n(27), c = n(47), u = n(77).indexOf, s = n(53);
+        var a = n(28), c = n(47), u = n(77).indexOf, s = n(53);
         e.exports = function(e, t) {
             var n, r = c(e), i = 0, o = [];
             for (n in r) !a(s, n) && a(r, n) && o.push(n);
@@ -1192,7 +1192,7 @@
         e.exports = r;
     },
     120: function(e, t, n) {
-        var r = n(28);
+        var r = n(29);
         e.exports = r("document", "documentElement");
     },
     121: function(e, t, n) {
@@ -1236,7 +1236,7 @@
         }() : void 0);
     },
     125: function(e, t, n) {
-        var r = n(26);
+        var r = n(27);
         e.exports = function(e) {
             if (!r(e) && null !== e) throw TypeError("Can't set " + String(e) + " as a prototype");
             return e;
@@ -1244,7 +1244,7 @@
     },
     126: function(e, t, n) {
         "use strict";
-        var r = n(28), i = n(33), o = n(20), a = n(30), c = o("species");
+        var r = n(29), i = n(33), o = n(20), a = n(30), c = o("species");
         e.exports = function(e) {
             var t = r(e), n = i.f;
             a && t && !t[c] && n(t, c, {
@@ -1271,7 +1271,7 @@
     },
     129: function(e, t, n) {
         n(130);
-        var r = n(131), i = n(25), o = n(62), a = n(32), c = n(38), u = n(20)("toStringTag");
+        var r = n(131), i = n(26), o = n(62), a = n(32), c = n(38), u = n(20)("toStringTag");
         for (var s in r) {
             var d = i[s], f = d && d.prototype;
             f && o(f) !== u && a(f, u, s), c[s] = c.Array;
@@ -1485,7 +1485,7 @@
             }
             return e.prototype = r.prototype, e;
         }
-        var h = n(25), m = n(99).f, S = n(101), A = n(42), E = n(23), O = n(32), T = n(27);
+        var h = n(26), m = n(99).f, S = n(101), A = n(42), E = n(23), O = n(32), T = n(28);
         e.exports = function(e, t) {
             var n, r, i, o, a, c, u, s, d = e.target, f = e.global, l = e.stat, p = e.proto, g = f ? h : l ? h[d] : (h[d] || {}).prototype, b = f ? A : A[d] || (A[d] = {}), v = b.prototype;
             for (i in t) n = !S(f ? i : d + (l ? "." : "#") + i, e.forced) && g && T(g, i), 
@@ -1514,7 +1514,7 @@
     },
     141: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(28), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(29), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1531,7 +1531,7 @@
     },
     142: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), c = n(28), u = n(15), s = n(18), d = n(23), f = n(39), l = n(36), p = n(17);
+        var r = n(14), i = n(16), c = n(29), u = n(15), s = n(18), d = n(23), f = n(39), l = n(36), p = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1565,7 +1565,7 @@
     },
     144: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(28), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(29), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1599,7 +1599,7 @@
     },
     146: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(28), a = n(15), c = n(18), u = n(89), s = n(17);
+        var r = n(14), i = n(16), o = n(29), a = n(15), c = n(18), u = n(89), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1648,7 +1648,7 @@
     },
     149: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), c = n(28), u = n(15), s = n(18), d = n(23), f = n(39), l = n(36), p = n(17);
+        var r = n(14), i = n(16), c = n(29), u = n(15), s = n(18), d = n(23), f = n(39), l = n(36), p = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1664,7 +1664,7 @@
         });
     },
     15: function(e, t, n) {
-        var r = n(26);
+        var r = n(27);
         e.exports = function(e) {
             if (!r(e)) throw TypeError(String(e) + " is not an object");
             return e;
@@ -1707,7 +1707,7 @@
     },
     152: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(28), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(29), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -1724,7 +1724,7 @@
     },
     153: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(16), o = n(28), a = n(15), c = n(18), u = n(39), s = n(17);
+        var r = n(14), i = n(16), o = n(29), a = n(15), c = n(18), u = n(39), s = n(17);
         r({
             target: "Set",
             proto: !0,
@@ -2050,7 +2050,7 @@
         var r = "native", i = "video", o = "banner", a = "adpod";
     },
     20: function(e, t, n) {
-        var r = n(25), i = n(74), o = n(27), a = n(59), c = n(76), u = n(105), s = i("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
+        var r = n(26), i = n(74), o = n(28), a = n(59), c = n(76), u = n(105), s = i("wks"), d = r.Symbol, f = u ? d : d && d.withoutSetter || a;
         e.exports = function(e) {
             return o(s, e) || (c && o(d, e) ? s[e] = d[e] : s[e] = f("Symbol." + e)), s[e];
         };
@@ -2106,12 +2106,12 @@
             };
         });
     },
-    219: function(e, t, n) {
-        n(220);
+    221: function(e, t, n) {
+        n(222);
         var r = n(52);
         e.exports = r("Array", "findIndex");
     },
-    220: function(e, t, n) {
+    222: function(e, t, n) {
         "use strict";
         var r = n(14), i = n(56).findIndex, o = n(51), a = n(60), c = "findIndex", u = !0, s = a(c);
         c in [] && Array(1)[c](function() {
@@ -2126,12 +2126,12 @@
             }
         }), o(c);
     },
-    227: function(e, t, n) {
+    229: function(e, t, n) {
         "use strict";
         t.a = function() {
             window.addEventListener("message", u, !1);
         };
-        var r = n(8), g = n.n(r), b = n(37), i = n(5), o = n.n(i), v = n(0), y = n(24), a = n(10), h = n.n(a), m = n(11), c = n(12), S = n.n(c), A = o.a.EVENTS.BID_WON;
+        var r = n(9), g = n.n(r), b = n(37), i = n(5), o = n.n(i), v = n(0), y = n(25), a = n(10), h = n.n(a), m = n(11), c = n(12), S = n.n(c), A = o.a.EVENTS.BID_WON;
         function u(e) {
             var t, n, r, i, o, a, c, u, s, d = e.message ? "message" : "data", f = {};
             try {
@@ -2181,7 +2181,37 @@
             }
         }
     },
-    228: function(e, t, n) {
+    23: function(e, t, n) {
+        var o = n(18);
+        e.exports = function(r, i, e) {
+            if (o(r), void 0 === i) return r;
+            switch (e) {
+              case 0:
+                return function() {
+                    return r.call(i);
+                };
+
+              case 1:
+                return function(e) {
+                    return r.call(i, e);
+                };
+
+              case 2:
+                return function(e, t) {
+                    return r.call(i, e, t);
+                };
+
+              case 3:
+                return function(e, t, n) {
+                    return r.call(i, e, t, n);
+                };
+            }
+            return function() {
+                return r.apply(i, arguments);
+            };
+        };
+    },
+    230: function(e, t, n) {
         "use strict";
         t.a = function(e) {
             var t;
@@ -2263,37 +2293,26 @@
             return y(e.debugging);
         });
     },
-    23: function(e, t, n) {
-        var o = n(18);
-        e.exports = function(r, i, e) {
-            if (o(r), void 0 === i) return r;
-            switch (e) {
-              case 0:
-                return function() {
-                    return r.call(i);
-                };
-
-              case 1:
-                return function(e) {
-                    return r.call(i, e);
-                };
-
-              case 2:
-                return function(e, t) {
-                    return r.call(i, e, t);
-                };
-
-              case 3:
-                return function(e, t, n) {
-                    return r.call(i, e, t, n);
-                };
-            }
-            return function() {
-                return r.apply(i, arguments);
-            };
-        };
-    },
     24: function(e, t, n) {
+        "use strict";
+        n.d(t, "b", function() {
+            return c;
+        }), n.d(t, "a", function() {
+            return u;
+        }), t.d = function(e, t) {
+            var n = Object(o.getBidRequest)(e.requestId, t), r = n && Object(o.deepAccess)(n, "mediaTypes.video"), i = r && Object(o.deepAccess)(r, "context");
+            return s(e, n, r, i);
+        }, n.d(t, "c", function() {
+            return s;
+        });
+        n(8);
+        var o = n(0), i = n(3), r = n(12), a = (n.n(r), n(13)), c = "outstream", u = "instream";
+        var s = Object(a.b)("sync", function(e, t, n, r) {
+            return !t || n && r !== c ? i.b.getConfig("cache.url") || !e.vastXml || e.vastUrl ? !(!e.vastUrl && !e.vastXml) : (Object(o.logError)('\n        This bid contains only vastXml and will not work when a prebid cache url is not specified.\n        Try enabling prebid cache with pbjs.setConfig({ cache: {url: "..."} });\n      '), 
+            !1) : r !== c || !!(e.renderer || t.renderer || n.renderer);
+        }, "checkVideoBidSetup");
+    },
+    25: function(e, t, n) {
         "use strict";
         n.d(t, "a", function() {
             return u;
@@ -2357,7 +2376,7 @@
             return d.length && d[d.length - 1].getAuctionId();
         }, c);
     },
-    25: function(n, e, t) {
+    26: function(n, e, t) {
         (function(e) {
             function t(e) {
                 return e && e.Math == Math && e;
@@ -2365,44 +2384,25 @@
             n.exports = t("object" == typeof globalThis && globalThis) || t("object" == typeof window && window) || t("object" == typeof self && self) || t("object" == typeof e && e) || Function("return this")();
         }).call(e, t(35));
     },
-    26: function(e, t) {
+    27: function(e, t) {
         e.exports = function(e) {
             return "object" == typeof e ? null !== e : "function" == typeof e;
         };
     },
-    27: function(e, t) {
+    28: function(e, t) {
         var n = {}.hasOwnProperty;
         e.exports = function(e, t) {
             return n.call(e, t);
         };
     },
-    28: function(e, t, n) {
+    29: function(e, t, n) {
         function r(e) {
             return "function" == typeof e ? e : void 0;
         }
-        var i = n(42), o = n(25);
+        var i = n(42), o = n(26);
         e.exports = function(e, t) {
             return arguments.length < 2 ? r(i[e]) || r(o[e]) : i[e] && i[e][t] || o[e] && o[e][t];
         };
-    },
-    29: function(e, t, n) {
-        "use strict";
-        n.d(t, "b", function() {
-            return c;
-        }), n.d(t, "a", function() {
-            return u;
-        }), t.d = function(e, t) {
-            var n = Object(o.getBidRequest)(e.requestId, t), r = n && Object(o.deepAccess)(n, "mediaTypes.video"), i = r && Object(o.deepAccess)(r, "context");
-            return s(e, n, r, i);
-        }, n.d(t, "c", function() {
-            return s;
-        });
-        n(9);
-        var o = n(0), i = n(3), r = n(12), a = (n.n(r), n(13)), c = "outstream", u = "instream";
-        var s = Object(a.b)("sync", function(e, t, n, r) {
-            return !t || n && r !== c ? i.b.getConfig("cache.url") || !e.vastXml || e.vastUrl ? !(!e.vastUrl && !e.vastXml) : (Object(o.logError)('\n        This bid contains only vastXml and will not work when a prebid cache url is not specified.\n        Try enabling prebid cache with pbjs.setConfig({ cache: {url: "..."} });\n      '), 
-            !1) : r !== c || !!(e.renderer || t.renderer || n.renderer);
-        }, "checkVideoBidSetup");
     },
     3: function(e, t, n) {
         "use strict";
@@ -2741,41 +2741,27 @@
         }
         e.exports = n;
     },
-    355: function(e, t, n) {
-        var r = n(356);
+    357: function(e, t, n) {
+        var r = n(358);
         e.exports = r;
     },
-    356: function(e, t, n) {
-        n(357);
+    358: function(e, t, n) {
+        n(359);
         var r = n(52);
         e.exports = r("String", "includes");
     },
-    357: function(e, t, n) {
+    359: function(e, t, n) {
         "use strict";
-        var r = n(14), i = n(358), o = n(49);
+        var r = n(14), i = n(360), o = n(49);
         r({
             target: "String",
             proto: !0,
-            forced: !n(360)("includes")
+            forced: !n(362)("includes")
         }, {
             includes: function(e, t) {
                 return !!~String(o(this)).indexOf(i(e), 1 < arguments.length ? t : void 0);
             }
         });
-    },
-    358: function(e, t, n) {
-        var r = n(359);
-        e.exports = function(e) {
-            if (r(e)) throw TypeError("The method doesn't accept regular expressions");
-            return e;
-        };
-    },
-    359: function(e, t, n) {
-        var r = n(26), i = n(48), o = n(20)("match");
-        e.exports = function(e) {
-            var t;
-            return r(e) && (void 0 !== (t = e[o]) ? !!t : "RegExp" == i(e));
-        };
     },
     36: function(e, t, n) {
         var r = n(16), i = n(89);
@@ -2784,6 +2770,20 @@
         };
     },
     360: function(e, t, n) {
+        var r = n(361);
+        e.exports = function(e) {
+            if (r(e)) throw TypeError("The method doesn't accept regular expressions");
+            return e;
+        };
+    },
+    361: function(e, t, n) {
+        var r = n(27), i = n(48), o = n(20)("match");
+        e.exports = function(e) {
+            var t;
+            return r(e) && (void 0 !== (t = e[o]) ? !!t : "RegExp" == i(e));
+        };
+    },
+    362: function(e, t, n) {
         var r = n(20)("match");
         e.exports = function(t) {
             var n = /./;
@@ -3199,7 +3199,7 @@
         }), n.d(t, "h", function() {
             return l;
         }), t.j = p;
-        var j = n(0), w = n(45), a = n(37), o = n(94), _ = n(11), B = n(3), r = n(43), i = n(13), c = n(10), U = n.n(c), u = n(12), x = n.n(u), R = n(29), s = n(2);
+        var j = n(0), w = n(45), a = n(37), o = n(94), _ = n(11), B = n(3), r = n(43), i = n(13), c = n(10), U = n.n(c), u = n(12), x = n.n(u), R = n(24), s = n(2);
         function k(e) {
             return (k = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
@@ -3216,7 +3216,7 @@
                 return e;
             }).apply(this, arguments);
         }
-        var N = r.a.syncUsers, P = n(0), q = n(9).default, M = n(8), G = n(5), W = "started", L = "inProgress", F = "completed";
+        var N = r.a.syncUsers, P = n(0), q = n(8).default, M = n(9), G = n(5), W = "started", L = "inProgress", F = "completed";
         M.on(G.EVENTS.BID_ADJUSTMENT, function(e) {
             !function(e) {
                 var t, n = e.bidderCode, r = e.cpm;
@@ -3493,7 +3493,7 @@
         n.d(t, "a", function() {
             return f;
         });
-        var S = n(0), A = n(3), E = n(37), r = n(24), i = n(92), o = n(2), a = n(12), O = n.n(a);
+        var S = n(0), A = n(3), E = n(37), r = n(25), i = n(92), o = n(2), a = n(12), O = n.n(a);
         function T() {
             return (T = Object.assign || function(e) {
                 for (var t = 1; t < arguments.length; t++) {
@@ -4005,41 +4005,41 @@
             return 0 < e ? i(r(e), 9007199254740991) : 0;
         };
     },
-    507: function(e, t, n) {
-        var r = n(508);
-        e.exports = r;
-    },
-    508: function(e, t, n) {
-        n(509);
-        var r = n(42);
-        e.exports = r.Number.isInteger;
-    },
     509: function(e, t, n) {
-        n(14)({
-            target: "Number",
-            stat: !0
-        }, {
-            isInteger: n(510)
-        });
+        var r = n(510);
+        e.exports = r;
     },
     51: function(e, t) {
         e.exports = function() {};
     },
     510: function(e, t, n) {
-        var r = n(26), i = Math.floor;
+        n(511);
+        var r = n(42);
+        e.exports = r.Number.isInteger;
+    },
+    511: function(e, t, n) {
+        n(14)({
+            target: "Number",
+            stat: !0
+        }, {
+            isInteger: n(512)
+        });
+    },
+    512: function(e, t, n) {
+        var r = n(27), i = Math.floor;
         e.exports = function(e) {
             return !r(e) && isFinite(e) && i(e) === e;
         };
     },
     52: function(e, t, n) {
-        var r = n(28);
+        var r = n(29);
         e.exports = r;
     },
     53: function(e, t) {
         e.exports = {};
     },
     54: function(e, t, n) {
-        var r, i, o, a, c, u, s, d, f = n(114), l = n(25), p = n(26), g = n(32), b = n(27), v = n(65), y = n(53), h = l.WeakMap;
+        var r, i, o, a, c, u, s, d, f = n(114), l = n(26), p = n(27), g = n(32), b = n(28), v = n(65), y = n(53), h = l.WeakMap;
         s = f ? (r = new h(), i = r.get, o = r.has, a = r.set, c = function(e, t) {
             return a.call(r, e, t), t;
         }, u = function(e) {
@@ -4069,7 +4069,7 @@
         };
     },
     55: function(e, t, n) {
-        var i = n(26);
+        var i = n(27);
         e.exports = function(e, t) {
             if (!i(e)) return e;
             var n, r;
@@ -4133,7 +4133,7 @@
         function a(e) {
             throw e;
         }
-        var c = n(30), u = n(31), s = n(27), d = Object.defineProperty, f = {};
+        var c = n(30), u = n(31), s = n(28), d = Object.defineProperty, f = {};
         e.exports = function(e, t) {
             if (s(f, e)) return f[e];
             var n = [][e], r = !!s(t = t || {}, "ACCESSORS") && t.ACCESSORS, i = s(t, 0) ? t[0] : a, o = s(t, 1) ? t[1] : void 0;
@@ -4173,7 +4173,7 @@
         r[n(20)("toStringTag")] = "z", e.exports = "[object z]" === String(r);
     },
     64: function(e, t, n) {
-        var o = n(63), a = n(33).f, c = n(32), u = n(27), s = n(113), d = n(20)("toStringTag");
+        var o = n(63), a = n(33).f, c = n(32), u = n(28), s = n(113), d = n(20)("toStringTag");
         e.exports = function(e, t, n, r) {
             var i;
             e && (i = n ? e : e.prototype, u(i, d) || a(i, d, {
@@ -4269,7 +4269,7 @@
         }), n.d(t, "checkAdUnitSetup", function() {
             return V;
         }), t.executeCallbacks = J;
-        var r = n(19), i = n(0), o = n(227), a = n(43), d = n(3), m = n(24), f = n(44), c = n(13), u = n(228), s = n(12), l = n.n(s), p = n(67), S = n(11), g = n(34), b = n(7);
+        var r = n(19), i = n(0), o = n(229), a = n(43), d = n(3), m = n(25), f = n(44), c = n(13), u = n(230), s = n(12), l = n.n(s), p = n(67), S = n(11), g = n(34), b = n(7);
         function v(e) {
             return (v = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
@@ -4286,7 +4286,7 @@
                 return e;
             }).apply(this, arguments);
         }
-        var h = Object(r.a)(), A = n(5), E = n(0), O = n(9).default, T = n(8), I = a.a.triggerUserSyncs, C = A.EVENTS, j = C.ADD_AD_UNITS, w = C.BID_WON, _ = C.REQUEST_BIDS, B = C.SET_TARGETING, U = C.AD_RENDER_FAILED, x = A.AD_RENDER_FAILED_REASON, R = x.PREVENT_WRITING_ON_MAIN_DOCUMENT, k = x.NO_AD, D = x.EXCEPTION, N = x.CANNOT_FIND_AD, P = x.MISSING_DOC_OR_ADID, q = {
+        var h = Object(r.a)(), A = n(5), E = n(0), O = n(8).default, T = n(9), I = a.a.triggerUserSyncs, C = A.EVENTS, j = C.ADD_AD_UNITS, w = C.BID_WON, _ = C.REQUEST_BIDS, B = C.SET_TARGETING, U = C.AD_RENDER_FAILED, x = A.AD_RENDER_FAILED_REASON, R = x.PREVENT_WRITING_ON_MAIN_DOCUMENT, k = x.NO_AD, D = x.EXCEPTION, N = x.CANNOT_FIND_AD, P = x.MISSING_DOC_OR_ADID, q = {
             bidWon: function(e) {
                 var t = m.a.getBidsRequested().map(function(e) {
                     return e.bids.map(function(e) {
@@ -4324,8 +4324,8 @@
             delete t.mediaTypes.native.image.aspect_ratios), n.icon && n.icon.sizes && !Array.isArray(n.icon.sizes) && (E.logError("Please use an array of sizes for native.icon.sizes field.  Removing invalid mediaTypes.native.icon.sizes property from request."), 
             delete t.mediaTypes.native.icon.sizes), t;
         }
-        Object(u.a)(), h.bidderSettings = h.bidderSettings || {}, h.libLoaded = !0, h.version = "v4.18.0", 
-        E.logInfo("Prebid.js v4.18.0 loaded"), h.adUnits = h.adUnits || [], h.triggerUserSyncs = I;
+        Object(u.a)(), h.bidderSettings = h.bidderSettings || {}, h.libLoaded = !0, h.version = "v4.19.0", 
+        E.logInfo("Prebid.js v4.19.0 loaded"), h.adUnits = h.adUnits || [], h.triggerUserSyncs = I;
         var z = {
             validateBannerMediaType: W,
             validateVideoMediaType: L,
@@ -4764,7 +4764,7 @@
         });
     },
     73: function(e, t, n) {
-        var r = n(25), i = n(26), o = r.document, a = i(o) && i(o.createElement);
+        var r = n(26), i = n(27), o = r.document, a = i(o) && i(o.createElement);
         e.exports = function(e) {
             return a ? o.createElement(e) : {};
         };
@@ -4780,7 +4780,7 @@
         });
     },
     75: function(e, t, n) {
-        var r = n(25), i = n(104), o = "__core-js_shared__", a = r[o] || i(o, {});
+        var r = n(26), i = n(104), o = "__core-js_shared__", a = r[o] || i(o, {});
         e.exports = a;
     },
     76: function(e, t, n) {
@@ -4819,7 +4819,7 @@
                 }
             });
         }
-        var i = n(53), o = n(26), a = n(27), c = n(33).f, u = n(59), s = n(112), d = u("meta"), f = 0, l = Object.isExtensible || function() {
+        var i = n(53), o = n(27), a = n(28), c = n(33).f, u = n(59), s = n(112), d = u("meta"), f = 0, l = Object.isExtensible || function() {
             return !0;
         }, p = e.exports = {
             REQUIRED: !1,
@@ -4847,169 +4847,6 @@
         i[d] = !0;
     },
     8: function(e, t, n) {
-        function r() {
-            return (r = Object.assign || function(e) {
-                for (var t = 1; t < arguments.length; t++) {
-                    var n = arguments[t];
-                    for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
-                }
-                return e;
-            }).apply(this, arguments);
-        }
-        var c, i, u = n(0), o = n(5), a = Array.prototype.slice, s = Array.prototype.push, d = u._map(o.EVENTS, function(e) {
-            return e;
-        }), f = o.EVENT_ID_PATHS, l = [];
-        e.exports = (c = {}, (i = {}).on = function(e, t, n) {
-            var r, i;
-            i = e, u.contains(d, i) ? (r = c[e] || {
-                que: []
-            }, n ? (r[n] = r[n] || {
-                que: []
-            }, r[n].que.push(t)) : r.que.push(t), c[e] = r) : u.logError("Wrong event name : " + e + " Valid event names :" + d);
-        }, i.emit = function(e) {
-            !function(e, t) {
-                u.logMessage("Emitting event for: " + e);
-                var n = t[0] || {}, r = n[f[e]], i = c[e] || {
-                    que: []
-                }, o = u._map(i, function(e, t) {
-                    return t;
-                }), a = [];
-                l.push({
-                    eventType: e,
-                    args: n,
-                    id: r,
-                    elapsedTime: u.getPerformanceNow()
-                }), r && u.contains(o, r) && s.apply(a, i[r].que), s.apply(a, i.que), u._each(a, function(e) {
-                    if (e) try {
-                        e.apply(null, t);
-                    } catch (e) {
-                        u.logError("Error executing handler:", "events.js", e);
-                    }
-                });
-            }(e, a.call(arguments, 1));
-        }, i.off = function(e, n, r) {
-            var i = c[e];
-            u.isEmpty(i) || u.isEmpty(i.que) && u.isEmpty(i[r]) || r && (u.isEmpty(i[r]) || u.isEmpty(i[r].que)) || (r ? u._each(i[r].que, function(e) {
-                var t = i[r].que;
-                e === n && t.splice(t.indexOf(e), 1);
-            }) : u._each(i.que, function(e) {
-                var t = i.que;
-                e === n && t.splice(t.indexOf(e), 1);
-            }), c[e] = i);
-        }, i.get = function() {
-            return c;
-        }, i.getEvents = function() {
-            var n = [];
-            return u._each(l, function(e) {
-                var t = r({}, e);
-                n.push(t);
-            }), n;
-        }, i);
-    },
-    80: function(e, t, n) {
-        var r = n(20), i = n(38), o = r("iterator"), a = Array.prototype;
-        e.exports = function(e) {
-            return void 0 !== e && (i.Array === e || a[o] === e);
-        };
-    },
-    81: function(e, t, n) {
-        var o = n(15);
-        e.exports = function(t, e, n, r) {
-            try {
-                return r ? e(o(n)[0], n[1]) : e(n);
-            } catch (e) {
-                var i = t.return;
-                throw void 0 !== i && o(i.call(t)), e;
-            }
-        };
-    },
-    82: function(e, t) {
-        e.exports = function(e, t, n) {
-            if (!(e instanceof t)) throw TypeError("Incorrect " + (n ? n + " " : "") + "invocation");
-            return e;
-        };
-    },
-    83: function(e, t, n) {
-        function r() {}
-        function i(e) {
-            return "<script>" + e + "</" + g + ">";
-        }
-        var o, a = n(15), c = n(117), u = n(84), s = n(53), d = n(120), f = n(73), l = n(65), p = "prototype", g = "script", b = l("IE_PROTO"), v = function() {
-            try {
-                o = document.domain && new ActiveXObject("htmlfile");
-            } catch (e) {}
-            var e, t;
-            v = o ? function(e) {
-                e.write(i("")), e.close();
-                var t = e.parentWindow.Object;
-                return e = null, t;
-            }(o) : ((t = f("iframe")).style.display = "none", d.appendChild(t), t.src = String("javascript:"), 
-            (e = t.contentWindow.document).open(), e.write(i("document.F=Object")), e.close(), 
-            e.F);
-            for (var n = u.length; n--; ) delete v[p][u[n]];
-            return v();
-        };
-        s[b] = !0, e.exports = Object.create || function(e, t) {
-            var n;
-            return null !== e ? (r[p] = a(e), n = new r(), r[p] = null, n[b] = e) : n = v(), 
-            void 0 === t ? n : c(n, t);
-        };
-    },
-    84: function(e, t) {
-        e.exports = [ "constructor", "hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable", "toLocaleString", "toString", "valueOf" ];
-    },
-    85: function(e, t, n) {
-        var i = n(32);
-        e.exports = function(e, t, n, r) {
-            r && r.enumerable ? e[t] = n : i(e, t, n);
-        };
-    },
-    86: function(e, t, n) {
-        "use strict";
-        var r, i, o, a = n(87), c = n(32), u = n(27), s = n(20), d = n(16), f = s("iterator"), l = !1;
-        [].keys && ("next" in (o = [].keys()) ? (i = a(a(o))) !== Object.prototype && (r = i) : l = !0), 
-        null == r && (r = {}), d || u(r, f) || c(r, f, function() {
-            return this;
-        }), e.exports = {
-            IteratorPrototype: r,
-            BUGGY_SAFARI_ITERATORS: l
-        };
-    },
-    87: function(e, t, n) {
-        var r = n(27), i = n(57), o = n(65), a = n(123), c = o("IE_PROTO"), u = Object.prototype;
-        e.exports = a ? Object.getPrototypeOf : function(e) {
-            return e = i(e), r(e, c) ? e[c] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? u : null;
-        };
-    },
-    88: function(e, t, n) {
-        "use strict";
-        var i = n(128).charAt, r = n(54), o = n(66), a = "String Iterator", c = r.set, u = r.getterFor(a);
-        o(String, "String", function(e) {
-            c(this, {
-                type: a,
-                string: String(e),
-                index: 0
-            });
-        }, function() {
-            var e, t = u(this), n = t.string, r = t.index;
-            return r >= n.length ? {
-                value: void 0,
-                done: !0
-            } : (e = i(n, r), t.index += e.length, {
-                value: e,
-                done: !1
-            });
-        });
-    },
-    89: function(e, t, n) {
-        var r = n(15), i = n(61);
-        e.exports = function(e) {
-            var t = i(e);
-            if ("function" != typeof t) throw TypeError(String(e) + " is not iterable");
-            return r(t.call(e));
-        };
-    },
-    9: function(e, t, n) {
         "use strict";
         Object.defineProperty(t, "__esModule", {
             value: !0
@@ -5065,7 +4902,7 @@
                 return e;
             }).apply(this, arguments);
         }
-        var I, C = n(0), j = n(5), w = n(8), y = {}, _ = y.bidderRegistry = {}, B = y.aliasRegistry = {}, U = {};
+        var I, C = n(0), j = n(5), w = n(9), y = {}, _ = y.bidderRegistry = {}, B = y.aliasRegistry = {}, U = {};
         A.b.getConfig("s2sConfig", function(e) {
             U = e.s2sConfig;
         });
@@ -5316,6 +5153,169 @@
             u(e, "onSetTargeting", t);
         }, t.default = y;
     },
+    80: function(e, t, n) {
+        var r = n(20), i = n(38), o = r("iterator"), a = Array.prototype;
+        e.exports = function(e) {
+            return void 0 !== e && (i.Array === e || a[o] === e);
+        };
+    },
+    81: function(e, t, n) {
+        var o = n(15);
+        e.exports = function(t, e, n, r) {
+            try {
+                return r ? e(o(n)[0], n[1]) : e(n);
+            } catch (e) {
+                var i = t.return;
+                throw void 0 !== i && o(i.call(t)), e;
+            }
+        };
+    },
+    82: function(e, t) {
+        e.exports = function(e, t, n) {
+            if (!(e instanceof t)) throw TypeError("Incorrect " + (n ? n + " " : "") + "invocation");
+            return e;
+        };
+    },
+    83: function(e, t, n) {
+        function r() {}
+        function i(e) {
+            return "<script>" + e + "</" + g + ">";
+        }
+        var o, a = n(15), c = n(117), u = n(84), s = n(53), d = n(120), f = n(73), l = n(65), p = "prototype", g = "script", b = l("IE_PROTO"), v = function() {
+            try {
+                o = document.domain && new ActiveXObject("htmlfile");
+            } catch (e) {}
+            var e, t;
+            v = o ? function(e) {
+                e.write(i("")), e.close();
+                var t = e.parentWindow.Object;
+                return e = null, t;
+            }(o) : ((t = f("iframe")).style.display = "none", d.appendChild(t), t.src = String("javascript:"), 
+            (e = t.contentWindow.document).open(), e.write(i("document.F=Object")), e.close(), 
+            e.F);
+            for (var n = u.length; n--; ) delete v[p][u[n]];
+            return v();
+        };
+        s[b] = !0, e.exports = Object.create || function(e, t) {
+            var n;
+            return null !== e ? (r[p] = a(e), n = new r(), r[p] = null, n[b] = e) : n = v(), 
+            void 0 === t ? n : c(n, t);
+        };
+    },
+    84: function(e, t) {
+        e.exports = [ "constructor", "hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable", "toLocaleString", "toString", "valueOf" ];
+    },
+    85: function(e, t, n) {
+        var i = n(32);
+        e.exports = function(e, t, n, r) {
+            r && r.enumerable ? e[t] = n : i(e, t, n);
+        };
+    },
+    86: function(e, t, n) {
+        "use strict";
+        var r, i, o, a = n(87), c = n(32), u = n(28), s = n(20), d = n(16), f = s("iterator"), l = !1;
+        [].keys && ("next" in (o = [].keys()) ? (i = a(a(o))) !== Object.prototype && (r = i) : l = !0), 
+        null == r && (r = {}), d || u(r, f) || c(r, f, function() {
+            return this;
+        }), e.exports = {
+            IteratorPrototype: r,
+            BUGGY_SAFARI_ITERATORS: l
+        };
+    },
+    87: function(e, t, n) {
+        var r = n(28), i = n(57), o = n(65), a = n(123), c = o("IE_PROTO"), u = Object.prototype;
+        e.exports = a ? Object.getPrototypeOf : function(e) {
+            return e = i(e), r(e, c) ? e[c] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? u : null;
+        };
+    },
+    88: function(e, t, n) {
+        "use strict";
+        var i = n(128).charAt, r = n(54), o = n(66), a = "String Iterator", c = r.set, u = r.getterFor(a);
+        o(String, "String", function(e) {
+            c(this, {
+                type: a,
+                string: String(e),
+                index: 0
+            });
+        }, function() {
+            var e, t = u(this), n = t.string, r = t.index;
+            return r >= n.length ? {
+                value: void 0,
+                done: !0
+            } : (e = i(n, r), t.index += e.length, {
+                value: e,
+                done: !1
+            });
+        });
+    },
+    89: function(e, t, n) {
+        var r = n(15), i = n(61);
+        e.exports = function(e) {
+            var t = i(e);
+            if ("function" != typeof t) throw TypeError(String(e) + " is not iterable");
+            return r(t.call(e));
+        };
+    },
+    9: function(e, t, n) {
+        function r() {
+            return (r = Object.assign || function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var n = arguments[t];
+                    for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+                }
+                return e;
+            }).apply(this, arguments);
+        }
+        var c, i, u = n(0), o = n(5), a = Array.prototype.slice, s = Array.prototype.push, d = u._map(o.EVENTS, function(e) {
+            return e;
+        }), f = o.EVENT_ID_PATHS, l = [];
+        e.exports = (c = {}, (i = {}).on = function(e, t, n) {
+            var r, i;
+            i = e, u.contains(d, i) ? (r = c[e] || {
+                que: []
+            }, n ? (r[n] = r[n] || {
+                que: []
+            }, r[n].que.push(t)) : r.que.push(t), c[e] = r) : u.logError("Wrong event name : " + e + " Valid event names :" + d);
+        }, i.emit = function(e) {
+            !function(e, t) {
+                u.logMessage("Emitting event for: " + e);
+                var n = t[0] || {}, r = n[f[e]], i = c[e] || {
+                    que: []
+                }, o = u._map(i, function(e, t) {
+                    return t;
+                }), a = [];
+                l.push({
+                    eventType: e,
+                    args: n,
+                    id: r,
+                    elapsedTime: u.getPerformanceNow()
+                }), r && u.contains(o, r) && s.apply(a, i[r].que), s.apply(a, i.que), u._each(a, function(e) {
+                    if (e) try {
+                        e.apply(null, t);
+                    } catch (e) {
+                        u.logError("Error executing handler:", "events.js", e);
+                    }
+                });
+            }(e, a.call(arguments, 1));
+        }, i.off = function(e, n, r) {
+            var i = c[e];
+            u.isEmpty(i) || u.isEmpty(i.que) && u.isEmpty(i[r]) || r && (u.isEmpty(i[r]) || u.isEmpty(i[r].que)) || (r ? u._each(i[r].que, function(e) {
+                var t = i[r].que;
+                e === n && t.splice(t.indexOf(e), 1);
+            }) : u._each(i.que, function(e) {
+                var t = i.que;
+                e === n && t.splice(t.indexOf(e), 1);
+            }), c[e] = i);
+        }, i.get = function() {
+            return c;
+        }, i.getEvents = function() {
+            var n = [];
+            return u._each(l, function(e) {
+                var t = r({}, e);
+                n.push(t);
+            }), n;
+        }, i);
+    },
     90: function(e, t, n) {
         var r = n(154);
         e.exports = r;
@@ -5335,7 +5335,7 @@
             };
         };
     },
-    913: function(e, t, n) {
+    917: function(e, t, n) {
         e.exports = n(69);
     },
     92: function(e, t, n) {
@@ -5423,7 +5423,7 @@
         });
     },
     93: function(e, t, n) {
-        var r = n(219);
+        var r = n(221);
         e.exports = r;
     },
     94: function(e, t, n) {
@@ -5489,7 +5489,7 @@
         }), o(c);
     },
     99: function(e, t, n) {
-        var r = n(30), i = n(100), o = n(46), a = n(47), c = n(55), u = n(27), s = n(72), d = Object.getOwnPropertyDescriptor;
+        var r = n(30), i = n(100), o = n(46), a = n(47), c = n(55), u = n(28), s = n(72), d = Object.getOwnPropertyDescriptor;
         t.f = r ? d : function(e, t) {
             if (e = a(e), t = c(t, !0), s) try {
                 return d(e, t);
@@ -5499,11 +5499,11 @@
     }
 });
 
-pbjsChunk([ 356 ], {
-    185: function(e, r, n) {
-        e.exports = n(186);
+pbjsChunk([ 357 ], {
+    187: function(e, r, n) {
+        e.exports = n(188);
     },
-    186: function(e, r, n) {
+    188: function(e, r, n) {
         "use strict";
         Object.defineProperty(r, "__esModule", {
             value: !0
@@ -5598,20 +5598,20 @@ pbjsChunk([ 356 ], {
         };
         Object(t.registerBidder)(d);
     }
-}, [ 185 ]);
+}, [ 187 ]);
 
-pbjsChunk([ 320 ], {
-    273: function(e, r, a) {
-        e.exports = a(274);
+pbjsChunk([ 321 ], {
+    275: function(e, r, a) {
+        e.exports = a(276);
     },
-    274: function(e, r, a) {
+    276: function(e, r, a) {
         "use strict";
         Object.defineProperty(r, "__esModule", {
             value: !0
         }), a.d(r, "spec", function() {
             return k;
         });
-        var f = a(11), I = a(0), w = a(3), v = a(1), y = a(2), p = a(24), t = a(10), A = a.n(t), n = a(12), x = a.n(n), g = a(29), i = a(7);
+        var f = a(11), I = a(0), w = a(3), v = a(1), y = a(2), p = a(25), t = a(10), A = a.n(t), n = a(12), x = a.n(n), g = a(24), i = a(7);
         function s(e) {
             return (s = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
                 return typeof e;
@@ -5761,13 +5761,13 @@ pbjsChunk([ 320 ], {
                     user: n,
                     sdk: {
                         source: "pbjs",
-                        version: "4.18.0"
+                        version: "4.19.0"
                     },
                     schain: y
                 };
                 g && (b.iab_support = {
                     omidpn: "Appnexus",
-                    omidpv: "4.18.0"
+                    omidpv: "4.19.0"
                 }), 0 < v && (b.member_id = v), s && (b.device = i), d && (b.app = o), w.b.getConfig("adpod.brandCategoryExclusion") && (b.brand_category_uniqueness = !0), 
                 c.enabled && (b.debug = c, I.logInfo("AppNexus Debug Auction Settings:\n\n" + JSON.stringify(c, null, 4))), 
                 r && r.gdprConsent && (b.gdpr_consent = {
@@ -6157,30 +6157,30 @@ pbjsChunk([ 320 ], {
         }
         Object(v.registerBidder)(k);
     }
-}, [ 273 ]);
+}, [ 275 ]);
 
-pbjsChunk([ 284 ], {
-    353: function(n, t, e) {
-        n.exports = e(354);
+pbjsChunk([ 285 ], {
+    355: function(n, t, e) {
+        n.exports = e(356);
     },
-    354: function(n, t, e) {
+    356: function(n, t, e) {
         "use strict";
         Object.defineProperty(t, "__esModule", {
             value: !0
         }), e.d(t, "allowAuction", function() {
-            return y;
+            return w;
         }), e.d(t, "userCMP", function() {
             return d;
         }), e.d(t, "consentTimeout", function() {
-            return u;
+            return l;
         }), e.d(t, "gdprScope", function() {
-            return p;
-        }), e.d(t, "staticConsentData", function() {
             return g;
+        }), e.d(t, "staticConsentData", function() {
+            return m;
         }), t.requestBidsHook = h, t.resetConsentData = function() {
-            C = void 0, d = void 0, w = 0, a.gdprDataHandler.setConsentData(null);
+            C = void 0, d = void 0, D = 0, a.gdprDataHandler.setConsentData(null);
         }, t.setConsentConfig = _;
-        var l = e(0), o = e(3), a = e(9), i = e(12), r = e.n(i), s = e(355), f = e.n(s);
+        var u = e(0), o = e(3), a = e(8), i = e(12), s = e.n(i), r = e(357), f = e.n(r);
         function c(n) {
             return (c = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(n) {
                 return typeof n;
@@ -6188,19 +6188,27 @@ pbjsChunk([ 284 ], {
                 return n && "function" == typeof Symbol && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
             })(n);
         }
-        var d, u, p, g, C, m = "iab", v = 1e4, b = !0, y = {
-            value: b,
+        function p(n, t, e) {
+            return t in n ? Object.defineProperty(n, t, {
+                value: e,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : n[t] = e, n;
+        }
+        var d, l, g, m, C, v = "iab", b = 1e4, y = !0, w = {
+            value: y,
             definedInConfig: !1
-        }, w = 0, D = !1, k = {
-            iab: function(o, e, r) {
+        }, D = 0, k = !1, M = {
+            iab: function(o, e, s) {
                 function n(n, t) {
-                    l.logInfo("Received a response from CMP", n), t ? !1 !== n.gdprApplies && "tcloaded" !== n.eventStatus && "useractioncomplete" !== n.eventStatus || o(n, r) : e("CMP unable to register callback function.  Please check CMP setup.", r);
+                    u.logInfo("Received a response from CMP", n), t ? !1 !== n.gdprApplies && "tcloaded" !== n.eventStatus && "useractioncomplete" !== n.eventStatus || o(n, s) : e("CMP unable to register callback function.  Please check CMP setup.", s);
                 }
                 var t = function() {
                     var t = {};
                     function e() {
-                        t.getConsentData && t.getVendorConsents && (l.logInfo("Received all requested responses from CMP", t), 
-                        o(t, r));
+                        t.getConsentData && t.getVendorConsents && (u.logInfo("Received all requested responses from CMP", t), 
+                        o(t, s));
                     }
                     return {
                         consentDataCallback: function(n) {
@@ -6210,23 +6218,23 @@ pbjsChunk([ 284 ], {
                             t.getVendorConsents = n, e();
                         }
                     };
-                }(), u = {}, a = function() {
+                }(), c = {}, a = function() {
                     for (var n, t, e = window; !n; ) {
                         try {
                             if ("function" == typeof e.__tcfapi || "function" == typeof e.__cmp) {
-                                t = "function" == typeof e.__tcfapi ? (w = 2, e.__tcfapi) : (w = 1, e.__cmp), n = e;
+                                t = "function" == typeof e.__tcfapi ? (D = 2, e.__tcfapi) : (D = 1, e.__cmp), n = e;
                                 break;
                             }
                         } catch (n) {}
                         try {
                             if (e.frames.__tcfapiLocator) {
-                                w = 2, n = e;
+                                D = 2, n = e;
                                 break;
                             }
                         } catch (n) {}
                         try {
                             if (e.frames.__cmpLocator) {
-                                w = 1, n = e;
+                                D = 1, n = e;
                                 break;
                             }
                         } catch (n) {}
@@ -6237,46 +6245,47 @@ pbjsChunk([ 284 ], {
                         cmpFrame: n,
                         cmpFunction: t
                     };
-                }(), i = a.cmpFrame, s = a.cmpFunction;
-                if (!i) return e("CMP not found.", r);
-                l.isFn(s) ? (l.logInfo("Detected CMP API is directly accessible, calling it now..."), 
-                1 === w ? (s("getConsentData", null, t.consentDataCallback), s("getVendorConsents", null, t.vendorConsentsCallback)) : 2 === w && s("addEventListener", w, n)) : 1 === w && window.$sf && window.$sf.ext && "function" == typeof window.$sf.ext.cmp ? (l.logInfo("Detected Prebid.js is encased in a SafeFrame and CMP is registered, calling it now..."), 
-                c("getConsentData", t.consentDataCallback), c("getVendorConsents", t.vendorConsentsCallback)) : (l.logInfo("Detected CMP is outside the current iframe where Prebid.js is located, calling it now..."), 
-                1 === w ? (d("getConsentData", i, t.consentDataCallback), d("getVendorConsents", i, t.vendorConsentsCallback)) : 2 === w && d("addEventListener", i, n));
-                function c(o, a) {
-                    var n, t = r.adUnits, e = 1, i = 1;
-                    Array.isArray(t) && 0 < t.length && (e = (n = l.getAdUnitSizes(t[0]))[0][0], i = n[0][1]), 
+                }(), i = a.cmpFrame, r = a.cmpFunction;
+                if (!i) return e("CMP not found.", s);
+                u.isFn(r) ? (u.logInfo("Detected CMP API is directly accessible, calling it now..."), 
+                1 === D ? (r("getConsentData", null, t.consentDataCallback), r("getVendorConsents", null, t.vendorConsentsCallback)) : 2 === D && r("addEventListener", D, n)) : 1 === D && window.$sf && window.$sf.ext && "function" == typeof window.$sf.ext.cmp ? (u.logInfo("Detected Prebid.js is encased in a SafeFrame and CMP is registered, calling it now..."), 
+                d("getConsentData", t.consentDataCallback), d("getVendorConsents", t.vendorConsentsCallback)) : (u.logInfo("Detected CMP is outside the current iframe where Prebid.js is located, calling it now..."), 
+                1 === D ? (l("getConsentData", i, t.consentDataCallback), l("getVendorConsents", i, t.vendorConsentsCallback)) : 2 === D && l("addEventListener", i, n));
+                function d(o, a) {
+                    var n, t = s.adUnits, e = 1, i = 1;
+                    Array.isArray(t) && 0 < t.length && (e = (n = u.getAdUnitSizes(t[0]))[0][0], i = n[0][1]), 
                     window.$sf.ext.register(e, i, function(n, t) {
                         var e;
                         "cmpReturn" === n && (e = "getConsentData" === o ? t.vendorConsentData : t.vendorConsents, 
                         a(e));
                     }), window.$sf.ext.cmp(o);
                 }
-                function d(n, d, t) {
-                    var l = 2 === w ? "__tcfapi" : "__cmp";
-                    window[l] = function(n, t, e) {
-                        var o, a, i, r = Math.random() + "", s = "".concat(l, "Call"), c = (i = {
+                function l(n, i, t) {
+                    var a = 2 === D ? "__tcfapi" : "__cmp", s = Math.random() + "", r = "".concat(a, "Call");
+                    function e(n) {
+                        var t, e = "".concat(a, "Return"), o = "string" == typeof n.data && f()(n.data, e) ? JSON.parse(n.data) : n.data;
+                        o[e] && o[e].callId && (t = o[e], void 0 !== c[t.callId] && c[t.callId](t.returnValue, t.success));
+                    }
+                    2 === D ? (window[a] = function(n, t, e, o) {
+                        var a = p({}, r, {
+                            command: n,
+                            version: t,
+                            parameter: o,
+                            callId: s
+                        });
+                        c[s] = e, i.postMessage(a, "*");
+                    }, window.addEventListener("message", e, !1), window[a](n, D, t)) : (window[a] = function(n, t, e) {
+                        var o = p({}, r, {
                             command: n,
                             parameter: t,
-                            callId: r
-                        }, (a = s) in (o = {}) ? Object.defineProperty(o, a, {
-                            value: i,
-                            enumerable: !0,
-                            configurable: !0,
-                            writable: !0
-                        }) : o[a] = i, o);
-                        1 !== w && (c[s].version = w), u[r] = e, d.postMessage(c, "*");
-                    }, window.addEventListener("message", function(n) {
-                        var t = "".concat(l, "Return"), e = "string" == typeof n.data && f()(n.data, t) ? JSON.parse(n.data) : n.data;
-                        {
-                            var o;
-                            e[t] && e[t].callId && (o = e[t], void 0 !== u[o.callId] && u[o.callId](o.returnValue, o.success));
-                        }
-                    }, !1), window[l](n, void 0, t);
+                            callId: s
+                        });
+                        c[s] = e, i.postMessage(o, "*");
+                    }, window.addEventListener("message", e, !1), window[a](n, void 0, t));
                 }
             },
             static: function(n, t, e) {
-                n(g, e);
+                n(m, e);
             }
         };
         function h(n, t) {
@@ -6289,67 +6298,67 @@ pbjsChunk([ 284 ], {
                 haveExited: !1,
                 timer: null
             };
-            return C ? (l.logInfo("User consent information already known.  Pulling internally stored information..."), 
-            S(null, e)) : r()(Object.keys(k), d) ? (k[d].call(this, M, A, e), void (e.haveExited || (0 === u ? M(void 0, e) : e.timer = setTimeout(function(n) {
-                A("CMP workflow exceeded timeout threshold.", n);
-            }.bind(null, e), u)))) : (l.logWarn("CMP framework (".concat(d, ") is not a supported framework.  Aborting consentManagement module and resuming auction.")), 
+            return C ? (u.logInfo("User consent information already known.  Pulling internally stored information..."), 
+            S(null, e)) : s()(Object.keys(M), d) ? (M[d].call(this, A, P, e), void (e.haveExited || (0 === l ? A(void 0, e) : e.timer = setTimeout(function(n) {
+                P("CMP workflow exceeded timeout threshold.", n);
+            }.bind(null, e), l)))) : (u.logWarn("CMP framework (".concat(d, ") is not a supported framework.  Aborting consentManagement module and resuming auction.")), 
             e.nextFn.apply(e.context, e.args));
         }
-        function M(e, n) {
-            "static" === d && 2 === (w = e.getConsentData ? 1 : e.getTCData ? 2 : 0) && (e = e.getTCData);
-            var t = 1 === w ? function(n) {
+        function A(e, n) {
+            "static" === d && 2 === (D = e.getConsentData ? 1 : e.getTCData ? 2 : 0) && (e = e.getTCData);
+            var t = 1 === D ? function(n) {
                 var t = n && n.getConsentData && n.getConsentData.gdprApplies;
-                return !("boolean" == typeof t && (!0 !== t || l.isStr(n.getConsentData.consentData) && l.isPlainObject(n.getVendorConsents) && 1 < Object.keys(n.getVendorConsents).length));
-            } : 2 === w ? function() {
-                var n = e && "boolean" == typeof e.gdprApplies ? e.gdprApplies : p, t = e && e.tcString;
-                return !("boolean" == typeof n && (!0 !== n || l.isStr(t)));
+                return !("boolean" == typeof t && (!0 !== t || u.isStr(n.getConsentData.consentData) && u.isPlainObject(n.getVendorConsents) && 1 < Object.keys(n.getVendorConsents).length));
+            } : 2 === D ? function() {
+                var n = e && "boolean" == typeof e.gdprApplies ? e.gdprApplies : g, t = e && e.tcString;
+                return !("boolean" == typeof n && (!0 !== n || u.isStr(t)));
             } : null;
-            y.definedInConfig && 2 === w ? l.logWarn("'allowAuctionWithoutConsent' ignored for TCF 2") : y.definedInConfig || 1 !== w || l.logInfo("'allowAuctionWithoutConsent' using system default: (".concat(b, ").")), 
-            l.isFn(t) ? t(e) ? A("CMP returned unexpected value during lookup process.", n, e) : (clearTimeout(n.timer), 
-            P(e), S(null, n)) : A("Unable to derive CMP version to process data.  Consent object does not conform to TCF v1 or v2 specs.", n, e);
+            w.definedInConfig && 2 === D ? u.logWarn("'allowAuctionWithoutConsent' ignored for TCF 2") : w.definedInConfig || 1 !== D || u.logInfo("'allowAuctionWithoutConsent' using system default: (".concat(y, ").")), 
+            u.isFn(t) ? t(e) ? P("CMP returned unexpected value during lookup process.", n, e) : (clearTimeout(n.timer), 
+            I(e), S(null, n)) : P("Unable to derive CMP version to process data.  Consent object does not conform to TCF v1 or v2 specs.", n, e);
         }
-        function A(n, t, e) {
-            clearTimeout(t.timer), y.value && 1 === w && P(void 0), S(n, t, e);
+        function P(n, t, e) {
+            clearTimeout(t.timer), w.value && 1 === D && I(void 0), S(n, t, e);
         }
-        function P(n) {
-            1 === w ? C = {
+        function I(n) {
+            1 === D ? C = {
                 consentString: n ? n.getConsentData.consentData : void 0,
                 vendorData: n ? n.getVendorConsents : void 0,
-                gdprApplies: n ? n.getConsentData.gdprApplies : p
+                gdprApplies: n ? n.getConsentData.gdprApplies : g
             } : (C = {
                 consentString: n ? n.tcString : void 0,
                 vendorData: n || void 0,
-                gdprApplies: n && "boolean" == typeof n.gdprApplies ? n.gdprApplies : p
-            }, n && n.addtlConsent && l.isStr(n.addtlConsent) && (C.addtlConsent = n.addtlConsent)), 
-            C.apiVersion = w, a.gdprDataHandler.setConsentData(C);
+                gdprApplies: n && "boolean" == typeof n.gdprApplies ? n.gdprApplies : g
+            }, n && n.addtlConsent && u.isStr(n.addtlConsent) && (C.addtlConsent = n.addtlConsent)), 
+            C.apiVersion = D, a.gdprDataHandler.setConsentData(C);
         }
         function S(n, t, e) {
             var o, a, i;
             !1 === t.haveExited && (t.haveExited = !0, o = t.context, a = t.args, i = t.nextFn, 
-            n ? y.value && 1 === w ? (l.logWarn(n + " 'allowAuctionWithoutConsent' activated.", e), 
-            i.apply(o, a)) : (l.logError(n + " Canceling auction as per consentManagement config.", e), 
-            "function" == typeof t.bidsBackHandler ? t.bidsBackHandler() : l.logError("Error executing bidsBackHandler")) : i.apply(o, a));
+            n ? w.value && 1 === D ? (u.logWarn(n + " 'allowAuctionWithoutConsent' activated.", e), 
+            i.apply(o, a)) : (u.logError(n + " Canceling auction as per consentManagement config.", e), 
+            "function" == typeof t.bidsBackHandler ? t.bidsBackHandler() : u.logError("Error executing bidsBackHandler")) : i.apply(o, a));
         }
         function _(n) {
-            (n = n && (n.gdpr || n.usp ? n.gdpr : n)) && "object" === c(n) ? (l.isStr(n.cmpApi) ? d = n.cmpApi : (d = m, 
-            l.logInfo("consentManagement config did not specify cmp.  Using system default setting (".concat(m, ")."))), 
-            l.isNumber(n.timeout) ? u = n.timeout : (u = v, l.logInfo("consentManagement config did not specify timeout.  Using system default setting (".concat(v, ")."))), 
-            "boolean" == typeof n.allowAuctionWithoutConsent && (y.value = n.allowAuctionWithoutConsent, 
-            y.definedInConfig = !0), p = !0 === n.defaultGdprScope, l.logInfo("consentManagement module has been activated..."), 
-            "static" === d && (l.isPlainObject(n.consentData) ? (g = n.consentData, u = 0) : l.logError("consentManagement config with cmpApi: 'static' did not specify consentData. No consents will be available to adapters.")), 
-            D || pbjs.requestBids.before(h, 50), D = !0) : l.logWarn("consentManagement config not defined, exiting consent manager");
+            (n = n && (n.gdpr || n.usp ? n.gdpr : n)) && "object" === c(n) ? (u.isStr(n.cmpApi) ? d = n.cmpApi : (d = v, 
+            u.logInfo("consentManagement config did not specify cmp.  Using system default setting (".concat(v, ")."))), 
+            u.isNumber(n.timeout) ? l = n.timeout : (l = b, u.logInfo("consentManagement config did not specify timeout.  Using system default setting (".concat(b, ")."))), 
+            "boolean" == typeof n.allowAuctionWithoutConsent && (w.value = n.allowAuctionWithoutConsent, 
+            w.definedInConfig = !0), g = !0 === n.defaultGdprScope, u.logInfo("consentManagement module has been activated..."), 
+            "static" === d && (u.isPlainObject(n.consentData) ? (m = n.consentData, l = 0) : u.logError("consentManagement config with cmpApi: 'static' did not specify consentData. No consents will be available to adapters.")), 
+            k || pbjs.requestBids.before(h, 50), k = !0) : u.logWarn("consentManagement config not defined, exiting consent manager");
         }
         o.b.getConfig("consentManagement", function(n) {
             return _(n.consentManagement);
         });
     }
-}, [ 353 ]);
+}, [ 355 ]);
 
 pbjsChunk([ 1 ], {
-    375: function(t, e, r) {
-        t.exports = r(376);
+    377: function(t, e, r) {
+        t.exports = r(378);
     },
-    376: function(module, __webpack_exports__, __webpack_require__) {
+    378: function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         Object.defineProperty(__webpack_exports__, "__esModule", {
             value: !0
@@ -6360,7 +6369,7 @@ pbjsChunk([ 1 ], {
         }), __webpack_require__.d(__webpack_exports__, "spec", function() {
             return spec;
         }), __webpack_exports__.tryGetCriteoFastBid = tryGetCriteoFastBid;
-        var __WEBPACK_IMPORTED_MODULE_0__src_adloader_js__ = __webpack_require__(40), __WEBPACK_IMPORTED_MODULE_1__src_adapters_bidderFactory_js__ = __webpack_require__(1), __WEBPACK_IMPORTED_MODULE_2__src_config_js__ = __webpack_require__(3), __WEBPACK_IMPORTED_MODULE_3__src_mediaTypes_js__ = __webpack_require__(2), __WEBPACK_IMPORTED_MODULE_4__src_utils_js__ = __webpack_require__(0), __WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js__ = __webpack_require__(10), __WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js__), __WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js__ = __webpack_require__(377), __WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js__), __WEBPACK_IMPORTED_MODULE_7__src_storageManager_js__ = __webpack_require__(7);
+        var __WEBPACK_IMPORTED_MODULE_0__src_adloader_js__ = __webpack_require__(40), __WEBPACK_IMPORTED_MODULE_1__src_adapters_bidderFactory_js__ = __webpack_require__(1), __WEBPACK_IMPORTED_MODULE_2__src_config_js__ = __webpack_require__(3), __WEBPACK_IMPORTED_MODULE_3__src_mediaTypes_js__ = __webpack_require__(2), __WEBPACK_IMPORTED_MODULE_4__src_utils_js__ = __webpack_require__(0), __WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js__ = __webpack_require__(10), __WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_pure_features_array_find_js__), __WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js__ = __webpack_require__(379), __WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_criteo_direct_rsa_validate_build_verify_js__), __WEBPACK_IMPORTED_MODULE_7__src_storageManager_js__ = __webpack_require__(7);
         function _extends() {
             return (_extends = Object.assign || function(t) {
                 for (var e = 1; e < arguments.length; e++) {
@@ -6386,7 +6395,7 @@ pbjsChunk([ 1 ], {
                 }), publisherTagAvailable() || (window.Criteo = window.Criteo || {}, window.Criteo.usePrebidEvents = !1, 
                 tryGetCriteoFastBid(), setTimeout(function() {
                     Object(__WEBPACK_IMPORTED_MODULE_0__src_adloader_js__.a)(PUBLISHER_TAG_URL, BIDDER_CODE);
-                }, e.timeout)), _ = publisherTagAvailable() ? (r = new Criteo.PubTag.Adapters.Prebid(PROFILE_ID_PUBLISHERTAG, ADAPTER_VERSION, t, e, "4.18.0"), 
+                }, e.timeout)), _ = publisherTagAvailable() ? (r = new Criteo.PubTag.Adapters.Prebid(PROFILE_ID_PUBLISHERTAG, ADAPTER_VERSION, t, e, "4.19.0"), 
                 i = __WEBPACK_IMPORTED_MODULE_2__src_config_js__.b.getConfig("enableSendAllBids"), 
                 r.setEnableSendAllBids && "function" == typeof r.setEnableSendAllBids && "boolean" == typeof i && r.setEnableSendAllBids(i), 
                 o = r.buildCdbUrl(), r.buildCdbRequest()) : (o = buildCdbUrl(s = buildContext(t, e)), 
@@ -6458,7 +6467,7 @@ pbjsChunk([ 1 ], {
         function buildCdbUrl(t) {
             var e = CDB_ENDPOINT;
             return e += "?profileId=" + PROFILE_ID_INLINE, e += "&av=" + String(ADAPTER_VERSION), 
-            e += "&wv=" + encodeURIComponent("4.18.0"), e += "&cb=" + String(Math.floor(99999999999 * Math.random())), 
+            e += "&wv=" + encodeURIComponent("4.19.0"), e += "&cb=" + String(Math.floor(99999999999 * Math.random())), 
             t.amp && (e += "&im=1"), t.debug && (e += "&debug=1"), t.noLog && (e += "&nolog=1"), 
             e;
         }
@@ -6569,18 +6578,18 @@ pbjsChunk([ 1 ], {
         }
         Object(__WEBPACK_IMPORTED_MODULE_1__src_adapters_bidderFactory_js__.registerBidder)(spec);
     },
-    377: function(t, e, r) {
+    379: function(t, e, r) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: !0
         });
-        var a = r(378), n = r(379);
+        var a = r(380), n = r(381);
         e.verify = function(t, e, r, i) {
             var s = new a.BigInteger(a.b64toHex(e)), o = new a.BigInteger(a.b64toHex(r)), _ = s.modPowInt(i, o);
             return a.removeExtraSymbols(_.toHexString()) === n.Sha256.hash(t);
         };
     },
-    378: function(t, e, r) {
+    380: function(t, e, r) {
         "use strict";
         var i;
         Object.defineProperty(e, "__esModule", {
@@ -6812,7 +6821,7 @@ pbjsChunk([ 1 ], {
         28), s.prototype.DB = i, s.prototype.DM = (1 << i) - 1, s.prototype.DV = 1 << i;
         s.prototype.FV = Math.pow(2, 52), s.prototype.F1 = 52 - i, s.prototype.F2 = 2 * i - 52;
     },
-    379: function(t, e, r) {
+    381: function(t, e, r) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: !0
@@ -6862,13 +6871,13 @@ pbjsChunk([ 1 ], {
         function y() {}
         e.Sha256 = i;
     }
-}, [ 375 ]);
+}, [ 377 ]);
 
-pbjsChunk([ 249 ], {
-    440: function(e, r, n) {
-        e.exports = n(441);
+pbjsChunk([ 250 ], {
+    442: function(e, r, n) {
+        e.exports = n(443);
     },
-    441: function(e, r, n) {
+    443: function(e, r, n) {
         "use strict";
         Object.defineProperty(r, "__esModule", {
             value: !0
@@ -6884,7 +6893,7 @@ pbjsChunk([ 249 ], {
             return w;
         }), r.getGvlid = B, r.validateRules = V, r.deviceAccessHook = H, r.userSyncHook = R, 
         r.userIdHook = T, r.makeBidRequestsHook = G, r.enableAnalyticsHook = M, r.setEnforcementConfig = U;
-        var l = n(0), c = n(3), s = n(9), t = n(10), o = n.n(t), a = n(12), p = n.n(a), i = n(1), u = n(13), d = n(7), f = n(8), g = n.n(f), b = n(5);
+        var l = n(0), c = n(3), s = n(8), t = n(10), o = n.n(t), a = n(12), p = n.n(a), i = n(1), u = n(13), d = n(7), f = n(9), g = n.n(f), b = n(5);
         n.n(b);
         function v(r, e) {
             var n, t = Object.keys(r);
@@ -7058,13 +7067,13 @@ pbjsChunk([ 249 ], {
             return U(e.consentManagement);
         });
     }
-}, [ 440 ]);
+}, [ 442 ]);
 
-pbjsChunk([ 154 ], {
-    665: function(e, d, n) {
-        e.exports = n(666);
+pbjsChunk([ 155 ], {
+    667: function(e, d, n) {
+        e.exports = n(668);
     },
-    666: function(e, d, n) {
+    668: function(e, d, n) {
         "use strict";
         Object.defineProperty(d, "__esModule", {
             value: !0
@@ -7089,13 +7098,13 @@ pbjsChunk([ 154 ], {
         };
         Object(o.e)("userId", u);
     }
-}, [ 665 ]);
+}, [ 667 ]);
 
-pbjsChunk([ 152 ], {
-    671: function(e, r, a) {
-        e.exports = a(672);
+pbjsChunk([ 153 ], {
+    673: function(e, r, a) {
+        e.exports = a(674);
     },
-    672: function(e, r, a) {
+    674: function(e, r, a) {
         "use strict";
         Object.defineProperty(r, "__esModule", {
             value: !0
@@ -7634,7 +7643,7 @@ pbjsChunk([ 152 ], {
                     (r = z(s)) && E.imp.push(r)) : O.logWarn(Y + "Skipping the non-standard adslot: ", s.params.adSlot, JSON.stringify(s));
                 }), 0 != E.imp.length) return E.site.publisher.id = v.pubId.trim(), k = v.pubId.trim(), 
                 E.ext.wrapper = {}, E.ext.wrapper.profile = parseInt(v.profId) || x, E.ext.wrapper.version = parseInt(v.verId) || x, 
-                E.ext.wrapper.wiid = v.wiid || r.auctionId, E.ext.wrapper.wv = "prebid_prebid_4.18.0", 
+                E.ext.wrapper.wiid = v.wiid || r.auctionId, E.ext.wrapper.wv = "prebid_prebid_4.19.0", 
                 E.ext.wrapper.transactionId = v.transactionId, E.ext.wrapper.wp = "pbjs", E.user.gender = v.gender ? v.gender.trim() : x, 
                 E.user.geo = {}, E.user.geo.lat = C("lat", v.lat), E.user.geo.lon = C("lon", v.lon), 
                 E.user.yob = C("yob", v.yob), E.device.geo = E.user.geo, E.site.page = v.kadpageurl.trim() || E.site.page.trim(), 
@@ -7803,7 +7812,7 @@ pbjsChunk([ 152 ], {
         };
         Object(t.registerBidder)(b);
     }
-}, [ 671 ]);
+}, [ 673 ]);
 
 pbjsChunk([ 5 ], {
     22: function(e, t, n) {
@@ -7935,7 +7944,7 @@ pbjsChunk([ 5 ], {
                 source: "idx.lat",
                 atype: 1
             },
-            vmuid: {
+            connectid: {
                 source: "verizonmedia.com",
                 atype: 1
             },
@@ -7945,10 +7954,10 @@ pbjsChunk([ 5 ], {
             }
         };
     },
-    853: function(e, t, n) {
-        e.exports = n(854);
+    857: function(e, t, n) {
+        e.exports = n(858);
     },
-    854: function(e, t, n) {
+    858: function(e, t, n) {
         "use strict";
         Object.defineProperty(t, "__esModule", {
             value: !0
@@ -7965,7 +7974,7 @@ pbjsChunk([ 5 ], {
         }, t.setStoredValue = P, t.setStoredConsentData = F, t.requestBidsHook = z, n.d(t, "validateGdprEnforcement", function() {
             return $;
         }), t.attachIdSystem = X, t.init = Y;
-        var r = n(10), o = n.n(r), a = n(3), i = n(8), c = n.n(i), l = n(0), u = n(19), d = n(9), s = n(5), f = n.n(s), g = n(13), p = n(22), m = n(7);
+        var r = n(10), o = n.n(r), a = n(3), i = n(9), c = n.n(i), l = n(0), u = n(19), d = n(8), s = n(5), f = n.n(s), g = n(13), p = n(22), m = n(7);
         function b(e, t) {
             var n;
             if ("undefined" == typeof Symbol || null == e[Symbol.iterator]) {
@@ -8217,7 +8226,7 @@ pbjsChunk([ 5 ], {
         }
         Y(a.b), Object(g.c)("userId", X);
     }
-}, [ 853 ]);
+}, [ 857 ]);
 
 pbjs.processQueue();
 
@@ -8265,6 +8274,7 @@ var jppol = function(exports) {
                 bidder: "adform",
                 params: {
                     mid: bannerObject.adformMID,
+                    priceType: "net",
                     rcur: "USD"
                 }
             };
