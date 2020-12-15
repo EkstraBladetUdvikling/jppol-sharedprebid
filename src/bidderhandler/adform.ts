@@ -6,6 +6,7 @@ interface IAdformObject {
   params: {
     eids?: any;
     mid: number;
+    priceType: string;
     rcur: string;
   };
 }
@@ -25,6 +26,7 @@ export const adformBidder = (
       bidder: 'adform',
       params: {
         mid: bannerObject.adformMID,
+        priceType: 'net',
         rcur: 'USD',
       },
     };

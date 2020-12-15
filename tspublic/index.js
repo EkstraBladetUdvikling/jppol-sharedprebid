@@ -64,6 +64,7 @@ var jppol = (function (exports) {
                 bidder: 'adform',
                 params: {
                     mid: bannerObject.adformMID,
+                    priceType: 'net',
                     rcur: 'USD',
                 },
             };
