@@ -7980,7 +7980,7 @@ var jppol = function(exports) {
                 console.log("prebid: adUnits created?", adUnits_1);
                 pbjs_1.que.push(function() {
                     if (adUnits_1.length > 0) {
-                        pbjs_1.setConfig({
+                        var pbjsConfig = {
                             bidderTimeout: options.timeout,
                             cache: {
                                 url: "https://prebid.adnxs.com/pbc/v1/cache"
@@ -8011,7 +8011,9 @@ var jppol = function(exports) {
                                     }
                                 } ]
                             }
-                        });
+                        };
+                        console.log("prebid: pbjsConfig", pbjsConfig);
+                        pbjs_1.setConfig(pbjsConfig);
                         pbjs_1.addAdUnits(adUnits_1);
                         console.log("prebid: pbjs.adUnits?", pbjs_1.adUnits);
                         pbjs_1.requestBids({

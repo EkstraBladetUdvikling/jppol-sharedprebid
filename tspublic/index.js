@@ -228,12 +228,18 @@ var jppol = (function (exports) {
                 debug: false,
                 timeout: 700,
             };
-            var auctionSettings = __assign(__assign({}, prebidDefault), options);
-            this.auction(auctionSettings);
+            this.auctionSettings = __assign(__assign({}, prebidDefault), options);
+            if (this.auctionSettings.banners)
+                this.auction();
         }
-        AuctionHandler.prototype.auction = function (options) {
+        AuctionHandler.prototype.add = function (options) {
+            this.auctionSettings = __assign(__assign({}, this.auctionSettings), { options: options });
+            console.log(this.auctionSettings);
+        };
+        AuctionHandler.prototype.auction = function () {
             try {
                 var pbjs_1 = window.pbjs;
+                var options_1 = this.auctionSettings;
                 console.log('prebid: window[PREBIDAUCTION][COMPLETED]', window[PREBIDAUCTION][COMPLETED]);
                 // If the auction is completed, remove adunits
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
@@ -241,20 +247,20 @@ var jppol = (function (exports) {
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(options.banners, options.keywords, options.eidsAllowed);
+                var adUnits_1 = AdUnitCreator(options_1.banners, options_1.keywords, options_1.eidsAllowed);
                 console.log('prebid: adUnits created?', adUnits_1);
                 pbjs_1.que.push(function () {
                     if (adUnits_1.length > 0) {
-                        pbjs_1.setConfig({
-                            bidderTimeout: options.timeout,
+                        var pbjsConfig = {
+                            bidderTimeout: options_1.timeout,
                             cache: {
                                 url: 'https://prebid.adnxs.com/pbc/v1/cache',
                             },
                             consentManagement: {
                                 cmpApi: 'iab',
-                                timeout: options.consentTimeout,
+                                timeout: options_1.consentTimeout,
                             },
-                            debug: options.debug,
+                            debug: options_1.debug,
                             gvlMapping: {
                                 pubProvidedId: 50,
                             },
@@ -282,7 +288,10 @@ var jppol = (function (exports) {
                                     },
                                 ],
                             },
-                        });
+                        };
+                        console.log('prebid: pbjsConfig', pbjsConfig);
+                        console.log('prebid: pbjsConfig', JSON.stringify(adUnits_1));
+                        pbjs_1.setConfig(pbjsConfig);
                         pbjs_1.addAdUnits(adUnits_1);
                         console.log('prebid: pbjs.adUnits?', pbjs_1.adUnits);
                         pbjs_1.requestBids({
@@ -302,8 +311,8 @@ var jppol = (function (exports) {
                                         });
                                     });
                                 }
-                                if (typeof options.adserverCallback !== 'undefined') {
-                                    options.adserverCallback(bidResponse);
+                                if (typeof options_1.adserverCallback !== 'undefined') {
+                                    options_1.adserverCallback(bidResponse);
                                 }
                                 window[PREBIDAUCTION][COMPLETED] = true;
                             },
@@ -320,9 +329,17 @@ var jppol = (function (exports) {
 
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
+    var realizedHandler = null;
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
-        new AuctionHandler(options);
+        if (!realizedHandler) {
+            console.log('prebid: created handler');
+            realizedHandler = new AuctionHandler(options);
+        }
+        else {
+            console.log('prebid: add? jppolStillWaitingForPrebid', window.jppolStillWaitingForPrebid);
+            realizedHandler.add(options);
+        }
     }
     function getPrebidVideoParams(adUnitCode) {
         var adserverTargeting = window.pbjs.getAdserverTargeting(adUnitCode);
@@ -337,6 +354,31 @@ var jppol = (function (exports) {
         }
         return hbParams.join('&');
     }
+    console.log('prebid: ebPrebid', window.ebPrebid);
+    (function () {
+        var existing = window.ebPrebid;
+        console.log('prebid: ebPrebid existing', existing);
+        window.ebPrebid = {
+            existing: existing,
+            handle: function (incoming) {
+                console.log('prebid: handling ... ', incoming);
+                if (incoming.type === 'setup') {
+                    prebid(incoming);
+                    this.realized = true;
+                }
+                else if (!this.realized) {
+                    this.existing.push(incoming);
+                }
+                else if (this.realized) {
+                    prebid(incoming);
+                }
+            },
+            push: function (incoming) {
+                this.handle(incoming);
+            },
+            realized: false,
+        };
+    })();
 
     exports.getPrebidVideoParams = getPrebidVideoParams;
     exports.prebid = prebid;

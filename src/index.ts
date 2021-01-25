@@ -2,12 +2,38 @@ import { AuctionHandler, IPrebidOptions } from './AuctionHandler';
 import { IGetAdserverTargetingResponse } from './types';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
+declare global {
+  interface Window {
+    apntag: any;
+    ebJS: {
+      options: {
+        isEBDocReady: boolean;
+      };
+    };
+    ebPrebid: any;
+    jppol: any;
+
+    jppolStillWaitingForPrebid: boolean;
+  }
+}
+
 window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 
-export function prebid(options: IPrebidOptions) {
-  (window as any).jppolStillWaitingForPrebid = true;
+let realizedHandler = null;
 
-  new AuctionHandler(options);
+export function prebid(options: IPrebidOptions) {
+  window.jppolStillWaitingForPrebid = true;
+
+  if (!realizedHandler) {
+    console.log('prebid: created handler');
+    realizedHandler = new AuctionHandler(options);
+  } else {
+    console.log(
+      'prebid: add? jppolStillWaitingForPrebid',
+      window.jppolStillWaitingForPrebid
+    );
+    realizedHandler.add(options);
+  }
 }
 
 export function getPrebidVideoParams(adUnitCode: string): string {
@@ -29,3 +55,29 @@ export function getPrebidVideoParams(adUnitCode: string): string {
 
   return hbParams.join('&');
 }
+
+console.log('prebid: ebPrebid', window.ebPrebid);
+
+(() => {
+  const existing = window.ebPrebid;
+  console.log('prebid: ebPrebid existing', existing);
+
+  window.ebPrebid = {
+    existing,
+    handle(incoming) {
+      console.log('prebid: handling ... ', incoming);
+      if (incoming.type === 'setup') {
+        prebid(incoming);
+        this.realized = true;
+      } else if (!this.realized) {
+        this.existing.push(incoming);
+      } else if (this.realized) {
+        prebid(incoming);
+      }
+    },
+    push(incoming) {
+      this.handle(incoming);
+    },
+    realized: false,
+  };
+})();

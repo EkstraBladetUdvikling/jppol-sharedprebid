@@ -5,7 +5,7 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 export interface IPrebidOptions {
   adserverCallback?: any;
   auctionCompleted?: boolean;
-  banners: IBannerObject[];
+  banners?: IBannerObject[];
   consentTimeout?: number;
   debug?: boolean;
   eidsAllowed?: boolean;
@@ -14,19 +14,27 @@ export interface IPrebidOptions {
 }
 
 export class AuctionHandler {
+  private auctionSettings;
+
   constructor(options: IPrebidOptions) {
     const prebidDefault = {
       consentTimeout: 3000000,
       debug: false,
       timeout: 700,
     };
-    const auctionSettings = { ...prebidDefault, ...options };
-    this.auction(auctionSettings);
+    this.auctionSettings = { ...prebidDefault, ...options };
+    if (this.auctionSettings.banners) this.auction();
   }
 
-  private auction(options: IPrebidOptions) {
+  public add(options: IPrebidOptions) {
+    this.auctionSettings = { ...this.auctionSettings, options };
+    console.log(this.auctionSettings);
+  }
+
+  private auction() {
     try {
       const pbjs = (window as any).pbjs;
+      const options = this.auctionSettings;
 
       console.log(
         'prebid: window[PREBIDAUCTION][COMPLETED]',
@@ -47,7 +55,7 @@ export class AuctionHandler {
       console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
-          pbjs.setConfig({
+          const pbjsConfig = {
             bidderTimeout: options.timeout,
             cache: {
               url: 'https://prebid.adnxs.com/pbc/v1/cache',
@@ -84,7 +92,10 @@ export class AuctionHandler {
                 },
               ],
             },
-          });
+          };
+          console.log('prebid: pbjsConfig', pbjsConfig);
+          console.log('prebid: pbjsConfig', JSON.stringify(adUnits));
+          pbjs.setConfig(pbjsConfig);
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
           pbjs.requestBids({
