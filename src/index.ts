@@ -22,8 +22,6 @@ window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 let realizedHandler = null;
 
 export function prebid(options: IPrebidOptions) {
-  window.jppolStillWaitingForPrebid = true;
-
   if (!realizedHandler) {
     console.log('prebid: created handler');
     realizedHandler = new AuctionHandler(options);
@@ -80,4 +78,6 @@ console.log('prebid: ebPrebid', window.ebPrebid);
     },
     realized: false,
   };
+
+  window.ebPrebid.handle(existing);
 })();

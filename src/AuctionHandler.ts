@@ -15,6 +15,8 @@ export interface IPrebidOptions {
 
 export class AuctionHandler {
   private auctionSettings;
+  private auctionTimeout = null;
+  private banners = [];
 
   constructor(options: IPrebidOptions) {
     const prebidDefault = {
@@ -23,23 +25,37 @@ export class AuctionHandler {
       timeout: 700,
     };
     this.auctionSettings = { ...prebidDefault, ...options };
-    if (this.auctionSettings.banners) this.auction();
+    if (options.banners) {
+      this.banners.push(...options.banners);
+    }
   }
 
   public add(options: IPrebidOptions) {
     this.auctionSettings = { ...this.auctionSettings, options };
     console.log(this.auctionSettings);
+    this.banners.push(...options.banners);
+    this.startAuction();
   }
 
-  private auction() {
+  private auction(banners) {
     try {
+      window.jppolStillWaitingForPrebid = true;
       const pbjs = (window as any).pbjs;
-      const options = this.auctionSettings;
+
+      const {
+        adserverCallback,
+        consentTimeout,
+        debug,
+        eidsAllowed,
+        keywords,
+        timeout: bidderTimeout,
+      } = this.auctionSettings;
 
       console.log(
         'prebid: window[PREBIDAUCTION][COMPLETED]',
         window[PREBIDAUCTION][COMPLETED]
       );
+
       // If the auction is completed, remove adunits
       if (window[PREBIDAUCTION][COMPLETED] && pbjs.adUnits.length) {
         console.log('prebid: If the auction is completed, remove adunits');
@@ -47,24 +63,20 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(
-        options.banners,
-        options.keywords,
-        options.eidsAllowed
-      );
+      const adUnits = AdUnitCreator(banners, keywords, eidsAllowed);
       console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
           const pbjsConfig = {
-            bidderTimeout: options.timeout,
+            bidderTimeout,
             cache: {
               url: 'https://prebid.adnxs.com/pbc/v1/cache',
             },
             consentManagement: {
               cmpApi: 'iab',
-              timeout: options.consentTimeout,
+              timeout: consentTimeout,
             },
-            debug: options.debug,
+            debug,
             gvlMapping: {
               pubProvidedId: 50,
             },
@@ -93,8 +105,6 @@ export class AuctionHandler {
               ],
             },
           };
-          console.log('prebid: pbjsConfig', pbjsConfig);
-          console.log('prebid: pbjsConfig', JSON.stringify(adUnits));
           pbjs.setConfig(pbjsConfig);
           pbjs.addAdUnits(adUnits);
           console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
@@ -108,28 +118,47 @@ export class AuctionHandler {
               const apntag = (window as any).apntag;
               if (typeof apntag !== 'undefined') {
                 pbjs.que.push(() => {
-                  console.log('prebid: bidsBackHandler adding apn to pbjs que');
                   apntag.anq.push(() => {
                     pbjs.setTargetingForAst();
                     apntag.loadTags();
-                    (window as any).jppolStillWaitingForPrebid = false;
-                    console.log('__apn we just loaded prebid banners');
                     console.log(
                       'prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
                     );
                   });
                 });
               }
-              if (typeof options.adserverCallback !== 'undefined') {
-                options.adserverCallback(bidResponse);
+              if (typeof adserverCallback !== 'undefined') {
+                adserverCallback(bidResponse);
               }
-              window[PREBIDAUCTION][COMPLETED] = true;
+              this.reset();
             },
           });
         }
       });
     } catch (err) {
       console.error('AuctionHandler auction', err);
+    }
+  }
+
+  private reset() {
+    window[PREBIDAUCTION][COMPLETED] = true;
+    (window as any).jppolStillWaitingForPrebid = false;
+    this.auctionTimeout = null;
+    if (this.banners.length) {
+      this.startAuction();
+    }
+  }
+
+  private startAuction() {
+    if (!this.auctionTimeout) {
+      this.auctionTimeout = setTimeout(() => {
+        const currentBanners = [...this.banners];
+        this.banners.length = 0;
+        console.log('Run prebid now!!! this.banners', this.banners);
+        console.log('Run prebid now!!! currentBanners', currentBanners);
+
+        this.auction(currentBanners);
+      }, 500);
     }
   }
 }
