@@ -142,7 +142,7 @@ export class AuctionHandler {
 
   private reset() {
     window[PREBIDAUCTION][COMPLETED] = true;
-    (window as any).jppolStillWaitingForPrebid = false;
+    window.jppolStillWaitingForPrebid = false;
     this.auctionTimeout = null;
     if (this.banners.length) {
       this.startAuction();
