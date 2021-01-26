@@ -7104,19 +7104,18 @@ var jppol = function(exports) {
     }
     var AuctionHandler = function() {
         function AuctionHandler(options) {
-            var _a;
             this.auctionTimeout = null, this.banners = [];
             this.auctionSettings = __assign(__assign({}, {
                 consentTimeout: 3e6,
                 debug: !1,
                 timeout: 700
-            }), options), options.banners && (_a = this.banners).push.apply(_a, options.banners);
+            }), options), options.banners && this.add(options);
         }
         return AuctionHandler.prototype.add = function(options) {
             var _a;
             this.auctionSettings = __assign(__assign({}, this.auctionSettings), {
                 options: options
-            }), console.log(this.auctionSettings), (_a = this.banners).push.apply(_a, options.banners), 
+            }), console.log("prebid: add auctionSettings", this.auctionSettings), (_a = this.banners).push.apply(_a, options.banners), 
             this.startAuction();
         }, AuctionHandler.prototype.auction = function(banners) {
             var _this = this;
@@ -7174,7 +7173,7 @@ var jppol = function(exports) {
                     }));
                 });
             } catch (err) {
-                console.error("AuctionHandler auction", err);
+                console.error("prebid: AuctionHandler auction", err);
             }
         }, AuctionHandler.prototype.reset = function() {
             window.prebidAuction.completed = !0, window.jppolStillWaitingForPrebid = !1, this.auctionTimeout = null, 

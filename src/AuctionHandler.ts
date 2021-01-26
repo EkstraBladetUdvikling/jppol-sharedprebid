@@ -26,13 +26,13 @@ export class AuctionHandler {
     };
     this.auctionSettings = { ...prebidDefault, ...options };
     if (options.banners) {
-      this.banners.push(...options.banners);
+      this.add(options);
     }
   }
 
   public add(options: IPrebidOptions) {
     this.auctionSettings = { ...this.auctionSettings, options };
-    console.log(this.auctionSettings);
+    console.log('prebid: add auctionSettings', this.auctionSettings);
     this.banners.push(...options.banners);
     this.startAuction();
   }
@@ -136,7 +136,7 @@ export class AuctionHandler {
         }
       });
     } catch (err) {
-      console.error('AuctionHandler auction', err);
+      console.error('prebid: AuctionHandler auction', err);
     }
   }
 

@@ -183,7 +183,6 @@ var jppol = (function (exports) {
 
     var AuctionHandler = /** @class */ (function () {
         function AuctionHandler(options) {
-            var _a;
             this.auctionTimeout = null;
             this.banners = [];
             var prebidDefault = {
@@ -193,13 +192,13 @@ var jppol = (function (exports) {
             };
             this.auctionSettings = __assign(__assign({}, prebidDefault), options);
             if (options.banners) {
-                (_a = this.banners).push.apply(_a, options.banners);
+                this.add(options);
             }
         }
         AuctionHandler.prototype.add = function (options) {
             var _a;
             this.auctionSettings = __assign(__assign({}, this.auctionSettings), { options: options });
-            console.log(this.auctionSettings);
+            console.log('prebid: add auctionSettings', this.auctionSettings);
             (_a = this.banners).push.apply(_a, options.banners);
             this.startAuction();
         };
@@ -285,7 +284,7 @@ var jppol = (function (exports) {
                 });
             }
             catch (err) {
-                console.error('AuctionHandler auction', err);
+                console.error('prebid: AuctionHandler auction', err);
             }
         };
         AuctionHandler.prototype.reset = function () {
