@@ -3,8 +3,6 @@ export interface IBannerObject {
   adtechId?: string;
   appnexusID?: string;
   criteoId?: number;
-  pubmaticAdSlot?: string;
-  pubmaticPublisherId?: string;
   sizes: number[][];
   targetId: string;
   video?: boolean;
@@ -43,16 +41,6 @@ interface ICriteoAdserverTargeting {
   hb_source_criteo?: string;
 }
 
-interface IPubmaticAdserverTargeting {
-  hb_adid_pubmatic?: string;
-  hb_bidder_pubmatic?: string;
-  hb_deal_pubmatic?: string;
-  hb_format_pubmatic?: string;
-  hb_pb_pubmatic?: string;
-  hb_size_pubmatic?: string;
-  hb_source_pubmatic?: string;
-}
-
 interface IAdserverTargeting {
   hb_adid: string;
   hb_bidder: string;
@@ -67,6 +55,5 @@ export interface IGetAdserverTargetingResponse {
   [id: string]: IAdserverTargeting &
     IAdformAdserverTargeting &
     IAppnexusAdserverTargeting &
-    ICriteoAdserverTargeting &
-    IPubmaticAdserverTargeting;
+    ICriteoAdserverTargeting;
 }

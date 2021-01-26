@@ -1,7 +1,6 @@
 import { adformBidder } from './adform';
 import { appnexusBidder } from './appnexus';
 import { criteoBidder } from './criteo';
-import { pubmaticBidder } from './pubmatic';
 
 import { IBannerObject } from '../types';
 
@@ -17,9 +16,7 @@ export const BidderHandler = (
 
     const criteoBids = criteoBidder(bannerObject);
 
-    const pubmaticBids = pubmaticBidder(bannerObject);
-
-    return [...adformBids, ...appnexusBids, ...criteoBids, ...pubmaticBids];
+    return [...adformBids, ...appnexusBids, ...criteoBids];
   } catch (err) {
     console.error('jppolPrebid BidderHandler', err);
   }

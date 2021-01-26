@@ -1,7 +1,7 @@
 {
-  "compress": false,
+  "compress": {},
   "ie8": false,
-  "keep_fnames" : true,
+  "keep_fnames": true,
   "mangle": false,
   "nameCache": null,
   "output": {

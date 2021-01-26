@@ -5,7 +5,6 @@ let modules = [
   'adformBidAdapter',
   'appnexusBidAdapter',
   'criteoBidAdapter',
-  'pubmaticBidAdapter',
   'consentManagement',
   'gdprEnforcement',
 ];

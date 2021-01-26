@@ -123,61 +123,21 @@ var jppol = (function (exports) {
         return criteoBid;
     };
 
-    var PREBIDAUCTION = 'prebidAuction';
-    var COMPLETED = 'completed';
-    var mimes = ['video/mp4'];
-
-    var pubmaticBidder = function (bannerObject) {
-        var pubmaticBids = [];
-        /**
-         * PubMatic
-         * http://prebid.github.io/dev-docs/bidders.html#pubmatic
-         */
-        if (typeof bannerObject.pubmaticAdSlot !== 'undefined') {
-            if (bannerObject.video) {
-                var adSlot = bannerObject.pubmaticAdSlot + "@300x250";
-                pubmaticBids.push({
-                    bidder: 'pubmatic',
-                    params: {
-                        adSlot: adSlot,
-                        publisherId: bannerObject.pubmaticPublisherId,
-                        video: {
-                            mimes: mimes,
-                        },
-                    },
-                });
-            }
-            else {
-                var sizes = bannerObject.sizes;
-                var sizesLength = sizes.length;
-                for (var i = sizesLength; i--;) {
-                    var sizeJoint = sizes[i].join('x');
-                    var PubMaticAdslotName = bannerObject.pubmaticAdSlot + '@' + sizeJoint;
-                    pubmaticBids.push({
-                        bidder: 'pubmatic',
-                        params: {
-                            adSlot: PubMaticAdslotName,
-                            publisherId: bannerObject.pubmaticPublisherId,
-                        },
-                    });
-                }
-            }
-        }
-        return pubmaticBids;
-    };
-
     var BidderHandler = function (bannerObject, keywords, eidsAllowed) {
         try {
             var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
-            var pubmaticBids = pubmaticBidder(bannerObject);
-            return __spreadArrays(adformBids, appnexusBids, criteoBids, pubmaticBids);
+            return __spreadArrays(adformBids, appnexusBids, criteoBids);
         }
         catch (err) {
             console.error('jppolPrebid BidderHandler', err);
         }
     };
+
+    var PREBIDAUCTION = 'prebidAuction';
+    var COMPLETED = 'completed';
+    var mimes = ['video/mp4'];
 
     function AdUnitCreator(bannerContainer, keywords, eidsAllowed) {
         try {
@@ -298,8 +258,6 @@ var jppol = (function (exports) {
                                 ],
                             },
                         };
-                        console.log('prebid: pbjsConfig', pbjsConfig);
-                        console.log('prebid: pbjsConfig', JSON.stringify(adUnits_1));
                         pbjs_1.setConfig(pbjsConfig);
                         pbjs_1.addAdUnits(adUnits_1);
                         console.log('prebid: pbjs.adUnits?', pbjs_1.adUnits);
@@ -310,11 +268,9 @@ var jppol = (function (exports) {
                                 var apntag = window.apntag;
                                 if (typeof apntag !== 'undefined') {
                                     pbjs_1.que.push(function () {
-                                        console.log('prebid: bidsBackHandler adding apn to pbjs que');
                                         apntag.anq.push(function () {
                                             pbjs_1.setTargetingForAst();
                                             apntag.loadTags();
-                                            console.log('__apn we just loaded prebid banners');
                                             console.log('prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()');
                                         });
                                     });

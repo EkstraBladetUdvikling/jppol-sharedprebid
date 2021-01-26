@@ -37,7 +37,7 @@ export class AuctionHandler {
     this.startAuction();
   }
 
-  private auction(banners) {
+  private auction(banners: IBannerObject[]) {
     try {
       window.jppolStillWaitingForPrebid = true;
       const pbjs = (window as any).pbjs;
