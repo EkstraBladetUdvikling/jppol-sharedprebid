@@ -7872,53 +7872,19 @@ var jppol = function(exports) {
         }
         return criteoBid;
     };
-    var PREBIDAUCTION = "prebidAuction";
-    var COMPLETED = "completed";
-    var mimes = [ "video/mp4" ];
-    var pubmaticBidder = function(bannerObject) {
-        var pubmaticBids = [];
-        if (typeof bannerObject.pubmaticAdSlot !== "undefined") {
-            if (bannerObject.video) {
-                var adSlot = bannerObject.pubmaticAdSlot + "@300x250";
-                pubmaticBids.push({
-                    bidder: "pubmatic",
-                    params: {
-                        adSlot: adSlot,
-                        publisherId: bannerObject.pubmaticPublisherId,
-                        video: {
-                            mimes: mimes
-                        }
-                    }
-                });
-            } else {
-                var sizes = bannerObject.sizes;
-                var sizesLength = sizes.length;
-                for (var i = sizesLength; i--; ) {
-                    var sizeJoint = sizes[i].join("x");
-                    var PubMaticAdslotName = bannerObject.pubmaticAdSlot + "@" + sizeJoint;
-                    pubmaticBids.push({
-                        bidder: "pubmatic",
-                        params: {
-                            adSlot: PubMaticAdslotName,
-                            publisherId: bannerObject.pubmaticPublisherId
-                        }
-                    });
-                }
-            }
-        }
-        return pubmaticBids;
-    };
     var BidderHandler = function(bannerObject, keywords, eidsAllowed) {
         try {
             var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
-            var pubmaticBids = pubmaticBidder(bannerObject);
-            return __spreadArrays(adformBids, appnexusBids, criteoBids, pubmaticBids);
+            return __spreadArrays(adformBids, appnexusBids, criteoBids);
         } catch (err) {
             console.error("jppolPrebid BidderHandler", err);
         }
     };
+    var PREBIDAUCTION = "prebidAuction";
+    var COMPLETED = "completed";
+    var mimes = [ "video/mp4" ];
     function AdUnitCreator(bannerContainer, keywords, eidsAllowed) {
         try {
             var adUnits = [];

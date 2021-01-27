@@ -1,6 +1,6 @@
 {
   "name": "jppol-sharedprebid",
-  "version": "4.19.0",
+  "version": "4.19.1",
   "description": "prebid for eb",
   "main": "index.js",
   "scripts": {
@@ -9,13 +9,12 @@
     "build:prod": "node nodescripts/buildprebid.js --env=prod",
     "build:pubId": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --env=all --modules=pubProvidedIdSystem",
     "build:pubId:DL": "yarn prebuild && node nodescripts/buildprebid.js --suffix=pubid --version=4.19.0 --env=all --modules=pubProvidedIdSystem",
-    "dist": "npm run build && npm run build:prod",
+    "dist": "npm run build && npm run build:prod && npm run build:pubId",
     "dist:move": "npm run dist && npm run move",
     "move": "node nodescripts/buildprebid.js --move",
-    "prebuild": "npm run prettier && npm run tslint && npm run rollup",
+    "prebuild": "npm run prettier && npm run rollup",
     "prettier": "prettier \"./src/*.ts\" --write",
-    "rollup": "rollup -c",
-    "tslint": "tslint -c tslint.json \"./src/**/*.ts\""
+    "rollup": "rollup -c"
   },
   "author": "jesper.h.tegner@jppol.dk",
   "dependencies": {},
@@ -28,8 +27,6 @@
     "rollup": "^2.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-typescript2": "^0.28.0",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.15.0",
     "typescript": "^4.0.5",
     "uglify-js": "^3.11.4"
   }
