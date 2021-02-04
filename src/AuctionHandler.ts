@@ -61,6 +61,23 @@ export class AuctionHandler {
               pubProvidedId: 50,
             },
             priceGranularity: 'high',
+            user: {
+              ext: {
+                eids: [
+                  {
+                    source: 'sharedid.org',
+                    uids: [
+                      {
+                        id: (window as any).eb_anon_uuid,
+                        ext: {
+                          third: (window as any).eb_anon_uuid,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
             userSync: {
               enabledBidders: ['adform'],
               iframeEnabled: true,
