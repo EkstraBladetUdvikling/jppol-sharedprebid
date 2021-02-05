@@ -16,17 +16,6 @@ var jppol = (function (exports) {
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
-        __assign = Object.assign || function __assign(t) {
-            for (var s, i = 1, n = arguments.length; i < n; i++) {
-                s = arguments[i];
-                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
-            return t;
-        };
-        return __assign.apply(this, arguments);
-    };
-
     function __spreadArrays() {
         for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
         for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -181,44 +170,100 @@ var jppol = (function (exports) {
         }
     }
 
+    function mergeObject(obj1, obj2) {
+        var returnObj = obj1;
+        for (var key in obj2) {
+            if (returnObj[key]) {
+                if (typeof returnObj[key] === typeof obj2[key]) {
+                    if (Array.isArray(obj2[key])) {
+                        returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
+                    }
+                    else if (Object.prototype.toString.call(obj2[key]) === '[object Object]') {
+                        mergeObject(returnObj[key], obj2[key]);
+                    }
+                }
+                else {
+                    returnObj[key] = obj2[key];
+                }
+            }
+            else {
+                returnObj[key] = obj2[key];
+            }
+        }
+        return returnObj;
+    }
     var AuctionHandler = /** @class */ (function () {
-        function AuctionHandler(options) {
-            var prebidDefault = {
+        function AuctionHandler() {
+            this.auctionSettings = {
                 consentTimeout: 3000000,
                 debug: false,
                 timeout: 700,
             };
-            var auctionSettings = __assign(__assign({}, prebidDefault), options);
-            this.auction(auctionSettings);
+            this.auctionInProgress = false;
+            console.log('PREBID AUCTIONHANDLER CONTRUCTED!');
         }
-        AuctionHandler.prototype.auction = function (options) {
+        AuctionHandler.prototype.add = function (options) {
+            var _this = this;
+            this.auctionSettings = mergeObject(this.auctionSettings, options);
+            console.log('PREBID ADD!', this.auctionSettings);
+            if (options.banners) {
+                if (!this.waitformore && !this.auctionInProgress) {
+                    this.waitformore = setTimeout(function () {
+                        console.log('PREBID: we done waited', _this.auctionSettings.banners);
+                        _this.auction();
+                    }, 250);
+                }
+                else if (this.auctionInProgress) {
+                    console.log('PREBID: too bad');
+                }
+            }
+        };
+        AuctionHandler.prototype.auction = function () {
             try {
                 var pbjs_1 = window.pbjs;
-                console.log('prebid: window[PREBIDAUCTION][COMPLETED]', window[PREBIDAUCTION][COMPLETED]);
+                this.auctionInProgress = true;
+                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eidsAllowed = _a.eidsAllowed, keywords = _a.keywords, timeout_1 = _a.timeout;
                 // If the auction is completed, remove adunits
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
                     console.log('prebid: If the auction is completed, remove adunits');
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(options.banners, options.keywords, options.eidsAllowed);
+                var adUnits_1 = AdUnitCreator(banners, keywords, eidsAllowed);
                 console.log('prebid: adUnits created?', adUnits_1);
                 pbjs_1.que.push(function () {
                     if (adUnits_1.length > 0) {
                         pbjs_1.setConfig({
-                            bidderTimeout: options.timeout,
+                            bidderTimeout: timeout_1,
                             cache: {
                                 url: 'https://prebid.adnxs.com/pbc/v1/cache',
                             },
                             consentManagement: {
                                 cmpApi: 'iab',
-                                timeout: options.consentTimeout,
+                                timeout: consentTimeout_1,
                             },
-                            debug: options.debug,
+                            debug: debug_1,
                             gvlMapping: {
                                 pubProvidedId: 50,
                             },
                             priceGranularity: 'high',
+                            user: {
+                                ext: {
+                                    eids: [
+                                        {
+                                            source: 'firstpartyid',
+                                            uids: [
+                                                {
+                                                    id: window.eb_anon_uuid,
+                                                    ext: {
+                                                        third: window.eb_anon_uuid,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            },
                             userSync: {
                                 enabledBidders: ['adform'],
                                 iframeEnabled: true,
@@ -262,8 +307,8 @@ var jppol = (function (exports) {
                                         });
                                     });
                                 }
-                                if (typeof options.adserverCallback !== 'undefined') {
-                                    options.adserverCallback(bidResponse);
+                                if (typeof adserverCallback_1 !== 'undefined') {
+                                    adserverCallback_1(bidResponse);
                                 }
                                 window[PREBIDAUCTION][COMPLETED] = true;
                             },
@@ -280,9 +325,10 @@ var jppol = (function (exports) {
 
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
+    var auctionHandler = new AuctionHandler();
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
-        new AuctionHandler(options);
+        auctionHandler.add(options);
     }
     function getPrebidVideoParams(adUnitCode) {
         var adserverTargeting = window.pbjs.getAdserverTargeting(adUnitCode);

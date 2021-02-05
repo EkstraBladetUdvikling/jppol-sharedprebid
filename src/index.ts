@@ -4,10 +4,12 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 
 window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 
+const auctionHandler = new AuctionHandler();
+
 export function prebid(options: IPrebidOptions) {
   (window as any).jppolStillWaitingForPrebid = true;
 
-  new AuctionHandler(options);
+  auctionHandler.add(options);
 }
 
 export function getPrebidVideoParams(adUnitCode: string): string {
