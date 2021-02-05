@@ -8062,7 +8062,7 @@ var jppol = function(exports) {
                 timeout: 700
             };
             this.auctionInProgress = false;
-            console.log("PREBID AUCTIONHANDLER CONTRUCTED!");
+            console.log("PREBID AUCTIONHANDLER CONSTRUCTED!");
         }
         AuctionHandler.prototype.add = function(options) {
             var _this = this;
@@ -8191,6 +8191,12 @@ var jppol = function(exports) {
             }
         }
         return hbParams.join("&");
+    }
+    if (window["jppol"] && window["jppol"].cache.length) {
+        console.log("PREBID HAS CACHE", window["jppol"].cache);
+        window["jppol"].cache.forEach(function(cacheElement) {
+            prebid(cacheElement);
+        });
     }
     exports.getPrebidVideoParams = getPrebidVideoParams;
     exports.prebid = prebid;
