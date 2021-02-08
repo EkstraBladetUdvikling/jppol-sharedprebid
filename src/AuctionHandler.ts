@@ -13,7 +13,7 @@ export interface IPrebidOptions {
   timeout?: number;
 }
 
-function mergeObject(obj1, obj2) {
+function deepObjectMerge(obj1, obj2) {
   const returnObj = obj1;
 
   for (const key in obj2) {
@@ -24,7 +24,7 @@ function mergeObject(obj1, obj2) {
         } else if (
           Object.prototype.toString.call(obj2[key]) === '[object Object]'
         ) {
-          mergeObject(returnObj[key], obj2[key]);
+          deepObjectMerge(returnObj[key], obj2[key]);
         }
       } else {
         returnObj[key] = obj2[key];
@@ -50,17 +50,19 @@ export class AuctionHandler {
   }
 
   public add(options: IPrebidOptions) {
-    this.auctionSettings = mergeObject(this.auctionSettings, options);
-    console.log('PREBID ADD!', this.auctionSettings);
+    this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
 
     if (options.banners) {
       if (!this.waitformore && !this.auctionInProgress) {
         this.waitformore = setTimeout(() => {
-          console.log('PREBID: we done waited', this.auctionSettings.banners);
           this.auction();
         }, 250);
       } else if (this.auctionInProgress) {
-        console.log('PREBID: too bad');
+        (window as any).ebLog({
+          component: 'jppol-prebid',
+          level: 'WARNING',
+          message: `Trying to add more banners to prebid auction`,
+        });
       }
     }
   }

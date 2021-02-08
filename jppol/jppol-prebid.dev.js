@@ -8035,7 +8035,7 @@ var jppol = function(exports) {
             console.error("prebid", "biddersetup", err);
         }
     }
-    function mergeObject(obj1, obj2) {
+    function deepObjectMerge(obj1, obj2) {
         var returnObj = obj1;
         for (var key in obj2) {
             if (returnObj[key]) {
@@ -8043,7 +8043,7 @@ var jppol = function(exports) {
                     if (Array.isArray(obj2[key])) {
                         returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
                     } else if (Object.prototype.toString.call(obj2[key]) === "[object Object]") {
-                        mergeObject(returnObj[key], obj2[key]);
+                        deepObjectMerge(returnObj[key], obj2[key]);
                     }
                 } else {
                     returnObj[key] = obj2[key];
@@ -8066,16 +8066,18 @@ var jppol = function(exports) {
         }
         AuctionHandler.prototype.add = function(options) {
             var _this = this;
-            this.auctionSettings = mergeObject(this.auctionSettings, options);
-            console.log("PREBID ADD!", this.auctionSettings);
+            this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
             if (options.banners) {
                 if (!this.waitformore && !this.auctionInProgress) {
                     this.waitformore = setTimeout(function() {
-                        console.log("PREBID: we done waited", _this.auctionSettings.banners);
                         _this.auction();
                     }, 250);
                 } else if (this.auctionInProgress) {
-                    console.log("PREBID: too bad");
+                    window.ebLog({
+                        component: "jppol-prebid",
+                        level: "WARNING",
+                        message: "Trying to add more banners to prebid auction"
+                    });
                 }
             }
         };
