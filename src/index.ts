@@ -4,10 +4,12 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 
 window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 
+const auctionHandler = new AuctionHandler();
+
 export function prebid(options: IPrebidOptions) {
   (window as any).jppolStillWaitingForPrebid = true;
 
-  new AuctionHandler(options);
+  auctionHandler.add(options);
 }
 
 export function getPrebidVideoParams(adUnitCode: string): string {
@@ -28,4 +30,11 @@ export function getPrebidVideoParams(adUnitCode: string): string {
   }
 
   return hbParams.join('&');
+}
+
+if (window['jppol'] && window['jppol'].cache.length) {
+  console.log('PREBID HAS CACHE', window['jppol'].cache);
+  window['jppol'].cache.forEach((cacheElement) => {
+    prebid(cacheElement);
+  });
 }

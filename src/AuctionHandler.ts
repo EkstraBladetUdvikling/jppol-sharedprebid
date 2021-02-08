@@ -5,7 +5,7 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 export interface IPrebidOptions {
   adserverCallback?: any;
   auctionCompleted?: boolean;
-  banners: IBannerObject[];
+  banners?: IBannerObject[];
   consentTimeout?: number;
   debug?: boolean;
   eidsAllowed?: boolean;
@@ -13,25 +13,74 @@ export interface IPrebidOptions {
   timeout?: number;
 }
 
+function deepObjectMerge(obj1, obj2) {
+  const returnObj = obj1;
+
+  for (const key in obj2) {
+    if (returnObj[key]) {
+      if (typeof returnObj[key] === typeof obj2[key]) {
+        if (Array.isArray(obj2[key])) {
+          returnObj[key] = [...returnObj[key], ...obj2[key]];
+        } else if (
+          Object.prototype.toString.call(obj2[key]) === '[object Object]'
+        ) {
+          deepObjectMerge(returnObj[key], obj2[key]);
+        }
+      } else {
+        returnObj[key] = obj2[key];
+      }
+    } else {
+      returnObj[key] = obj2[key];
+    }
+  }
+  return returnObj;
+}
+
 export class AuctionHandler {
-  constructor(options: IPrebidOptions) {
-    const prebidDefault = {
-      consentTimeout: 3000000,
-      debug: false,
-      timeout: 700,
-    };
-    const auctionSettings = { ...prebidDefault, ...options };
-    this.auction(auctionSettings);
+  private auctionSettings: IPrebidOptions = {
+    consentTimeout: 3000000,
+    debug: false,
+    timeout: 700,
+  };
+  private auctionInProgress = false;
+  private waitformore: any;
+
+  constructor() {
+    console.log('PREBID AUCTIONHANDLER CONSTRUCTED!');
   }
 
-  private auction(options: IPrebidOptions) {
+  public add(options: IPrebidOptions) {
+    this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
+
+    if (options.banners) {
+      if (!this.waitformore && !this.auctionInProgress) {
+        this.waitformore = setTimeout(() => {
+          this.auction();
+        }, 250);
+      } else if (this.auctionInProgress) {
+        (window as any).ebLog({
+          component: 'jppol-prebid',
+          level: 'WARNING',
+          message: `Trying to add more banners to prebid auction`,
+        });
+      }
+    }
+  }
+
+  private auction() {
     try {
       const pbjs = (window as any).pbjs;
+      this.auctionInProgress = true;
+      const {
+        adserverCallback,
+        banners,
+        consentTimeout,
+        debug,
+        eidsAllowed,
+        keywords,
+        timeout,
+      } = this.auctionSettings;
 
-      console.log(
-        'prebid: window[PREBIDAUCTION][COMPLETED]',
-        window[PREBIDAUCTION][COMPLETED]
-      );
       // If the auction is completed, remove adunits
       if (window[PREBIDAUCTION][COMPLETED] && pbjs.adUnits.length) {
         console.log('prebid: If the auction is completed, remove adunits');
@@ -39,28 +88,41 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(
-        options.banners,
-        options.keywords,
-        options.eidsAllowed
-      );
+      const adUnits = AdUnitCreator(banners, keywords, eidsAllowed);
       console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
           pbjs.setConfig({
-            bidderTimeout: options.timeout,
+            bidderTimeout: timeout,
             cache: {
               url: 'https://prebid.adnxs.com/pbc/v1/cache',
             },
             consentManagement: {
               cmpApi: 'iab',
-              timeout: options.consentTimeout,
+              timeout: consentTimeout,
             },
-            debug: options.debug,
+            debug,
             gvlMapping: {
               pubProvidedId: 50,
             },
             priceGranularity: 'high',
+            user: {
+              ext: {
+                eids: [
+                  {
+                    source: 'firstpartyid',
+                    uids: [
+                      {
+                        id: (window as any).eb_anon_uuid,
+                        ext: {
+                          third: (window as any).eb_anon_uuid,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
             userSync: {
               enabledBidders: ['adform'],
               iframeEnabled: true,
@@ -109,8 +171,8 @@ export class AuctionHandler {
                   });
                 });
               }
-              if (typeof options.adserverCallback !== 'undefined') {
-                options.adserverCallback(bidResponse);
+              if (typeof adserverCallback !== 'undefined') {
+                adserverCallback(bidResponse);
               }
               window[PREBIDAUCTION][COMPLETED] = true;
             },
