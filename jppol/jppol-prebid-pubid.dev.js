@@ -4401,7 +4401,7 @@
             return e.forEach(function(e) {
                 var t, n, r, i, o = e.mediaTypes, a = e.bids;
                 a && T.isArray(a) ? o && 0 !== Object.keys(o).length ? (o.banner && (t = F(e)), 
-                o.video && (n = z(t || e)), o.native && (r = V(n || (t || e))), i = A({}, t, n, r), 
+                o.video && (n = z(t || e)), o.native && (r = V(n || t || e)), i = A({}, t, n, r), 
                 c.push(i)) : T.logError("Detected adUnit.code '".concat(e.code, "' did not have a 'mediaTypes' object defined.  This is a required field for the auction, so this adUnit has been removed.")) : T.logError("Detected adUnit.code '".concat(e.code, "' did not have 'adUnit.bids' defined or 'adUnit.bids' is not an array. Removing adUnit from auction."));
             }), c;
         }, "checkAdUnitSetup");
@@ -4495,7 +4495,7 @@
                     message: f,
                     bid: v,
                     id: t
-                })) : a ? (navigator.userAgent && -1 < navigator.userAgent.toLowerCase().indexOf("firefox/") && ((l = navigator.userAgent.toLowerCase().match(/firefox\/([\d\.]+)/)[1]) && parseInt(l, 10) < 67 && e.open("text/html", "replace")), 
+                })) : a ? (navigator.userAgent && -1 < navigator.userAgent.toLowerCase().indexOf("firefox/") && (l = navigator.userAgent.toLowerCase().match(/firefox\/([\d\.]+)/)[1]) && parseInt(l, 10) < 67 && e.open("text/html", "replace"), 
                 e.write(a), e.close(), W(e, o, i), T.callBurl(v)) : u ? ((p = T.createInvisibleIframe()).height = i, 
                 p.width = o, p.style.display = "inline", p.style.overflow = "hidden", p.src = u, 
                 T.insertElement(p, e, "body"), W(e, o, i), T.callBurl(v)) : (g = "Error trying to write ad. No ad for bid response id: ".concat(t), 
