@@ -4401,7 +4401,7 @@
             return e.forEach(function(e) {
                 var t, n, r, i, o = e.mediaTypes, a = e.bids;
                 a && T.isArray(a) ? o && 0 !== Object.keys(o).length ? (o.banner && (t = F(e)), 
-                o.video && (n = z(t || e)), o.native && (r = V(n || (t || e))), i = A({}, t, n, r), 
+                o.video && (n = z(t || e)), o.native && (r = V(n || t || e)), i = A({}, t, n, r), 
                 c.push(i)) : T.logError("Detected adUnit.code '".concat(e.code, "' did not have a 'mediaTypes' object defined.  This is a required field for the auction, so this adUnit has been removed.")) : T.logError("Detected adUnit.code '".concat(e.code, "' did not have 'adUnit.bids' defined or 'adUnit.bids' is not an array. Removing adUnit from auction."));
             }), c;
         }, "checkAdUnitSetup");
@@ -4495,7 +4495,7 @@
                     message: f,
                     bid: v,
                     id: t
-                })) : a ? (navigator.userAgent && -1 < navigator.userAgent.toLowerCase().indexOf("firefox/") && ((l = navigator.userAgent.toLowerCase().match(/firefox\/([\d\.]+)/)[1]) && parseInt(l, 10) < 67 && e.open("text/html", "replace")), 
+                })) : a ? (navigator.userAgent && -1 < navigator.userAgent.toLowerCase().indexOf("firefox/") && (l = navigator.userAgent.toLowerCase().match(/firefox\/([\d\.]+)/)[1]) && parseInt(l, 10) < 67 && e.open("text/html", "replace"), 
                 e.write(a), e.close(), W(e, o, i), T.callBurl(v)) : u ? ((p = T.createInvisibleIframe()).height = i, 
                 p.width = o, p.style.display = "inline", p.style.overflow = "hidden", p.src = u, 
                 T.insertElement(p, e, "body"), W(e, o, i), T.callBurl(v)) : (g = "Error trying to write ad. No ad for bid response id: ".concat(t), 
@@ -7936,144 +7936,6 @@ pbjsChunk([ 160 ], {
     }
 }, [ 684 ]);
 
-pbjsChunk([ 127 ], {
-    772: function(r, e, n) {
-        r.exports = n(773);
-    },
-    773: function(r, e, n) {
-        "use strict";
-        Object.defineProperty(e, "__esModule", {
-            value: !0
-        }), n.d(e, "sharedIdSubmodule", function() {
-            return g;
-        });
-        var a = n(0), u = n(4), t = n(13), s = "https://id.sharedid.org/id", d = 86400, o = "0123456789ABCDEFGHJKMNPQRSTVWXYZ", i = o.length, f = Math.pow(2, 48) - 1, c = function(e) {
-            e = e || function(r) {
-                r = r || ("undefined" != typeof window ? window : null);
-                var e = r && (r.crypto || r.msCrypto);
-                if (e) return function() {
-                    var r = new Uint8Array(1);
-                    return e.getRandomValues(r), r[0] / 255;
-                };
-                return function() {
-                    return Math.random();
-                };
-            }();
-            return function(r) {
-                return isNaN(r) && (r = Date.now()), function(r, e) {
-                    if (isNaN(r)) throw new Error(r + " must be a number");
-                    if (!1 === Number.isInteger(r)) throw I("time must be an integer");
-                    if (f < r) throw I("cannot encode time greater than " + f);
-                    if (r < 0) throw I("time must be positive");
-                    if (!1 === Number.isInteger(e)) throw I("length must be an integer");
-                    if (e < 0) throw I("length must be positive");
-                    for (var n, t = ""; 0 < e; e--) n = r % i, t = o.charAt(n) + t, r = (r - n) / i;
-                    return t;
-                }(r, 10) + function(r, e) {
-                    for (var n = ""; 0 < r; r--) n = function(r) {
-                        var e = Math.floor(r() * i);
-                        e === i && (e = i - 1);
-                        return o.charAt(e);
-                    }(e) + n;
-                    return n;
-                }(16, e);
-            };
-        }();
-        function h(r, e) {
-            var n = {};
-            return n.id = r, n.ts = a.timestamp(), e && (n.ns = !0), a.logInfo("SharedId: cookie Value: " + JSON.stringify(n)), 
-            n;
-        }
-        function l(r, e) {
-            if (e.ns) return !0;
-            r && "number" == typeof r.syncTime || a.logInfo("SharedId: Sync time is not configured or is not a number");
-            var n = r && "number" == typeof r.syncTime ? r.syncTime : d;
-            d < n && (n = d);
-            var t, o, i = e.ts;
-            return !!i && n <= (t = a.timestamp(), o = (t - i) / 1e3, Math.abs(Math.round(o)));
-        }
-        function I(r) {
-            a.logError(r);
-            var e = new Error(r);
-            return e.source = "sharedId", e;
-        }
-        var g = {
-            name: "sharedId",
-            gvlid: 887,
-            decode: function(r) {
-                return r ? function(r) {
-                    var e = {}, n = r && "string" == typeof r.id ? r.id : void 0;
-                    if ("00000000000000000000000000" != n) {
-                        if (n) {
-                            var t = {
-                                id: n
-                            };
-                            return null == (r && "boolean" == typeof r.ns ? r.ns : void 0) && (t.third = n), 
-                            e.sharedid = t, a.logInfo("SharedId: Decoded value " + JSON.stringify(e)), e;
-                        }
-                        return n;
-                    }
-                }(r) : void 0;
-            },
-            getId: function() {
-                return {
-                    callback: function(r) {
-                        var t;
-                        a.logInfo("SharedId: Sharedid doesnt exists, new cookie creation"), Object(u.a)(s, (t = r, 
-                        {
-                            success: function(r) {
-                                var e = {};
-                                if (r) try {
-                                    var n = JSON.parse(r);
-                                    a.logInfo("SharedId: Generated SharedId: " + n.sharedId), e = h(n.sharedId, !1);
-                                } catch (r) {
-                                    a.logError(r);
-                                }
-                                t(e);
-                            },
-                            error: function() {
-                                var r = h(c(), !0);
-                                a.logInfo("SharedId: Ulid Generated SharedId: " + r.id), t(r);
-                            }
-                        }), void 0, {
-                            method: "GET",
-                            withCredentials: !0
-                        });
-                    }
-                };
-            },
-            extendId: function(r, i) {
-                var d = r && r.params || {};
-                a.logInfo("SharedId: Existing shared id " + i.id);
-                return {
-                    callback: function(r) {
-                        var e, n, t, o;
-                        l(d, i) && (a.logInfo("SharedId: Existing shared id " + i + " is not synced"), (e = {}).sharedId = i.id, 
-                        n = JSON.stringify(e), Object(u.a)(s, (t = i, o = r, {
-                            success: function(r) {
-                                if (a.logInfo("SharedId: id to be synced: " + t.id), r) try {
-                                    var e = JSON.parse(r);
-                                    t = h(e.sharedId, !1), a.logInfo("SharedId: Older SharedId: " + t.id);
-                                } catch (r) {
-                                    a.logError(r);
-                                }
-                                o(t);
-                            },
-                            error: function() {
-                                a.logInfo("SharedId: Sync error for id : " + t.id), o(t);
-                            }
-                        }), n, {
-                            method: "POST",
-                            withCredentials: !0
-                        }));
-                    }
-                };
-            }
-        };
-        Object(t.e)("userId", g);
-    }
-}, [ 772 ]);
-
 pbjsChunk([ 6 ], {
     19: function(e, t, n) {
         "use strict";
@@ -8512,16 +8374,6 @@ pbjs.processQueue();
 
 var jppol = function(exports) {
     "use strict";
-    var __assign = function() {
-        __assign = Object.assign || function __assign(t) {
-            for (var s, i = 1, n = arguments.length; i < n; i++) {
-                s = arguments[i];
-                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
-            return t;
-        };
-        return __assign.apply(this, arguments);
-    };
     function __spreadArrays() {
         for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
         for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, 
@@ -8648,43 +8500,93 @@ var jppol = function(exports) {
             console.error("prebid", "biddersetup", err);
         }
     }
+    function deepObjectMerge(obj1, obj2) {
+        var returnObj = obj1;
+        for (var key in obj2) {
+            if (returnObj[key]) {
+                if (typeof returnObj[key] === typeof obj2[key]) {
+                    if (Array.isArray(obj2[key])) {
+                        returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
+                    } else if (Object.prototype.toString.call(obj2[key]) === "[object Object]") {
+                        deepObjectMerge(returnObj[key], obj2[key]);
+                    }
+                } else {
+                    returnObj[key] = obj2[key];
+                }
+            } else {
+                returnObj[key] = obj2[key];
+            }
+        }
+        return returnObj;
+    }
     var AuctionHandler = function() {
-        function AuctionHandler(options) {
-            var prebidDefault = {
+        function AuctionHandler() {
+            this.auctionSettings = {
                 consentTimeout: 3e6,
                 debug: false,
                 timeout: 700
             };
-            var auctionSettings = __assign(__assign({}, prebidDefault), options);
-            this.auction(auctionSettings);
+            this.auctionInProgress = false;
+            console.log("PREBID AUCTIONHANDLER CONSTRUCTED!");
         }
-        AuctionHandler.prototype.auction = function(options) {
+        AuctionHandler.prototype.add = function(options) {
+            var _this = this;
+            this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
+            if (options.banners) {
+                if (!this.waitformore && !this.auctionInProgress) {
+                    this.waitformore = setTimeout(function() {
+                        _this.auction();
+                    }, 250);
+                } else if (this.auctionInProgress) {
+                    window.ebLog({
+                        component: "jppol-prebid",
+                        level: "WARNING",
+                        message: "Trying to add more banners to prebid auction"
+                    });
+                }
+            }
+        };
+        AuctionHandler.prototype.auction = function() {
             try {
                 var pbjs_1 = window.pbjs;
-                console.log("prebid: window[PREBIDAUCTION][COMPLETED]", window[PREBIDAUCTION][COMPLETED]);
+                this.auctionInProgress = true;
+                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eidsAllowed = _a.eidsAllowed, keywords = _a.keywords, timeout_1 = _a.timeout;
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
                     console.log("prebid: If the auction is completed, remove adunits");
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(options.banners, options.keywords, options.eidsAllowed);
+                var adUnits_1 = AdUnitCreator(banners, keywords, eidsAllowed);
                 console.log("prebid: adUnits created?", adUnits_1);
                 pbjs_1.que.push(function() {
                     if (adUnits_1.length > 0) {
                         pbjs_1.setConfig({
-                            bidderTimeout: options.timeout,
+                            bidderTimeout: timeout_1,
                             cache: {
                                 url: "https://prebid.adnxs.com/pbc/v1/cache"
                             },
                             consentManagement: {
                                 cmpApi: "iab",
-                                timeout: options.consentTimeout
+                                timeout: consentTimeout_1
                             },
-                            debug: options.debug,
+                            debug: debug_1,
                             gvlMapping: {
                                 pubProvidedId: 50
                             },
                             priceGranularity: "high",
+                            user: {
+                                ext: {
+                                    eids: [ {
+                                        source: "firstpartyid",
+                                        uids: [ {
+                                            id: window.eb_anon_uuid,
+                                            ext: {
+                                                third: window.eb_anon_uuid
+                                            }
+                                        } ]
+                                    } ]
+                                }
+                            },
                             userSync: {
                                 enabledBidders: [ "adform" ],
                                 iframeEnabled: true,
@@ -8722,8 +8624,8 @@ var jppol = function(exports) {
                                         });
                                     });
                                 }
-                                if (typeof options.adserverCallback !== "undefined") {
-                                    options.adserverCallback(bidResponse);
+                                if (typeof adserverCallback_1 !== "undefined") {
+                                    adserverCallback_1(bidResponse);
                                 }
                                 window[PREBIDAUCTION][COMPLETED] = true;
                             }
@@ -8739,9 +8641,10 @@ var jppol = function(exports) {
     var _a;
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, 
     _a);
+    var auctionHandler = new AuctionHandler();
     function prebid(options) {
         window.jppolStillWaitingForPrebid = true;
-        new AuctionHandler(options);
+        auctionHandler.add(options);
     }
     function getPrebidVideoParams(adUnitCode) {
         var adserverTargeting = window.pbjs.getAdserverTargeting(adUnitCode);
@@ -8755,6 +8658,12 @@ var jppol = function(exports) {
             }
         }
         return hbParams.join("&");
+    }
+    if (window["jppol"] && window["jppol"].cache.length) {
+        console.log("PREBID HAS CACHE", window["jppol"].cache);
+        window["jppol"].cache.forEach(function(cacheElement) {
+            prebid(cacheElement);
+        });
     }
     exports.getPrebidVideoParams = getPrebidVideoParams;
     exports.prebid = prebid;
