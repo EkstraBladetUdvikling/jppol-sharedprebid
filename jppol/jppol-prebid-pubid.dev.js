@@ -8551,6 +8551,7 @@ var jppol = function(exports) {
             try {
                 var pbjs_1 = window.pbjs;
                 this.auctionInProgress = true;
+                this.waitformore = null;
                 var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eidsAllowed = _a.eidsAllowed, keywords = _a.keywords, timeout_1 = _a.timeout;
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
                     console.log("prebid: If the auction is completed, remove adunits");
@@ -8662,7 +8663,6 @@ var jppol = function(exports) {
         return hbParams.join("&");
     }
     if (window["jppol"] && window["jppol"].cache.length) {
-        console.log("PREBID HAS CACHE", window["jppol"].cache);
         window["jppol"].cache.forEach(function(cacheElement) {
             prebid(cacheElement);
         });

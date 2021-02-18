@@ -71,6 +71,7 @@ export class AuctionHandler {
     try {
       const pbjs = (window as any).pbjs;
       this.auctionInProgress = true;
+      this.waitformore = null;
       const {
         adserverCallback,
         banners,

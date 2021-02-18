@@ -33,7 +33,6 @@ export function getPrebidVideoParams(adUnitCode: string): string {
 }
 
 if (window['jppol'] && window['jppol'].cache.length) {
-  console.log('PREBID HAS CACHE', window['jppol'].cache);
   window['jppol'].cache.forEach((cacheElement) => {
     prebid(cacheElement);
   });
