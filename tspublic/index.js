@@ -221,6 +221,7 @@ var jppol = (function (exports) {
             }
         };
         AuctionHandler.prototype.auction = function () {
+            var _this = this;
             try {
                 var pbjs_1 = window.pbjs;
                 this.auctionInProgress = true;
@@ -312,6 +313,7 @@ var jppol = (function (exports) {
                                 if (typeof adserverCallback_1 !== 'undefined') {
                                     adserverCallback_1(bidResponse);
                                 }
+                                _this.auctionInProgress = false;
                                 window[PREBIDAUCTION][COMPLETED] = true;
                             },
                         });
