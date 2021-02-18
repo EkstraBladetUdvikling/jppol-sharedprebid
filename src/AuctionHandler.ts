@@ -174,6 +174,7 @@ export class AuctionHandler {
               if (typeof adserverCallback !== 'undefined') {
                 adserverCallback(bidResponse);
               }
+              this.auctionInProgress = false;
               window[PREBIDAUCTION][COMPLETED] = true;
             },
           });
