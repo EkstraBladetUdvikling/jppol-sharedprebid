@@ -218,9 +218,6 @@ var jppol = (function (exports) {
                         message: "Trying to add more banners to prebid auction",
                     });
                 }
-                else {
-                    console.log('PREBID . WHAT UP? waitformore', this.waitformore, 'auctionInProgress', this.auctionInProgress);
-                }
             }
         };
         AuctionHandler.prototype.auction = function () {
@@ -352,7 +349,6 @@ var jppol = (function (exports) {
         return hbParams.join('&');
     }
     if (window['jppol'] && window['jppol'].cache.length) {
-        console.log('PREBID HAS CACHE', window['jppol'].cache);
         window['jppol'].cache.forEach(function (cacheElement) {
             prebid(cacheElement);
         });
