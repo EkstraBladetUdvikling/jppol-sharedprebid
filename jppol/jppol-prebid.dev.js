@@ -8024,10 +8024,6 @@ var jppol = function(exports) {
                     code: banner.targetId,
                     mediaTypes: mediaTypes
                 };
-                if (banner.pubstackData) {
-                    adUnit.pubstack = banner.pubstackData;
-                    console.log("prebid: add pubstack data");
-                }
                 adUnits.push(adUnit);
             }
             return adUnits;

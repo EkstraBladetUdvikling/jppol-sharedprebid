@@ -26,10 +26,6 @@ interface IAdUnit {
   bids: any;
   code: string;
   mediaTypes: TMediaTypes;
-  pubstack?: {
-    adUnitName: string;
-    adUnitPath: string;
-  };
 }
 
 export function AdUnitCreator(
@@ -69,10 +65,6 @@ export function AdUnitCreator(
         mediaTypes,
       };
 
-      if (banner.pubstackData) {
-        adUnit.pubstack = banner.pubstackData;
-        console.log('prebid: add pubstack data');
-      }
       adUnits.push(adUnit);
     }
 
