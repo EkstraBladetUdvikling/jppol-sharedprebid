@@ -8058,16 +8058,23 @@ var jppol = function(exports) {
                 timeout: 700
             };
             this.auctionInProgress = false;
+            this.waitformoreAllowed = true;
             console.log("PREBID AUCTIONHANDLER CONSTRUCTED!");
         }
         AuctionHandler.prototype.add = function(options) {
             var _this = this;
+            var _a;
             this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
+            this.waitformoreAllowed = (_a = options.allowWait) !== null && _a !== void 0 ? _a : this.waitformoreAllowed;
             if (options.banners) {
                 if (!this.waitformore && !this.auctionInProgress) {
-                    this.waitformore = setTimeout(function() {
-                        _this.auction();
-                    }, 250);
+                    if (this.waitformoreAllowed) {
+                        this.waitformore = setTimeout(function() {
+                            _this.auction();
+                        }, 250);
+                    } else {
+                        this.auction();
+                    }
                 } else if (this.auctionInProgress) {
                     window.ebLog({
                         component: "jppol-prebid",
