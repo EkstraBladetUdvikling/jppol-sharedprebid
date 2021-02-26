@@ -4,6 +4,7 @@ import { COMPLETED, PREBIDAUCTION } from './variables';
 
 export interface IPrebidOptions {
   adserverCallback?: any;
+  allowWait?: boolean;
   auctionCompleted?: boolean;
   banners?: IBannerObject[];
   consentTimeout?: number;
@@ -44,6 +45,7 @@ export class AuctionHandler {
   };
   private auctionInProgress = false;
   private waitformore: any;
+  private waitformoreAllowed = true;
 
   constructor() {
     console.log('PREBID AUCTIONHANDLER CONSTRUCTED!');
@@ -52,11 +54,17 @@ export class AuctionHandler {
   public add(options: IPrebidOptions) {
     this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
 
+    this.waitformoreAllowed = options.allowWait ?? this.waitformoreAllowed;
+
     if (options.banners) {
       if (!this.waitformore && !this.auctionInProgress) {
-        this.waitformore = setTimeout(() => {
+        if (this.waitformoreAllowed) {
+          this.waitformore = setTimeout(() => {
+            this.auction();
+          }, 250);
+        } else {
           this.auction();
-        }, 250);
+        }
       } else if (this.auctionInProgress) {
         (window as any).ebLog({
           component: 'jppol-prebid',
