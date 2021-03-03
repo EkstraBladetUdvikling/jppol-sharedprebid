@@ -8505,6 +8505,8 @@ var jppol = function(exports) {
                         returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
                     } else if (Object.prototype.toString.call(obj2[key]) === "[object Object]") {
                         deepObjectMerge(returnObj[key], obj2[key]);
+                    } else {
+                        returnObj[key] = obj2[key];
                     }
                 } else {
                     returnObj[key] = obj2[key];
@@ -8529,7 +8531,10 @@ var jppol = function(exports) {
         AuctionHandler.prototype.add = function(options) {
             var _this = this;
             var _a;
+            console.log("prebid AuctionHandler options", options, options.timeout);
+            console.log("prebid AuctionHandler", this.auctionSettings, "this.auctionSettings.timeout", this.auctionSettings.timeout);
             this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
+            console.log("prebid AuctionHandler", this.auctionSettings, "this.auctionSettings.timeout", this.auctionSettings.timeout);
             this.waitformoreAllowed = (_a = options.allowWait) !== null && _a !== void 0 ? _a : this.waitformoreAllowed;
             if (options.banners) {
                 if (!this.waitformore && !this.auctionInProgress) {
