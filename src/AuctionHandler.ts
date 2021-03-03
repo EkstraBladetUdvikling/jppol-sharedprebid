@@ -26,6 +26,8 @@ function deepObjectMerge(obj1, obj2) {
           Object.prototype.toString.call(obj2[key]) === '[object Object]'
         ) {
           deepObjectMerge(returnObj[key], obj2[key]);
+        } else {
+          returnObj[key] = obj2[key];
         }
       } else {
         returnObj[key] = obj2[key];

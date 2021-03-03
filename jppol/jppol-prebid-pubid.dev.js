@@ -8505,6 +8505,8 @@ var jppol = function(exports) {
                         returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
                     } else if (Object.prototype.toString.call(obj2[key]) === "[object Object]") {
                         deepObjectMerge(returnObj[key], obj2[key]);
+                    } else {
+                        returnObj[key] = obj2[key];
                     }
                 } else {
                     returnObj[key] = obj2[key];

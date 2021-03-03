@@ -177,6 +177,9 @@ var jppol = (function (exports) {
                     else if (Object.prototype.toString.call(obj2[key]) === '[object Object]') {
                         deepObjectMerge(returnObj[key], obj2[key]);
                     }
+                    else {
+                        returnObj[key] = obj2[key];
+                    }
                 }
                 else {
                     returnObj[key] = obj2[key];
