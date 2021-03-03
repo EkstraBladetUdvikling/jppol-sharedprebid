@@ -54,20 +54,8 @@ export class AuctionHandler {
   }
 
   public add(options: IPrebidOptions) {
-    console.log('prebid AuctionHandler options', options, options.timeout);
-    console.log(
-      'prebid AuctionHandler',
-      this.auctionSettings,
-      'this.auctionSettings.timeout',
-      this.auctionSettings.timeout
-    );
     this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
-    console.log(
-      'prebid AuctionHandler',
-      this.auctionSettings,
-      'this.auctionSettings.timeout',
-      this.auctionSettings.timeout
-    );
+
     this.waitformoreAllowed = options.allowWait ?? this.waitformoreAllowed;
 
     if (options.banners) {
