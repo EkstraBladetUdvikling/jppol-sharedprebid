@@ -276,11 +276,11 @@ var jppol = (function (exports) {
                                 },
                             },
                             userSync: {
-                                enabledBidders: ['adform'],
                                 iframeEnabled: true,
                                 syncDelay: 6000,
                                 userIds: [
                                     {
+                                        bidders: ['adform', 'appnexus'],
                                         name: 'pubProvidedId',
                                         params: {
                                             eids: [
