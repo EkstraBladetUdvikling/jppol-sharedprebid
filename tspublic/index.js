@@ -16,12 +16,10 @@ var jppol = (function (exports) {
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    function __spreadArrays() {
-        for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-        for (var r = Array(s), k = 0, i = 0; i < il; i++)
-            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-                r[k] = a[j];
-        return r;
+    function __spreadArray(to, from) {
+        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+            to[j] = from[i];
+        return to;
     }
 
     function encodeEIDs(eids) {
@@ -117,7 +115,7 @@ var jppol = (function (exports) {
             var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
-            return __spreadArrays(adformBids, appnexusBids, criteoBids);
+            return __spreadArray(__spreadArray(__spreadArray([], adformBids), appnexusBids), criteoBids);
         }
         catch (err) {
             console.error('jppolPrebid BidderHandler', err);
@@ -172,7 +170,7 @@ var jppol = (function (exports) {
             if (returnObj[key]) {
                 if (typeof returnObj[key] === typeof obj2[key]) {
                     if (Array.isArray(obj2[key])) {
-                        returnObj[key] = __spreadArrays(returnObj[key], obj2[key]);
+                        returnObj[key] = __spreadArray(__spreadArray([], returnObj[key]), obj2[key]);
                     }
                     else if (Object.prototype.toString.call(obj2[key]) === '[object Object]') {
                         deepObjectMerge(returnObj[key], obj2[key]);
