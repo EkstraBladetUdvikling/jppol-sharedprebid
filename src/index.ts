@@ -7,7 +7,9 @@ window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 const auctionHandler = new AuctionHandler();
 
 export function prebid(options: IPrebidOptions) {
-  (window as any).jppolStillWaitingForPrebid = true;
+  if (options.banners && options.banners.length) {
+    (window as any).jppolStillWaitingForPrebid = true;
+  }
 
   auctionHandler.add(options);
 }
