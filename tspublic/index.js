@@ -337,7 +337,9 @@ var jppol = (function (exports) {
     window[PREBIDAUCTION] = window[PREBIDAUCTION] || (_a = {}, _a[COMPLETED] = true, _a);
     var auctionHandler = new AuctionHandler();
     function prebid(options) {
-        window.jppolStillWaitingForPrebid = true;
+        if (options.banners && options.banners.length) {
+            window.jppolStillWaitingForPrebid = true;
+        }
         auctionHandler.add(options);
     }
     function getPrebidVideoParams(adUnitCode) {
