@@ -1,8 +1,12 @@
+interface ICriteoInput {
+  publisherSubId: string;
+}
+
 export interface IBannerObject {
   adformMID?: number;
   adtechId?: string;
   appnexusID?: string;
-  criteoId?: number;
+  criteo?: ICriteoInput;
   sizes: number[][];
   targetId: string;
   video?: boolean;
