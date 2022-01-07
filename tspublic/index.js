@@ -103,11 +103,13 @@ var jppol = (function (exports) {
          *  CRITEO
          * http://prebid.org/dev-docs/bidders.html#criteo
          */
-        if (typeof bannerObject.criteoId !== 'undefined') {
+        if (typeof bannerObject.criteo !== 'undefined') {
+            var publisherSubId = bannerObject.criteo.publisherSubId;
             criteoBid.push({
                 bidder: 'criteo',
                 params: {
                     networkId: 6911,
+                    publisherSubId: publisherSubId,
                 },
             });
         }

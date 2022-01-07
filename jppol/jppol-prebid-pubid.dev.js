@@ -8961,11 +8961,13 @@ var jppol = function(exports) {
     };
     var criteoBidder = function(bannerObject) {
         var criteoBid = [];
-        if (typeof bannerObject.criteoId !== "undefined") {
+        if (typeof bannerObject.criteo !== "undefined") {
+            var publisherSubId = bannerObject.criteo.publisherSubId;
             criteoBid.push({
                 bidder: "criteo",
                 params: {
-                    networkId: 6911
+                    networkId: 6911,
+                    publisherSubId: publisherSubId
                 }
             });
         }
