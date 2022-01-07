@@ -15,9 +15,9 @@ export function prebid(options: IPrebidOptions) {
 }
 
 export function getPrebidVideoParams(adUnitCode: string): string {
-  const adserverTargeting: IGetAdserverTargetingResponse = (window as any).pbjs.getAdserverTargeting(
-    adUnitCode
-  );
+  const adserverTargeting: IGetAdserverTargetingResponse = (
+    window as any
+  ).pbjs.getAdserverTargeting(adUnitCode);
 
   const hbParams = [];
 
@@ -34,7 +34,7 @@ export function getPrebidVideoParams(adUnitCode: string): string {
   return hbParams.join('&');
 }
 
-if (window['jppol'] && window['jppol'].cache.length) {
+if (window['jppol'] && window['jppol'].cache && window['jppol'].cache.length) {
   window['jppol'].cache.forEach((cacheElement) => {
     prebid(cacheElement);
   });

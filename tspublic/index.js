@@ -16,10 +16,14 @@ var jppol = (function (exports) {
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-            to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
     }
 
     function encodeEIDs(eids) {
@@ -115,7 +119,7 @@ var jppol = (function (exports) {
             var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
-            return __spreadArray(__spreadArray(__spreadArray([], adformBids), appnexusBids), criteoBids);
+            return __spreadArray(__spreadArray(__spreadArray([], adformBids, true), appnexusBids, true), criteoBids, true);
         }
         catch (err) {
             console.error('jppolPrebid BidderHandler', err);
@@ -170,7 +174,7 @@ var jppol = (function (exports) {
             if (returnObj[key]) {
                 if (typeof returnObj[key] === typeof obj2[key]) {
                     if (Array.isArray(obj2[key])) {
-                        returnObj[key] = __spreadArray(__spreadArray([], returnObj[key]), obj2[key]);
+                        returnObj[key] = __spreadArray(__spreadArray([], returnObj[key], true), obj2[key], true);
                     }
                     else if (Object.prototype.toString.call(obj2[key]) === '[object Object]') {
                         deepObjectMerge(returnObj[key], obj2[key]);
@@ -349,13 +353,13 @@ var jppol = (function (exports) {
             var targeting = adserverTargeting[adUnitCode];
             for (var key in targeting) {
                 if (targeting.hasOwnProperty(key)) {
-                    hbParams.push(key + "=" + targeting[key]);
+                    hbParams.push("".concat(key, "=").concat(targeting[key]));
                 }
             }
         }
         return hbParams.join('&');
     }
-    if (window['jppol'] && window['jppol'].cache.length) {
+    if (window['jppol'] && window['jppol'].cache && window['jppol'].cache.length) {
         window['jppol'].cache.forEach(function (cacheElement) {
             prebid(cacheElement);
         });
@@ -368,4 +372,4 @@ var jppol = (function (exports) {
 
     return exports;
 
-}({}));
+})({});
