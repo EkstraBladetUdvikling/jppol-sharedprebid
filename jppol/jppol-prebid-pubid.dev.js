@@ -349,7 +349,7 @@
                 var n = [], r = !0, i = !1, o = void 0;
                 try {
                     for (var a, c = e[Symbol.iterator](); !(r = (a = c.next()).done) && (n.push(a.value), 
-                    !t || n.length !== t); r = !0) ;
+                    !t || n.length !== t); r = !0);
                 } catch (e) {
                     i = !0, o = e;
                 } finally {
@@ -680,7 +680,7 @@
                 var n = [], r = !0, i = !1, o = void 0;
                 try {
                     for (var a, c = e[Symbol.iterator](); !(r = (a = c.next()).done) && (n.push(a.value), 
-                    !t || n.length !== t); r = !0) ;
+                    !t || n.length !== t); r = !0);
                 } catch (e) {
                     i = !0, o = e;
                 } finally {
@@ -1930,7 +1930,7 @@
                     })).forEach(function(e) {
                         var t, n = e.split(":"), r = n[0], i = n[1] || "sync";
                         c[r] || (t = o[r], c[r] = o[r] = f(i, t, a ? [ a, r ] : void 0));
-                    }), o = Object.getPrototypeOf(o), t && o; ) ;
+                    }), o = Object.getPrototypeOf(o), t && o; );
                     return c;
                 }.apply(null, arguments) : void 0;
             }
@@ -3880,7 +3880,7 @@
                 var n = [], r = !0, i = !1, o = void 0;
                 try {
                     for (var a, c = e[Symbol.iterator](); !(r = (a = c.next()).done) && (n.push(a.value), 
-                    !t || n.length !== t); r = !0) ;
+                    !t || n.length !== t); r = !0);
                 } catch (e) {
                     i = !0, o = e;
                 } finally {
@@ -5083,7 +5083,7 @@
                 var n = [], r = !0, i = !1, o = void 0;
                 try {
                     for (var a, c = e[Symbol.iterator](); !(r = (a = c.next()).done) && (n.push(a.value), 
-                    !t || n.length !== t); r = !0) ;
+                    !t || n.length !== t); r = !0);
                 } catch (e) {
                     i = !0, o = e;
                 } finally {
@@ -8893,9 +8893,14 @@ pbjs.processQueue();
 
 var jppol = function(exports) {
     "use strict";
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++) to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+            if (ar || !(i in from)) {
+                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
+            }
+        }
+        return to.concat(ar || Array.prototype.slice.call(from));
     }
     function encodeEIDs(eids) {
         var result = {};
@@ -8973,7 +8978,7 @@ var jppol = function(exports) {
             var adformBids = adformBidder(bannerObject, eidsAllowed);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
-            return __spreadArray(__spreadArray(__spreadArray([], adformBids), appnexusBids), criteoBids);
+            return __spreadArray(__spreadArray(__spreadArray([], adformBids, true), appnexusBids, true), criteoBids, true);
         } catch (err) {
             console.error("jppolPrebid BidderHandler", err);
         }
@@ -9021,7 +9026,7 @@ var jppol = function(exports) {
             if (returnObj[key]) {
                 if (typeof returnObj[key] === typeof obj2[key]) {
                     if (Array.isArray(obj2[key])) {
-                        returnObj[key] = __spreadArray(__spreadArray([], returnObj[key]), obj2[key]);
+                        returnObj[key] = __spreadArray(__spreadArray([], returnObj[key], true), obj2[key], true);
                     } else if (Object.prototype.toString.call(obj2[key]) === "[object Object]") {
                         deepObjectMerge(returnObj[key], obj2[key]);
                     } else {
@@ -9182,13 +9187,13 @@ var jppol = function(exports) {
             var targeting = adserverTargeting[adUnitCode];
             for (var key in targeting) {
                 if (targeting.hasOwnProperty(key)) {
-                    hbParams.push(key + "=" + targeting[key]);
+                    hbParams.push("".concat(key, "=").concat(targeting[key]));
                 }
             }
         }
         return hbParams.join("&");
     }
-    if (window["jppol"] && window["jppol"].cache.length) {
+    if (window["jppol"] && window["jppol"].cache && window["jppol"].cache.length) {
         window["jppol"].cache.forEach(function(cacheElement) {
             prebid(cacheElement);
         });
