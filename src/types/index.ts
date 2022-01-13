@@ -61,3 +61,9 @@ export interface IGetAdserverTargetingResponse {
     IAppnexusAdserverTargeting &
     ICriteoAdserverTargeting;
 }
+
+export enum BIDDERNAMES {
+  adform = 'adf',
+  appnexus = 'appnexus',
+  criteo = 'criteo',
+}

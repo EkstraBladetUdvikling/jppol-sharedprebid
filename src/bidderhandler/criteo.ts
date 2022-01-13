@@ -1,4 +1,4 @@
-import { IBannerObject } from '../types';
+import { BIDDERNAMES, IBannerObject } from '../types';
 
 interface ICriteoSettings {
   bidder: string;
@@ -20,7 +20,7 @@ export const criteoBidder = (
   if (typeof bannerObject.criteo !== 'undefined') {
     const { publisherSubId } = bannerObject.criteo;
     criteoBid.push({
-      bidder: 'criteo',
+      bidder: BIDDERNAMES.criteo,
       params: {
         networkId: 6911,
         publisherSubId,

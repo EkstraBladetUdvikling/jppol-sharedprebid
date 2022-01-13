@@ -1,5 +1,5 @@
 import { AdUnitCreator } from './adunitcreator';
-import { IBannerObject } from './types';
+import { BIDDERNAMES, IBannerObject } from './types';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
 export interface IPrebidOptions {
@@ -139,7 +139,7 @@ export class AuctionHandler {
               syncDelay: 6000,
               userIds: [
                 {
-                  bidders: ['adform', 'appnexus'],
+                  bidders: [BIDDERNAMES.adform, BIDDERNAMES.appnexus],
                   name: 'pubProvidedId',
                   params: {
                     eids: [

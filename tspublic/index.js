@@ -43,6 +43,13 @@ var jppol = (function (exports) {
         return btoa(JSON.stringify(result));
     }
 
+    var BIDDERNAMES;
+    (function (BIDDERNAMES) {
+        BIDDERNAMES["adform"] = "adf";
+        BIDDERNAMES["appnexus"] = "appnexus";
+        BIDDERNAMES["criteo"] = "criteo";
+    })(BIDDERNAMES || (BIDDERNAMES = {}));
+
     var adformBidder = function (bannerObject, eIdAllowed) {
         if (eIdAllowed === void 0) { eIdAllowed = false; }
         var adformBids = [];
@@ -52,7 +59,7 @@ var jppol = (function (exports) {
          */
         if (typeof bannerObject.adformMID !== 'undefined') {
             var adformObject = {
-                bidder: 'adform',
+                bidder: BIDDERNAMES.adform,
                 params: {
                     mid: bannerObject.adformMID,
                     priceType: 'net',
@@ -85,7 +92,7 @@ var jppol = (function (exports) {
          */
         if (typeof bannerObject.appnexusID !== 'undefined') {
             var appnexusObj = {
-                bidder: 'appnexus',
+                bidder: BIDDERNAMES.appnexus,
                 params: {
                     placementId: bannerObject.appnexusID,
                 },
@@ -106,7 +113,7 @@ var jppol = (function (exports) {
         if (typeof bannerObject.criteo !== 'undefined') {
             var publisherSubId = bannerObject.criteo.publisherSubId;
             criteoBid.push({
-                bidder: 'criteo',
+                bidder: BIDDERNAMES.criteo,
                 params: {
                     networkId: 6911,
                     publisherSubId: publisherSubId,
@@ -284,7 +291,7 @@ var jppol = (function (exports) {
                                 syncDelay: 6000,
                                 userIds: [
                                     {
-                                        bidders: ['adform', 'appnexus'],
+                                        bidders: [BIDDERNAMES.adform, BIDDERNAMES.appnexus],
                                         name: 'pubProvidedId',
                                         params: {
                                             eids: [
