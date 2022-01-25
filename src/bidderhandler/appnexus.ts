@@ -1,4 +1,4 @@
-import { IBannerObject } from '../types';
+import { BIDDERNAMES, IBannerObject } from '../types';
 
 interface IAppnexusSettings {
   bidder: string;
@@ -20,7 +20,7 @@ export const appnexusBidder = (
    */
   if (typeof bannerObject.appnexusID !== 'undefined') {
     const appnexusObj: IAppnexusSettings = {
-      bidder: 'appnexus',
+      bidder: BIDDERNAMES.appnexus,
       params: {
         placementId: bannerObject.appnexusID,
       },
