@@ -12,6 +12,7 @@ export interface IPrebidOptions {
   eidsAllowed?: boolean;
   keywords?: string[];
   timeout?: number;
+  userId?: string;
 }
 
 function deepObjectMerge(obj1, obj2) {
@@ -91,7 +92,9 @@ export class AuctionHandler {
         keywords,
         timeout,
       } = this.auctionSettings;
-
+      this.auctionSettings.userId = eidsAllowed
+        ? (window as any).eb_anon_uuid_adform ?? ''
+        : false;
       // If the auction is completed, remove adunits
       if (window[PREBIDAUCTION][COMPLETED] && pbjs.adUnits.length) {
         console.log('prebid: If the auction is completed, remove adunits');
@@ -99,7 +102,11 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(banners, keywords, eidsAllowed);
+      const adUnits = AdUnitCreator(
+        banners,
+        keywords,
+        this.auctionSettings.userId
+      );
       console.log('prebid: adUnits created?', adUnits);
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
@@ -124,9 +131,9 @@ export class AuctionHandler {
                     source: 'firstpartyid',
                     uids: [
                       {
-                        id: (window as any).eb_anon_uuid,
+                        id: this.auctionSettings.userId,
                         ext: {
-                          third: (window as any).eb_anon_uuid,
+                          third: this.auctionSettings.userId,
                         },
                       },
                     ],
@@ -148,7 +155,7 @@ export class AuctionHandler {
                         uids: [
                           {
                             atype: 1,
-                            id: (window as any).eb_anon_uuid,
+                            id: this.auctionSettings.userId,
                           },
                         ],
                       },

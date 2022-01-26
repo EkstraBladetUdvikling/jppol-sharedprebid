@@ -13,7 +13,7 @@ interface IAdformObject {
 
 export const adformBidder = (
   bannerObject: IBannerObject,
-  eIdAllowed = false
+  eId: string | false = false
 ) => {
   const adformBids = [];
 
@@ -31,14 +31,14 @@ export const adformBidder = (
       },
     };
 
-    if (eIdAllowed) {
+    if (eId) {
       adformObject.params.eids = encodeEIDs([
         {
           source: 'firstpartyid',
           uids: [
             {
               atype: 1,
-              id: (window as any).eb_anon_uuid,
+              id: eId,
             },
           ],
         },
