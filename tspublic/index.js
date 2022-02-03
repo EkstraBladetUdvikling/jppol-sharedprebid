@@ -240,22 +240,18 @@ var jppol = (function (exports) {
         };
         AuctionHandler.prototype.auction = function () {
             var _this = this;
-            var _a;
             try {
                 var pbjs_1 = window.pbjs;
                 this.auctionInProgress = true;
                 this.waitformore = null;
-                var _b = this.auctionSettings, adserverCallback_1 = _b.adserverCallback, banners = _b.banners, consentTimeout_1 = _b.consentTimeout, debug_1 = _b.debug, eidsAllowed = _b.eidsAllowed, keywords = _b.keywords, timeout_1 = _b.timeout;
-                this.auctionSettings.userId = eidsAllowed
-                    ? (_a = window.eb_anon_uuid_adform) !== null && _a !== void 0 ? _a : ''
-                    : false;
+                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eids_1 = _a.eids, keywords = _a.keywords, timeout_1 = _a.timeout;
                 // If the auction is completed, remove adunits
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
                     console.log('prebid: If the auction is completed, remove adunits');
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(banners, keywords, this.auctionSettings.userId);
+                var adUnits_1 = AdUnitCreator(banners, keywords, eids_1);
                 console.log('prebid: adUnits created?', adUnits_1);
                 pbjs_1.que.push(function () {
                     if (adUnits_1.length > 0) {
@@ -280,9 +276,9 @@ var jppol = (function (exports) {
                                             source: 'firstpartyid',
                                             uids: [
                                                 {
-                                                    id: _this.auctionSettings.userId,
+                                                    id: eids_1,
                                                     ext: {
-                                                        third: _this.auctionSettings.userId,
+                                                        third: eids_1,
                                                     },
                                                 },
                                             ],
@@ -304,7 +300,7 @@ var jppol = (function (exports) {
                                                     uids: [
                                                         {
                                                             atype: 1,
-                                                            id: _this.auctionSettings.userId,
+                                                            id: eids_1,
                                                         },
                                                     ],
                                                 },
