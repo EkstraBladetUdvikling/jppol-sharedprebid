@@ -50,8 +50,8 @@ var jppol = (function (exports) {
         BIDDERNAMES["criteo"] = "criteo";
     })(BIDDERNAMES || (BIDDERNAMES = {}));
 
-    var adformBidder = function (bannerObject, eIdAllowed) {
-        if (eIdAllowed === void 0) { eIdAllowed = false; }
+    var adformBidder = function (bannerObject, eId) {
+        if (eId === void 0) { eId = false; }
         var adformBids = [];
         /**
          * ADFORM
@@ -66,14 +66,14 @@ var jppol = (function (exports) {
                     rcur: 'USD',
                 },
             };
-            if (eIdAllowed) {
+            if (eId) {
                 adformObject.params.eids = encodeEIDs([
                     {
                         source: 'firstpartyid',
                         uids: [
                             {
                                 atype: 1,
-                                id: window.eb_anon_uuid,
+                                id: eId,
                             },
                         ],
                     },
@@ -123,9 +123,9 @@ var jppol = (function (exports) {
         return criteoBid;
     };
 
-    var BidderHandler = function (bannerObject, keywords, eidsAllowed) {
+    var BidderHandler = function (bannerObject, keywords, eId) {
         try {
-            var adformBids = adformBidder(bannerObject, eidsAllowed);
+            var adformBids = adformBidder(bannerObject, eId);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
             return __spreadArray(__spreadArray(__spreadArray([], adformBids, true), appnexusBids, true), criteoBids, true);
@@ -139,12 +139,12 @@ var jppol = (function (exports) {
     var COMPLETED = 'completed';
     var mimes = ['video/mp4'];
 
-    function AdUnitCreator(bannerContainer, keywords, eidsAllowed) {
+    function AdUnitCreator(bannerContainer, keywords, eId) {
         try {
             var adUnits = [];
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
-                var bidders = BidderHandler(banner, keywords, eidsAllowed);
+                var bidders = BidderHandler(banner, keywords, eId);
                 var playerSize = [[640, 480]];
                 var mediaTypes = banner.video
                     ? {
@@ -244,14 +244,14 @@ var jppol = (function (exports) {
                 var pbjs_1 = window.pbjs;
                 this.auctionInProgress = true;
                 this.waitformore = null;
-                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eidsAllowed = _a.eidsAllowed, keywords = _a.keywords, timeout_1 = _a.timeout;
+                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eids_1 = _a.eids, keywords = _a.keywords, timeout_1 = _a.timeout;
                 // If the auction is completed, remove adunits
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
                     console.log('prebid: If the auction is completed, remove adunits');
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(banners, keywords, eidsAllowed);
+                var adUnits_1 = AdUnitCreator(banners, keywords, eids_1);
                 console.log('prebid: adUnits created?', adUnits_1);
                 pbjs_1.que.push(function () {
                     if (adUnits_1.length > 0) {
@@ -276,9 +276,9 @@ var jppol = (function (exports) {
                                             source: 'firstpartyid',
                                             uids: [
                                                 {
-                                                    id: window.eb_anon_uuid,
+                                                    id: eids_1,
                                                     ext: {
-                                                        third: window.eb_anon_uuid,
+                                                        third: eids_1,
                                                     },
                                                 },
                                             ],
@@ -300,7 +300,7 @@ var jppol = (function (exports) {
                                                     uids: [
                                                         {
                                                             atype: 1,
-                                                            id: window.eb_anon_uuid,
+                                                            id: eids_1,
                                                         },
                                                     ],
                                                 },

@@ -7,10 +7,10 @@ import { IBannerObject } from '../types';
 export const BidderHandler = (
   bannerObject: IBannerObject,
   keywords?: string[],
-  eidsAllowed?: boolean
+  eId?: string | false
 ) => {
   try {
-    const adformBids = adformBidder(bannerObject, eidsAllowed);
+    const adformBids = adformBidder(bannerObject, eId);
 
     const appnexusBids = appnexusBidder(bannerObject, keywords);
 
