@@ -10195,9 +10195,9 @@ var jppol = function(exports) {
         BIDDERNAMES["appnexus"] = "appnexus";
         BIDDERNAMES["criteo"] = "criteo";
     })(BIDDERNAMES || (BIDDERNAMES = {}));
-    var adformBidder = function(bannerObject, eIdAllowed) {
-        if (eIdAllowed === void 0) {
-            eIdAllowed = false;
+    var adformBidder = function(bannerObject, eId) {
+        if (eId === void 0) {
+            eId = false;
         }
         var adformBids = [];
         if (typeof bannerObject.adformMID !== "undefined") {
@@ -10209,12 +10209,12 @@ var jppol = function(exports) {
                     rcur: "USD"
                 }
             };
-            if (eIdAllowed) {
+            if (eId) {
                 adformObject.params.eids = encodeEIDs([ {
                     source: "firstpartyid",
                     uids: [ {
                         atype: 1,
-                        id: window.eb_anon_uuid
+                        id: eId
                     } ]
                 } ]);
             }
@@ -10250,9 +10250,9 @@ var jppol = function(exports) {
         }
         return criteoBid;
     };
-    var BidderHandler = function(bannerObject, keywords, eidsAllowed) {
+    var BidderHandler = function(bannerObject, keywords, eId) {
         try {
-            var adformBids = adformBidder(bannerObject, eidsAllowed);
+            var adformBids = adformBidder(bannerObject, eId);
             var appnexusBids = appnexusBidder(bannerObject, keywords);
             var criteoBids = criteoBidder(bannerObject);
             return __spreadArray(__spreadArray(__spreadArray([], adformBids, true), appnexusBids, true), criteoBids, true);
@@ -10263,22 +10263,22 @@ var jppol = function(exports) {
     var PREBIDAUCTION = "prebidAuction";
     var COMPLETED = "completed";
     var mimes = [ "video/mp4" ];
-    function AdUnitCreator(bannerContainer, keywords, eidsAllowed) {
+    function adunitCreator(bannerContainer, keywords, eId) {
         try {
             var adUnits = [];
             for (var _i = 0, bannerContainer_1 = bannerContainer; _i < bannerContainer_1.length; _i++) {
                 var banner = bannerContainer_1[_i];
-                var bidders = BidderHandler(banner, keywords, eidsAllowed);
+                var bidders = BidderHandler(banner, keywords, eId);
                 var playerSize = [ [ 640, 480 ] ];
                 var mediaTypes = banner.video ? {
                     video: {
-                        context: "instream",
-                        playerSize: playerSize,
-                        mimes: mimes,
-                        protocols: [ 2, 3, 5, 6 ],
                         api: [ 2 ],
+                        context: "instream",
+                        linearity: 1,
                         maxduration: 30,
-                        linearity: 1
+                        mimes: mimes,
+                        playerSize: playerSize,
+                        protocols: [ 2, 3, 5, 6 ]
                     }
                 } : {
                     banner: {
@@ -10327,7 +10327,6 @@ var jppol = function(exports) {
             };
             this.auctionInProgress = false;
             this.waitformoreAllowed = true;
-            console.log("PREBID AUCTIONHANDLER CONSTRUCTED!");
         }
         AuctionHandler.prototype.add = function(options) {
             var _this = this;
@@ -10358,14 +10357,12 @@ var jppol = function(exports) {
                 var pbjs_1 = window.pbjs;
                 this.auctionInProgress = true;
                 this.waitformore = null;
-                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eidsAllowed = _a.eidsAllowed, keywords = _a.keywords, timeout_1 = _a.timeout;
+                var _a = this.auctionSettings, adserverCallback_1 = _a.adserverCallback, banners = _a.banners, consentTimeout_1 = _a.consentTimeout, debug_1 = _a.debug, eids_1 = _a.eids, keywords = _a.keywords, timeout_1 = _a.timeout;
                 if (window[PREBIDAUCTION][COMPLETED] && pbjs_1.adUnits.length) {
-                    console.log("prebid: If the auction is completed, remove adunits");
                     pbjs_1.removeAdUnit();
                 }
                 window[PREBIDAUCTION][COMPLETED] = false;
-                var adUnits_1 = AdUnitCreator(banners, keywords, eidsAllowed);
-                console.log("prebid: adUnits created?", adUnits_1);
+                var adUnits_1 = adunitCreator(banners, keywords, eids_1);
                 pbjs_1.que.push(function() {
                     if (adUnits_1.length > 0) {
                         pbjs_1.setConfig({
@@ -10387,10 +10384,10 @@ var jppol = function(exports) {
                                     eids: [ {
                                         source: "firstpartyid",
                                         uids: [ {
-                                            id: window.eb_anon_uuid,
                                             ext: {
-                                                third: window.eb_anon_uuid
-                                            }
+                                                third: eids_1
+                                            },
+                                            id: eids_1
                                         } ]
                                     } ]
                                 }
@@ -10406,7 +10403,7 @@ var jppol = function(exports) {
                                             source: "firstpartyid",
                                             uids: [ {
                                                 atype: 1,
-                                                id: window.eb_anon_uuid
+                                                id: eids_1
                                             } ]
                                         } ]
                                     }
@@ -10414,21 +10411,15 @@ var jppol = function(exports) {
                             }
                         });
                         pbjs_1.addAdUnits(adUnits_1);
-                        console.log("prebid: pbjs.adUnits?", pbjs_1.adUnits);
                         pbjs_1.requestBids({
                             bidsBackHandler: function(bidResponse) {
-                                console.log("prebid: bidsBackHandler", bidResponse);
-                                console.log("prebid: bidsBackHandler.getAdserverTargeting", pbjs_1.getAdserverTargeting());
                                 var apntag = window.apntag;
                                 if (typeof apntag !== "undefined") {
                                     pbjs_1.que.push(function() {
-                                        console.log("prebid: bidsBackHandler adding apn to pbjs que");
                                         apntag.anq.push(function() {
                                             pbjs_1.setTargetingForAst();
                                             apntag.loadTags();
                                             window.jppolStillWaitingForPrebid = false;
-                                            console.log("__apn we just loaded prebid banners");
-                                            console.log("prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()");
                                         });
                                     });
                                 }
@@ -10463,15 +10454,15 @@ var jppol = function(exports) {
         if (adserverTargeting) {
             var targeting = adserverTargeting[adUnitCode];
             for (var key in targeting) {
-                if (targeting.hasOwnProperty(key)) {
+                if (targeting[key]) {
                     hbParams.push("".concat(key, "=").concat(targeting[key]));
                 }
             }
         }
         return hbParams.join("&");
     }
-    if (window["jppol"] && window["jppol"].cache && window["jppol"].cache.length) {
-        window["jppol"].cache.forEach(function(cacheElement) {
+    if (window.jppol && window.jppol.cache && window.jppol.cache.length) {
+        window.jppol.cache.forEach(function(cacheElement) {
             prebid(cacheElement);
         });
     }

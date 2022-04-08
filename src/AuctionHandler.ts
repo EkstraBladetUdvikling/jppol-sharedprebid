@@ -9,7 +9,7 @@ export interface IPrebidOptions {
   banners?: IBannerObject[];
   consentTimeout?: number;
   debug?: boolean;
-  eidsAllowed?: boolean;
+  eids?: string | false;
   keywords?: string[];
   timeout?: number;
 }
@@ -83,7 +83,7 @@ export class AuctionHandler {
         banners,
         consentTimeout,
         debug,
-        eidsAllowed,
+        eids,
         keywords,
         timeout,
       } = this.auctionSettings;
@@ -94,7 +94,7 @@ export class AuctionHandler {
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = adunitCreator(banners, keywords, eidsAllowed);
+      const adUnits = adunitCreator(banners, keywords, eids);
 
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
@@ -120,9 +120,9 @@ export class AuctionHandler {
                     uids: [
                       {
                         ext: {
-                          third: (window as any).eb_anon_uuid,
+                          third: eids,
                         },
-                        id: (window as any).eb_anon_uuid,
+                        id: eids,
                       },
                     ],
                   },
@@ -143,7 +143,7 @@ export class AuctionHandler {
                         uids: [
                           {
                             atype: 1,
-                            id: (window as any).eb_anon_uuid,
+                            id: eids,
                           },
                         ],
                       },

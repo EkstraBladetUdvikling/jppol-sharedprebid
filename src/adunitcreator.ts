@@ -31,13 +31,13 @@ interface IAdUnit {
 export function adunitCreator(
   bannerContainer: any,
   keywords?: string[],
-  eidsAllowed?: boolean
+  eId?: string | false
 ) {
   try {
     const adUnits = [];
 
     for (const banner of bannerContainer) {
-      const bidders = BidderHandler(banner, keywords, eidsAllowed);
+      const bidders = BidderHandler(banner, keywords, eId);
 
       const playerSize = [[640, 480]];
 
