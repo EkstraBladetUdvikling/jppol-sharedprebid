@@ -1,4 +1,4 @@
-import { AdUnitCreator } from './adunitcreator';
+import { adunitCreator } from './adunitcreator';
 import { BIDDERNAMES, IBannerObject } from './types';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
@@ -49,10 +49,6 @@ export class AuctionHandler {
   private waitformore: any;
   private waitformoreAllowed = true;
 
-  constructor() {
-    console.log('PREBID AUCTIONHANDLER CONSTRUCTED!');
-  }
-
   public add(options: IPrebidOptions) {
     this.auctionSettings = deepObjectMerge(this.auctionSettings, options);
 
@@ -94,13 +90,12 @@ export class AuctionHandler {
 
       // If the auction is completed, remove adunits
       if (window[PREBIDAUCTION][COMPLETED] && pbjs.adUnits.length) {
-        console.log('prebid: If the auction is completed, remove adunits');
         pbjs.removeAdUnit();
       }
 
       window[PREBIDAUCTION][COMPLETED] = false;
-      const adUnits = AdUnitCreator(banners, keywords, eids);
-      console.log('prebid: adUnits created?', adUnits);
+      const adUnits = adunitCreator(banners, keywords, eids);
+
       pbjs.que.push(() => {
         if (adUnits.length > 0) {
           pbjs.setConfig({
@@ -124,10 +119,10 @@ export class AuctionHandler {
                     source: 'firstpartyid',
                     uids: [
                       {
-                        id: eids,
                         ext: {
                           third: eids,
                         },
+                        id: eids,
                       },
                     ],
                   },
@@ -159,26 +154,16 @@ export class AuctionHandler {
             },
           });
           pbjs.addAdUnits(adUnits);
-          console.log('prebid: pbjs.adUnits?', pbjs.adUnits);
+
           pbjs.requestBids({
             bidsBackHandler: (bidResponse) => {
-              console.log('prebid: bidsBackHandler', bidResponse);
-              console.log(
-                'prebid: bidsBackHandler.getAdserverTargeting',
-                pbjs.getAdserverTargeting()
-              );
               const apntag = (window as any).apntag;
               if (typeof apntag !== 'undefined') {
                 pbjs.que.push(() => {
-                  console.log('prebid: bidsBackHandler adding apn to pbjs que');
                   apntag.anq.push(() => {
                     pbjs.setTargetingForAst();
                     apntag.loadTags();
                     (window as any).jppolStillWaitingForPrebid = false;
-                    console.log('__apn we just loaded prebid banners');
-                    console.log(
-                      'prebid: bidsBackHandler pbjs.setTargetingForAst() && apntag.loadTags()'
-                    );
                   });
                 });
               }
