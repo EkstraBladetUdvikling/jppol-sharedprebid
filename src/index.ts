@@ -1,6 +1,7 @@
-import { AuctionHandler, IPrebidOptions } from './AuctionHandler';
-import { IGetAdserverTargetingResponse } from './types';
+import { AuctionHandler, IPrebidOptions } from './auctionhandler';
 import { COMPLETED, PREBIDAUCTION } from './variables';
+
+import type { IGetAdserverTargetingResponse } from './types';
 
 window[PREBIDAUCTION] = window[PREBIDAUCTION] || { [COMPLETED]: true };
 
@@ -25,7 +26,7 @@ export function getPrebidVideoParams(adUnitCode: string): string {
     const targeting = adserverTargeting[adUnitCode];
 
     for (const key in targeting) {
-      if (targeting.hasOwnProperty(key)) {
+      if (targeting[key]) {
         hbParams.push(`${key}=${targeting[key]}`);
       }
     }
@@ -34,8 +35,8 @@ export function getPrebidVideoParams(adUnitCode: string): string {
   return hbParams.join('&');
 }
 
-if (window['jppol'] && window['jppol'].cache && window['jppol'].cache.length) {
-  window['jppol'].cache.forEach((cacheElement) => {
+if (window.jppol && window.jppol.cache && window.jppol.cache.length) {
+  window.jppol.cache.forEach((cacheElement) => {
     prebid(cacheElement);
   });
 }

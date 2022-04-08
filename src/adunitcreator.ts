@@ -28,7 +28,7 @@ interface IAdUnit {
   mediaTypes: TMediaTypes;
 }
 
-export function AdUnitCreator(
+export function adunitCreator(
   bannerContainer: any,
   keywords?: string[],
   eidsAllowed?: boolean
@@ -44,13 +44,13 @@ export function AdUnitCreator(
       const mediaTypes: TMediaTypes = banner.video
         ? {
             video: {
-              context: 'instream',
-              playerSize,
-              mimes,
-              protocols: [2, 3, 5, 6],
               api: [2],
-              maxduration: 30,
+              context: 'instream',
               linearity: 1,
+              maxduration: 30,
+              mimes,
+              playerSize,
+              protocols: [2, 3, 5, 6],
             },
           }
         : {
