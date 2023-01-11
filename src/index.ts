@@ -1,4 +1,4 @@
-import { AuctionHandler, IPrebidOptions } from './auctionhandler';
+import { AuctionHandler, IPrebidOptions } from './AuctionHandler';
 import { COMPLETED, PREBIDAUCTION } from './variables';
 
 import type { IGetAdserverTargetingResponse } from './types';
