@@ -124,16 +124,18 @@
         }, t.insertHtmlIntoIframe = function(e) {
             if (!e) return;
             var t = document.createElement("iframe");
-            t.id = D(), t.width = 0, t.height = 0, t.hspace = "0", t.vspace = "0", t.marginWidth = "0", 
-            t.marginHeight = "0", t.style.display = "none", t.style.height = "0px", t.style.width = "0px", 
-            t.scrolling = "no", t.frameBorder = "0", t.allowtransparency = "true", C.insertElement(t, document, "body"), 
-            t.contentWindow.document.open(), t.contentWindow.document.write(e), t.contentWindow.document.close();
+            t.id = D(), t.width = 0, t.height = 0, t.hspace = "0", t.vspace = "0", 
+            t.marginWidth = "0", t.marginHeight = "0", t.style.display = "none", 
+            t.style.height = "0px", t.style.width = "0px", t.scrolling = "no", t.frameBorder = "0", 
+            t.allowtransparency = "true", C.insertElement(t, document, "body"), 
+            t.contentWindow.document.open(), t.contentWindow.document.write(e), 
+            t.contentWindow.document.close();
         }, t.insertUserSyncIframe = ie, t.createTrackPixelHtml = function(e) {
             if (!e) return "";
             var t = encodeURI(e), n = '<div style="position:absolute;left:0px;top:0px;visibility:hidden;">';
             return n += '<img src="' + t + '"></div>';
-        }, t.createTrackPixelIframeHtml = oe, t.getValueString = ae, t.uniques = ce, t.flatten = ue, 
-        t.getBidRequest = function(e, t) {
+        }, t.createTrackPixelIframeHtml = oe, t.getValueString = ae, t.uniques = ce, 
+        t.flatten = ue, t.getBidRequest = function(e, t) {
             if (!e) return;
             var n;
             return t.some(function(t) {
@@ -293,7 +295,8 @@
         }, t.convertTypes = function(e, t) {
             return Object.keys(e).forEach(function(n) {
                 var r, i;
-                t[n] && (K(e[n]) ? t[n] = e[n](t[n]) : t[n] = (r = e[n], i = t[n], "string" === r ? i && i.toString() : "number" === r ? Number(i) : i), 
+                t[n] && (K(e[n]) ? t[n] = e[n](t[n]) : t[n] = (r = e[n], i = t[n], 
+                "string" === r ? i && i.toString() : "number" === r ? Number(i) : i), 
                 isNaN(t[n]) && delete t.key);
             }), t;
         }, t.isArrayOfNums = function(e, t) {
@@ -360,7 +363,8 @@
                 return 4290772992 & e && (n += (4290772992 & e) * t | 0), 0 | n;
             }, i = 3735928559 ^ n, o = 1103547991 ^ n, a = 0; a < e.length; a++) t = e.charCodeAt(a), 
             i = r(i ^ t, 2654435761), o = r(o ^ t, 1597334677);
-            return i = r(i ^ i >>> 16, 2246822507) ^ r(o ^ o >>> 13, 3266489909), (4294967296 * (2097151 & (o = r(o ^ o >>> 16, 2246822507) ^ r(i ^ i >>> 13, 3266489909))) + (i >>> 0)).toString();
+            return i = r(i ^ i >>> 16, 2246822507) ^ r(o ^ o >>> 13, 3266489909), 
+            (4294967296 * (2097151 & (o = r(o ^ o >>> 16, 2246822507) ^ r(i ^ i >>> 13, 3266489909))) + (i >>> 0)).toString();
         }, t.isAllowZeroCpmBidsEnabled = function(e) {
             var t = Object(i.a)().bidderSettings;
             return t[e] && !0 === t[e].allowZeroCpmBids || t.standard && !0 === t.standard.allowZeroCpmBids;
@@ -378,7 +382,8 @@
                 if (null == n) return;
                 var r, i, o = [], a = !0, c = !1;
                 try {
-                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), !t || o.length !== t); a = !0);
+                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), 
+                    !t || o.length !== t); a = !0);
                 } catch (e) {
                     c = !0, i = e;
                 } finally {
@@ -406,7 +411,8 @@
             if (e) {
                 if ("string" == typeof e) return v(e, t);
                 var n = Object.prototype.toString.call(e).slice(8, -1);
-                return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? v(e, t) : void 0;
+                return "Object" === n && e.constructor && (n = e.constructor.name), 
+                "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? v(e, t) : void 0;
             }
         }
         function v(e, t) {
@@ -508,8 +514,8 @@
         function z(e, t) {
             e = [].slice.call(e);
             var n = r.b.getCurrentBidder();
-            return t && e.unshift(t), n && e.unshift(i("#aaa")), e.unshift(i("#3b88c3")), e.unshift("%cPrebid" + (n ? "%c".concat(n) : "")), 
-            e;
+            return t && e.unshift(t), n && e.unshift(i("#aaa")), e.unshift(i("#3b88c3")), 
+            e.unshift("%cPrebid" + (n ? "%c".concat(n) : "")), e;
             function i(e) {
                 return "display: inline-block; color: #fff; background: ".concat(e, "; padding: 1px 4px; border-radius: 3px;");
             }
@@ -566,8 +572,8 @@
             var n = null;
             return new Promise(function(r) {
                 var i = function t() {
-                    e.removeEventListener("load", t), e.removeEventListener("error", t), null != n && window.clearTimeout(n), 
-                    r();
+                    e.removeEventListener("load", t), e.removeEventListener("error", t), 
+                    null != n && window.clearTimeout(n), r();
                 };
                 e.addEventListener("load", i), e.addEventListener("error", i), null != t && (n = window.setTimeout(i, t));
             });
@@ -584,7 +590,8 @@
         }
         function oe(e) {
             var t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1], n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "";
-            return e ? (t && (e = encodeURI(e)), n && (n = 'sandbox="'.concat(n, '"')), "<iframe ".concat(n, ' id="').concat(D(), '"\n      frameborder="0"\n      allowtransparency="true"\n      marginheight="0" marginwidth="0"\n      width="0" hspace="0" vspace="0" height="0"\n      style="height:0px;width:0px;display:none;"\n      scrolling="no"\n      src="').concat(e, '">\n    </iframe>')) : "";
+            return e ? (t && (e = encodeURI(e)), n && (n = 'sandbox="'.concat(n, '"')), 
+            "<iframe ".concat(n, ' id="').concat(D(), '"\n      frameborder="0"\n      allowtransparency="true"\n      marginheight="0" marginwidth="0"\n      width="0" hspace="0" vspace="0" height="0"\n      style="height:0px;width:0px;display:none;"\n      scrolling="no"\n      src="').concat(e, '">\n    </iframe>')) : "";
         }
         function ae(e, t, n) {
             return null == t ? n : J(t) ? t : Q(t) ? t.toString() : void C.logWarn("Unsuported type for param: " + e + " required type: String");
@@ -636,8 +643,8 @@
         function je(e) {
             return e ? e.replace(/^\?/, "").split("&").reduce(function(e, t) {
                 var n = p(t.split("="), 2), r = n[0], i = n[1];
-                return /\[\]$/.test(r) ? (e[r = r.replace("[]", "")] = e[r] || [], e[r].push(i)) : e[r] = i || "", 
-                e;
+                return /\[\]$/.test(r) ? (e[r = r.replace("[]", "")] = e[r] || [], 
+                e[r].push(i)) : e[r] = i || "", e;
             }, {}) : {};
         }
         function Se(e) {
@@ -708,7 +715,8 @@
                 if (null == n) return;
                 var r, i, o = [], a = !0, c = !1;
                 try {
-                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), !t || o.length !== t); a = !0);
+                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), 
+                    !t || o.length !== t); a = !0);
                 } catch (e) {
                     c = !0, i = e;
                 } finally {
@@ -823,17 +831,20 @@
                                         function u(t) {
                                             var n = h[t.requestId];
                                             if (n) {
-                                                t.originalCpm = t.cpm, t.originalCurrency = t.currency, t.meta = t.meta || A({}, t[n.bidder]);
+                                                t.originalCpm = t.cpm, t.originalCurrency = t.currency, 
+                                                t.meta = t.meta || A({}, t[n.bidder]);
                                                 var i = A(Object(a.a)(f.a.STATUS.GOOD, n), t);
                                                 !function(e, t) {
                                                     g[e] = !0, _(e, t, [ r ]) && c(e, t);
                                                 }(n.adUnitCode, i);
                                             } else Object(y.logWarn)("Bidder ".concat(e.code, " made bid for unknown request ID: ").concat(t.requestId, ". Ignoring."));
                                         }
-                                        o && (Object(y.isArray)(o) ? o.forEach(u) : u(o)), O(o);
+                                        o && (Object(y.isArray)(o) ? o.forEach(u) : u(o)), 
+                                        O(o);
                                     }
                                     function o(t, n) {
-                                        d(e.code), i.default.callBidderError(e.code, n, r), p.a.emit(f.a.EVENTS.BIDDER_ERROR, {
+                                        d(e.code), i.default.callBidderError(e.code, n, r), 
+                                        p.a.emit(f.a.EVENTS.BIDDER_ERROR, {
                                             error: n,
                                             bidderRequest: r
                                         }), Object(y.logError)("Server call for ".concat(e.code, " failed: ").concat(t, " ").concat(n.status, ". Continuing without bids.")), 
@@ -918,14 +929,17 @@
                 var r = Object(y.getBidderRequest)(n, t.bidderCode, e), i = r && r.bids && r.bids[0] && r.bids[0].sizes, o = Object(y.parseSizesInput)(i);
                 if (1 === o.length) {
                     var a = j(o[0].split("x"), 2), c = a[0], u = a[1];
-                    return t.width = parseInt(c, 10), t.height = parseInt(u, 10), !0;
+                    return t.width = parseInt(c, 10), t.height = parseInt(u, 10), 
+                    !0;
                 }
                 return !1;
             }(e, t, n)) || (Object(y.logError)(r("Banner bids require a width and height")), 
             !1) : (Object(y.logError)(r("Video bid does not have required vastUrl or renderer property")), 
-            !1) : (Object(y.logError)(r("Native bid missing some required properties.")), !1) : (Object(y.logError)(r("Bidder ".concat(t.bidderCode, " is missing required params. Check http://prebid.org/dev-docs/bidder-adapter-1.html for list of params."))), 
+            !1) : (Object(y.logError)(r("Native bid missing some required properties.")), 
+            !1) : (Object(y.logError)(r("Bidder ".concat(t.bidderCode, " is missing required params. Check http://prebid.org/dev-docs/bidder-adapter-1.html for list of params."))), 
             !1)) : (Object(y.logWarn)("Some adapter tried to add an undefined bid for ".concat(e, ".")), 
-            !1) : (Object(y.logWarn)("No adUnitCode was supplied to addBidResponse."), !1);
+            !1) : (Object(y.logWarn)("No adUnitCode was supplied to addBidResponse."), 
+            !1);
             var i;
         }
         Object(m.a)("checkAdUnitSetup").before(R);
@@ -957,7 +971,8 @@
                     args: r,
                     id: o,
                     elapsedTime: i.getPerformanceNow()
-                }), o && i.contains(u, o) && c.apply(f, a[o].que), c.apply(f, a.que), i._each(f, function(e) {
+                }), o && i.contains(u, o) && c.apply(f, a[o].que), c.apply(f, a.que), 
+                i._each(f, function(e) {
                     if (e) try {
                         e.apply(null, n);
                     } catch (e) {
@@ -1066,7 +1081,8 @@
                         Object(i.logWarn)("Unfriendly iFrame blocks sizeConfig from being correctly evaluated"), 
                         n = matchMedia(t.mediaQuery).matches;
                     }
-                    n && (Array.isArray(t.sizesSupported) && (e.shouldFilter = !0), [ "labels", "sizesSupported" ].forEach(function(n) {
+                    n && (Array.isArray(t.sizesSupported) && (e.shouldFilter = !0), 
+                    [ "labels", "sizesSupported" ].forEach(function(n) {
                         return (t[n] || []).forEach(function(t) {
                             return e[n][t] = !0;
                         });
@@ -1117,8 +1133,8 @@
         function a(e) {
             var t, n, r, a = {
                 type: "xml",
-                value: e.vastXml ? e.vastXml : (t = e.vastUrl, n = e.vastImpUrl, r = n ? "<![CDATA[".concat(n, "]]>") : "", 
-                '<VAST version="3.0">\n    <Ad>\n      <Wrapper>\n        <AdSystem>prebid.org wrapper</AdSystem>\n        <VASTAdTagURI><![CDATA['.concat(t, "]]></VASTAdTagURI>\n        <Impression>").concat(r, "</Impression>\n        <Creatives></Creatives>\n      </Wrapper>\n    </Ad>\n  </VAST>")),
+                value: e.vastXml ? e.vastXml : (t = e.vastUrl, n = e.vastImpUrl, 
+                r = n ? "<![CDATA[".concat(n, "]]>") : "", '<VAST version="3.0">\n    <Ad>\n      <Wrapper>\n        <AdSystem>prebid.org wrapper</AdSystem>\n        <VASTAdTagURI><![CDATA['.concat(t, "]]></VASTAdTagURI>\n        <Impression>").concat(r, "</Impression>\n        <Creatives></Creatives>\n      </Wrapper>\n    </Ad>\n  </VAST>")),
                 ttlseconds: Number(e.ttl)
             };
             return i.b.getConfig("cache.vasttrack") && (a.bidder = e.bidder, a.bidid = e.requestId, 
@@ -1346,8 +1362,8 @@
                         previous: r = o.last,
                         next: void 0,
                         removed: !1
-                    }, o.first || (o.first = a), r && (r.next = a), f ? o.size++ : e.size++, "F" !== i && (o.index[i] = a)), 
-                    e;
+                    }, o.first || (o.first = a), r && (r.next = a), f ? o.size++ : e.size++, 
+                    "F" !== i && (o.index[i] = a)), e;
                 }, y = function(e, t) {
                     var n, r = p(e), i = l(t);
                     if ("F" !== i) return r.index[i];
@@ -1355,16 +1371,18 @@
                 };
                 return o(d.prototype, {
                     clear: function() {
-                        for (var e = p(this), t = e.index, n = e.first; n; ) n.removed = !0, n.previous && (n.previous = n.previous.next = void 0), 
-                        delete t[n.index], n = n.next;
+                        for (var e = p(this), t = e.index, n = e.first; n; ) n.removed = !0, 
+                        n.previous && (n.previous = n.previous.next = void 0), delete t[n.index], 
+                        n = n.next;
                         e.first = e.last = void 0, f ? e.size = 0 : this.size = 0;
                     },
                     delete: function(e) {
                         var t = this, n = p(t), r = y(t, e);
                         if (r) {
                             var i = r.next, o = r.previous;
-                            delete n.index[r.index], r.removed = !0, o && (o.next = i), i && (i.previous = o), 
-                            n.first == r && (n.first = i), n.last == r && (n.last = o), f ? n.size-- : t.size--;
+                            delete n.index[r.index], r.removed = !0, o && (o.next = i), 
+                            i && (i.previous = o), n.first == r && (n.first = i), 
+                            n.last == r && (n.last = o), f ? n.size-- : t.size--;
                         }
                         return !!r;
                     },
@@ -1613,16 +1631,17 @@
         "use strict";
         t.a = function() {
             return window.pbjs;
-        }, window.pbjs = window.pbjs || {}, window.pbjs.cmd = window.pbjs.cmd || [], window.pbjs.que = window.pbjs.que || [], 
-        window._pbjsGlobals = window._pbjsGlobals || [], window._pbjsGlobals.push("pbjs");
+        }, window.pbjs = window.pbjs || {}, window.pbjs.cmd = window.pbjs.cmd || [], 
+        window.pbjs.que = window.pbjs.que || [], window._pbjsGlobals = window._pbjsGlobals || [], 
+        window._pbjsGlobals.push("pbjs");
     },
     140: function(e, t, n) {
         "use strict";
         var r = n(24), i = n(25), o = n(21);
         e.exports = function(e) {
             var t, n, a, c, u = arguments.length, s = u > 1 ? arguments[1] : void 0;
-            return r(this), (t = void 0 !== s) && r(s), null == e ? new this() : (n = [], t ? (a = 0, 
-            c = i(s, u > 2 ? arguments[2] : void 0, 2), o(e, function(e) {
+            return r(this), (t = void 0 !== s) && r(s), null == e ? new this() : (n = [], 
+            t ? (a = 0, c = i(s, u > 2 ? arguments[2] : void 0, 2), o(e, function(e) {
                 n.push(c(e, a++));
             })) : o(e, n.push, {
                 that: n
@@ -1812,7 +1831,8 @@
         }, {
             isSubsetOf: function(e) {
                 var t = u(this), n = a(e), r = n.has;
-                return "function" != typeof r && (n = new (o("Set"))(e), r = c(n.has)), !s(t, function(e, t) {
+                return "function" != typeof r && (n = new (o("Set"))(e), r = c(n.has)), 
+                !s(t, function(e, t) {
                     if (!1 === r.call(n, e)) return t();
                 }, {
                     IS_ITERATOR: !0,
@@ -1958,10 +1978,10 @@
         e.exports = function(e, t) {
             var n, f, l, p, g, b, v, y, h = e.target, m = e.global, O = e.stat, j = e.proto, S = m ? r : O ? r[h] : (r[h] || {}).prototype, E = m ? a : a[h] || (a[h] = {}), A = E.prototype;
             for (l in t) n = !o(m ? l : h + (O ? "." : "#") + l, e.forced) && S && s(S, l), 
-            g = E[l], n && (b = e.noTargetGet ? (y = i(S, l)) && y.value : S[l]), p = n && b ? b : t[l], 
-            n && typeof g == typeof p || (v = e.bind && n ? c(p, r) : e.wrap && n ? d(p) : j && "function" == typeof p ? c(Function.call, p) : p, 
-            (e.sham || p && p.sham || g && g.sham) && u(v, "sham", !0), E[l] = v, j && (s(a, f = h + "Prototype") || u(a, f, {}), 
-            a[f][l] = p, e.real && A && !A[l] && u(A, l, p)));
+            g = E[l], n && (b = e.noTargetGet ? (y = i(S, l)) && y.value : S[l]), 
+            p = n && b ? b : t[l], n && typeof g == typeof p || (v = e.bind && n ? c(p, r) : e.wrap && n ? d(p) : j && "function" == typeof p ? c(Function.call, p) : p, 
+            (e.sham || p && p.sham || g && g.sham) && u(v, "sham", !0), E[l] = v, 
+            j && (s(a, f = h + "Prototype") || u(a, f, {}), a[f][l] = p, e.real && A && !A[l] && u(A, l, p)));
         };
     },
     160: function(e, t, n) {
@@ -2221,7 +2241,8 @@
                     return v.apply ? v.apply(i, this, o(arguments)) : i.apply(this, arguments);
                 }, b), r.get(g.after).install(n, g, function(e, t) {
                     var r, i = [];
-                    e.length || t.length ? (e.forEach(a), r = i.push(void 0) - 1, t.forEach(a), f = function(e, t, a) {
+                    e.length || t.length ? (e.forEach(a), r = i.push(void 0) - 1, 
+                    t.forEach(a), f = function(e, t, a) {
                         var c, u = 0, s = "async" === n && "function" == typeof a[a.length - 1] && a.pop();
                         function d(e) {
                             "sync" === n ? c = e : s && s.apply(null, arguments);
@@ -2301,7 +2322,8 @@
                     if (y) if (b) {
                         var m = g.context;
                         try {
-                            o = h = m.sourceUrl, l = !0, n === e.top && (d = !0), m.canonicalUrl && (a = m.canonicalUrl);
+                            o = h = m.sourceUrl, l = !0, n === e.top && (d = !0), 
+                            m.canonicalUrl && (a = m.canonicalUrl);
                         } catch (e) {}
                     } else {
                         Object(i.logWarn)("Trying to access cross domain iframe. Continuing without referrer and location");
@@ -2537,8 +2559,8 @@
                 } else if ("allAssetRequest" === n.action) {
                     var d = Object(o.c)(n, r);
                     e.source.postMessage(JSON.stringify(d), e.origin);
-                } else if ("resizeNativeHeight" === n.action) r.height = n.height, r.width = n.width, 
-                m(r); else {
+                } else if ("resizeNativeHeight" === n.action) r.height = n.height, 
+                r.width = n.width, m(r); else {
                     if ("click" === Object(o.b)(n, r)) return;
                     s.a.addWinningBid(r), i.a.emit(v, r);
                 }
@@ -2732,7 +2754,8 @@
             function J(e, t) {
                 if (t && clearTimeout(a), void 0 === n) {
                     var i = [];
-                    e && (Object(r.logMessage)("Auction ".concat(W, " timedOut")), c = H, (i = q.map(function(e) {
+                    e && (Object(r.logMessage)("Auction ".concat(W, " timedOut")), 
+                    c = H, (i = q.map(function(e) {
                         return (e.bids || []).filter(function(e) {
                             return !c.has(e.bidder);
                         });
@@ -2743,8 +2766,8 @@
                             adUnitCode: e.adUnitCode,
                             auctionId: e.auctionId
                         };
-                    })).length && j.emit(S.EVENTS.BID_TIMEOUT, i)), o = A, n = Date.now(), j.emit(S.EVENTS.AUCTION_END, K()), 
-                    _(k, function() {
+                    })).length && j.emit(S.EVENTS.BID_TIMEOUT, i)), o = A, n = Date.now(), 
+                    j.emit(S.EVENTS.AUCTION_END, K()), _(k, function() {
                         try {
                             if (null != F) {
                                 var t = P, n = G.filter(r.bind.call(r.adUnitsFilter, this, t)).reduce(M, {});
@@ -2778,7 +2801,8 @@
                     bidRequests: e,
                     run: function() {
                         var s, p;
-                        s = J.bind(null, !0), p = setTimeout(s, z), a = p, o = E, j.emit(S.EVENTS.AUCTION_INIT, K());
+                        s = J.bind(null, !0), p = setTimeout(s, z), a = p, o = E, 
+                        j.emit(S.EVENTS.AUCTION_INIT, K());
                         var v = function(e, t) {
                             var n = 0, o = !1, a = new Set(), s = {};
                             function d() {
@@ -2796,7 +2820,8 @@
                                         bidder: n.bidderCode,
                                         adUnitCode: t
                                     });
-                                    d.timeToRespond = d.responseTimestamp - d.requestTimestamp, j.emit(S.EVENTS.BID_ADJUSTMENT, d);
+                                    d.timeToRespond = d.responseTimestamp - d.requestTimestamp, 
+                                    j.emit(S.EVENTS.BID_ADJUSTMENT, d);
                                     var f = o.bids && l()(o.bids, function(e) {
                                         return e.adUnitCode == t && e.bidId == d.requestId;
                                     }), p = f && f.renderer, g = d.mediaType, b = f && f.mediaTypes && f.mediaTypes[g], v = b && b.renderer, m = null;
@@ -2805,8 +2830,9 @@
                                         url: m.url
                                     }), d.renderer.setRender(m.render));
                                     var O = D(n.mediaType, f, u.b.getConfig("mediaTypePriceGranularity")), E = Object(i.a)(d.cpm, "object" === y(O) ? O : u.b.getConfig("customPriceBucket"), u.b.getConfig("currency.granularityMultiplier"));
-                                    return d.pbLg = E.low, d.pbMg = E.med, d.pbHg = E.high, d.pbAg = E.auto, d.pbDg = E.dense, 
-                                    d.pbCg = E.custom, d;
+                                    return d.pbLg = E.low, d.pbMg = E.med, d.pbHg = E.high, 
+                                    d.pbAg = E.auto, d.pbDg = E.dense, d.pbCg = E.custom, 
+                                    d;
                                 }({
                                     adUnitCode: e,
                                     bid: o,
@@ -2865,8 +2891,8 @@
                     var t = !0, n = u.b.getConfig("maxRequestsPerOrigin") || 4;
                     return e.bidRequests.some(function(e) {
                         var r = 1, i = void 0 !== e.src && e.src === S.S2S.SRC ? "s2s" : e.bidderCode;
-                        return I[i] && (!1 === I[i].SRA && (r = Math.min(e.bids.length, n)), T[I[i].origin] + r > n && (t = !1)), 
-                        !t;
+                        return I[i] && (!1 === I[i].SRA && (r = Math.min(e.bids.length, n)), 
+                        T[I[i].origin] + r > n && (t = !1)), !t;
                     }), t && e.run(), t;
                 }
                 function f(e, t) {
@@ -2886,7 +2912,8 @@
                 callBids: function() {
                     o = "started", t = Date.now();
                     var e = O.makeBidRequests(k, t, W, z, N);
-                    Object(r.logInfo)("Bids Requested for Auction with id: ".concat(W), e), e.length < 1 ? (Object(r.logWarn)("No valid bid requests returned for auction"), 
+                    Object(r.logInfo)("Bids Requested for Auction with id: ".concat(W), e), 
+                    e.length < 1 ? (Object(r.logWarn)("No valid bid requests returned for auction"), 
                     Y()) : R.call({
                         dispatch: $,
                         context: this
@@ -3063,7 +3090,8 @@
             var o = t[S.JSON_MAPPING.ADSERVER_TARGETING];
             return n.size = n.getSize(), Object(r._each)(o, function(o) {
                 var a = o.key, c = o.val;
-                if (e[a] && Object(r.logWarn)("The key: " + a + " is being overwritten"), Object(r.isFn)(c)) try {
+                if (e[a] && Object(r.logWarn)("The key: " + a + " is being overwritten"), 
+                Object(r.isFn)(c)) try {
                     c = c(n, i);
                 } catch (e) {
                     Object(r.logError)("bidmanager", "ERROR", e);
@@ -3858,10 +3886,11 @@
                         var b = Object(i.parseUrl)(t, d);
                         o(b.search, s), t = Object(i.buildUrl)(b);
                     }
-                    f.open(l, t, !0), r.b.getConfig("disableAjaxTimeout") || (f.timeout = e), d.withCredentials && (f.withCredentials = !0), 
-                    Object(i._each)(d.customHeaders, function(e, t) {
+                    f.open(l, t, !0), r.b.getConfig("disableAjaxTimeout") || (f.timeout = e), 
+                    d.withCredentials && (f.withCredentials = !0), Object(i._each)(d.customHeaders, function(e, t) {
                         f.setRequestHeader(t, e);
-                    }), d.preflight && f.setRequestHeader("X-Requested-With", "XMLHttpRequest"), f.setRequestHeader("Content-Type", d.contentType || "text/plain"), 
+                    }), d.preflight && f.setRequestHeader("X-Requested-With", "XMLHttpRequest"), 
+                    f.setRequestHeader("Content-Type", d.contentType || "text/plain"), 
                     "function" == typeof n && n(p.origin), "POST" === l && s ? f.send(s) : f.send();
                 } catch (e) {
                     Object(i.logError)("xhr construction", e), "object" === a(u) && null !== u && u.error(e);
@@ -4175,7 +4204,8 @@
                     Object.keys(e).filter(t ? t(n) : Object(r.isAdUnitCodeMatchingSlot)(n)).forEach(function(t) {
                         Object.keys(e[t]).forEach(function(n) {
                             var r = e[t][n];
-                            "string" == typeof r && -1 !== r.indexOf(",") && (r = r.split(",")), e[t][n] = r;
+                            "string" == typeof r && -1 !== r.indexOf(",") && (r = r.split(",")), 
+                            e[t][n] = r;
                         }), Object(r.logMessage)("Attempting to set targeting-map for slot: ".concat(n.getSlotElementId(), " with targeting-map:"), e[t]), 
                         n.updateTargetingFromMap(e[t]);
                     });
@@ -4205,7 +4235,8 @@
                         if (Object(r.logMessage)("Attempting to set targeting for targetId: ".concat(e, " key: ").concat(t, " value: ").concat(n[e][t])), 
                         Object(r.isStr)(n[e][t]) || Object(r.isArray)(n[e][t])) {
                             var i = {};
-                            t.search(/pt[0-9]/) < 0 ? i[t.toUpperCase()] = n[e][t] : i[t] = n[e][t], window.apntag.setKeywords(e, i, {
+                            t.search(/pt[0-9]/) < 0 ? i[t.toUpperCase()] = n[e][t] : i[t] = n[e][t], 
+                            window.apntag.setKeywords(e, i, {
                                 overrideKeyValue: !0
                             });
                         }
@@ -4234,7 +4265,8 @@
         var r = n(0);
         function i(e, t) {
             var n = t && t.src || "client", i = e || 0;
-            this.bidderCode = t && t.bidder || "", this.width = 0, this.height = 0, this.statusMessage = function() {
+            this.bidderCode = t && t.bidder || "", this.width = 0, this.height = 0, 
+            this.statusMessage = function() {
                 switch (i) {
                   case 0:
                     return "Pending";
@@ -4407,7 +4439,8 @@
         }, {
             enumerable: !0
         }), a(z, A, z.entries), a(z, "toString", function() {
-            for (var e, t = C(this).entries, n = [], r = 0; r < t.length; ) e = t[r++], n.push(q(e.key) + "=" + q(e.value));
+            for (var e, t = C(this).entries, n = [], r = 0; r < t.length; ) e = t[r++], 
+            n.push(q(e.key) + "=" + q(e.value));
             return n.join("&");
         }, {
             enumerable: !0
@@ -4423,7 +4456,8 @@
         }, {
             fetch: function(e) {
                 var t, n, r, i = [ e ];
-                return arguments.length > 1 && (v(t = arguments[1]) && (n = t.body, g(n) === T && ((r = t.headers ? new E(t.headers) : new E()).has("content-type") || r.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"), 
+                return arguments.length > 1 && (v(t = arguments[1]) && (n = t.body, 
+                g(n) === T && ((r = t.headers ? new E(t.headers) : new E()).has("content-type") || r.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"), 
                 t = y(t, {
                     body: h(0, String(n)),
                     headers: h(0, r)
@@ -4775,7 +4809,8 @@
                 if (null == n) return;
                 var r, i, o = [], a = !0, c = !1;
                 try {
-                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), !t || o.length !== t); a = !0);
+                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), 
+                    !t || o.length !== t); a = !0);
                 } catch (e) {
                     c = !0, i = e;
                 } finally {
@@ -4841,8 +4876,8 @@
                             if (!s.iframe) return;
                             p(n.iframe, function(e) {
                                 var t = u(e, 2), i = t[0], o = t[1];
-                                Object(r.logMessage)("Invoking iframe user sync for bidder: ".concat(i)), Object(r.insertUserSyncIframe)(o), 
-                                function(e, t) {
+                                Object(r.logMessage)("Invoking iframe user sync for bidder: ".concat(i)), 
+                                Object(r.insertUserSyncIframe)(o), function(e, t) {
                                     e.image = e.image.filter(function(e) {
                                         return e[0] !== t;
                                     });
@@ -4852,7 +4887,8 @@
                             if (!s.image) return;
                             p(n.image, function(e) {
                                 var t = u(e, 2), n = t[0], i = t[1];
-                                Object(r.logMessage)("Invoking image pixel user sync for bidder: ".concat(n)), Object(r.triggerPixel)(i);
+                                Object(r.logMessage)("Invoking image pixel user sync for bidder: ".concat(n)), 
+                                Object(r.triggerPixel)(i);
                             });
                         }();
                     } catch (e) {
@@ -4929,7 +4965,8 @@
     61: function(e, t, n) {
         "use strict";
         t.a = function(e, t) {
-            o.adServers = o.adServers || {}, o.adServers[e] = o.adServers[e] || {}, Object.keys(t).forEach(function(n) {
+            o.adServers = o.adServers || {}, o.adServers[e] = o.adServers[e] || {}, 
+            Object.keys(t).forEach(function(n) {
                 o.adServers[e][n] ? Object(i.logWarn)("Attempting to add an already registered function property ".concat(n, " for AdServer ").concat(e, ".")) : o.adServers[e][n] = t[n];
             });
         };
@@ -5192,16 +5229,16 @@
                 e.write(p("")), e.close();
                 var t = e.parentWindow.Object;
                 return e = null, t;
-            }(r) : ((t = s("iframe")).style.display = "none", u.appendChild(t), t.src = String("javascript:"), 
-            (e = t.contentWindow.document).open(), e.write(p("document.F=Object")), e.close(), 
-            e.F);
+            }(r) : ((t = s("iframe")).style.display = "none", u.appendChild(t), 
+            t.src = String("javascript:"), (e = t.contentWindow.document).open(), 
+            e.write(p("document.F=Object")), e.close(), e.F);
             for (var n = a.length; n--; ) delete g.prototype[a[n]];
             return g();
         };
         c[f] = !0, e.exports = Object.create || function(e, t) {
             var n;
-            return null !== e ? (l.prototype = i(e), n = new l(), l.prototype = null, n[f] = e) : n = g(), 
-            void 0 === t ? n : o(n, t);
+            return null !== e ? (l.prototype = i(e), n = new l(), l.prototype = null, 
+            n[f] = e) : n = g(), void 0 === t ? n : o(n, t);
         };
     },
     71: function(e, t, n) {
@@ -5233,7 +5270,8 @@
                 };
             }, w = t + " Iterator", C = !1, R = e.prototype, _ = R[v] || R["@@iterator"] || p && R[p], U = !b && _ || I(p), B = "Array" == t && R.entries || _;
             if (B && (E = o(B.call(new e())), g !== Object.prototype && E.next && (f || o(E) === g || (a ? a(E, g) : "function" != typeof E[v] && u(E, v, O)), 
-            c(E, w, !0, !0), f && (l[w] = O))), p == h && _ && _.name !== h && (C = !0, U = function() {
+            c(E, w, !0, !0), f && (l[w] = O))), p == h && _ && _.name !== h && (C = !0, 
+            U = function() {
                 return _.call(this);
             }), f && !S || R[v] === U || u(R, v, U), l[t] = U, p) if (A = {
                 values: I(h),
@@ -5354,7 +5392,8 @@
                 if (null == n) return;
                 var r, i, o = [], a = !0, c = !1;
                 try {
-                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), !t || o.length !== t); a = !0);
+                    for (n = n.call(e); !(a = (r = n.next()).done) && (o.push(r.value), 
+                    !t || o.length !== t); a = !0);
                 } catch (e) {
                     c = !0, i = e;
                 } finally {
@@ -5382,7 +5421,8 @@
             if (e) {
                 if ("string" == typeof e) return S(e, t);
                 var n = Object.prototype.toString.call(e).slice(8, -1);
-                return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? S(e, t) : void 0;
+                return "Object" === n && e.constructor && (n = e.constructor.name), 
+                "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? S(e, t) : void 0;
             }
         }
         function S(e, t) {
@@ -5507,7 +5547,8 @@
                             e.bids = e.bids.filter(function(e) {
                                 return f()(n, e.bidder) && (!M(t) || e.finalSource !== A.CLIENT);
                             }).map(function(e) {
-                                return e.bid_id = Object(r.getUniqueIdentifierStr)(), e;
+                                return e.bid_id = Object(r.getUniqueIdentifierStr)(), 
+                                e;
                             });
                         }), i.filter(function(e) {
                             return 0 !== e.bids.length;
@@ -5586,7 +5627,8 @@
         }, "makeBidRequests"), w.callBids = function(e, t, n, i, o, a, s) {
             if (t.length) {
                 var d = m(t.reduce(function(e, t) {
-                    return e[Number(void 0 !== t.src && t.src === T.S2S.SRC)].push(t), e;
+                    return e[Number(void 0 !== t.src && t.src === T.S2S.SRC)].push(t), 
+                    e;
                 }, [ [], [] ]), 2), l = d[0], p = d[1], g = [];
                 p.forEach(function(e) {
                     for (var t = -1, n = 0; n < g.length; ++n) if (e.uniquePbsTid === g[n].uniquePbsTid) {
@@ -5717,8 +5759,8 @@
                 G(e, "onTimeout", t[e]);
             });
         }, w.callBidWonBidder = function(e, t, n) {
-            t.params = Object(r.getUserConfiguredParams)(n, t.adUnitCode, t.bidder), g.a.incrementBidderWinsCounter(t.adUnitCode, t.bidder), 
-            G(e, "onBidWon", t);
+            t.params = Object(r.getUserConfiguredParams)(n, t.adUnitCode, t.bidder), 
+            g.a.incrementBidderWinsCounter(t.adUnitCode, t.bidder), G(e, "onBidWon", t);
         }, w.callSetTargetingBidder = function(e, t) {
             G(e, "onSetTargeting", t);
         }, w.callBidViewableBidder = function(e, t) {
@@ -5824,8 +5866,8 @@
             }
             return e;
         }
-        Object(f.a)(), j.bidderSettings = j.bidderSettings || {}, j.libLoaded = !0, j.version = "v6.6.0", 
-        Object(i.logInfo)("Prebid.js v6.6.0 loaded"), j.installedModules = j.installedModules || [], 
+        Object(f.a)(), j.bidderSettings = j.bidderSettings || {}, j.libLoaded = !0, 
+        j.version = "v6.6.0", Object(i.logInfo)("Prebid.js v6.6.0 loaded"), j.installedModules = j.installedModules || [], 
         j.adUnits = j.adUnits || [], j.triggerUserSyncs = T;
         var K = {
             validateBannerMediaType: F,
@@ -5908,7 +5950,8 @@
         }, j.getAdserverTargetingForAdUnitCode = function(e) {
             return j.getAdserverTargeting(e)[e];
         }, j.getAdserverTargeting = function(e) {
-            return Object(i.logInfo)("Invoking pbjs.getAdserverTargeting", arguments), s.d.getAllTargeting(e);
+            return Object(i.logInfo)("Invoking pbjs.getAdserverTargeting", arguments), 
+            s.d.getAllTargeting(e);
         }, j.getNoBids = function() {
             return Object(i.logInfo)("Invoking pbjs.getNoBids", arguments), Y("getNoBids");
         }, j.getNoBidsForAdUnitCode = function(e) {
@@ -5918,7 +5961,8 @@
                 })
             };
         }, j.getBidResponses = function() {
-            return Object(i.logInfo)("Invoking pbjs.getBidResponses", arguments), Y("getBidsReceived");
+            return Object(i.logInfo)("Invoking pbjs.getBidResponses", arguments), 
+            Y("getBidsReceived");
         }, j.getBidResponsesForAdUnitCode = function(e) {
             return {
                 bids: u.a.getBidsReceived().filter(function(t) {
@@ -5926,7 +5970,8 @@
                 })
             };
         }, j.setTargetingForGPTAsync = function(e, t) {
-            if (Object(i.logInfo)("Invoking pbjs.setTargetingForGPTAsync", arguments), Object(i.isGptPubadsDefined)()) {
+            if (Object(i.logInfo)("Invoking pbjs.setTargetingForGPTAsync", arguments), 
+            Object(i.isGptPubadsDefined)()) {
                 var n = s.d.getAllTargeting(e);
                 s.d.resetPresetTargeting(e, t), s.d.setTargetingForGPT(n, t), Object.keys(n).forEach(function(e) {
                     Object.keys(n[e]).forEach(function(t) {
@@ -5953,8 +5998,8 @@
                         }
                         u.a.addWinningBid(r), A.emit(C, r);
                         var s = r.height, d = r.width, f = r.ad, l = r.mediaType, p = r.adUrl, g = r.renderer, v = document.createComment("Creative ".concat(r.creativeId, " served by ").concat(r.bidder, " Prebid.js Header Bidding"));
-                        if (Object(i.insertElement)(v, e, "html"), Object(b.c)(g)) Object(b.b)(g, r), X(v, e, "html"), 
-                        $({
+                        if (Object(i.insertElement)(v, e, "html"), Object(b.c)(g)) Object(b.b)(g, r), 
+                        X(v, e, "html"), $({
                             doc: e,
                             bid: r,
                             id: t
@@ -5971,15 +6016,17 @@
                                 var h = /firefox\/([\d\.]+)/, m = navigator.userAgent.toLowerCase().match(h)[1];
                                 m && parseInt(m, 10) < 67 && e.open("text/html", "replace");
                             }
-                            e.write(f), e.close(), L(e, d, s), X(v, e, "html"), Object(i.callBurl)(r), $({
+                            e.write(f), e.close(), L(e, d, s), X(v, e, "html"), 
+                            Object(i.callBurl)(r), $({
                                 doc: e,
                                 bid: r,
                                 id: t
                             });
                         } else if (p) {
                             var O = Object(i.createInvisibleIframe)();
-                            O.height = s, O.width = d, O.style.display = "inline", O.style.overflow = "hidden", 
-                            O.src = p, Object(i.insertElement)(O, e, "body"), L(e, d, s), X(v, e, "html"), Object(i.callBurl)(r), 
+                            O.height = s, O.width = d, O.style.display = "inline", 
+                            O.style.overflow = "hidden", O.src = p, Object(i.insertElement)(O, e, "body"), 
+                            L(e, d, s), X(v, e, "html"), Object(i.callBurl)(r), 
                             $({
                                 doc: e,
                                 bid: r,
@@ -6026,7 +6073,8 @@
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, t = e.bidsBackHandler, n = e.timeout, r = e.adUnits, o = e.adUnitCodes, a = e.labels, d = e.auctionId;
             A.emit(R);
             var f = n || c.b.getConfig("bidderTimeout");
-            r = r && c.b.convertAdUnitFpd(Object(i.isArray)(r) ? r : [ r ]) || j.adUnits, Object(i.logInfo)("Invoking pbjs.requestBids", arguments);
+            r = r && c.b.convertAdUnitFpd(Object(i.isArray)(r) ? r : [ r ]) || j.adUnits, 
+            Object(i.logInfo)("Invoking pbjs.requestBids", arguments);
             var l = [], b = [];
             if (c.b.getConfig("s2sConfig", function(e) {
                 e && e.s2sConfig && (l = Array.isArray(e.s2sConfig) ? e.s2sConfig : [ e.s2sConfig ]);
@@ -6066,7 +6114,8 @@
                 o.forEach(function(e) {
                     return s.d.setLatestAuctionForAdUnit(e, v.getAuctionId());
                 }), v.callBids();
-            } else if (Object(i.logMessage)("No adUnits configured. No bids requested."), "function" == typeof t) try {
+            } else if (Object(i.logMessage)("No adUnits configured. No bids requested."), 
+            "function" == typeof t) try {
                 t();
             } catch (e) {
                 Object(i.logError)("Error executing bidsBackHandler", null, e);
@@ -6131,8 +6180,8 @@
             }) : Object(i.logWarn)("Improper use of markWinningBidAsUsed. It needs an adUnitCode or an adId to function."), 
             t.length > 0 && (t[0].status = S.BID_STATUS.RENDERED);
         }, j.getConfig = c.b.getConfig, j.readConfig = c.b.readConfig, j.mergeConfig = c.b.mergeConfig, 
-        j.mergeBidderConfig = c.b.mergeBidderConfig, j.setConfig = c.b.setConfig, j.setBidderConfig = c.b.setBidderConfig, 
-        j.que.push(function() {
+        j.mergeBidderConfig = c.b.mergeBidderConfig, j.setConfig = c.b.setConfig, 
+        j.setBidderConfig = c.b.setBidderConfig, j.que.push(function() {
             return Object(o.a)();
         }), j.cmd.push = function(e) {
             if ("function" == typeof e) try {
@@ -6221,8 +6270,9 @@
     },
     89: function(e, t, n) {
         var r = n(119);
-        n(139), n(141), n(143), n(145), n(147), n(148), n(149), n(150), n(151), n(152), 
-        n(153), n(154), n(155), n(156), n(157), n(158), n(159), n(160), e.exports = r;
+        n(139), n(141), n(143), n(145), n(147), n(148), n(149), n(150), n(151), 
+        n(152), n(153), n(154), n(155), n(156), n(157), n(158), n(159), n(160), 
+        e.exports = r;
     },
     9: function(e, t, n) {
         "use strict";
@@ -6449,7 +6499,8 @@ pbjsChunk([ 385 ], {
                 if (null == r) return;
                 var n, i, a = [], o = !0, d = !1;
                 try {
-                    for (r = r.call(e); !(o = (n = r.next()).done) && (a.push(n.value), !t || a.length !== t); o = !0);
+                    for (r = r.call(e); !(o = (n = r.next()).done) && (a.push(n.value), 
+                    !t || a.length !== t); o = !0);
                 } catch (e) {
                     d = !0, i = e;
                 } finally {
@@ -6468,7 +6519,8 @@ pbjsChunk([ 385 ], {
             if (e) {
                 if ("string" == typeof e) return p(e, t);
                 var r = Object.prototype.toString.call(e).slice(8, -1);
-                return "Object" === r && e.constructor && (r = e.constructor.name), "Map" === r || "Set" === r ? Array.from(e) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? p(e, t) : void 0;
+                return "Object" === r && e.constructor && (r = e.constructor.name), 
+                "Map" === r || "Set" === r ? Array.from(e) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? p(e, t) : void 0;
             }
         }
         function p(e, t) {
@@ -6540,7 +6592,8 @@ pbjsChunk([ 385 ], {
                 "object" === l(m("app")) ? (r = m("app") || {}, i.app && Object(a.mergeDeep)(r, i.app)) : (n = m("site") || {}, 
                 i.site && Object(a.mergeDeep)(n, i.site), n.page || (n.page = t.refererInfo.referer));
                 var d = m("device") || {};
-                d.w = d.w || window.innerWidth, d.h = d.h || window.innerHeight, d.ua = d.ua || navigator.userAgent;
+                d.w = d.w || window.innerWidth, d.h = d.h || window.innerHeight, 
+                d.ua = d.ua || navigator.userAgent;
                 var s = v(e, "params.adxDomain") || "adx.adform.net", u = v(e, "params.pt") || v(e, "params.priceType") || "net", p = e[0].transactionId, f = v(e, "params.test"), b = m("currency.adServerCurrency"), h = b && [ b ], j = v(e, "userIdAsEids"), w = v(e, "schain"), S = e.map(function(e, t) {
                     e.netRevenue = u;
                     var r = e.getFloor ? e.getFloor({
@@ -6616,7 +6669,8 @@ pbjsChunk([ 385 ], {
                     imp: S
                 };
                 return f && (O.is_debug = !!f, O.test = 1), void 0 !== Object(a.deepAccess)(t, "gdprConsent.gdprApplies") && (Object(a.deepSetValue)(O, "user.ext.consent", t.gdprConsent.consentString), 
-                Object(a.deepSetValue)(O, "regs.ext.gdpr", 1 & t.gdprConsent.gdprApplies)), t.uspConsent && Object(a.deepSetValue)(O, "regs.ext.us_privacy", t.uspConsent), 
+                Object(a.deepSetValue)(O, "regs.ext.gdpr", 1 & t.gdprConsent.gdprApplies)), 
+                t.uspConsent && Object(a.deepSetValue)(O, "regs.ext.us_privacy", t.uspConsent), 
                 j && Object(a.deepSetValue)(O, "user.ext.eids", j), w && Object(a.deepSetValue)(O, "source.ext.schain", w), 
                 {
                     method: "POST",
@@ -6871,7 +6925,8 @@ pbjsChunk([ 345 ], {
                 if (j && (x.iab_support = {
                     omidpn: "Appnexus",
                     omidpv: "6.6.0"
-                }), h > 0 && (x.member_id = h), d && (x.device = o), u && (x.app = c), i.b.getConfig("adpod.brandCategoryExclusion") && (x.brand_category_uniqueness = !0), 
+                }), h > 0 && (x.member_id = h), d && (x.device = o), u && (x.app = c), 
+                i.b.getConfig("adpod.brandCategoryExclusion") && (x.brand_category_uniqueness = !0), 
                 f.enabled && (x.debug = f, Object(a.logInfo)("AppNexus Debug Auction Settings:\n\n" + JSON.stringify(f, null, 4))), 
                 r && r.gdprConsent && (x.gdpr_consent = {
                     consent_string: r.gdprConsent.consentString,
@@ -6918,12 +6973,16 @@ pbjsChunk([ 345 ], {
                     x.tags = [].concat(y(n), y(r));
                 }), e[0].userId) {
                     var R = [];
-                    K(R, Object(a.deepAccess)(e[0], "userId.flocId.id"), "chrome.com", null), K(R, Object(a.deepAccess)(e[0], "userId.criteoId"), "criteo.com", null), 
-                    K(R, Object(a.deepAccess)(e[0], "userId.netId"), "netid.de", null), K(R, Object(a.deepAccess)(e[0], "userId.idl_env"), "liveramp.com", null), 
-                    K(R, Object(a.deepAccess)(e[0], "userId.tdid"), "adserver.org", "TDID"), K(R, Object(a.deepAccess)(e[0], "userId.uid2.id"), "uidapi.com", "UID2"), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.flocId.id"), "chrome.com", null), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.criteoId"), "criteo.com", null), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.netId"), "netid.de", null), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.idl_env"), "liveramp.com", null), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.tdid"), "adserver.org", "TDID"), 
+                    K(R, Object(a.deepAccess)(e[0], "userId.uid2.id"), "uidapi.com", "UID2"), 
                     R.length && (x.eids = R);
                 }
-                return t[0].publisher_id && (x.publisher_id = t[0].publisher_id), function(e, r) {
+                return t[0].publisher_id && (x.publisher_id = t[0].publisher_id), 
+                function(e, r) {
                     var t = [], n = {
                         withCredentials: !0
                     }, s = _;
@@ -6963,7 +7022,8 @@ pbjsChunk([ 345 ], {
                 var d = [];
                 if (!e || e.error) {
                     var c = "in response for ".concat(i.bidderCode, " adapter");
-                    return e && e.error && (c += ": ".concat(e.error)), Object(a.logError)(c), d;
+                    return e && e.error && (c += ": ".concat(e.error)), Object(a.logError)(c), 
+                    d;
                 }
                 if (e.tags && e.tags.forEach(function(e) {
                     var r, c = (r = e) && r.ads && r.ads.length && p()(r.ads, function(e) {
@@ -7028,7 +7088,8 @@ pbjsChunk([ 345 ], {
                                     break;
 
                                   case m.b:
-                                    if (d.adResponse = e, d.adResponse.ad = d.adResponse.ads[0], d.adResponse.ad.video = d.adResponse.ad.rtb.video, 
+                                    if (d.adResponse = e, d.adResponse.ad = d.adResponse.ads[0], 
+                                    d.adResponse.ad.video = d.adResponse.ad.rtb.video, 
                                     d.vastXml = r.rtb.video.content, r.renderer_url) {
                                         var f = p()(t.bids, function(r) {
                                             return r.bidId === e.uuid;
@@ -7054,7 +7115,8 @@ pbjsChunk([ 345 ], {
                                                     return Object(a.logMessage)("AppNexus outstream video loaded event");
                                                 },
                                                 ended: function() {
-                                                    Object(a.logMessage)("AppNexus outstream renderer video event"), document.querySelector("#".concat(e)).style.display = "none";
+                                                    Object(a.logMessage)("AppNexus outstream renderer video event"), 
+                                                    document.querySelector("#".concat(e)).style.display = "none";
                                                 }
                                             }), i;
                                         }(d.adUnitCode, r, b);
@@ -7066,7 +7128,8 @@ pbjsChunk([ 345 ], {
                                 }
                             } else if (r.rtb[o.c]) {
                                 var y = r.rtb[o.c], g = r.viewability.config.replace("src=", "data-src="), h = y.javascript_trackers;
-                                null == h ? h = g : Object(a.isStr)(h) ? h = [ h, g ] : h.push(g), d[o.c] = {
+                                null == h ? h = g : Object(a.isStr)(h) ? h = [ h, g ] : h.push(g), 
+                                d[o.c] = {
                                     title: y.title,
                                     body: y.desc,
                                     body2: y.desc2,
@@ -7171,8 +7234,9 @@ pbjsChunk([ 345 ], {
                             var p = c.contentDocument || c.contentWindow.document;
                             if (p) for (var u = p.getElementsByTagName("script"), l = 0; l < u.length && !o; l++) {
                                 var m = u[l];
-                                m.getAttribute("data-src") == n && (m.setAttribute("src", i), m.setAttribute("data-src", ""), 
-                                m.removeAttribute && m.removeAttribute("data-src"), o = !0);
+                                m.getAttribute("data-src") == n && (m.setAttribute("src", i), 
+                                m.setAttribute("data-src", ""), m.removeAttribute && m.removeAttribute("data-src"), 
+                                o = !0);
                             }
                         } catch (e) {
                             if (!(e instanceof DOMException && "SecurityError" === e.name)) throw e;
@@ -7198,8 +7262,8 @@ pbjsChunk([ 345 ], {
         }
         function q(e) {
             var r = {};
-            r.sizes = M(e.sizes), r.primary_size = r.sizes[0], r.ad_types = [], r.uuid = e.bidId, 
-            e.params.placementId ? r.id = parseInt(e.params.placementId, 10) : r.code = e.params.invCode, 
+            r.sizes = M(e.sizes), r.primary_size = r.sizes[0], r.ad_types = [], 
+            r.uuid = e.bidId, e.params.placementId ? r.id = parseInt(e.params.placementId, 10) : r.code = e.params.invCode, 
             r.allow_smaller_sizes = e.params.allowSmallerSizes || !1, r.use_pmt_rule = e.params.usePaymentRule || !1, 
             r.prebid = !0, r.disable_psa = !0;
             var t = function(e) {
@@ -7216,9 +7280,10 @@ pbjsChunk([ 345 ], {
                 above: 1,
                 below: 2
             }[e.params.position] || 0), e.params.trafficSourceCode && (r.traffic_source_code = e.params.trafficSourceCode), 
-            e.params.privateSizes && (r.private_sizes = M(e.params.privateSizes)), e.params.supplyType && (r.supply_type = e.params.supplyType), 
-            e.params.pubClick && (r.pubclick = e.params.pubClick), e.params.extInvCode && (r.ext_inv_code = e.params.extInvCode), 
-            e.params.publisherId && (r.publisher_id = parseInt(e.params.publisherId, 10)), e.params.externalImpId && (r.external_imp_id = e.params.externalImpId), 
+            e.params.privateSizes && (r.private_sizes = M(e.params.privateSizes)), 
+            e.params.supplyType && (r.supply_type = e.params.supplyType), e.params.pubClick && (r.pubclick = e.params.pubClick), 
+            e.params.extInvCode && (r.ext_inv_code = e.params.extInvCode), e.params.publisherId && (r.publisher_id = parseInt(e.params.publisherId, 10)), 
+            e.params.externalImpId && (r.external_imp_id = e.params.externalImpId), 
             !Object(a.isEmpty)(e.params.keywords)) {
                 var n = Object(a.transformBidderParamKeywords)(e.params.keywords);
                 n.length > 0 && n.forEach(P), r.keywords = n;
@@ -7242,8 +7307,8 @@ pbjsChunk([ 345 ], {
             }
             var m = Object(a.deepAccess)(e, "mediaTypes.".concat(o.d)), f = Object(a.deepAccess)(e, "mediaTypes.video.context");
             r.hb_source = m && "adpod" === f ? 7 : 1, (e.mediaType === o.d || m) && r.ad_types.push(o.d), 
-            (e.mediaType === o.d || m && "outstream" !== f) && (r.require_asset_url = !0), e.params.video && (r.video = {}, 
-            Object.keys(e.params.video).filter(function(e) {
+            (e.mediaType === o.d || m && "outstream" !== f) && (r.require_asset_url = !0), 
+            e.params.video && (r.video = {}, Object.keys(e.params.video).filter(function(e) {
                 return l()(O, e);
             }).forEach(function(t) {
                 switch (t) {
@@ -7301,15 +7366,16 @@ pbjsChunk([ 345 ], {
             var b = p()(d.a.getAdUnits(), function(r) {
                 return e.transactionId === r.transactionId;
             });
-            return b && b.mediaTypes && b.mediaTypes.banner && r.ad_types.push(o.b), 0 === r.ad_types.length && delete r.ad_types, 
-            r;
+            return b && b.mediaTypes && b.mediaTypes.banner && r.ad_types.push(o.b), 
+            0 === r.ad_types.length && delete r.ad_types, r;
         }
         function M(e) {
             var r = [], t = {};
             if (Object(a.isArray)(e) && 2 === e.length && !Object(a.isArray)(e[0])) t.width = parseInt(e[0], 10), 
             t.height = parseInt(e[1], 10), r.push(t); else if ("object" === b(e)) for (var n = 0; n < e.length; n++) {
                 var i = e[n];
-                (t = {}).width = parseInt(i[0], 10), t.height = parseInt(i[1], 10), r.push(t);
+                (t = {}).width = parseInt(i[0], 10), t.height = parseInt(i[1], 10), 
+                r.push(t);
             }
             return r;
         }
@@ -7442,8 +7508,8 @@ pbjsChunk([ 308 ], {
                     for (var n, t, e = window; !n; ) {
                         try {
                             if ("function" == typeof e.__tcfapi || "function" == typeof e.__cmp) {
-                                "function" == typeof e.__tcfapi ? (v = 2, t = e.__tcfapi) : (v = 1, t = e.__cmp), 
-                                n = e;
+                                "function" == typeof e.__tcfapi ? (v = 2, t = e.__tcfapi) : (v = 1, 
+                                t = e.__cmp), n = e;
                                 break;
                             }
                         } catch (n) {}
@@ -7544,8 +7610,8 @@ pbjsChunk([ 308 ], {
             k(n), h(null, t)) : M("Unable to derive CMP version to process data.  Consent object does not conform to TCF v1 or v2 specs.", t, n);
         }
         function O(n) {
-            2 === v ? (Object(o.logWarn)("No response from CMP, continuing auction..."), k(void 0), 
-            h(null, n)) : M("CMP workflow exceeded timeout threshold.", n);
+            2 === v ? (Object(o.logWarn)("No response from CMP, continuing auction..."), 
+            k(void 0), h(null, n)) : M("CMP workflow exceeded timeout threshold.", n);
         }
         function M(n, t, e) {
             clearTimeout(t.timer), C.value && 1 === v && k(void 0), h(n, t, e);
@@ -7631,7 +7697,8 @@ pbjsChunk([ 2 ], {
                 });
                 var a = __WEBPACK_IMPORTED_MODULE_3__src_config_js__.b.getConfig("criteo.fastBidVersion"), _ = canFastBid(a);
                 if (!publisherTagAvailable() && _) {
-                    window.Criteo = window.Criteo || {}, window.Criteo.usePrebidEvents = !1, tryGetCriteoFastBid();
+                    window.Criteo = window.Criteo || {}, window.Criteo.usePrebidEvents = !1, 
+                    tryGetCriteoFastBid();
                     var o = getFastBidUrl(a);
                     setTimeout(function() {
                         Object(__WEBPACK_IMPORTED_MODULE_1__src_adloader_js__.a)(o, BIDDER_CODE);
@@ -7736,7 +7803,8 @@ pbjsChunk([ 2 ], {
                         auctionId: t.auctionId
                     };
                     if (t.params.zoneId && (e.zoneid = t.params.zoneId), Object(__WEBPACK_IMPORTED_MODULE_0__src_utils_js__.deepAccess)(t, "ortb2Imp.ext") && (e.ext = t.ortb2Imp.ext), 
-                    t.params.ext && (e.ext = _extends({}, e.ext, t.params.ext)), t.params.publisherSubId && (e.publishersubid = t.params.publisherSubId), 
+                    t.params.ext && (e.ext = _extends({}, e.ext, t.params.ext)), 
+                    t.params.publisherSubId && (e.publishersubid = t.params.publisherSubId), 
                     t.params.nativeCallback || Object(__WEBPACK_IMPORTED_MODULE_0__src_utils_js__.deepAccess)(t, "mediaTypes.".concat(__WEBPACK_IMPORTED_MODULE_4__src_mediaTypes_js__.c)) ? (e.native = !0, 
                     checkNativeSendId(t) || Object(__WEBPACK_IMPORTED_MODULE_0__src_utils_js__.logWarn)(LOG_PREFIX + "all native assets containing URL should be sent as placeholders with sendId(icon, image, clickUrl, displayUrl, privacyLink, privacyIcon)"), 
                     e.sizes = parseSizes(retrieveBannerSizes(t), parseNativeSize)) : e.sizes = parseSizes(retrieveBannerSizes(t), parseSize), 
@@ -7874,9 +7942,10 @@ pbjsChunk([ 2 ], {
             return t.prototype.toHexString = function() {
                 if (this.s < 0) return "-" + this.negate().toHexString();
                 var t, e = !1, r = "", i = this.t, s = this.DB - i * this.DB % 4;
-                if (i-- > 0) for (s < this.DB && (t = this[i] >> s) > 0 && (e = !0, r = d(t)); i >= 0; ) s < 4 ? (t = (this[i] & (1 << s) - 1) << 4 - s, 
-                t |= this[--i] >> (s += this.DB - 4)) : (t = this[i] >> (s -= 4) & 15, s <= 0 && (s += this.DB, 
-                --i)), t > 0 && (e = !0), e && (r += d(t));
+                if (i-- > 0) for (s < this.DB && (t = this[i] >> s) > 0 && (e = !0, 
+                r = d(t)); i >= 0; ) s < 4 ? (t = (this[i] & (1 << s) - 1) << 4 - s, 
+                t |= this[--i] >> (s += this.DB - 4)) : (t = this[i] >> (s -= 4) & 15, 
+                s <= 0 && (s += this.DB, --i)), t > 0 && (e = !0), e && (r += d(t));
                 return e ? r : "0";
             }, t.prototype.fromHexString = function(e) {
                 if (null !== e) {
@@ -7884,7 +7953,8 @@ pbjsChunk([ 2 ], {
                     for (var r = e.length, i = !1, s = 0; --r >= 0; ) {
                         var a = p(e, r);
                         a < 0 ? "-" == e.charAt(r) && (i = !0) : (i = !1, 0 == s ? this[this.t++] = a : s + 4 > this.DB ? (this[this.t - 1] |= (a & (1 << this.DB - s) - 1) << s, 
-                        this[this.t++] = a >> this.DB - s) : this[this.t - 1] |= a << s, (s += 4) >= this.DB && (s -= this.DB));
+                        this[this.t++] = a >> this.DB - s) : this[this.t - 1] |= a << s, 
+                        (s += 4) >= this.DB && (s -= this.DB));
                     }
                     0, this.clamp(), i && t.ZERO.subTo(this, this);
                 }
@@ -7923,7 +7993,8 @@ pbjsChunk([ 2 ], {
                     (t[r + e.t] += e.am(r + 1, 2 * e[r], t, 2 * r + 1, i, e.t - r - 1)) >= e.DV && (t[r + e.t] -= e.DV, 
                     t[r + e.t + 1] = 1);
                 }
-                t.t > 0 && (t[t.t - 1] += e.am(r, e[r], t, 2 * r, 0, 1)), t.s = 0, t.clamp();
+                t.t > 0 && (t[t.t - 1] += e.am(r, e[r], t, 2 * r, 0, 1)), t.s = 0, 
+                t.clamp();
             }, t.prototype.multiplyTo = function(e, r) {
                 var i = this.abs(), s = e.abs(), a = i.t;
                 for (r.t = a + s.t; --a >= 0; ) r[a] = 0;
@@ -7936,18 +8007,20 @@ pbjsChunk([ 2 ], {
                     if (o.t < s.t) return null != r && r.fromHexString("0"), void (null != i && this.copyTo(i));
                     null == i && (i = a());
                     var n = a(), c = this.s, p = e.s, d = this.DB - _(s[s.t - 1]);
-                    d > 0 ? (s.lShiftTo(d, n), o.lShiftTo(d, i)) : (s.copyTo(n), o.copyTo(i));
+                    d > 0 ? (s.lShiftTo(d, n), o.lShiftTo(d, i)) : (s.copyTo(n), 
+                    o.copyTo(i));
                     var u = n.t, l = n[u - 1];
                     if (0 != l) {
                         var h = l * (1 << this.F1) + (u > 1 ? n[u - 2] >> this.F2 : 0), f = this.FV / h, E = (1 << this.F1) / h, v = 1 << this.F2, m = i.t, T = m - u, b = null == r ? a() : r;
-                        for (n.dlShiftTo(T, b), i.compareTo(b) >= 0 && (i[i.t++] = 1, i.subTo(b, i)), t.ONE.dlShiftTo(u, b), 
-                        b.subTo(n, n); n.t < u; ) n[n.t++] = 0;
+                        for (n.dlShiftTo(T, b), i.compareTo(b) >= 0 && (i[i.t++] = 1, 
+                        i.subTo(b, i)), t.ONE.dlShiftTo(u, b), b.subTo(n, n); n.t < u; ) n[n.t++] = 0;
                         for (;--T >= 0; ) {
                             var D = i[--m] == l ? this.DM : Math.floor(i[m] * f + (i[m - 1] + v) * E);
-                            if ((i[m] += n.am(0, D, i, T, 0, u)) < D) for (n.dlShiftTo(T, b), i.subTo(b, i); i[m] < --D; ) i.subTo(b, i);
+                            if ((i[m] += n.am(0, D, i, T, 0, u)) < D) for (n.dlShiftTo(T, b), 
+                            i.subTo(b, i); i[m] < --D; ) i.subTo(b, i);
                         }
-                        null != r && (i.drShiftTo(u, r), c != p && t.ZERO.subTo(r, r)), i.t = u, i.clamp(), 
-                        d > 0 && i.rShiftTo(d, i), c < 0 && t.ZERO.subTo(i, i);
+                        null != r && (i.drShiftTo(u, r), c != p && t.ZERO.subTo(r, r)), 
+                        i.t = u, i.clamp(), d > 0 && i.rShiftTo(d, i), c < 0 && t.ZERO.subTo(i, i);
                     }
                 }
             }, t.prototype.rShiftTo = function(t, e) {
@@ -7956,8 +8029,10 @@ pbjsChunk([ 2 ], {
                 if (r >= this.t) e.t = 0; else {
                     var i = t % this.DB, s = this.DB - i, a = (1 << i) - 1;
                     e[0] = this[r] >> i;
-                    for (var _ = r + 1; _ < this.t; ++_) e[_ - r - 1] |= (this[_] & a) << s, e[_ - r] = this[_] >> i;
-                    i > 0 && (e[this.t - r - 1] |= (this.s & a) << s), e.t = this.t - r, e.clamp();
+                    for (var _ = r + 1; _ < this.t; ++_) e[_ - r - 1] |= (this[_] & a) << s, 
+                    e[_ - r] = this[_] >> i;
+                    i > 0 && (e[this.t - r - 1] |= (this.s & a) << s), e.t = this.t - r, 
+                    e.clamp();
                 }
             }, t.prototype.drShiftTo = function(t, e) {
                 for (var r = t; r < this.t; ++r) e[r - t] = this[r];
@@ -7966,14 +8041,16 @@ pbjsChunk([ 2 ], {
                 for (var r = 0, i = 0, s = Math.min(t.t, this.t); r < s; ) i += this[r] - t[r], 
                 e[r++] = i & this.DM, i >>= this.DB;
                 if (t.t < this.t) {
-                    for (i -= t.s; r < this.t; ) i += this[r], e[r++] = i & this.DM, i >>= this.DB;
+                    for (i -= t.s; r < this.t; ) i += this[r], e[r++] = i & this.DM, 
+                    i >>= this.DB;
                     i += this.s;
                 } else {
-                    for (i += this.s; r < t.t; ) i -= t[r], e[r++] = i & this.DM, i >>= this.DB;
+                    for (i += this.s; r < t.t; ) i -= t[r], e[r++] = i & this.DM, 
+                    i >>= this.DB;
                     i -= t.s;
                 }
-                e.s = i < 0 ? -1 : 0, i < -1 ? e[r++] = this.DV + i : i > 0 && (e[r++] = i), e.t = r, 
-                e.clamp();
+                e.s = i < 0 ? -1 : 0, i < -1 ? e[r++] = this.DV + i : i > 0 && (e[r++] = i), 
+                e.t = r, e.clamp();
             }, t.prototype.clamp = function() {
                 for (var t = this.s & this.DM; this.t > 0 && this[this.t - 1] == t; ) --this.t;
             }, t.prototype.modPowInt = function(t, e) {
@@ -8012,7 +8089,8 @@ pbjsChunk([ 2 ], {
             }, t.prototype.am3 = function(t, e, r, i, s, a) {
                 for (var _ = 16383 & e, o = e >> 14; --a >= 0; ) {
                     var n = 16383 & this[t], c = this[t++] >> 14, p = o * n + c * _;
-                    s = ((n = _ * n + ((16383 & p) << 14) + r[i] + s) >> 28) + (p >> 14) + o * c, r[i++] = 268435455 & n;
+                    s = ((n = _ * n + ((16383 & p) << 14) + r[i] + s) >> 28) + (p >> 14) + o * c, 
+                    r[i++] = 268435455 & n;
                 }
                 return s;
             }, t;
@@ -8022,9 +8100,9 @@ pbjsChunk([ 2 ], {
         }
         function _(t) {
             var e, r = 1;
-            return 0 != (e = t >>> 16) && (t = e, r += 16), 0 != (e = t >> 8) && (t = e, r += 8), 
-            0 != (e = t >> 4) && (t = e, r += 4), 0 != (e = t >> 2) && (t = e, r += 2), 0 != (e = t >> 1) && (t = e, 
-            r += 1), r;
+            return 0 != (e = t >>> 16) && (t = e, r += 16), 0 != (e = t >> 8) && (t = e, 
+            r += 8), 0 != (e = t >> 4) && (t = e, r += 4), 0 != (e = t >> 2) && (t = e, 
+            r += 2), 0 != (e = t >> 1) && (t = e, r += 1), r;
         }
         e.BigInteger = s, e.nbi = a, e.nbits = _;
         var o, n, c = [];
@@ -8045,8 +8123,8 @@ pbjsChunk([ 2 ], {
             for (e = 0; e < t.length && "=" != t.charAt(e); ++e) {
                 var a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".indexOf(t.charAt(e));
                 a < 0 || (0 == i ? (r += d(a >> 2), s = 3 & a, i = 1) : 1 == i ? (r += d(s << 2 | a >> 4), 
-                s = 15 & a, i = 2) : 2 == i ? (r += d(s), r += d(a >> 2), s = 3 & a, i = 3) : (r += d(s << 2 | a >> 4), 
-                r += d(15 & a), i = 0));
+                s = 15 & a, i = 2) : 2 == i ? (r += d(s), r += d(a >> 2), s = 3 & a, 
+                i = 3) : (r += d(s << 2 | a >> 4), r += d(15 & a), i = 0));
             }
             return 1 == i && (r += d(s << 2)), r;
         }, e.removeExtraSymbols = function(t) {
@@ -8069,13 +8147,13 @@ pbjsChunk([ 2 ], {
             }, t;
         }(), l = function() {
             function t(t) {
-                this.m = t, this.mp = t.invDigit(), this.mpl = 32767 & this.mp, this.mph = this.mp >> 15, 
-                this.um = (1 << t.DB - 15) - 1, this.mt2 = 2 * t.t;
+                this.m = t, this.mp = t.invDigit(), this.mpl = 32767 & this.mp, 
+                this.mph = this.mp >> 15, this.um = (1 << t.DB - 15) - 1, this.mt2 = 2 * t.t;
             }
             return t.prototype.convert = function(t) {
                 var e = a();
-                return t.abs().dlShiftTo(this.m.t, e), e.divRemTo(this.m, null, e), t.s < 0 && e.compareTo(s.ZERO) > 0 && this.m.subTo(e, e), 
-                e;
+                return t.abs().dlShiftTo(this.m.t, e), e.divRemTo(this.m, null, e), 
+                t.s < 0 && e.compareTo(s.ZERO) > 0 && this.m.subTo(e, e), e;
             }, t.prototype.revert = function(t) {
                 var e = a();
                 return t.copyTo(e), this.reduce(e), e;
@@ -8098,8 +8176,9 @@ pbjsChunk([ 2 ], {
             return e.fromHexString(t.toString()), e;
         }
         e.nbv = h, s.ZERO = h(0), s.ONE = h(1), "Microsoft Internet Explorer" == navigator.appName ? (s.prototype.am = s.prototype.am2, 
-        i = 30) : "Netscape" != navigator.appName ? (s.prototype.am = s.prototype.am1, i = 26) : (s.prototype.am = s.prototype.am3, 
-        i = 28), s.prototype.DB = i, s.prototype.DM = (1 << i) - 1, s.prototype.DV = 1 << i;
+        i = 30) : "Netscape" != navigator.appName ? (s.prototype.am = s.prototype.am1, 
+        i = 26) : (s.prototype.am = s.prototype.am3, i = 28), s.prototype.DB = i, 
+        s.prototype.DM = (1 << i) - 1, s.prototype.DV = 1 << i;
         s.prototype.FV = Math.pow(2, 52), s.prototype.F1 = 52 - i, s.prototype.F2 = 2 * i - 52;
     },
     78: function(t, e, r) {
@@ -8123,10 +8202,12 @@ pbjsChunk([ 2 ], {
                     var l = i[0], h = i[1], f = i[2], E = i[3], v = i[4], m = i[5], T = i[6], b = i[7];
                     for (u = 0; u < 64; u++) {
                         var D = b + t.z1(v) + t.Ch(v, m, T) + r[u] + d[u], y = t.z0(l) + t.Maj(l, h, f);
-                        b = T, T = m, m = v, v = E + D >>> 0, E = f, f = h, h = l, l = D + y >>> 0;
+                        b = T, T = m, m = v, v = E + D >>> 0, E = f, f = h, h = l, 
+                        l = D + y >>> 0;
                     }
-                    i[0] = i[0] + l >>> 0, i[1] = i[1] + h >>> 0, i[2] = i[2] + f >>> 0, i[3] = i[3] + E >>> 0, 
-                    i[4] = i[4] + v >>> 0, i[5] = i[5] + m >>> 0, i[6] = i[6] + T >>> 0, i[7] = i[7] + b >>> 0;
+                    i[0] = i[0] + l >>> 0, i[1] = i[1] + h >>> 0, i[2] = i[2] + f >>> 0, 
+                    i[3] = i[3] + E >>> 0, i[4] = i[4] + v >>> 0, i[5] = i[5] + m >>> 0, 
+                    i[6] = i[6] + T >>> 0, i[7] = i[7] + b >>> 0;
                 }
                 var O = new Array(i.length);
                 for (b = 0; b < i.length; b++) O[b] = ("00000000" + i[b].toString(16)).slice(-8);
@@ -8309,7 +8390,8 @@ pbjsChunk([ 270 ], {
         }), t.d(r, "internal", function() {
             return V;
         }), r.getGvlid = H, r.validateRules = R, r.deviceAccessHook = T, r.userSyncHook = G, 
-        r.userIdHook = M, r.makeBidRequestsHook = W, r.enableAnalyticsHook = I, r.setEnforcementConfig = _;
+        r.userIdHook = M, r.makeBidRequestsHook = W, r.enableAnalyticsHook = I, 
+        r.setEnforcementConfig = _;
         var n = t(0), o = t(3), a = t(8), c = t(11), i = t.n(c), s = t(12), l = t.n(s), u = t(1), p = t(9), d = t(7), f = t(10), b = t.n(f), g = t(5), v = t.n(g);
         function y(e, r) {
             var t = Object.keys(e);
@@ -8424,8 +8506,8 @@ pbjsChunk([ 270 ], {
                     R(A, i, l, r) ? (c.valid = !0, e.call(this, r, t, c)) : (l && Object(n.logWarn)("TCF2 denied device access for ".concat(l)), 
                     c.valid = !1, w.push(l), e.call(this, r, t, c));
                 } else c.valid = !0, e.call(this, r, t, c); else c.valid = !0, e.call(this, r, t, c);
-            } else Object(n.logWarn)("Device access is disabled by Publisher"), c.valid = !1, 
-            e.call(this, r, t, c);
+            } else Object(n.logWarn)("Device access is disabled by Publisher"), 
+            c.valid = !1, e.call(this, r, t, c);
         }
         function G(e) {
             for (var r = a.gdprDataHandler.getConsentData(), t = arguments.length, c = new Array(t > 1 ? t - 1 : 0), i = 1; i < t; i++) c[i - 1] = arguments[i];
@@ -8457,8 +8539,8 @@ pbjsChunk([ 270 ], {
                     var r = e.bidder, o = H(r);
                     if (l()(S, r)) return !1;
                     var a = !!R(C, t, r, o);
-                    return a || (Object(n.logWarn)("TCF2 blocked auction for ".concat(r)), S.push(r)), 
-                    a;
+                    return a || (Object(n.logWarn)("TCF2 blocked auction for ".concat(r)), 
+                    S.push(r)), a;
                 });
             }), e.call.apply(e, [ this, r ].concat(c))) : e.call.apply(e, [ this, r ].concat(c));
         }
@@ -8492,10 +8574,11 @@ pbjsChunk([ 270 ], {
         };
         function _(e) {
             var r = Object(n.deepAccess)(e, "gdpr.rules");
-            r ? E = r : (Object(n.logWarn)("TCF2: enforcing P1 and P2 by default"), E = k), 
-            A = i()(E, N), C = i()(E, U), D = i()(E, x), A || (A = k[0]), C || (C = k[1]), A && !B && (B = !0, 
-            d.d.before(T, 49), u.registerSyncInner.before(G, 48), Object(p.a)("validateGdprEnforcement").before(M, 47)), 
-            C && Object(p.a)("makeBidRequests").before(W), D && Object(p.a)("enableAnalyticsCb").before(I);
+            r ? E = r : (Object(n.logWarn)("TCF2: enforcing P1 and P2 by default"), 
+            E = k), A = i()(E, N), C = i()(E, U), D = i()(E, x), A || (A = k[0]), 
+            C || (C = k[1]), A && !B && (B = !0, d.d.before(T, 49), u.registerSyncInner.before(G, 48), 
+            Object(p.a)("validateGdprEnforcement").before(M, 47)), C && Object(p.a)("makeBidRequests").before(W), 
+            D && Object(p.a)("enableAnalyticsCb").before(I);
         }
         o.b.getConfig("consentManagement", function(e) {
             return _(e.consentManagement);
@@ -8530,9 +8613,11 @@ pbjsChunk([ 259 ], {
                     var r = c()(Object.keys(o), e ? e(t) : Object(n.isAdUnitCodeMatchingSlot)(t));
                     if (r) {
                         var a = o[r];
-                        a.ortb2Imp = a.ortb2Imp || {}, a.ortb2Imp.ext = a.ortb2Imp.ext || {}, a.ortb2Imp.ext.data = a.ortb2Imp.ext.data || {};
+                        a.ortb2Imp = a.ortb2Imp || {}, a.ortb2Imp.ext = a.ortb2Imp.ext || {}, 
+                        a.ortb2Imp.ext.data = a.ortb2Imp.ext.data || {};
                         var d = a.ortb2Imp.ext.data;
-                        d.adserver = d.adserver || {}, d.adserver.name = "gam", d.adserver.adslot = f(t.getAdUnitPath());
+                        d.adserver = d.adserver || {}, d.adserver.name = "gam", 
+                        d.adserver.adslot = f(t.getAdUnitPath());
                     }
                 });
             }
@@ -8554,14 +8639,16 @@ pbjsChunk([ 259 ], {
                     var r = document.getElementById(t.code);
                     if (r.dataset.adslotid) return void (e.pbadslot = r.dataset.adslotid);
                 } catch (t) {}
-                if (!Object(n.deepAccess)(e, "adserver.adslot")) return e.pbadslot = t.code, !0;
+                if (!Object(n.deepAccess)(e, "adserver.adslot")) return e.pbadslot = t.code, 
+                !0;
                 e.pbadslot = e.adserver.adslot;
             }
         }, g = function(t, e) {
             p(e);
             var o = i, r = o.useDefaultPreAuction, a = o.customPreAuction;
             e.forEach(function(t) {
-                t.ortb2Imp = t.ortb2Imp || {}, t.ortb2Imp.ext = t.ortb2Imp.ext || {}, t.ortb2Imp.ext.data = t.ortb2Imp.ext.data || {};
+                t.ortb2Imp = t.ortb2Imp || {}, t.ortb2Imp.ext = t.ortb2Imp.ext || {}, 
+                t.ortb2Imp.ext.data = t.ortb2Imp.ext.data || {};
                 var e = t.ortb2Imp.ext;
                 if (a || r) {
                     var o, d = Object(n.deepAccess)(e, "data.adserver.adslot");
@@ -8612,7 +8699,8 @@ pbjsChunk([ 166 ], {
                 var d = e ? {
                     pubProvidedId: e
                 } : void 0;
-                return Object(i.logInfo)("PubProvidedId: Decoded value " + JSON.stringify(d)), d;
+                return Object(i.logInfo)("PubProvidedId: Decoded value " + JSON.stringify(d)), 
+                d;
             },
             getId: function(e) {
                 var d = e && e.params || {}, n = [];
@@ -8829,7 +8917,8 @@ pbjsChunk([ 163 ], {
                 var r = {
                     code: e.adUnitCode
                 };
-                if (e.vastXml ? r.vastXml = e.vastXml : e.vastUrl && (r.vastUrl = e.vastUrl), e.vastXml || e.vastUrl) {
+                if (e.vastXml ? r.vastXml = e.vastXml : e.vastUrl && (r.vastUrl = e.vastUrl), 
+                e.vastXml || e.vastUrl) {
                     for (var t, i = k.getRendererId("pubmatic", e.rendererCode), n = document.getElementById(e.adUnitCode), s = 0; s < window.bluebillywig.renderers.length; s++) if (window.bluebillywig.renderers[s]._id === i) {
                         t = window.bluebillywig.renderers[s];
                         break;
@@ -8882,8 +8971,8 @@ pbjsChunk([ 163 ], {
         }
         function M(e) {
             var r;
-            e.params.adUnit = "", e.params.adUnitIndex = "0", e.params.width = 0, e.params.height = 0, 
-            e.params.adSlot = (r = e.params.adSlot, Object(a.isStr)(r) ? r.replace(/^\s+/g, "").replace(/\s+$/g, "") : (r && Object(a.logWarn)("pubmatic: adSlot must be a string. Ignoring adSlot"), 
+            e.params.adUnit = "", e.params.adUnitIndex = "0", e.params.width = 0, 
+            e.params.height = 0, e.params.adSlot = (r = e.params.adSlot, Object(a.isStr)(r) ? r.replace(/^\s+/g, "").replace(/\s+$/g, "") : (r && Object(a.logWarn)("pubmatic: adSlot must be a string. Ignoring adSlot"), 
             ""));
             var t = e.params.adSlot, i = t.split(":");
             if (t = i[0], 2 == i.length && (e.params.adUnitIndex = i[1]), i = t.split("@"), 
@@ -9036,7 +9125,8 @@ pbjsChunk([ 163 ], {
         function W(e) {
             var r, t = e.mediaTypes.banner.sizes, i = [];
             if (t !== g && Object(a.isArray)(t)) {
-                if (r = {}, e.params.width || e.params.height) r.w = e.params.width, r.h = e.params.height; else {
+                if (r = {}, e.params.width || e.params.height) r.w = e.params.width, 
+                r.h = e.params.height; else {
                     if (0 === t.length) return r = g, Object(a.logWarn)("PubMatic: Error: mediaTypes.banner.size missing for adunit: " + e.params.adUnit + ". Ignoring the banner impression in the adunit."), 
                     r;
                     r.w = parseInt(t[0][0], 10), r.h = parseInt(t[0][1], 10), t = t.splice(1, t.length - 1);
@@ -9148,7 +9238,8 @@ pbjsChunk([ 163 ], {
                 "function" != typeof r.getFloor || s.b.getConfig("pubmatic.disableFloors") || [ n.b, n.d, n.c ].forEach(function(i) {
                     if (e.hasOwnProperty(i)) {
                         var n = [];
-                        "banner" === i && (e[i].w && e[i].h && n.push([ e[i].w, e[i].h ]), Object(a.isArray)(e[i].format) && e[i].format.forEach(function(e) {
+                        "banner" === i && (e[i].w && e[i].h && n.push([ e[i].w, e[i].h ]), 
+                        Object(a.isArray)(e[i].format) && e[i].format.forEach(function(e) {
                             return n.push([ e.w, e.h ]);
                         })), 0 === n.length && n.push("*"), n.forEach(function(n) {
                             var s = r.getFloor({
@@ -9270,7 +9361,8 @@ pbjsChunk([ 163 ], {
                     };
                 }(o), p = "", l = [], m = [];
                 if (e.forEach(function(e) {
-                    if ((i = Object(a.deepClone)(e)).params.adSlot = i.params.adSlot || "", M(i), i.params.hasOwnProperty("video")); else if (!(i.hasOwnProperty("mediaTypes") && i.mediaTypes.hasOwnProperty(n.c) || 0 !== i.params.width || 0 !== i.params.height)) return void Object(a.logWarn)("PubMatic: Skipping the non-standard adslot: ", i.params.adSlot, JSON.stringify(i));
+                    if ((i = Object(a.deepClone)(e)).params.adSlot = i.params.adSlot || "", 
+                    M(i), i.params.hasOwnProperty("video")); else if (!(i.hasOwnProperty("mediaTypes") && i.mediaTypes.hasOwnProperty(n.c) || 0 !== i.params.width || 0 !== i.params.height)) return void Object(a.logWarn)("PubMatic: Skipping the non-standard adslot: ", i.params.adSlot, JSON.stringify(i));
                     o.pubId = o.pubId || i.params.publisherId, (o = function(e, r) {
                         var t, i, n;
                         for (t in r.kadpageurl || (r.kadpageurl = r.pageURL), h) h.hasOwnProperty(t) && (i = e[t]) && ("object" === u(n = h[t]) && (i = n.f(i, r)), 
@@ -9283,20 +9375,23 @@ pbjsChunk([ 163 ], {
                     r && c.imp.push(r);
                 }), 0 != c.imp.length) {
                     var f, y;
-                    c.site.publisher.id = o.pubId.trim(), A = o.pubId.trim(), c.ext.wrapper = {}, c.ext.wrapper.profile = parseInt(o.profId) || g, 
-                    c.ext.wrapper.version = parseInt(o.verId) || g, c.ext.wrapper.wiid = o.wiid || r.auctionId, 
-                    c.ext.wrapper.wv = "prebid_prebid_6.6.0", c.ext.wrapper.transactionId = o.transactionId, 
-                    c.ext.wrapper.wp = "pbjs", c.user.gender = o.gender ? o.gender.trim() : g, c.user.geo = {}, 
-                    c.user.geo.lat = N("lat", o.lat), c.user.geo.lon = N("lon", o.lon), c.user.yob = N("yob", o.yob), 
-                    c.device.geo = c.user.geo, c.site.page = o.kadpageurl.trim() || c.site.page.trim(), 
-                    c.site.domain = (f = c.site.page, (y = document.createElement("a")).href = f, y.hostname), 
-                    "object" === u(s.b.getConfig("content")) && (c.site.content = s.b.getConfig("content")), 
+                    c.site.publisher.id = o.pubId.trim(), A = o.pubId.trim(), c.ext.wrapper = {}, 
+                    c.ext.wrapper.profile = parseInt(o.profId) || g, c.ext.wrapper.version = parseInt(o.verId) || g, 
+                    c.ext.wrapper.wiid = o.wiid || r.auctionId, c.ext.wrapper.wv = "prebid_prebid_6.6.0", 
+                    c.ext.wrapper.transactionId = o.transactionId, c.ext.wrapper.wp = "pbjs", 
+                    c.user.gender = o.gender ? o.gender.trim() : g, c.user.geo = {}, 
+                    c.user.geo.lat = N("lat", o.lat), c.user.geo.lon = N("lon", o.lon), 
+                    c.user.yob = N("yob", o.yob), c.device.geo = c.user.geo, c.site.page = o.kadpageurl.trim() || c.site.page.trim(), 
+                    c.site.domain = (f = c.site.page, (y = document.createElement("a")).href = f, 
+                    y.hostname), "object" === u(s.b.getConfig("content")) && (c.site.content = s.b.getConfig("content")), 
                     "object" === u(s.b.getConfig("device")) && (c.device = d(c.device, s.b.getConfig("device"))), 
                     Object(a.deepSetValue)(c, "source.tid", o.transactionId), -1 !== window.location.href.indexOf("pubmaticTest=true") && (c.test = 1), 
-                    e[0].schain && Object(a.deepSetValue)(c, "source.ext.schain", e[0].schain), r && r.gdprConsent && (Object(a.deepSetValue)(c, "user.ext.consent", r.gdprConsent.consentString), 
+                    e[0].schain && Object(a.deepSetValue)(c, "source.ext.schain", e[0].schain), 
+                    r && r.gdprConsent && (Object(a.deepSetValue)(c, "user.ext.consent", r.gdprConsent.consentString), 
                     Object(a.deepSetValue)(c, "regs.ext.gdpr", r.gdprConsent.gdprApplies ? 1 : 0)), 
                     r && r.uspConsent && Object(a.deepSetValue)(c, "regs.ext.us_privacy", r.uspConsent), 
-                    !0 === s.b.getConfig("coppa") && Object(a.deepSetValue)(c, "regs.coppa", 1), function(e, r) {
+                    !0 === s.b.getConfig("coppa") && Object(a.deepSetValue)(c, "regs.coppa", 1), 
+                    function(e, r) {
                         var t = Object(a.deepAccess)(r, "0.userIdAsEids"), i = F(r, x);
                         i && (t || (t = []), t.push(i)), Object(a.isArray)(t) && t.length > 0 && Object(a.deepSetValue)(e, "user.eids", t);
                     }(c, e), function(e, r) {
@@ -9308,18 +9403,21 @@ pbjsChunk([ 163 ], {
                         }).filter(function(e, r, t) {
                             if (e.length > 3) return t.indexOf(e) === r;
                             Object(a.logWarn)("PubMatic: bcat: Each category should have a value of a length of more than 3 characters, ignoring category: " + e);
-                        })).length > 0 && (Object(a.logWarn)("PubMatic: bcat: Selected: ", r), e.bcat = r);
+                        })).length > 0 && (Object(a.logWarn)("PubMatic: bcat: Selected: ", r), 
+                        e.bcat = r);
                     }(c, m), function(e, r) {
                         var t = F(r, Y);
-                        t && (e.user || (e.user = {}), e.user.data || (e.user.data = []), e.user.data.push(t));
+                        t && (e.user || (e.user = {}), e.user.data || (e.user.data = []), 
+                        e.user.data.push(t));
                     }(c, e);
                     var v = s.b.getConfig("ortb2") || {};
                     return v.site && Object(a.mergeDeep)(c, {
                         site: v.site
                     }), v.user && Object(a.mergeDeep)(c, {
                         user: v.user
-                    }), "object" === u(s.b.getConfig("app")) && (c.app = s.b.getConfig("app"), c.app.publisher = c.site.publisher, 
-                    c.app.ext = c.site.ext || g, "object" !== u(c.app.content) && (c.app.content = c.site.content || g), 
+                    }), "object" === u(s.b.getConfig("app")) && (c.app = s.b.getConfig("app"), 
+                    c.app.publisher = c.site.publisher, c.app.ext = c.site.ext || g, 
+                    "object" !== u(c.app.content) && (c.app.content = c.site.content || g), 
                     delete c.site), {
                         method: "POST",
                         url: "https://hbopenbid.pubmatic.com/translator?source=prebid-client",
@@ -9366,12 +9464,14 @@ pbjsChunk([ 163 ], {
                                     break;
 
                                   case n.d:
-                                    c.width = d.hasOwnProperty("w") ? d.w : e.video.w, c.height = d.hasOwnProperty("h") ? d.h : e.video.h, 
+                                    c.width = d.hasOwnProperty("w") ? d.w : e.video.w, 
+                                    c.height = d.hasOwnProperty("h") ? d.h : e.video.h, 
                                     c.vastXml = d.adm, function(e, r) {
                                         var t, a, i;
                                         if (r.bidderRequest && r.bidderRequest.bids) {
                                             for (var s = 0; s < r.bidderRequest.bids.length; s++) r.bidderRequest.bids[s].bidId === e.requestId && (t = r.bidderRequest.bids[s].params, 
-                                            a = r.bidderRequest.bids[s].mediaTypes[n.d].context, i = r.bidderRequest.bids[s].adUnitCode);
+                                            a = r.bidderRequest.bids[s].mediaTypes[n.d].context, 
+                                            i = r.bidderRequest.bids[s].adUnitCode);
                                             a && "outstream" === a && t && t.outstreamAU && i && (e.rendererCode = t.outstreamAU, 
                                             e.renderer = k.newRenderer(e.rendererCode, i));
                                         }
@@ -9424,17 +9524,20 @@ pbjsChunk([ 163 ], {
                                                   case w.DISPLAYURL.ID:
                                                     r.native[z[t.native.assets[i].id]] = t.native.assets[i].data && t.native.assets[i].data.value;
                                                 }
-                                                r.native.clickUrl = t.native.link && t.native.link.url, r.native.clickTrackers = t.native.link && t.native.link.clicktrackers || [], 
-                                                r.native.impressionTrackers = t.native.imptrackers || [], r.native.jstracker = t.native.jstracker || [], 
+                                                r.native.clickUrl = t.native.link && t.native.link.url, 
+                                                r.native.clickTrackers = t.native.link && t.native.link.clicktrackers || [], 
+                                                r.native.impressionTrackers = t.native.imptrackers || [], 
+                                                r.native.jstracker = t.native.jstracker || [], 
                                                 r.width || (r.width = 0), r.height || (r.height = 0);
                                             }
                                         }
                                     }(d, c);
                                 }
                             }), d.ext && d.ext.deal_channel && (c.dealChannel = D[d.ext.deal_channel] || null), 
-                            c.meta = {}, d.ext && d.ext.dspid && (c.meta.networkId = d.ext.dspid), d.ext && d.ext.advid && (c.meta.buyerId = d.ext.advid), 
-                            d.adomain && d.adomain.length > 0 && (c.meta.advertiserDomains = d.adomain, c.meta.clickUrl = d.adomain[0]), 
-                            e.ext && e.ext.buyid && (c.adserverTargeting = {
+                            c.meta = {}, d.ext && d.ext.dspid && (c.meta.networkId = d.ext.dspid), 
+                            d.ext && d.ext.advid && (c.meta.buyerId = d.ext.advid), 
+                            d.adomain && d.adomain.length > 0 && (c.meta.advertiserDomains = d.adomain, 
+                            c.meta.clickUrl = d.adomain[0]), e.ext && e.ext.buyid && (c.adserverTargeting = {
                                 hb_buyid_pubmatic: e.ext.buyid
                             }), t.push(c);
                         });
@@ -9521,7 +9624,8 @@ pbjsChunk([ 136 ], {
             aliasName: "pubCommonId",
             gvlid: 887,
             decode: function(o, e) {
-                if (!v()) return Object(n.logInfo)(" Decoded value PubCommonId " + o), {
+                if (!v()) return Object(n.logInfo)(" Decoded value PubCommonId " + o), 
+                {
                     pubcid: o
                 };
                 Object(n.logInfo)("PubCommonId decode: Has opted-out");
@@ -9549,7 +9653,8 @@ pbjsChunk([ 136 ], {
             },
             extendId: function() {
                 var o = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, e = arguments.length > 2 ? arguments[2] : void 0;
-                if (v()) return Object(n.logInfo)("PubCommonId: Has opted-out"), {
+                if (v()) return Object(n.logInfo)("PubCommonId: Has opted-out"), 
+                {
                     id: void 0
                 };
                 var t = i.coppaDataHandler.getCoppa();
@@ -9571,7 +9676,8 @@ pbjsChunk([ 136 ], {
             domainOverride: function() {
                 for (var o, e, t = document.domain.split("."), n = "_gd".concat(Date.now()), r = 0; r < t.length; r++) {
                     var i = t.slice(r).join(".");
-                    if (c.setCookie(n, "1", void 0, void 0, i), e = c.getCookie(n), c.setCookie(n, "", "Thu, 01 Jan 1970 00:00:01 GMT", void 0, i), 
+                    if (c.setCookie(n, "1", void 0, void 0, i), e = c.getCookie(n), 
+                    c.setCookie(n, "", "Thu, 01 Jan 1970 00:00:01 GMT", void 0, i), 
                     "1" !== e) return o;
                     o = i;
                 }
@@ -9828,8 +9934,8 @@ pbjsChunk([ 12 ], {
             return k;
         }), t.setSubmoduleRegistry = function(e) {
             L = e;
-        }, t.setStoredValue = N, t.setStoredConsentData = R, t.findRootDomain = H, t.requestBidsHook = K, 
-        n.d(t, "validateGdprEnforcement", function() {
+        }, t.setStoredValue = N, t.setStoredConsentData = R, t.findRootDomain = H, 
+        t.requestBidsHook = K, n.d(t, "validateGdprEnforcement", function() {
             return Z;
         }), t.attachIdSystem = oe, t.init = re;
         var o = n(11), r = n.n(o), a = n(3), i = n(10), c = n.n(i), u = n(14), s = n(8), d = n(5), l = n.n(d), f = n(9), g = n(15), b = n(7), p = n(0), m = n(12), y = n.n(m);
@@ -9924,8 +10030,8 @@ pbjsChunk([ 12 ], {
                 gdprApplies: !1,
                 apiVersion: 0
             };
-            return e && (t.consentString = e.consentString, t.gdprApplies = e.gdprApplies, t.apiVersion = e.apiVersion), 
-            Object(p.cyrb53Hash)(JSON.stringify(t));
+            return e && (t.consentString = e.consentString, t.gdprApplies = e.gdprApplies, 
+            t.apiVersion = e.apiVersion), Object(p.cyrb53Hash)(JSON.stringify(t));
         }
         function R(e) {
             try {
@@ -10129,7 +10235,8 @@ pbjsChunk([ 12 ], {
                     var n = r()(e, function(e) {
                         return e.name && (e.name.toLowerCase() === t.name.toLowerCase() || t.aliasName && e.name.toLowerCase() === t.aliasName.toLowerCase());
                     });
-                    return n && t.name !== n.name && (n.name = t.name), t.findRootDomain = H, n ? {
+                    return n && t.name !== n.name && (n.name = t.name), t.findRootDomain = H, 
+                    n ? {
                         submodule: t,
                         config: n,
                         callback: void 0,
@@ -10137,7 +10244,8 @@ pbjsChunk([ 12 ], {
                     } : null;
                 }).filter(function(e) {
                     return null !== e;
-                }), !_ && T.length && (Object(u.a)().requestBids.before(K, 40), Object(p.logInfo)("".concat(D, " - usersync config updated for ").concat(T.length, " submodules: "), T.map(function(e) {
+                }), !_ && T.length && (Object(u.a)().requestBids.before(K, 40), 
+                Object(p.logInfo)("".concat(D, " - usersync config updated for ").concat(T.length, " submodules: "), T.map(function(e) {
                     return e.submodule.name;
                 })), _ = !0);
             }
@@ -10154,7 +10262,8 @@ pbjsChunk([ 12 ], {
                 var t = e.userSync;
                 w = t.ppid, t && t.userIds && (V = t.userIds, I = Object(p.isNumber)(t.syncDelay) ? t.syncDelay : 500, 
                 k = Object(p.isNumber)(t.auctionDelay) ? t.auctionDelay : 0, ne());
-            }), Object(u.a)().getUserIds = Q, Object(u.a)().getUserIdsAsEids = X, Object(u.a)().refreshUserIds = Y);
+            }), Object(u.a)().getUserIds = Q, Object(u.a)().getUserIdsAsEids = X, 
+            Object(u.a)().refreshUserIds = Y);
         }
         re(a.b), Object(f.c)("userId", oe), window.pbjs.installedModules.push("userId");
     }
@@ -10211,7 +10320,7 @@ var jppol = function(exports) {
             };
             if (eId) {
                 adformObject.params.eids = encodeEIDs([ {
-                    source: "firstpartyid",
+                    source: "jppol.dk’",
                     uids: [ {
                         atype: 1,
                         id: eId
@@ -10382,7 +10491,7 @@ var jppol = function(exports) {
                             user: {
                                 ext: {
                                     eids: [ {
-                                        source: "firstpartyid",
+                                        source: "jppol.dk’",
                                         uids: [ {
                                             ext: {
                                                 third: eids_1
@@ -10400,7 +10509,7 @@ var jppol = function(exports) {
                                     name: "pubProvidedId",
                                     params: {
                                         eids: [ {
-                                            source: "firstpartyid",
+                                            source: "jppol.dk’",
                                             uids: [ {
                                                 atype: 1,
                                                 id: eids_1

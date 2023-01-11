@@ -1,4 +1,4 @@
-import { IPrebidOptions } from './auctionhandler';
+import { IPrebidOptions } from './AuctionHandler';
 
 declare global {
   interface Window {
