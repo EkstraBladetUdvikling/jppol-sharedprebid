@@ -69,7 +69,7 @@ var jppol = (function (exports) {
             if (eId) {
                 adformObject.params.eids = encodeEIDs([
                     {
-                        source: 'jppol.dk’',
+                        source: 'jppol.dk',
                         uids: [
                             {
                                 atype: 1,
@@ -270,7 +270,7 @@ var jppol = (function (exports) {
                                 ext: {
                                     eids: [
                                         {
-                                            source: 'jppol.dk’',
+                                            source: 'jppol.dk',
                                             uids: [
                                                 {
                                                     ext: {
@@ -293,7 +293,7 @@ var jppol = (function (exports) {
                                         params: {
                                             eids: [
                                                 {
-                                                    source: 'jppol.dk’',
+                                                    source: 'jppol.dk',
                                                     uids: [
                                                         {
                                                             atype: 1,
