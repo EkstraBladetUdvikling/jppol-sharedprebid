@@ -10320,7 +10320,7 @@ var jppol = function(exports) {
             };
             if (eId) {
                 adformObject.params.eids = encodeEIDs([ {
-                    source: "jppol.dk’",
+                    source: "jppol.dk",
                     uids: [ {
                         atype: 1,
                         id: eId
@@ -10491,7 +10491,7 @@ var jppol = function(exports) {
                             user: {
                                 ext: {
                                     eids: [ {
-                                        source: "jppol.dk’",
+                                        source: "jppol.dk",
                                         uids: [ {
                                             ext: {
                                                 third: eids_1
@@ -10509,7 +10509,7 @@ var jppol = function(exports) {
                                     name: "pubProvidedId",
                                     params: {
                                         eids: [ {
-                                            source: "jppol.dk’",
+                                            source: "jppol.dk",
                                             uids: [ {
                                                 atype: 1,
                                                 id: eids_1

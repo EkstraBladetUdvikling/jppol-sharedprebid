@@ -34,7 +34,7 @@ export const adformBidder = (
     if (eId) {
       adformObject.params.eids = encodeEIDs([
         {
-          source: 'jppol.dk’',
+          source: 'jppol.dk',
           uids: [
             {
               atype: 1,

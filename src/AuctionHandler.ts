@@ -116,7 +116,7 @@ export class AuctionHandler {
               ext: {
                 eids: [
                   {
-                    source: 'jppol.dk’',
+                    source: 'jppol.dk',
                     uids: [
                       {
                         ext: {
@@ -139,7 +139,7 @@ export class AuctionHandler {
                   params: {
                     eids: [
                       {
-                        source: 'jppol.dk’',
+                        source: 'jppol.dk',
                         uids: [
                           {
                             atype: 1,
