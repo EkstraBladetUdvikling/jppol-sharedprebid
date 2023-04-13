@@ -1,3 +1,7 @@
+## Arkiveres, da vi ikke længere bruger vores egen prebid implementering
+
+-----
+
 # JPPol Shared Prebid
 
 JPPol specific implementation of [prebid.js](https://prebid.org)
